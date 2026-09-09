@@ -1,5 +1,21 @@
 # Open Research Skills
 
+## Five independent repositories
+
+Active development now lives in five standalone repositories, each with one complete
+skill entrypoint and its own installation instructions, examples and tests:
+
+- [Scientific Visualizations](https://github.com/gxCaesar/scientific-visualizations)
+- [Conference Manuscripts](https://github.com/gxCaesar/conference-manuscripts)
+- [Journal Manuscripts](https://github.com/gxCaesar/journal-manuscripts)
+- [Research Funding Proposals](https://github.com/gxCaesar/research-funding-proposals)
+- [Research Publication Workflow](https://github.com/gxCaesar/research-publication-workflow)
+
+Other skills are optional enhancements in those repositories, not prerequisites for
+completing their core task. Use the relevant repository above for new installations,
+issues and pull requests. This repository preserves the original combined snapshot
+and its history; the following documentation describes that historical layout.
+
 Five public agent skills cover the research-to-publication workflow without exposing a
 large set of overlapping triggers.
 
