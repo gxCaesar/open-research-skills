@@ -26,6 +26,9 @@ mode per pass and use the existing [venue routing](../SKILL.md),
    permission covering canonical edits after a passing audit remains valid; do not
    ask for it again merely because the audit finished. Seek new permission only if
    the audit reveals a material scope change or a mutation outside that authorization.
+   For a section-by-section revision, use [section polish](section-polish-workflow.md)
+   inside this pass. Its progress record does not bypass this audit boundary; reuse
+   the final re-audit below as the closing cross-section check when it covers it.
 5. **Re-audit and package.** Audit the revision copy, then use `package` on the
    exact candidate source, rendered PDF, supplement, figures, checklist, disclosure,
    and archive. Reconcile their claims before marking local readiness.

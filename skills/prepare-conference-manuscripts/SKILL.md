@@ -1,6 +1,6 @@
 ---
 name: prepare-conference-manuscripts
-description: Use when preparing, drafting, revising, polishing, rebutting, auditing, anonymizing, packaging, or checking a conference manuscript, abstract, appendix, supplement, rebuttal, author response, camera-ready paper, or conference statistical or evaluation report for AAAI, ICLR, ACL, CVPR, ICML, NeurIPS, or another peer-reviewed computing venue. Includes manuscript-context figures and venue-package checks without requiring another skill; disputed experiment evidence must be resolved before changing manuscript prose.
+description: Use when preparing, drafting, revising, polishing, rebutting, auditing, anonymizing, packaging, or checking a conference manuscript, abstract, appendix, supplement, rebuttal, author response, camera-ready paper, or conference statistical or evaluation report for AAAI, ICLR, ACL, CVPR, ICML, NeurIPS, or another peer-reviewed computing venue. Also use for single-section or section-by-section polish and resuming the next section. Includes manuscript-context figures and venue-package checks without requiring another skill; disputed experiment evidence must be resolved before changing manuscript prose.
 ---
 
 # Prepare Conference Manuscripts
@@ -81,6 +81,13 @@ For `draft`, work from paragraph jobs: question, evidence, interpretation, and b
 For `polish`, use targeted edits and a reverse outline. Preserve every number,
 comparison direction, uncertainty statement, citation scope, and qualifier. Follow any
 narrower venue rule on AI-assisted writing.
+
+For single-section or section-by-section polish, or "continue the next section" /
+"继续下一节", read [section polish and continuation](references/section-polish-workflow.md).
+Keep one manuscript/candidate and the authorized section queue in the existing project
+checkpoint; verify each changed section before accepting it. Continue through the
+whole queue when already authorized, then perform one closing cross-section check.
+Section completion alone is not whole-paper or submission-package completion.
 
 When drafting or repairing a method paper's contribution, Method or Experiments
 explanation, read [method argument cases](references/method-argument-cases.md). Use its

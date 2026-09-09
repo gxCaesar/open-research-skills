@@ -9,9 +9,9 @@
 
 ### 让科研材料成为清楚的论证、可编辑的图件和可复用的成果。
 
-科研绘图 · 顶会论文 · 期刊论文 · NSFC 及其他基金 · 科研全流程
+科研绘图 · 顶会论文 · 期刊论文 · 国自然和省自然 · 科研全流程
 
-[选择 skill](#choose) · [快速开始](#start) · [绘图](#visualization) · [会议论文](#conference) · [期刊论文](#journal) · [基金](#funding) · [研究工作流](#workflow)
+[选择 skill](#choose) · [专项任务与打磨](#tasks) · [快速开始](#start) · [绘图](#visualization) · [会议论文](#conference) · [期刊论文](#journal) · [基金](#funding) · [研究工作流](#workflow)
 
 </div>
 
@@ -28,10 +28,30 @@
 | 把方法、机制或多组学结果画清楚 | [科研绘图](#visualization) | 可编辑架构图、多面板图、矢量文件与 legend |
 | 从材料成稿，或修改顶会论文 | [会议论文](#conference) | 论文与附录、结果论证、rebuttal、camera-ready |
 | 组织期刊论文与投稿、修回材料 | [期刊论文](#journal) | 稿件、图注、数据声明、cover letter、审稿回复 |
-| 准备 NSFC、广东或其他基金材料 | [NSFC 及其他基金](#funding) | 科学问题、证据需求、研究内容、章节 brief、审阅建议 |
+| 准备国自然或省自然申请材料 | [国自然和省自然](#funding) | 科学问题、证据需求、研究内容、章节 brief、审阅建议 |
 | 判断课题并推进实验、成稿与交付 | [研究工作流](#workflow) | 可行性判断、比较结果、下一步实验与复现材料 |
 
 按**本次要交付的东西**选择即可。论文 skill 能独立处理论文需要的图件，研究工作流能独立组织成稿；专门的绘图 skill 提供更丰富的设计支持，但不是其他四个的强制依赖。
+
+<a id="tasks"></a>
+
+## 专项任务与打磨：不用从完整流程开始
+
+下面都是五个 skill 内的任务入口，不需要另装同名的小 skill。调用时说明材料位置、目标与允许修改的范围。
+
+| 这次只想做什么 | 使用入口与操作说明 | 主要交付 |
+|---|---|---|
+| 检查标题、起草或压缩摘要 | 会议或期刊 skill 的摘要组件：[会议](skills/prepare-conference-manuscripts/components/abstract/guide.md)／[期刊](skills/prepare-journal-manuscripts/components/abstract/guide.md) | 标题建议、摘要或只读诊断，按适用要求核对字数与主张 |
+| 打磨一节，或继续下一节 | `polish`：[会议逐节流程](docs/conference-manuscripts.md#section-polish)／[期刊逐节流程](docs/journal-manuscripts.md#section-polish) | 本节修订、实际检查结果、完成状态与下一节位置 |
+| 审查并打磨全文、整理终稿 | [会议全稿流程](skills/prepare-conference-manuscripts/references/full-paper-workflow.md)／[期刊修订与交付](docs/journal-manuscripts.md) | 范围内完整修订、跨文件核对、可阅读稿与本地候选包 |
+| 只审稿，不改原文 | 会议或期刊 skill 的 `audit`：[会议](skills/prepare-conference-manuscripts/references/adversarial-audit.md)／[期刊](skills/prepare-journal-manuscripts/references/adversarial-audit.md) | 有位置、证据、影响和最小修正建议的问题清单 |
+| 核查统计表述、图注与引用 | 会议或期刊 skill，明确指定这些材料 | 来源与分母核对、表述修订或待解决问题，不重新选择分析 |
+| 精修已有图件 | 绘图 skill 的[局部修改与精修](docs/scientific-visualizations.md#refinement) | 可编辑修订、前后渲染比较与所需导出 |
+| 深读一篇论文 | 工作流 `survey` 的[单篇深读](docs/research-publication-workflow.md#paper-reading) | 问题、方法、实验、证据位置和限制的 Paper Card |
+| 从一组论文学习写作与图件组织 | 工作流 `survey` 的[论文集合分析](docs/research-publication-workflow.md#exemplar-corpus) | 带出处的 Results 组织、图序、图注与主补安排观察 |
+| 审阅基金原稿或组织研究方案 | [国自然和省自然手册](docs/research-funding-proposals.md) | 论证问题、带注释的章节 brief、政策允许范围内的图件协助 |
+
+**单节、逐节与全文任务的边界不同。** “只改 Results”到该节完成为止；“继续下一节”先读取已有进度和当前稿件；明确要求逐节完成全文时，可以在授权范围内连续推进。单节检查通过不等于整稿完成，全部目标章节完成后还需核对跨节与主补材料的一致性。只读审查不自动转成修改。
 
 <a id="start"></a>
 
@@ -146,6 +166,8 @@ MPLCONFIGDIR="$DEMO_OUT/.mpl" XDG_CACHE_HOME="$DEMO_OUT/.cache" \
 
 新建或重设计示意图的默认方法是：**参考优秀构图 → GPT Image 2.5 概念稿 → 重建原生可编辑矢量 PPTX → 检查实际渲染。** 数据图与测量图像仍从原始材料绘制。当前图像工具若不公开后端版本，应报告版本未核实，不能把示例当成指定版本的运行认证。
 
+已有首稿后，可以按整体构图、局部科学图元、最终尺寸协调进行[分层精修](docs/scientific-visualizations.md#refinement)，保留前后版本并比较实际渲染。只移动标签或调整局部布局时，可直接修改源文件，不必重新生成整张概念稿。
+
 ```text
 使用 build-scientific-visualizations。
 根据 methods.md 和目前的 Figure 1，重设计模型总览与关键模块展开。
@@ -194,6 +216,8 @@ MPLCONFIGDIR="$DEMO_OUT/.mpl" XDG_CACHE_HOME="$DEMO_OUT/.cache" \
 
 如果只修改摘要、Method 或某一节，在请求中缩小范围即可。全文任务则不止返回一个摘要或审阅清单；应覆盖已提供的全部章节，并指出尚缺哪些内容。
 
+需要逐节推进时，使用[逐节打磨与续接](docs/conference-manuscripts.md#section-polish)：先确定章节顺序与可写版本，再完成本节的论证、来源和受影响编译检查，将状态与下一节记入已有项目记录。“继续下一节”会核对当前文件，不凭旧的完成标记跳过尚未验证的修改。
+
 ### Rebuttal 与终稿怎样接上
 
 提供完整评审、提交版本和已完成的新分析。先区分事实误解、表达问题、证据缺口与合理限制，再逐点回答。每个“已补充”都应指向实际结果和改动位置；尚未运行的实验不能写成已经解决。终稿阶段继续核对回复承诺、正文、图注、附录和代码说明是否一致。
@@ -220,6 +244,7 @@ MPLCONFIGDIR="$DEMO_OUT/.mpl" XDG_CACHE_HOME="$DEMO_OUT/.cache" \
 | 工作阶段 | Skill 怎样帮助 | 你应收到什么 |
 |---|---|---|
 | 期刊与文章类型核对 | `recon` 区分目标刊要求、出版方通则和文章先例 | 适用要求及缺项，不是泛化的“Nature 模板” |
+| 先审查，暂不修改 | `audit` 核查证据、统计、引用与跨文件一致性 | 带原文位置与修正建议的只读报告 |
 | 全文起草与修订 | `draft` / `polish` 建立证据顺序与段落工作 | 任务范围内完整稿件、修改说明 |
 | 主图、扩展与补充材料 | 统一科学对象、样本定义、正文引用和图注 | 可读图件、完整 legend、相互一致的补充材料 |
 | 统计与数据报告 | 表达实际分析、独立单位、限制和访问路径 | 准确的统计报告、Data / Code Availability |
@@ -229,6 +254,8 @@ MPLCONFIGDIR="$DEMO_OUT/.mpl" XDG_CACHE_HOME="$DEMO_OUT/.cache" \
 ### 全文如何形成科学论证
 
 Results 按问题和证据的推进顺序组织，而不是按实验发生的时间流水记账。Methods 提供理解与重现比较所需的条件；Discussion 区分直接观察、作者解释和更广泛意义。主图承担核心论证，补充材料承接必要细节与稳健性，不能把决定结论是否成立的限制藏到补充里。
+
+已有初稿可按[逐节打磨与续接](docs/journal-manuscripts.md#section-polish)处理 Introduction、Results、Methods、Discussion、摘要和 legends。每节采用其实际写作任务与证据要求，保留当前进度；整篇完成时再统一检查术语、数值、图文与主补关系。
 
 ```text
 使用 prepare-journal-manuscripts，目标为 Nature Methods 的 Article 初稿。
@@ -256,9 +283,9 @@ Discussion、摘要与 legends；主文、扩展和补充保持同一个样本�
 
 <a id="funding"></a>
 
-## 04 · NSFC 及其他基金
+## 04 · 面向国自然和省自然
 
-`writing-funding-proposals` 帮助准备国家自然科学基金（NSFC）、广东科学基金及其他资助项目的研究论证与申请材料。显示名称覆盖这些基金，安装与调用名称仍为 `writing-funding-proposals`。其他资助方通过实际指南适配，不意味着所有基金都已有专用模板。
+`writing-funding-proposals` 面向国家自然科学基金（国自然，NSFC）和省级自然科学基金（省自然），协助组织研究论证与申请材料。安装与调用名称保持不变。随包提供国自然与广东省自然的有日期参考；其他省份按各自当年指南适配，不代表所有省份都有预置模板或适用相同政策。
 
 ### 从申报指南与申请人材料开始
 
@@ -282,7 +309,7 @@ Skill 会先界定允许的协助范围，再处理科学问题和材料。若�
 不强迫每个项目拆成同样数量的研究内容。每个子任务都需要清楚的输入、方法、可观察结果和与总问题的关系；独立验证应体现在研究设计中，而不只写成结尾一句“验证有效性”。
 
 ```text
-使用 writing-funding-proposals，协助准备 NSFC 申请材料。
+使用 writing-funding-proposals，协助准备国自然（NSFC）申请材料。
 阅读本年度指南、项目类别说明、系统提纲、research-notes.md 和我已有的原稿。
 先核对适用要求和 AI 辅助边界，再梳理一个中心科学问题及其证据缺口。
 将立项依据、研究内容、研究方案和前期基础对应起来，检查是否出现
@@ -291,9 +318,11 @@ Skill 会先界定允许的协助范围，再处理科学问题和材料。若�
 与年度安排。预算只使用我提供的规则与事实，不虚构论文、平台和合作基础。
 ```
 
-对于广东或其他基金，把第一行和指南换成准确资助项目；原有研究证据可复用，但类别定位、栏目、期限和经费要求必须重新匹配。已有一版申请书时，可以只请求“立项依据审阅”“研究内容重组”或“技术路线图制作”，不必重新走完整流程。
+准备省自然时，提供准确省份、年度、项目类别、正式指南与机构要求；广东使用相应路由，其他省份自定义适配，需要运行本地初始化工具时使用 `--program other`。原有研究证据可复用，但类别定位、栏目、期限和经费要求必须重新匹配，不能直接套用国自然或广东的规则。
 
-**详细手册：** [NSFC、广东及其他基金的准备方式、科学问题到章节、年度与风险、政策边界和提交前检查](docs/research-funding-proposals.md)。另附[细胞扰动研究的带注释章节 brief](skills/writing-funding-proposals/examples/section-brief-walkthrough.md)，用于理解论证组织，不是可直接提交的申请书。
+已有一版申请书时，可以只请求“立项依据审阅”“研究内容重组”或“技术路线图制作”。图形辅助须单独核对资助方与机构要求，文字辅助许可不等于图形许可；未核实时仅做图示 brief 或现有图审阅，私人及受限材料不发送到外部图像服务。
+
+**详细手册：** [国自然和省自然的准备方式、科学问题到章节、年度与风险、政策边界和提交前检查](docs/research-funding-proposals.md)。另附[细胞扰动研究的带注释章节 brief](skills/writing-funding-proposals/examples/section-brief-walkthrough.md)，用于理解论证组织，不是可直接提交的申请书。
 
 <a id="workflow"></a>
 
@@ -306,6 +335,15 @@ Skill 会先界定允许的协助范围，再处理科学问题和材料。若�
 如果只有方向，先做 `survey` 和 `plan`；已有数据与问题时进入 `pilot`；已有公平 baseline 时进入 `develop`。实验正在运行可以只用 `monitor`，结果已定可以直接做 `claim-lock` 或 `manuscript`。**已有项目先读当前状态与真实输出，不从头重做调研，也不把旧计划当成已完成实验。**
 
 研究贡献分为 `sota-method`、`discovery` 和 `benchmark`。三者的核心证据不同：方法需要匹配协议下的有效改进，发现需要新认识及独立验证，benchmark 需要明确的资源或评价缺口。方法困难不应悄悄变成 benchmark 项目。
+
+`survey` 也可独立用于[单篇 Paper Card](docs/research-publication-workflow.md#paper-reading)，或[从指定论文集合学习写作与图件组织](docs/research-publication-workflow.md#exemplar-corpus)，不必启动实验项目。例如：
+
+```text
+使用 research-publication-pipeline 的 survey 模式，分析 papers/ 中同类型的论文。
+这次只学习 Results 的证据顺序、主图与补充的分工和图注如何解释样本。
+记录实际读到的章节、页码或面板，区分共同观察、例外和未读材料。
+给出对当前稿件可借鉴的组织方式，不复制文字、图件或把文章先例当作官方规则。
+```
 
 ### 1. 把方向变成可检验问题
 
@@ -372,6 +410,8 @@ Skill 会先界定允许的协助范围，再处理科学问题和材料。若�
 ## 常见问题
 
 **需要一次安装五个吗？** 不需要。每个目录都带自己的指令、脚本、模板、参考与示例。它们可以协作，但没有强制安装顺序。
+
+**打磨流程是否已经整合？** 摘要与标题专项、单节及逐节打磨、全文修订、只读审查和图件精修均有对应入口，见[专项任务表](#tasks)。这是按科研任务整理后的工作方式，不是对旧技能库的逐项完整复制；个人账号、固定模型分工、强制逐节 Git 提交和私有运行设施不随包提供。
 
 **运行 demo 等于调用了 skill 吗？** 不等于。脚本验证的是某个具体软件行为；在 agent 中调用 skill，才会根据你的材料进行分析、写作或制图。可读案例帮助你理解预期产物，不能当作自动生成能力的测试报告。
 

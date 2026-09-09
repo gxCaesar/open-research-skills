@@ -59,6 +59,10 @@ citations, permissions, and author decisions explicitly.
 
 ## Polish with a reverse outline
 
+For one section, a section-by-section pass or continuation, use
+[section polish and continuation](section-polish-workflow.md). It tracks the actual
+candidate, section acceptance and next item without replacing this writing guidance.
+
 For each existing paragraph, write its current job in one line. Merge duplicate jobs,
 split paragraphs with incompatible jobs, and remove setup that is not used later. Then
 repair local sentences. Prefer ordinary causal prose over promotional adjectives,

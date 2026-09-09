@@ -1,6 +1,6 @@
 ---
 name: prepare-journal-manuscripts
-description: Use when preparing, drafting, revising, polishing, auditing, or packaging a journal manuscript, abstract, statistical or evaluation report, cover letter, editor-facing submission pack, data availability statement, peer-review response, revise and resubmit package, clean manuscript, marked manuscript, or final accepted-paper files. Includes manuscript-context figures and journal-package checks without requiring another skill; disputed experiment evidence must be resolved before changing manuscript prose.
+description: Use when preparing, drafting, revising, polishing, auditing, or packaging a journal manuscript, abstract, statistical or evaluation report, cover letter, editor-facing submission pack, data availability statement, peer-review response, revise and resubmit package, clean manuscript, marked manuscript, or final accepted-paper files. Also use for single-section or section-by-section polish and resuming the next section. Includes manuscript-context figures and journal-package checks without requiring another skill; disputed experiment evidence must be resolved before changing manuscript prose.
 ---
 
 # Prepare Journal Manuscripts
@@ -60,6 +60,13 @@ qualifier, and citation scope. Use the abstract component only after the central
 and evidence boundary are stable. Statistical design is upstream research scope;
 the reporting component checks and expresses the
 frozen analysis.
+
+For single-section or section-by-section polish, or "continue the next section" /
+"继续下一节", read [section polish and continuation](references/section-polish-workflow.md).
+Keep one manuscript/candidate and the authorized section queue in the existing project
+checkpoint; verify each changed section before accepting it. Continue through the
+whole queue when already authorized, then perform one closing cross-section check.
+Section completion alone is not full-article or editor-package completion.
 
 For Nature-family full-paper or section work, read the relevant sections of
 [section-specific writing](references/nature-section-style.md): title, abstract,

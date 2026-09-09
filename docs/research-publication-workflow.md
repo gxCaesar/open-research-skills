@@ -18,7 +18,7 @@
 - 开始工作：[调用与续接](#use) · [问题、数据、文献与路线](#question)
 - 产生证据：[基线、小试、协议与开发](#comparison) · [完整实验与最终评价](#experiments)
 - 形成成果：[不确定性、负结果与主张](#claims) · [完整论文](#manuscript) · [公开交付](#release)
-- 局部需求：[单阶段请求](#single-stage) · [本地工具与教学练习](#tools)
+- 局部需求：[单篇深读](#paper-reading) · [论文集合分析](#exemplar-corpus) · [单阶段请求](#single-stage) · [本地工具与教学练习](#tools)
 
 <a id="use"></a>
 
@@ -57,7 +57,7 @@
 
 | 模式 | 什么时候用 | 应获得的实质产物 |
 |---|---|---|
-| `survey` | 问题、文献、数据或已有最好方法还不清楚 | 有来源的比较、缺口与可检查候选 |
+| `survey` | 调研问题与数据、深读单篇，或学习一组论文的组织方式 | 有来源的比较、Paper Card 或带出处的写作与图件观察 |
 | `plan` | 需要把路线变成可执行工作 | 假设、协议、实验顺序、资源与决策规则 |
 | `pilot` | 一个关键前提尚未验证 | 小规模真实数据试验及其限度 |
 | `develop` | 基线和协议足以支持方法开发 | 机制实现、控制比较、失败诊断与迭代决定 |
@@ -189,6 +189,46 @@ skill 的作用是重建论文的对象、信息范围、拆分、评价和最�
 
 操作细节见 [调研与规划](../skills/research-publication-pipeline/references/survey-and-planning.md)。
 当前最好比较方法应在题目接入和正式协议固定前分别核实，避免长期沿用旧名单。
+
+<a id="paper-reading"></a>
+
+### 单篇深读：把论文还原为可检查的 Paper Card
+
+提供一篇论文的 PDF、DOI 或可访问页面，说明希望理解的问题；有补充材料与代码时一并提供。
+内置 [paper-card 组件](../skills/research-publication-pipeline/components/paper-card/guide.md)
+将科学问题、方法操作、实验比较、实际证据和局限关联起来，引用具体章节、页码或实现位置。
+只读摘要、无法打开正文或未检查代码时，深读范围必须明确，不把未读材料写成已核实。
+
+```text
+使用 research-publication-pipeline 的 survey 模式，深读 paper.pdf 和 supplement.pdf。
+解释论文在解决什么问题、关键方法改变了什么，以及哪些实验真正检验这一解释。
+为主要结论给出页码或面板位置，区分作者主张、直接证据和你的推断。
+交付 Paper Card，列出未读材料与最值得复查的限制；不启动新项目或实验。
+```
+
+<a id="exemplar-corpus"></a>
+
+### 论文集合分析：学习论证与图件组织
+
+这与“最近相关工作是否已经做过同一课题”是不同任务。
+当你已有一组论文，希望学习 Results 怎样推进、图件怎样分工、legend 需要承载哪些信息时，
+`survey` 可使用随包的[论文集合分析流程](../skills/research-publication-pipeline/references/exemplar-corpus-calibration.md)。
+
+先明确要学习的组织问题，再清点全部输入及文章类型，记录实际阅读范围。
+比较同类文章的章节任务、证据依赖、主图与补充分工和图注中的样本定义，保留例外与缺失。
+Article、Review、Comment 等不能无区别混算；一篇文章或一张图的重复观察也不是新增独立论文。
+输出需要有页码、章节或面板位置，而不是“Nature 都这样写”的泛化结论。
+
+```text
+使用 survey 分析 papers/ 中我提供的论文集合，帮助组织现有稿件。
+先列出全部输入、文章类型与实际可读部分；这轮只比较方法类 Article。
+提炼 Results 的问题顺序、主图与补充的证据分工、图注如何交代采样层级。
+每项观察给出来源位置，保留反例，并说明哪些做法适合当前稿件、哪些不适合。
+不复制原文或图件，不把已发表先例当作当前期刊规则，也不声称统计代表整个领域。
+```
+
+得到的是带出处、范围明确的写作与制图参考；当前研究的事实和目标期刊的官方要求仍分别核对。
+该任务可独立完成，不必初始化实验工作区、训练模型或进入 `manuscript`。
 
 ## 5. 发表路线：让贡献与证据要求匹配
 
@@ -624,4 +664,4 @@ PDF 读取、图形、PPTX 与实际稿件渲染按安装目录内的依赖说�
 原创文档与代码采用 Apache-2.0 许可。
 参见 [维护说明](../MAINTAINERS.md)、[贡献指南](../CONTRIBUTING.md) 与 [第三方说明](../THIRD_PARTY.md)。
 专项指南：[会议论文](conference-manuscripts.md)、[期刊论文](journal-manuscripts.md)、
-[科学可视化](scientific-visualizations.md)、[NSFC 及其他基金](research-funding-proposals.md)。
+[科学可视化](scientific-visualizations.md)、[国自然和省自然](research-funding-proposals.md)。

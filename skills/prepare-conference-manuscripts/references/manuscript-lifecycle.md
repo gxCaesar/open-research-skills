@@ -33,6 +33,10 @@ missing evidence.
 
 ## Polish without scientific drift
 
+For one section, a section-by-section pass or continuation, use
+[section polish and continuation](section-polish-workflow.md). It adds a resumable
+queue and actual section acceptance without changing the scientific or venue boundary.
+
 Create a reverse outline from the current text. Remove duplicated setup, unused
 acronyms, promotional adjectives, module inventories, and generic claims of importance.
 Prefer local edits over wholesale rewrites. Compare all edited quantitative sentences
