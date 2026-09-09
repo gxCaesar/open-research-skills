@@ -1,0 +1,19 @@
+{
+  "name": "open-research-skills",
+  "description": "Ten installable skills for research work: method development to state of the art, survey and novelty audit, conference and journal manuscripts, scientific figures, funding proposals, cold review panels, refereeing, artifact release, and the publication pipeline that sequences them.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Open Research Skills maintainers",
+    "url": "https://github.com/gxCaesar/open-research-skills"
+  },
+  "homepage": "https://github.com/gxCaesar/open-research-skills",
+  "repository": "https://github.com/gxCaesar/open-research-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "research",
+    "manuscript",
+    "peer-review",
+    "scientific-figures",
+    "reproducibility"
+  ]
+}

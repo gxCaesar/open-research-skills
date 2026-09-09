@@ -1,0 +1,15 @@
+{
+  "name": "open-research-skills",
+  "description": "Ten installable research skills maintained in one repository, each usable on its own.",
+  "owner": {
+    "name": "Open Research Skills maintainers",
+    "url": "https://github.com/gxCaesar/open-research-skills"
+  },
+  "plugins": [
+    {
+      "name": "open-research-skills",
+      "source": "./",
+      "description": "Ten installable research skills, each usable on its own."
+    }
+  ]
+}
