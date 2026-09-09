@@ -1,0 +1,47 @@
+{
+  "description": "Original style presets inspired by inspected scientific figures, not official venue palettes. Style selection does not change the scientific graph or page geometry.",
+  "neutrals": {
+    "paper": "#FFFFFF",
+    "ink": "#27323D",
+    "muted": "#53616E",
+    "hairline": "#D7DEE5"
+  },
+  "styles": {
+    "nature-pastel": {
+      "label": "Nature-family inspired · open and object-led",
+      "default_palette": "mist-blue",
+      "composition": "Open white canvas, unequal object-specific silhouettes, quiet fields and a main transformation with a compact detail inset."
+    },
+    "conference-structured": {
+      "label": "Top-CS inspired · structured and module-led",
+      "default_palette": "blue-orange",
+      "composition": "Aligned computational modules, explicit tensor or token states, compact main chain and a separated block-detail inset."
+    }
+  },
+  "palettes": {
+    "mist-blue": {
+      "style_id": "nature-pastel", "label": "N1 · Mist blue / sea glass / oat",
+      "colors": {"primary_fill": "#E7EEF5", "primary_stroke": "#5B7F9E", "secondary_fill": "#E5F1EC", "secondary_stroke": "#4F8A7B", "tertiary_fill": "#F5EDDA", "tertiary_stroke": "#A17B36"}
+    },
+    "sage-lilac": {
+      "style_id": "nature-pastel", "label": "N2 · Sage / lilac / cream",
+      "colors": {"primary_fill": "#E8EFE4", "primary_stroke": "#6C8660", "secondary_fill": "#EEE9F5", "secondary_stroke": "#84729F", "tertiary_fill": "#F7EDDD", "tertiary_stroke": "#A08250"}
+    },
+    "lilac-sand": {
+      "style_id": "nature-pastel", "label": "N3 · Lilac / ice blue / sand",
+      "colors": {"primary_fill": "#ECE8F4", "primary_stroke": "#806F9A", "secondary_fill": "#E9F1F6", "secondary_stroke": "#658AA5", "tertiary_fill": "#F3EADC", "tertiary_stroke": "#9C7E51"}
+    },
+    "blue-orange": {
+      "style_id": "conference-structured", "label": "C1 · Blue / apricot / slate",
+      "colors": {"primary_fill": "#DBEAFE", "primary_stroke": "#2563A6", "secondary_fill": "#FEEAD4", "secondary_stroke": "#B86A18", "tertiary_fill": "#E2E8F0", "tertiary_stroke": "#64748B"}
+    },
+    "indigo-teal": {
+      "style_id": "conference-structured", "label": "C2 · Indigo / teal / wheat",
+      "colors": {"primary_fill": "#E7E8FC", "primary_stroke": "#5E61A8", "secondary_fill": "#DDF3EF", "secondary_stroke": "#087F8C", "tertiary_fill": "#F6ECCD", "tertiary_stroke": "#A67C1A"}
+    },
+    "plum-cyan": {
+      "style_id": "conference-structured", "label": "C3 · Plum / cyan / cool gray",
+      "colors": {"primary_fill": "#F0E5F5", "primary_stroke": "#8A559E", "secondary_fill": "#DEF2F7", "secondary_stroke": "#147D92", "tertiary_fill": "#EBEFF4", "tertiary_stroke": "#607387"}
+    }
+  }
+}

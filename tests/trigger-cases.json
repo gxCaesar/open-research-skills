@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "purpose": "Forward-evaluation cases for description-only skill selection; this file declares expected ownership but does not simulate a model router.",
+  "cases": [
+    {
+      "id": "funding-technical-route",
+      "request": "为 NSFC 申请书画一张技术路线图。",
+      "owner": "writing-funding-proposals",
+      "handoff": "build-scientific-visualizations",
+      "reason": "Funding owns proposal policy and argument; visualization owns construction after the route is locked."
+    },
+    {
+      "id": "journal-editor-materials",
+      "request": "审查一篇 Nature Methods 主文和 cover letter。",
+      "owner": "prepare-journal-manuscripts",
+      "reason": "The request concerns journal manuscript and editor-facing materials."
+    },
+    {
+      "id": "paper-deep-read",
+      "request": "逐页深读一篇论文，重建 split、baseline、metric，用于决定研究方向。",
+      "owner": "research-publication-pipeline",
+      "reason": "Paper reconstruction is used for a research-route decision rather than manuscript drafting."
+    },
+    {
+      "id": "conference-rebuttal",
+      "request": "准备 ICLR rebuttal。",
+      "owner": "prepare-conference-manuscripts",
+      "reason": "The conference skill owns author response and rebuttal artifacts."
+    },
+    {
+      "id": "research-intake",
+      "request": "评估一个 AI-for-biology 新课题的数据可行性、scoop 和 headroom。",
+      "owner": "research-publication-pipeline",
+      "reason": "These are research intake and development gates."
+    },
+    {
+      "id": "journal-figure-set",
+      "request": "把一组结果组织成 Nature 主图、Extended Data 和 Supplementary figures。",
+      "owner": "build-scientific-visualizations",
+      "reason": "The requested deliverable is a coordinated scientific figure set."
+    },
+    {
+      "id": "generic-conference-camera-ready",
+      "request": "给非 AAAI/ICLR 的 peer-reviewed computing conference 做 camera-ready 格式审计。",
+      "owner": "prepare-conference-manuscripts",
+      "reason": "The request is a conference-stage manuscript compliance audit."
+    },
+    {
+      "id": "funding-rationale",
+      "request": "写 NSFC 立项依据并检查资助政策。",
+      "owner": "writing-funding-proposals",
+      "reason": "The request combines a Chinese funding section with funder policy."
+    },
+    {
+      "id": "public-code-reproducibility",
+      "request": "审计一个研究项目的 public code release 是否可复现。",
+      "owner": "research-publication-pipeline",
+      "reason": "The pipeline owns curated project release readiness and rehearsal evidence."
+    },
+    {
+      "id": "journal-abstract-statistics",
+      "request": "润色 journal abstract 并检查统计报告。",
+      "owner": "prepare-journal-manuscripts",
+      "reason": "Both requested artifacts are part of a journal manuscript package."
+    },
+    {
+      "id": "journal-figure-visual-audit",
+      "request": "只检查 journal Figure 2 的视觉层级、箭头和最终尺寸，再交回主文整合。",
+      "owner": "build-scientific-visualizations",
+      "handoff": "prepare-journal-manuscripts",
+      "reason": "The immediate deliverable is visual QA; the journal skill owns later manuscript-wide reconciliation."
+    },
+    {
+      "id": "conference-evidence-before-prose",
+      "request": "先核对实验 split、独立单位和结果证据，再修改 ICLR Results 的统计表述。",
+      "owner": "research-publication-pipeline",
+      "handoff": "prepare-conference-manuscripts",
+      "reason": "The evidence contract must be settled before the conference skill changes manuscript prose."
+    }
+  ]
+}

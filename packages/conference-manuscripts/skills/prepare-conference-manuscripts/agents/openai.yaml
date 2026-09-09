@@ -1,0 +1,4 @@
+interface:
+  display_name: "Conference Manuscripts"
+  short_description: "Prepare and audit evidence-linked conference papers"
+  default_prompt: "Use $prepare-conference-manuscripts to select the correct lifecycle mode, preserve the locked scientific contract, and apply current venue rules to the exact manuscript artifacts."

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "construction_order": [
+    "recipe_parity",
+    "objective_alignment",
+    "data_or_representation",
+    "ensemble",
+    "test_time_compute",
+    "architecture"
+  ],
+  "rungs": [
+    {"name": "recipe_parity", "status": "UNTRIED", "evidence": ""},
+    {"name": "objective_alignment", "status": "UNTRIED", "evidence": ""},
+    {"name": "data_or_representation", "status": "UNTRIED", "evidence": ""},
+    {"name": "ensemble", "status": "UNTRIED", "evidence": ""},
+    {"name": "test_time_compute", "status": "UNTRIED", "evidence": ""},
+    {"name": "architecture", "status": "UNTRIED", "evidence": ""}
+  ],
+  "registered_candidates": [],
+  "cycles": []
+}

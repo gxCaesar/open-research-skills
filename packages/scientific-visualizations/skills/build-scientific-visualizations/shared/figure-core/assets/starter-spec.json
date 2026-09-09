@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.2",
+  "figure_id": "figure-id",
+  "delivery_mode": "composite",
+  "mode": "compound-figure",
+  "editable_pptx": false,
+  "layout_profile": "nature-double",
+  "annotation_profile": "minimal",
+  "journal_profile": {
+    "page_width_mm": 180,
+    "dpi": 500,
+    "font_family": "Arial",
+    "min_font_pt": 5.0
+  },
+  "style": {
+    "colors": {
+      "paper": "#FFFFFF",
+      "ink": "#2E3540",
+      "muted": "#69737E",
+      "hairline": "#D8DEE4",
+      "blue": "#7899BA",
+      "blue_pale": "#E8F0F5",
+      "teal": "#83B9B0",
+      "teal_pale": "#E9F3F1",
+      "coral": "#D88982",
+      "coral_pale": "#F7ECEA"
+    }
+  },
+  "assets": {},
+  "panels": [
+    {
+      "id": "a",
+      "title": "Replace with a claim-led panel title",
+      "panel_kind": "concept",
+      "size_mm": [180, 60],
+      "elements": [
+        {"type": "text", "id": "a-letter", "x": 0.025, "y": 0.03, "w": 0.035, "h": 0.08, "text": "a", "font_pt": 8.5, "bold": true, "color": "ink", "align": "left", "valign": "center"},
+        {"type": "text", "id": "a-title", "x": 0.065, "y": 0.03, "w": 0.85, "h": 0.08, "text": "Replace with a claim-led panel title", "font_pt": 8.2, "bold": true, "color": "ink", "align": "left", "valign": "center"},
+        {"type": "line", "id": "a-divider", "x1": 0.025, "y1": 0.14, "x2": 0.975, "y2": 0.14, "color": "teal", "stroke_pt": 1.5},
+        {"type": "status", "id": "a-status", "x": 0.47, "y": 0.47, "size": 0.04, "state": "clean"}
+      ]
+    }
+  ],
+  "composite": {
+    "size_mm": [180, 60],
+    "placements": [{"panel": "a", "x_mm": 0, "y_mm": 0}]
+  }
+}

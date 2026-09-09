@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.2",
+  "figure_id": "scientific-flowchart-v1",
+  "source_files": [],
+  "claims": [
+    {
+      "id": "claim-input",
+      "panel_id": "a",
+      "claim": "Replace with the source-anchored input claim.",
+      "source_anchors": [],
+      "evidence_status": "schematic",
+      "prohibited_implications": [],
+      "decisive_control": null
+    },
+    {
+      "id": "claim-method",
+      "panel_id": "a",
+      "claim": "Replace with the source-anchored method claim.",
+      "source_anchors": [],
+      "evidence_status": "schematic",
+      "prohibited_implications": [],
+      "decisive_control": null
+    },
+    {
+      "id": "claim-output",
+      "panel_id": "a",
+      "claim": "Replace with the source-anchored output claim.",
+      "source_anchors": [],
+      "evidence_status": "schematic",
+      "prohibited_implications": [],
+      "decisive_control": null
+    },
+    {
+      "id": "claim-input-to-method",
+      "panel_id": "a",
+      "claim": "Replace with the source-anchored input-to-method relation.",
+      "source_anchors": [],
+      "evidence_status": "schematic",
+      "prohibited_implications": [],
+      "decisive_control": null
+    },
+    {
+      "id": "claim-method-to-output",
+      "panel_id": "a",
+      "claim": "Replace with the source-anchored method-to-output relation.",
+      "source_anchors": [],
+      "evidence_status": "schematic",
+      "prohibited_implications": [],
+      "decisive_control": null
+    }
+  ],
+  "panels": [
+    {
+      "id": "a",
+      "claim_ids": [
+        "claim-input",
+        "claim-method",
+        "claim-output",
+        "claim-input-to-method",
+        "claim-method-to-output"
+      ],
+      "claim": "Replace with the source-anchored complete flowchart claim.",
+      "source_anchors": [],
+      "required_objects": [],
+      "evidence_status": "schematic",
+      "wet_data": null,
+      "decisive_control": null,
+      "prohibited_implications": []
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scientific Visualizations"
+  short_description: "Build and audit publication-ready scientific visuals"
+  default_prompt: "Use $build-scientific-visualizations to select the right mode, bind claim-bearing elements to supplied evidence and source data, prove the whole-page layout before detailed drawing, and inspect the final render at physical size."

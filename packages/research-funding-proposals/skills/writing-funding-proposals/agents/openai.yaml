@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Funding Proposals"
+  short_description: "Evidence-map and audit Chinese grant proposals"
+  default_prompt: "Use $writing-funding-proposals to verify the current program policy, organize sources and claims, build the scientific argument, and audit this applicant-authored proposal without exceeding the permitted authoring mode."

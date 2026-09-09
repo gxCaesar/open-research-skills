@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "candidates": [],
+  "topic_decision": {
+    "status": "UNVERIFIED",
+    "selected_candidate_id": "UNVERIFIED",
+    "route_status": "UNFROZEN",
+    "route_or_code": "UNVERIFIED",
+    "applicant_confirmation": "UNVERIFIED"
+  }
+}

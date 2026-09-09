@@ -1,0 +1,274 @@
+{
+  "schema_version": "1.0",
+  "profiles": {
+    "nature-figure-guide-2026-09-single": {
+      "target_context": "journal_submission",
+      "journal": "Nature",
+      "article_type": "research",
+      "submission_stage": "figure_preparation",
+      "authority": {
+        "title": "Nature Research Figure Guide: Building and exporting figure panels",
+        "url": "https://research-figure-guide.nature.com/figures/building-and-exporting-figure-panels/",
+        "checked_date": "2026-09-05",
+        "scope": "Figure-panel preparation guidance; verify the destination journal and submission stage."
+      },
+      "authority_status": "verified",
+      "geometry": {
+        "selected_width_mm": 89.0,
+        "max_height_mm": 170.0
+      },
+      "technical": {
+        "font_family": "Arial",
+        "text_range_pt": [5.0, 7.0],
+        "min_resolution_dpi": 300,
+        "colour_space": "RGB",
+        "preferred_formats": ["PDF", "EPS", "TIFF"]
+      }
+    },
+    "nature-figure-guide-2026-09-double": {
+      "target_context": "journal_submission",
+      "journal": "Nature",
+      "article_type": "research",
+      "submission_stage": "figure_preparation",
+      "authority": {
+        "title": "Nature Research Figure Guide: Building and exporting figure panels",
+        "url": "https://research-figure-guide.nature.com/figures/building-and-exporting-figure-panels/",
+        "checked_date": "2026-09-05",
+        "scope": "Figure-panel preparation guidance; verify the destination journal and submission stage."
+      },
+      "authority_status": "verified",
+      "geometry": {
+        "selected_width_mm": 183.0,
+        "max_height_mm": 170.0
+      },
+      "technical": {
+        "font_family": "Arial",
+        "text_range_pt": [5.0, 7.0],
+        "min_resolution_dpi": 300,
+        "colour_space": "RGB",
+        "preferred_formats": ["PDF", "EPS", "TIFF"]
+      }
+    },
+    "nature-initial-submission-2026-09-single": {
+      "target_context": "journal_submission",
+      "journal": "Nature",
+      "article_type": "research",
+      "submission_stage": "initial_submission",
+      "authority": {
+        "title": "Nature: Initial submission",
+        "url": "https://www.nature.com/nature/for-authors/initial-submission",
+        "checked_date": "2026-09-05",
+        "scope": "Initial-submission figure dimensions for Nature."
+      },
+      "authority_status": "verified",
+      "geometry": {
+        "selected_width_mm": 90.0,
+        "max_height_mm": 170.0
+      },
+      "technical": {
+        "font_family": "Arial",
+        "text_range_pt": [5.0, 7.0],
+        "min_resolution_dpi": 300,
+        "colour_space": "RGB",
+        "preferred_formats": ["PDF", "EPS", "TIFF"]
+      }
+    },
+    "nature-initial-submission-2026-09-double": {
+      "target_context": "journal_submission",
+      "journal": "Nature",
+      "article_type": "research",
+      "submission_stage": "initial_submission",
+      "authority": {
+        "title": "Nature: Initial submission",
+        "url": "https://www.nature.com/nature/for-authors/initial-submission",
+        "checked_date": "2026-09-05",
+        "scope": "Initial-submission figure dimensions for Nature."
+      },
+      "authority_status": "verified",
+      "geometry": {
+        "selected_width_mm": 180.0,
+        "max_height_mm": 170.0
+      },
+      "technical": {
+        "font_family": "Arial",
+        "text_range_pt": [5.0, 7.0],
+        "min_resolution_dpi": 300,
+        "colour_space": "RGB",
+        "preferred_formats": ["PDF", "EPS", "TIFF"]
+      }
+    },
+    "nature-research-final-artwork-2026-09-single": {
+      "target_context": "journal_submission",
+      "journal": "Nature Research journal",
+      "article_type": "research",
+      "submission_stage": "final_artwork",
+      "authority": {
+        "title": "Nature Research journals: Guide to preparing final artwork",
+        "url": "https://www.nature.com/documents/NRJs-guide-to-preparing-final-artwork.pdf",
+        "checked_date": "2026-09-05",
+        "scope": "Final-artwork geometry; caption-length bands apply."
+      },
+      "authority_status": "verified",
+      "geometry": {
+        "selected_width_mm": 88.0,
+        "caption_height_limits": [
+          {"caption_words_lt": 50, "max_height_mm": 220.0},
+          {"caption_words_lt": 150, "max_height_mm": 180.0},
+          {"caption_words_lt": 300, "max_height_mm": 130.0}
+        ]
+      },
+      "technical": {
+        "font_family": "Arial",
+        "text_range_pt": [5.0, 7.0],
+        "min_resolution_dpi": 300,
+        "colour_space": "RGB",
+        "preferred_formats": ["PDF", "EPS", "TIFF"]
+      }
+    },
+    "nature-research-final-artwork-2026-09-double": {
+      "target_context": "journal_submission",
+      "journal": "Nature Research journal",
+      "article_type": "research",
+      "submission_stage": "final_artwork",
+      "authority": {
+        "title": "Nature Research journals: Guide to preparing final artwork",
+        "url": "https://www.nature.com/documents/NRJs-guide-to-preparing-final-artwork.pdf",
+        "checked_date": "2026-09-05",
+        "scope": "Final-artwork geometry; caption-length bands apply."
+      },
+      "authority_status": "verified",
+      "geometry": {
+        "selected_width_mm": 180.0,
+        "caption_height_limits": [
+          {"caption_words_lt": 50, "max_height_mm": 225.0},
+          {"caption_words_lt": 150, "max_height_mm": 210.0},
+          {"caption_words_lt": 300, "max_height_mm": 185.0}
+        ]
+      },
+      "technical": {
+        "font_family": "Arial",
+        "text_range_pt": [5.0, 7.0],
+        "min_resolution_dpi": 300,
+        "colour_space": "RGB",
+        "preferred_formats": ["PDF", "EPS", "TIFF"]
+      }
+    },
+    "nature-protocols-final-artwork-2026-09-single": {
+      "target_context": "journal_submission",
+      "journal": "Nature Protocols",
+      "article_type": "protocol",
+      "submission_stage": "final_artwork",
+      "authority": {
+        "title": "Nature Protocols: Guide to preparing final artwork",
+        "url": "https://www.nature.com/documents/nprot-guide-to-preparing-final-artwork.pdf",
+        "checked_date": "2026-09-05",
+        "scope": "Nature Protocols final-artwork geometry; caption-length bands apply."
+      },
+      "authority_status": "verified",
+      "geometry": {
+        "selected_width_mm": 135.0,
+        "caption_height_limits": [
+          {"caption_words_lt": 50, "max_height_mm": 222.0},
+          {"caption_words_lt": 150, "max_height_mm": 210.0},
+          {"caption_words_lt": 300, "max_height_mm": 199.0}
+        ]
+      },
+      "technical": {
+        "font_family": "Arial",
+        "text_range_pt": [5.0, 7.0],
+        "min_resolution_dpi": 300,
+        "colour_space": "RGB",
+        "preferred_formats": ["PDF", "EPS", "TIFF"]
+      }
+    },
+    "nature-protocols-final-artwork-2026-09-full": {
+      "target_context": "journal_submission",
+      "journal": "Nature Protocols",
+      "article_type": "protocol",
+      "submission_stage": "final_artwork",
+      "authority": {
+        "title": "Nature Protocols: Guide to preparing final artwork",
+        "url": "https://www.nature.com/documents/nprot-guide-to-preparing-final-artwork.pdf",
+        "checked_date": "2026-09-05",
+        "scope": "Nature Protocols final-artwork geometry; caption-length bands apply."
+      },
+      "authority_status": "verified",
+      "geometry": {
+        "selected_width_mm": 180.0,
+        "caption_height_limits": [
+          {"caption_words_lt": 50, "max_height_mm": 222.0},
+          {"caption_words_lt": 150, "max_height_mm": 214.0},
+          {"caption_words_lt": 300, "max_height_mm": 205.0}
+        ]
+      },
+      "technical": {
+        "font_family": "Arial",
+        "text_range_pt": [5.0, 7.0],
+        "min_resolution_dpi": 300,
+        "colour_space": "RGB",
+        "preferred_formats": ["PDF", "EPS", "TIFF"]
+      }
+    },
+    "a4-width": {
+      "target_context": "custom",
+      "journal": null,
+      "article_type": "general",
+      "submission_stage": "custom",
+      "authority": {
+        "title": "Author-selected A4 canvas width",
+        "url": null,
+        "checked_date": "2026-09-05",
+        "scope": "Convenience canvas; not a publisher requirement."
+      },
+      "authority_status": "custom",
+      "geometry": {
+        "selected_width_mm": 210.0,
+        "max_height_mm": null
+      },
+      "technical": {
+        "font_family": "Arial",
+        "text_range_pt": [5.0, 8.0],
+        "min_resolution_dpi": 300,
+        "colour_space": "RGB",
+        "preferred_formats": ["PDF", "SVG", "PNG"]
+      }
+    }
+  },
+  "legacy_aliases": {
+    "nature-single": {
+      "width_mm": 88.0,
+      "profile_id": null,
+      "note": "Ambiguous legacy width; select a dated journal and submission-stage profile before final delivery."
+    },
+    "nature-double": {
+      "width_mm": 180.0,
+      "profile_id": null,
+      "note": "Ambiguous legacy width; select a dated journal and submission-stage profile before final delivery."
+    },
+    "nature-protocols": {
+      "width_mm": 135.0,
+      "profile_id": null,
+      "note": "Legacy Nature Protocols width; select the dated stage-specific profile before final delivery."
+    },
+    "nature-research-single": {
+      "width_mm": 88.0,
+      "profile_id": "nature-research-final-artwork-2026-09-single",
+      "note": "Legacy PDF-validator alias; use the dated final-artwork profile."
+    },
+    "nature-research-double": {
+      "width_mm": 180.0,
+      "profile_id": "nature-research-final-artwork-2026-09-double",
+      "note": "Legacy PDF-validator alias; use the dated final-artwork profile."
+    },
+    "nature-protocols-single": {
+      "width_mm": 135.0,
+      "profile_id": "nature-protocols-final-artwork-2026-09-single",
+      "note": "Legacy PDF-validator alias; use the dated final-artwork profile."
+    },
+    "nature-protocols-full": {
+      "width_mm": 180.0,
+      "profile_id": "nature-protocols-final-artwork-2026-09-full",
+      "note": "Legacy PDF-validator alias; use the dated final-artwork profile."
+    }
+  }
+}

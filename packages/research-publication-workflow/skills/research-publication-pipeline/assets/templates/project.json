@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "project_id": "PROJECT_ID",
+  "title": "PROJECT_TITLE",
+  "domain": "DOMAIN",
+  "contribution_lane": "CONTRIBUTION_LANE",
+  "route": "undecided",
+  "current_stage": "intake",
+  "authority": {
+    "status": "UNVERIFIED",
+    "source_ids": [],
+    "conflicts": []
+  },
+  "boundaries": {
+    "remote_compute": "EXPLICIT_AUTHORIZATION_REQUIRED",
+    "locked_test": "EXPLICIT_AUTHORIZATION_REQUIRED",
+    "canonical_manuscript_mutation": "EXPLICIT_AUTHORIZATION_REQUIRED",
+    "external_write": "EXPLICIT_AUTHORIZATION_REQUIRED"
+  }
+}

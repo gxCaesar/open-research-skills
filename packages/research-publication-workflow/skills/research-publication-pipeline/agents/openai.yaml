@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Publication Pipeline"
+  short_description: "Gate research from intake to claim-locked handoff"
+  default_prompt: "Use $research-publication-pipeline to separate data feasibility, lane-specific scoop, venue fit, headroom, protocol, iteration, and claim support for this research project, then identify the next evidence-backed gate without authorizing an external action."

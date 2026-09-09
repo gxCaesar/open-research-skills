@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "journal": "Synthetic journal",
+  "article_type": "Original research",
+  "policy_checked_on": "2026-09-04",
+  "datasets": [
+    {
+      "dataset_id": "D1",
+      "description": "Synthetic data supporting the primary comparison.",
+      "origin": "generated",
+      "access_route": "public_repository",
+      "supports": [
+        "Figure 1",
+        "Table 1"
+      ],
+      "repository": "Synthetic Repository",
+      "identifier": "https://doi.org/10.0000/synthetic.1",
+      "version_or_access_date": "version 1",
+      "licence": "Synthetic open-data licence",
+      "files": [
+        {
+          "name": "source-data.csv",
+          "role": "Figure 1 source data",
+          "format": "CSV"
+        }
+      ],
+      "citation": "Synthetic Creator (2026). Synthetic dataset. Synthetic Repository. https://doi.org/10.0000/synthetic.1",
+      "restrictions": {}
+    }
+  ]
+}

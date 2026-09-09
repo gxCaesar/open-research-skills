@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "venue": "ACL 2026",
+  "year": 2026,
+  "track": "Main Conference through ACL Rolling Review",
+  "checked_on": "2026-09-04",
+  "rule_sources": {
+    "DOCUMENT_CLASS": ["ACL2026_FORMATTING"],
+    "ACL26_STYLE_CURRENT": [
+      "ACL2026_FORMATTING",
+      "ACL2026_REVIEW_VERSION",
+      "ACL2026_FINAL_VERSION"
+    ],
+    "ANON_SOURCE_IDENTITY": ["ACL2026_REVIEW_VERSION"],
+    "ANON_ACKNOWLEDGMENTS": ["ACL2026_REVIEW_VERSION"],
+    "ABSTRACT_REQUIRED": ["ACL2026_MAIN_CONFERENCE"],
+    "REQUIRED_HEADING": ["ACL2026_MAIN_CONFERENCE"],
+    "PDF_PAGE_SIZE": ["ACL2026_FORMATTING"],
+    "PDF_AUTHOR_METADATA": ["ACL2026_REVIEW_VERSION"]
+  },
+  "allowed_stages": [
+    "anonymous_submission",
+    "arr_author_response",
+    "venue_commitment",
+    "camera_ready"
+  ],
+  "tex_contract": {
+    "document_class": "article",
+    "style_package": "acl",
+    "style_rule_id": "ACL26_STYLE_CURRENT",
+    "required_document_class_options": ["11pt"],
+    "required_options": {
+      "anonymous_submission": ["review"]
+    },
+    "forbidden_options": {
+      "camera_ready": ["review", "final"]
+    },
+    "anonymous_stages": ["anonymous_submission"],
+    "anonymous_source_author_mode": "flag",
+    "anonymous_source_identity_commands": ["author", "affiliation"],
+    "forbid_acknowledgments_in_anonymous": true,
+    "final_copy_command": "",
+    "required_headings": {
+      "anonymous_submission": ["Limitations"],
+      "camera_ready": ["Limitations"]
+    },
+    "forbidden_layout_packages": ["a4wide", "fullpage", "geometry", "setspace", "savetrees", "titlesec", "typearea"],
+    "require_abstract": ["anonymous_submission", "camera_ready"]
+  },
+  "pdf_contract": {
+    "page_width_points": 595.276,
+    "page_height_points": 841.89,
+    "page_tolerance_points": 2.0,
+    "anonymous_stages": ["anonymous_submission"],
+    "max_total_pages": {},
+    "max_file_size_mb": {},
+    "manual_content_page_limit": {
+      "anonymous_submission": 8,
+      "camera_ready": 9
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "terminal_outcome": "NOT_READY",
+  "final_evaluation": {
+    "status": "NOT_RUN",
+    "locked_test_accesses_used": 0,
+    "protocol_match": "UNVERIFIED",
+    "strongest_comparator_id": "",
+    "effect_estimate": null,
+    "confidence_interval": [null, null],
+    "independent_unit": "",
+    "result_locators": []
+  },
+  "external_validation": {
+    "status": "NOT_RUN",
+    "type": "",
+    "result_locators": []
+  },
+  "specialist_handoffs": {
+    "abstract": "NOT_STARTED",
+    "statistics": "NOT_STARTED",
+    "data_availability": "NOT_STARTED",
+    "figures": "NOT_STARTED",
+    "venue_manuscript": "NOT_STARTED"
+  },
+  "public_release": {
+    "path": "public-release",
+    "status": "NOT_STARTED",
+    "allowlist": [],
+    "artifact_paths": {},
+    "rehearsal": {
+      "status": "NOT_RUN",
+      "checked_on": "",
+      "environment": "",
+      "commands": [],
+      "not_run": [
+        "fresh-unpack rehearsal"
+      ]
+    }
+  },
+  "external_action_status": "NOT_AUTHORIZED",
+  "limitations": [],
+  "not_run": []
+}

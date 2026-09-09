@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "study_id": "synthetic-study",
+  "analyses": [
+    {
+      "analysis_id": "A1",
+      "claim": "A synthetic comparison estimates a bounded difference.",
+      "endpoint": "synthetic response",
+      "comparison": "condition A versus condition B",
+      "independent_unit": "independent synthetic specimen",
+      "hierarchy": [
+        "specimen",
+        "technical reading"
+      ],
+      "n_by_group": {
+        "condition A": 6,
+        "condition B": 6
+      },
+      "included_units": 12,
+      "skipped_units": 1,
+      "skip_reasons": [
+        "one prespecified acquisition failure"
+      ],
+      "paired_or_repeated": "unpaired",
+      "dependence_handling": "not applicable: one record per specimen",
+      "model_or_test": "prespecified two-group model",
+      "assumptions_and_diagnostics": "defined in the synthetic protocol",
+      "comparison_family": "one prespecified primary comparison",
+      "multiplicity_strategy": "not applicable to one primary comparison",
+      "effect_estimate": "reported with units in the manuscript",
+      "uncertainty": "95% interval reported in the manuscript",
+      "p_value_policy": "exact value reported when used",
+      "exclusion_timing": "prespecified before outcome analysis",
+      "computational_stochastic": true,
+      "stochastic_design": {
+        "seed_role": "optimization variation",
+        "aggregation_unit": "paired seed-level difference",
+        "checkpoint_rule": "fixed on validation data",
+        "early_stopping_rule": "prespecified validation rule",
+        "comparison_budget": "same three seeds for both methods",
+        "selection_rule": "aggregate all registered seeds"
+      },
+      "sources": [
+        "Methods: Statistical analysis",
+        "Figure 2"
+      ]
+    }
+  ]
+}

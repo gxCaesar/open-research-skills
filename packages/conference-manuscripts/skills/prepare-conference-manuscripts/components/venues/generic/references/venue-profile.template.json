@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "venue": "REPLACE_WITH_VENUE",
+  "year": 0,
+  "track": "REPLACE_WITH_TRACK",
+  "checked_on": "REPLACE_WITH_CHECK_DATE",
+  "rule_sources": {
+    "DOCUMENT_CLASS": ["REPLACE_WITH_SOURCE_ID"],
+    "VENUE_STYLE_CURRENT": ["REPLACE_WITH_SOURCE_ID"],
+    "ANON_SOURCE_IDENTITY": ["REPLACE_WITH_SOURCE_ID"],
+    "ANON_ACKNOWLEDGMENTS": ["REPLACE_WITH_SOURCE_ID"],
+    "ABSTRACT_REQUIRED": ["REPLACE_WITH_SOURCE_ID"],
+    "PDF_PAGE_SIZE": ["REPLACE_WITH_SOURCE_ID"],
+    "PDF_TOTAL_PAGE_LIMIT": ["REPLACE_WITH_SOURCE_ID"],
+    "PDF_FILE_SIZE": ["REPLACE_WITH_SOURCE_ID"],
+    "PDF_AUTHOR_METADATA": ["REPLACE_WITH_SOURCE_ID"]
+  },
+  "allowed_stages": ["anonymous_submission", "camera_ready"],
+  "tex_contract": {
+    "document_class": "REPLACE_WITH_OFFICIAL_DOCUMENT_CLASS",
+    "style_package": "REPLACE_WITH_OFFICIAL_STYLE_PACKAGE",
+    "style_rule_id": "VENUE_STYLE_CURRENT",
+    "required_document_class_options": [],
+    "required_options": {"anonymous_submission": []},
+    "forbidden_options": {},
+    "anonymous_stages": ["anonymous_submission"],
+    "anonymous_source_author_mode": "flag",
+    "anonymous_source_identity_commands": ["author", "affiliation"],
+    "forbid_acknowledgments_in_anonymous": true,
+    "final_copy_command": "",
+    "final_copy_rule_ids": {
+      "disabled": "VENUE_FINALCOPY_DISABLED",
+      "enabled": "VENUE_FINALCOPY_ENABLED"
+    },
+    "final_copy_required_stages": [],
+    "required_headings": {},
+    "forbidden_layout_packages": ["a4wide", "fullpage", "geometry", "setspace", "savetrees", "titlesec", "typearea"],
+    "require_abstract": ["anonymous_submission", "camera_ready"]
+  },
+  "pdf_contract": {
+    "page_width_points": 0.0,
+    "page_height_points": 0.0,
+    "page_tolerance_points": 2.0,
+    "anonymous_stages": ["anonymous_submission"],
+    "max_total_pages": {},
+    "max_file_size_mb": {},
+    "manual_content_page_limit": {}
+  }
+}

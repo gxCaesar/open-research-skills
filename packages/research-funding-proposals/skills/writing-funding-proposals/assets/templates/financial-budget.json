@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "requirement": {
+    "status": "UNVERIFIED",
+    "required": null,
+    "source_ids": [],
+    "checked_on": "UNVERIFIED",
+    "scope": "financial_budget_requirement"
+  },
+  "budget_method": "",
+  "source_ids": [],
+  "total_amount": null,
+  "annual_allocations": [],
+  "category_allocations": [],
+  "task_resource_linkages": []
+}

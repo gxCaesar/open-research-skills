@@ -1,0 +1,9 @@
+{
+  "result_id": "synthetic-locked-evaluation",
+  "independent_unit": "synthetic study unit",
+  "endpoint": "AUROC",
+  "absolute_gain_percentage_points": 2.4,
+  "site_count": 1,
+  "site_scope": "one site",
+  "uncertainty": "not supplied"
+}

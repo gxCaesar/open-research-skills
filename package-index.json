@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "packages": [
+    {
+      "name": "scientific-visualizations",
+      "skills": ["build-scientific-visualizations"]
+    },
+    {
+      "name": "conference-manuscripts",
+      "skills": ["prepare-conference-manuscripts"]
+    },
+    {
+      "name": "journal-manuscripts",
+      "skills": ["prepare-journal-manuscripts"]
+    },
+    {
+      "name": "research-funding-proposals",
+      "skills": ["writing-funding-proposals"]
+    },
+    {
+      "name": "research-publication-workflow",
+      "skills": ["research-publication-pipeline"]
+    }
+  ]
+}

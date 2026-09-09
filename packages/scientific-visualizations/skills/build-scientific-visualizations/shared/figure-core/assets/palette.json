@@ -1,0 +1,23 @@
+{
+  "paper": "#FFFFFF",
+  "ink": "#2E3540",
+  "muted": "#69737E",
+  "guide": "#AAB3BD",
+  "hairline": "#D8DEE4",
+  "blue": "#7899BA",
+  "blue_dark": "#5D7F9F",
+  "blue_pale": "#E8F0F5",
+  "lav": "#A89BC2",
+  "lav_dark": "#8978A7",
+  "lav_pale": "#F0EDF5",
+  "teal": "#83B9B0",
+  "teal_dark": "#5E9C92",
+  "teal_pale": "#E9F3F1",
+  "coral": "#D88982",
+  "coral_dark": "#B96E68",
+  "coral_pale": "#F7ECEA",
+  "gold": "#D5B76F",
+  "gold_dark": "#B99A53",
+  "gold_pale": "#F7F1DF",
+  "gray_pale": "#F3F5F6"
+}

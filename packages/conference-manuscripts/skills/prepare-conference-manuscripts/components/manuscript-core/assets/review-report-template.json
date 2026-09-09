@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "venue": "Target venue",
+  "year": 2027,
+  "stage": "anonymous_submission",
+  "mode": "diagnose",
+  "artifacts": [
+    {
+      "path": "paper.tex",
+      "status": "observed"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "VENUE_AUTHOR_GUIDE",
+      "url": "https://example.org/current-author-guide",
+      "checked_on": "YYYY-MM-DD",
+      "status": "UNVERIFIED"
+    }
+  ],
+  "findings": [],
+  "limitations": [
+    "The live submission form was not inspected."
+  ]
+}

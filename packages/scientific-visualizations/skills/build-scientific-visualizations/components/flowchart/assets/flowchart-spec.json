@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.2",
+  "figure_id": "scientific-flowchart-v1",
+  "flowcharts": [
+    {
+      "flowchart_id": "method-a",
+      "panel_id": "a",
+      "stages": [
+        {
+          "id": "input",
+          "semantic_role": "measured_input",
+          "label": "source-defined input",
+          "content_anchor": "claim-input",
+          "visual_element_ids": ["a-input-box", "a-input-label"],
+          "formula_refs": [],
+          "pictogram": {
+            "kind": "source-specific-input",
+            "meaning": "measured input named by the source",
+            "evidence_status": "schematic",
+            "source_anchor": "claim-input"
+          }
+        },
+        {
+          "id": "method",
+          "semantic_role": "method_stage",
+          "label": "source-defined transformation",
+          "content_anchor": "claim-method",
+          "visual_element_ids": ["a-method-box", "a-method-label"],
+          "formula_refs": ["formula-transform"],
+          "pictogram": {
+            "kind": "mechanism-specific-process",
+            "meaning": "transformation established by the method source",
+            "evidence_status": "schematic",
+            "source_anchor": "claim-method"
+          }
+        },
+        {
+          "id": "output",
+          "semantic_role": "inferred_output",
+          "label": "source-defined output",
+          "content_anchor": "claim-output",
+          "visual_element_ids": ["a-output-box", "a-output-label"],
+          "formula_refs": [],
+          "pictogram": {
+            "kind": "source-specific-output",
+            "meaning": "output with its evidence state stated directly",
+            "evidence_status": "schematic",
+            "source_anchor": "claim-output"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "id": "input-to-method",
+          "from": "input",
+          "to": "method",
+          "role": "sequence",
+          "line_style": "solid",
+          "label": "input",
+          "redundancy": ["line_style", "label"],
+          "content_anchor": "claim-input-to-method",
+          "visual_element_ids": ["a-input-to-method-arrow"]
+        },
+        {
+          "id": "method-to-output",
+          "from": "method",
+          "to": "output",
+          "role": "inference",
+          "line_style": "solid",
+          "label": "infer",
+          "redundancy": ["line_style", "label"],
+          "content_anchor": "claim-method-to-output",
+          "visual_element_ids": ["a-method-to-output-arrow"]
+        }
+      ],
+      "formulas": [
+        {
+          "id": "formula-transform",
+          "expression": "y = f(x)",
+          "meaning": "Replace with the exact source-defined transformation.",
+          "variables": {
+            "x": "source-defined input",
+            "f": "source-defined method",
+            "y": "source-defined output"
+          },
+          "source_anchor": "claim-method"
+        }
+      ]
+    }
+  ]
+}

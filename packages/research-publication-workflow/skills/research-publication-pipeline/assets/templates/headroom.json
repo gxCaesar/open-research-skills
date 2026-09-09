@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "NOT_RUN",
+  "task": "",
+  "strongest_representation": "",
+  "strongest_baseline_id": "",
+  "metric_direction": "higher",
+  "baseline_value": null,
+  "oracle_or_upper_bound": null,
+  "noise_floor": null,
+  "minimum_claimed_margin": null,
+  "measured_headroom": null,
+  "paired_independent_unit": "",
+  "conclusion": "UNRESOLVED",
+  "evidence_source_ids": [],
+  "result_locators": []
+}

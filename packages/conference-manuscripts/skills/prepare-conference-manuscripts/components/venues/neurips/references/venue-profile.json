@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "venue": "NeurIPS 2026",
+  "year": 2026,
+  "track": "Main Track",
+  "checked_on": "2026-09-04",
+  "rule_sources": {
+    "DOCUMENT_CLASS": ["NEURIPS2026_MAIN_TRACK_HANDBOOK"],
+    "NEURIPS26_STYLE_CURRENT": ["NEURIPS2026_MAIN_TRACK_HANDBOOK", "NEURIPS2026_FORMATTING_ARCHIVE"],
+    "ANON_ACKNOWLEDGMENTS": ["NEURIPS2026_MAIN_TRACK_HANDBOOK"],
+    "ABSTRACT_REQUIRED": ["NEURIPS2026_MAIN_TRACK_HANDBOOK"],
+    "REQUIRED_HEADING": ["NEURIPS2026_PAPER_CHECKLIST"],
+    "PDF_PAGE_SIZE": ["NEURIPS2026_MAIN_TRACK_HANDBOOK"],
+    "PDF_FILE_SIZE": ["NEURIPS2026_MAIN_TRACK_HANDBOOK"],
+    "PDF_AUTHOR_METADATA": ["NEURIPS2026_MAIN_TRACK_HANDBOOK"]
+  },
+  "allowed_stages": [
+    "anonymous_submission",
+    "supplementary_package",
+    "openreview_discussion",
+    "camera_ready"
+  ],
+  "tex_contract": {
+    "document_class": "article",
+    "style_package": "neurips_2026",
+    "style_rule_id": "NEURIPS26_STYLE_CURRENT",
+    "required_document_class_options": ["letterpaper"],
+    "required_options": {
+      "camera_ready": ["main", "final"]
+    },
+    "forbidden_options": {
+      "anonymous_submission": ["final", "preprint"],
+      "camera_ready": ["preprint"]
+    },
+    "anonymous_stages": ["anonymous_submission", "supplementary_package"],
+    "anonymous_source_author_mode": "render_hidden",
+    "forbid_acknowledgments_in_anonymous": true,
+    "final_copy_command": "",
+    "required_headings": {
+      "anonymous_submission": ["NeurIPS Paper Checklist"],
+      "camera_ready": ["NeurIPS Paper Checklist"]
+    },
+    "forbidden_layout_packages": ["a4wide", "fullpage", "geometry", "setspace", "savetrees", "titlesec", "typearea"],
+    "require_abstract": ["anonymous_submission", "camera_ready"]
+  },
+  "pdf_contract": {
+    "page_width_points": 612.0,
+    "page_height_points": 792.0,
+    "page_tolerance_points": 2.0,
+    "anonymous_stages": ["anonymous_submission", "supplementary_package"],
+    "max_total_pages": {},
+    "max_file_size_mb": {
+      "anonymous_submission": 50
+    },
+    "manual_content_page_limit": {
+      "anonymous_submission": 9,
+      "camera_ready": 10
+    }
+  }
+}

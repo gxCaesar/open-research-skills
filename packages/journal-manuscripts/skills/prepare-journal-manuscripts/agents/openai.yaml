@@ -1,0 +1,4 @@
+interface:
+  display_name: "Journal Manuscripts"
+  short_description: "Prepare and reconcile journal submission packages"
+  default_prompt: "Use $prepare-journal-manuscripts to select the correct lifecycle mode, preserve the locked scientific contract, and reconcile the manuscript with all editor-facing and reviewer-facing artifacts."

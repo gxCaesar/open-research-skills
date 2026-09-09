@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "data_feasibility": {
+    "status": "HOLD",
+    "required_joint_variables": [],
+    "coexistence_evidence": "",
+    "independent_unit": "",
+    "independent_unit_count": null,
+    "data_source_ids": [],
+    "strongest_cheap_baseline": "",
+    "leakage_safe_split": ""
+  },
+  "scoop": {
+    "verdict": "UNCERTAIN",
+    "contribution_lane": "CONTRIBUTION_LANE",
+    "searched_on": "",
+    "closest_work_source_ids": [],
+    "delta_from_closest_work": "",
+    "matched_protocol_assessment": ""
+  },
+  "venue_fit": {
+    "status": "HOLD",
+    "route": "undecided",
+    "target_venue": "",
+    "article_type": "",
+    "official_rule_source_ids": [],
+    "rules_checked_on": "",
+    "rationale": ""
+  },
+  "hypothesis": {
+    "hypothesis_id": "H1",
+    "claim": "",
+    "endpoint": "",
+    "direction": "higher",
+    "minimum_effect": null,
+    "uncertainty_method": "",
+    "validation_path": "",
+    "kill_criterion": ""
+  },
+  "decision": {
+    "status": "HOLD",
+    "kill_layer": "NONE",
+    "action": "HOLD",
+    "rationale": ""
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "DRAFT",
+  "frozen_on": "",
+  "hypothesis_id": "H1",
+  "contribution_lane": "CONTRIBUTION_LANE",
+  "dataset_versions": [],
+  "preprocessing": "",
+  "split": {
+    "description": "",
+    "independent_unit": "",
+    "leakage_guard": "",
+    "guard_test_status": "NOT_RUN"
+  },
+  "primary_metric": {
+    "name": "",
+    "direction": "higher",
+    "implementation": ""
+  },
+  "baselines": [],
+  "uncertainty": {
+    "unit": "",
+    "method": ""
+  },
+  "selection": {
+    "development_metric": "",
+    "seed_policy": "",
+    "checkpoint_rule": "",
+    "baseline_tuning_parity": ""
+  },
+  "budgets": {
+    "development_cycles": 2,
+    "locked_test_accesses": 1
+  },
+  "locked_test": {
+    "status": "SEALED",
+    "custodian": "",
+    "accesses_used": 0
+  },
+  "allowed_changes": [],
+  "stop_rules": {
+    "advance": "",
+    "revise": "",
+    "pivot": "",
+    "stop": ""
+  }
+}
