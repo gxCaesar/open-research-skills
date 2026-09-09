@@ -296,4 +296,4 @@ python3 -B scripts/check_public_content.py .
 
 维护者：[gxCaesar](https://github.com/gxCaesar) · [shapsider](https://github.com/shapsider) · [hehh77](https://github.com/hehh77)。详细协作说明见 [MAINTAINERS.md](MAINTAINERS.md) 和 [CONTRIBUTING.md](CONTRIBUTING.md)；仓库访问权限独立管理。
 
-此前拆分的五个仓库只保留历史入口，后续更新集中在这里。原始代码、说明与教学素材采用 [Apache-2.0](LICENSE)；第三方来源只作引用，分发边界见 [THIRD_PARTY.md](THIRD_PARTY.md)。
+五个 skill 统一在本仓库维护、安装和使用，无需其他独立仓库。原始代码、说明与教学素材采用 [Apache-2.0](LICENSE)；第三方来源只作引用，分发边界见 [THIRD_PARTY.md](THIRD_PARTY.md)。
