@@ -6,6 +6,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from typing import Sequence
 from urllib.parse import unquote, urlparse
 
 
@@ -16,6 +17,11 @@ EXPECTED = {
     "journal-manuscripts": ["prepare-journal-manuscripts"],
     "research-funding-proposals": ["writing-funding-proposals"],
     "research-publication-workflow": ["research-publication-pipeline"],
+    "method-development": ["develop-method-to-sota"],
+    "survey-and-novelty": ["survey-and-audit-novelty"],
+    "cold-review-panel": ["run-cold-review-panel"],
+    "peer-review": ["review-others-manuscripts"],
+    "artifact-release": ["release-research-artifacts"],
 }
 RUNTIME_PROBES = {
     "scientific-visualizations": (
@@ -107,8 +113,18 @@ def local_markdown_findings(document, boundary):
     return findings
 
 
+DECLARED_SKILLS = tuple(skill for skills in EXPECTED.values() for skill in skills)
+
+
+def entrypoint_findings(root: Path, declared: Sequence[str]) -> list[str]:
+    """SKILL.md files the release does not declare, and declared ones it lacks."""
+    expected = {root / "skills" / name / "SKILL.md" for name in declared}
+    observed = set(root.rglob("SKILL.md"))
+    return sorted(str(path.relative_to(root)) for path in observed ^ expected)
+
+
 class SkillLayoutTest(unittest.TestCase):
-    def test_index_matches_five_flat_install_units(self):
+    def test_index_matches_the_flat_install_units(self):
         data = json.loads((ROOT / "skill-index.json").read_text(encoding="utf-8"))
         self.assertEqual(1, data["schema_version"])
         expected = {
@@ -120,7 +136,7 @@ class SkillLayoutTest(unittest.TestCase):
             for slug, skills in EXPECTED.items() for skill in skills
         }
         observed = {item["name"]: item for item in data["skills"]}
-        self.assertEqual(5, len(data["skills"]))
+        self.assertEqual(len(expected), len(data["skills"]))
         self.assertEqual(expected, observed)
         self.assertFalse((ROOT / "package-index.json").exists())
 
@@ -131,15 +147,25 @@ class SkillLayoutTest(unittest.TestCase):
         for name in ("README.md", "CONTRIBUTING.md", "MAINTAINERS.md", "LICENSE", "NOTICE", "THIRD_PARTY.md"):
             self.assertTrue((ROOT / name).is_file(), name)
 
-    def test_exactly_five_public_entrypoints(self):
-        expected = {
-            ROOT / "skills" / skill / "SKILL.md"
-            for package, skills in EXPECTED.items()
-            for skill in skills
-        }
-        observed = set(ROOT.glob("skills/*/SKILL.md"))
-        self.assertEqual(expected, observed)
-        self.assertEqual(5, len(list(ROOT.rglob("SKILL.md"))))
+    def test_exactly_the_declared_public_entrypoints(self):
+        self.assertEqual([], entrypoint_findings(ROOT, DECLARED_SKILLS))
+
+    def test_an_undeclared_entrypoint_is_rejected(self):
+        """An extra SKILL.md anywhere in the tree must be reported, not absorbed."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            for name in DECLARED_SKILLS:
+                entry = root / "skills" / name / "SKILL.md"
+                entry.parent.mkdir(parents=True)
+                entry.write_text("stub\n", encoding="utf-8")
+            self.assertEqual([], entrypoint_findings(root, DECLARED_SKILLS))
+            stray = root / "skills" / "vendored" / "inner" / "SKILL.md"
+            stray.parent.mkdir(parents=True)
+            stray.write_text("stub\n", encoding="utf-8")
+            self.assertEqual(
+                ["skills/vendored/inner/SKILL.md"],
+                entrypoint_findings(root, DECLARED_SKILLS),
+            )
 
     def test_release_tree_contains_no_symlink(self):
         links = [str(path.relative_to(ROOT)) for path in ROOT.rglob("*") if path.is_symlink()]

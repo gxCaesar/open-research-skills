@@ -31,6 +31,31 @@ SKILLS = {
         ("research route", "data feasibility", "scoop", "headroom"),
         ("survey", "pilot", "freeze", "public-release"),
     ),
+    "develop-method-to-sota": (
+        "method-development",
+        ("baseline", "state of the art", "headroom", "ablation control"),
+        ("headroom-measure", "error-slices", "single-component", "exit-decision"),
+    ),
+    "survey-and-audit-novelty": (
+        "survey-and-novelty",
+        ("literature survey", "novelty audit", "prior art", "scoop"),
+        ("contribution-lane", "joint-variable-audit", "search-angles", "kill-layer"),
+    ),
+    "run-cold-review-panel": (
+        "cold-review-panel",
+        ("mock review", "simulated reviewer", "pre-submission review", "red-team"),
+        ("isolation-manifest", "lens-assignment", "artifact-execution", "meta-review"),
+    ),
+    "review-others-manuscripts": (
+        "peer-review",
+        ("invited referee", "referee report", "reviewer comments", "editorial prescreen"),
+        ("initial-review", "revision-round", "editorial-prescreen", "confidentiality"),
+    ),
+    "release-research-artifacts": (
+        "artifact-release",
+        ("anonymized repository", "double-blind", "DOI", "artifact evaluation"),
+        ("anonymized-submission", "named-archive", "data-card", "manifest-verification"),
+    ),
 }
 LEGACY_ENTRYPOINTS = {
     "flowchart",
@@ -63,7 +88,7 @@ def frontmatter(text: str) -> dict[str, str]:
 
 
 class TriggerBoundaryTest(unittest.TestCase):
-    def test_five_frontmatter_descriptions_and_body_modes_are_discoverable(self):
+    def test_frontmatter_descriptions_and_body_modes_are_discoverable(self):
         for skill, (package, triggers, modes) in SKILLS.items():
             path = ROOT / "skills" / skill / "SKILL.md"
             text = path.read_text(encoding="utf-8")

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Artifact Release"
+  short_description: "Build and verify the downloadable code and data package"
+  default_prompt: "Use $release-research-artifacts to resolve the file set by allowlist, stage and scan every byte for identity, run the project's own tests inside a fresh unpack of the built package, and record what shipped."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cold Review Panel"
+  short_description: "Rehearse rejection on your own unsubmitted manuscript"
+  default_prompt: "Use $run-cold-review-panel to construct and prove reviewer isolation from the filesystem, assign distinct reading lenses across model families, require one reviewer to execute the released artifact, and adjudicate the reports into prioritised repairs."

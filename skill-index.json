@@ -25,6 +25,31 @@
       "name": "research-publication-pipeline",
       "entrypoint": "skills/research-publication-pipeline/SKILL.md",
       "guide": "docs/research-publication-workflow.md"
+    },
+    {
+      "name": "develop-method-to-sota",
+      "entrypoint": "skills/develop-method-to-sota/SKILL.md",
+      "guide": "docs/method-development.md"
+    },
+    {
+      "name": "survey-and-audit-novelty",
+      "entrypoint": "skills/survey-and-audit-novelty/SKILL.md",
+      "guide": "docs/survey-and-novelty.md"
+    },
+    {
+      "name": "run-cold-review-panel",
+      "entrypoint": "skills/run-cold-review-panel/SKILL.md",
+      "guide": "docs/cold-review-panel.md"
+    },
+    {
+      "name": "review-others-manuscripts",
+      "entrypoint": "skills/review-others-manuscripts/SKILL.md",
+      "guide": "docs/peer-review.md"
+    },
+    {
+      "name": "release-research-artifacts",
+      "entrypoint": "skills/release-research-artifacts/SKILL.md",
+      "guide": "docs/artifact-release.md"
     }
   ]
 }

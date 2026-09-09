@@ -11,6 +11,6 @@ for changes. Include the affected skill and keep examples free of private resear
 materials. Any maintainer may review a skill; no exclusive skill ownership is
 implied by this list. Repository access is managed separately in GitHub settings.
 
-Preserve the five public entrypoints and their independently installable directories.
+Preserve the ten public entrypoints and their independently installable directories.
 Prefer a demonstrated improvement over adding new process. Follow
 [CONTRIBUTING.md](CONTRIBUTING.md) for verification and redistribution requirements.

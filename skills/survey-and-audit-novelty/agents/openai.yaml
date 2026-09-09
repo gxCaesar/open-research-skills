@@ -1,0 +1,4 @@
+interface:
+  display_name: "Survey and Novelty Audit"
+  short_description: "Decide whether a research direction is still open"
+  default_prompt: "Use $survey-and-audit-novelty to declare the contribution lane, audit whether the needed variables co-exist in one obtainable cohort, search from independent angles including an adversarial one, and report the scoop, feasibility and venue-fit verdicts separately."

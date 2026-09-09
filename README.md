@@ -15,7 +15,7 @@
 
 </div>
 
-这是一个面向日常科研的 agent skill 工具箱。五个完整 skill 在一个仓库中维护，每个都能单独安装、独立使用。你可以从一张图、一段 Results 或一个研究问题开始，不必先启动整套研究流程。
+这是一个面向日常科研的 agent skill 工具箱。十个完整 skill 在一个仓库中维护，每个都能单独安装、独立使用。你可以从一张图、一段 Results 或一个研究问题开始，不必先启动整套研究流程。
 
 教程以 AI 与生物研究为主，覆盖单细胞、扰动预测和空间多组学；组织材料、科学写作和交付方法也可迁移到其他领域。下文说明五项能力怎样用于真实科研，五份独立中文手册进一步展开材料准备、逐阶段操作、调用示例和交付检查。绘图提供可编辑成品；小型教学脚本作为可选练习，不代表完整科研能力或真实实验效果。
 
@@ -37,7 +37,7 @@
 
 ## 专项任务与打磨：不用从完整流程开始
 
-下面都是五个 skill 内的任务入口，不需要另装同名的小 skill。调用时说明材料位置、目标与允许修改的范围。
+下面都是这十个 skill 内的任务入口，不需要另装同名的小 skill。调用时说明材料位置、目标与允许修改的范围。
 
 | 这次只想做什么 | 使用入口与操作说明 | 主要交付 |
 |---|---|---|
@@ -48,6 +48,11 @@
 | 核查统计表述、图注与引用 | 会议或期刊 skill，明确指定这些材料 | 来源与分母核对、表述修订或待解决问题，不重新选择分析 |
 | 精修已有图件 | 绘图 skill 的[局部修改与精修](docs/scientific-visualizations.md#refinement) | 可编辑修订、前后渲染比较与所需导出 |
 | 深读一篇论文 | 工作流 `survey` 的[单篇深读](docs/research-publication-workflow.md#paper-reading) | 问题、方法、实验、证据位置和限制的 Paper Card |
+| 打不过基线，决定下一步改哪里 | [方法迭代到 SOTA](docs/method-development.md) | 实测 headroom 与噪声底、误差分层表、一次一个组件加可 void 对照的结果 |
+| 判断一个方向还开不开着 | [调研与新颖性审计](docs/survey-and-novelty.md) | 贡献车道、变量共存计数表、分开记录的撞车／可行性／venue 判词与击杀层 |
+| 投稿前让没看过项目的人挑毛病 | [冷审 panel](docs/cold-review-panel.md) | 可核验的隔离清单、逐视角发现、真跑过 artifact 的记录与裁决排序 |
+| 受邀评审别人的投稿 | [受邀审稿](docs/peer-review.md) | 保密边界判断、编辑可执行的意见、严重度标定与返修轮对齐表 |
+| 打一个匿名或可引用的代码数据包 | [代码与数据发布](docs/artifact-release.md) | 白名单文件清单、暂存树身份扫描、成品包内的验证运行记录 |
 | 从一组论文学习写作与图件组织 | 工作流 `survey` 的[论文集合分析](docs/research-publication-workflow.md#exemplar-corpus) | 带出处的 Results 组织、图序、图注与主补安排观察 |
 | 审阅基金原稿或组织研究方案 | [国自然和省自然手册](docs/research-funding-proposals.md) | 论证问题、带注释的章节 brief、政策允许范围内的图件协助 |
 
@@ -96,7 +101,7 @@ test -f "$SKILL_DEST/$SKILL_NAME/SKILL.md"
 | 当前科研项目 | 项目内 `.agents/skills/` | 项目内 `.claude/skills/` |
 | 所有本地项目 | `$HOME/.agents/skills/` | `$HOME/.claude/skills/` |
 
-个人级安装只需将 `SKILL_DEST` 设为表中的对应目录。只复制完整的 `skills/<skill-name>/`，不要仅复制 `SKILL.md`，也不要再套一层同名目录。安装全部时，对五个名称分别执行同样的复制步骤。更新前保留自己的修改，不要直接覆盖。
+个人级安装只需将 `SKILL_DEST` 设为表中的对应目录。只复制完整的 `skills/<skill-name>/`，不要仅复制 `SKILL.md`，也不要再套一层同名目录。安装全部时，对十个名称分别执行同样的复制步骤。更新前保留自己的修改，不要直接覆盖。
 
 路径与发现方式核对于 2026-09-09，参见 [Codex 官方说明](https://developers.openai.com/codex/skills)与 [Claude Code 官方说明](https://code.claude.com/docs/en/skills)。其他兼容 runtime 使用其自身的目录与发现机制；本仓库不配置账号或模型服务。
 
@@ -407,9 +412,25 @@ Skill 会先界定允许的协助范围，再处理科学问题和材料。若�
 
 **详细手册：** [逐个科研环节的输入、操作、输出、判断与调用范例](docs/research-publication-workflow.md)。希望先熟悉脚本时，可选[配对结果分析练习](skills/research-publication-pipeline/examples/perturbation-comparison/README.md)和[代码打包演练](skills/research-publication-pipeline/examples/README.md)；二者是合成教学材料，不是训练实验或研究结论。
 
+## 研究过程中的五个入口
+
+上面五个 skill 覆盖成稿、图件、基金与整条流程。下面五个覆盖过程里最容易卡住、
+而又各自独立成任务的环节，同样可以单独安装、单独使用。
+
+| Skill | 什么时候用 | 详细手册 |
+|---|---|---|
+| `develop-method-to-sota` | pilot 跑通了但打不过基线，要决定下一步改哪里 | [方法迭代到 SOTA](docs/method-development.md) |
+| `survey-and-audit-novelty` | 一个方向值不值得开，有没有被做过，需要的数据是否共存 | [调研与新颖性审计](docs/survey-and-novelty.md) |
+| `run-cold-review-panel` | 自己的稿子还没投，想先被没看过项目的人挑一遍 | [冷审 panel](docs/cold-review-panel.md) |
+| `review-others-manuscripts` | 受邀审别人的投稿，或处理返修轮与编辑预审 | [受邀审稿](docs/peer-review.md) |
+| `release-research-artifacts` | 打别人真会下载的那个代码数据包并验它 | [代码与数据发布](docs/artifact-release.md) |
+
+`run-cold-review-panel` 与 `review-others-manuscripts` 方向相反：前者读的是**你自己**
+尚未投出的稿子，后者读的是**别人**交给期刊、对你保密的稿子。两者的约束不同，不要互换。
+
 ## 常见问题
 
-**需要一次安装五个吗？** 不需要。每个目录都带自己的指令、脚本、模板、参考与示例。它们可以协作，但没有强制安装顺序。
+**需要一次安装十个吗？** 不需要。每个目录都带自己的指令、脚本、模板、参考与示例。它们可以协作，但没有强制安装顺序。
 
 **打磨流程是否已经整合？** 摘要与标题专项、单节及逐节打磨、全文修订、只读审查和图件精修均有对应入口，见[专项任务表](#tasks)。这是按科研任务整理后的工作方式，不是对旧技能库的逐项完整复制；个人账号、固定模型分工、强制逐节 Git 提交和私有运行设施不随包提供。
 
@@ -434,6 +455,6 @@ python3 -B scripts/run_tests.py
 python3 -B scripts/check_public_content.py .
 ```
 
-统一测试入口会分别运行根目录和五个 skill 的测试。测试依赖见 [requirements-test.txt](requirements-test.txt)，普通使用者只需安装任务所需依赖。本仓库未配置托管 CI。
+统一测试入口会分别运行根目录和各个 skill 的测试。测试依赖见 [requirements-test.txt](requirements-test.txt)，普通使用者只需安装任务所需依赖。本仓库未配置托管 CI。
 
 [参与贡献](CONTRIBUTING.md) · [维护者](MAINTAINERS.md) · [第三方说明](THIRD_PARTY.md) · [Apache-2.0 许可证](LICENSE)

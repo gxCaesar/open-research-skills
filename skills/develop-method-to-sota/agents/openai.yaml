@@ -1,0 +1,4 @@
+interface:
+  display_name: "Method Development"
+  short_description: "Take a validated pilot to a method worth freezing"
+  default_prompt: "Use $develop-method-to-sota to measure headroom and the noise floor before designing, read the error by slice, test one component at a time against a control that could void it, and name which exit applies before stopping."

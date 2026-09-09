@@ -1,0 +1,4 @@
+interface:
+  display_name: "Peer Review"
+  short_description: "Draft an editor-usable referee report on someone else's submission"
+  default_prompt: "Use $review-others-manuscripts to establish the confidentiality boundary first, then separate claims from their support, report defects with their consequence, and make every request executable by the authors."

@@ -76,6 +76,50 @@
       "owner": "research-publication-pipeline",
       "handoff": "prepare-conference-manuscripts",
       "reason": "The evidence contract must be settled before the conference skill changes manuscript prose."
+    },
+    {
+      "id": "own-paper-before-submission",
+      "request": "这篇稿子我还没投出去,想先找几个没看过项目的人挑毛病。",
+      "owner": "run-cold-review-panel",
+      "reason": "The manuscript is the author's own and unsubmitted, so the task is rehearsing objections rather than refereeing."
+    },
+    {
+      "id": "invited-referee-report",
+      "request": "期刊请我评审别人的一篇投稿,帮我写审稿意见。",
+      "owner": "review-others-manuscripts",
+      "reason": "The manuscript belongs to other authors and is confidential, which is the opposite direction from a cold panel on one's own paper."
+    },
+    {
+      "id": "losing-to-the-baseline",
+      "request": "dev split 上我的方法比基线低两个点,下一步该改哪里?",
+      "owner": "develop-method-to-sota",
+      "reason": "Exploratory method iteration owns the choice of the next change, and it begins by measuring headroom rather than by tuning."
+    },
+    {
+      "id": "direction-already-taken",
+      "request": "这个方向有没有人已经做过?值不值得开?",
+      "owner": "survey-and-audit-novelty",
+      "reason": "Deciding whether a direction is open is a survey and novelty judgement, made before an experimental plan exists."
+    },
+    {
+      "id": "double-blind-code-package",
+      "request": "双盲投稿要提交匿名代码包,帮我打一个。",
+      "owner": "release-research-artifacts",
+      "reason": "Building and verifying the downloadable package is artifact release, not manuscript preparation."
+    },
+    {
+      "id": "panel-found-a-reproduction-gap",
+      "request": "冷审那位跑不通我们发布的包,figure 3 复现不出来。",
+      "owner": "run-cold-review-panel",
+      "handoff": "release-research-artifacts",
+      "reason": "The panel owns the finding; repairing and re-verifying the package belongs to artifact release."
+    },
+    {
+      "id": "survey-says-headroom-unknown",
+      "request": "调研说这个任务可能已经饱和了,怎么判断?",
+      "owner": "survey-and-audit-novelty",
+      "handoff": "develop-method-to-sota",
+      "reason": "The survey raises the saturation question; only a measured headroom and noise floor from method development can answer it."
     }
   ]
 }
