@@ -2,4 +2,3 @@ matplotlib==3.9.4
 numpy==2.0.2
 Pillow==11.3.0
 pypdf==6.10.2
-python-pptx==1.0.2

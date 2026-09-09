@@ -1,0 +1,15 @@
+{
+  "width_mm": 135,
+  "height_mm": 90,
+  "panels": [
+    {
+      "kind": "plot",
+      "title": "Synthetic task scores",
+      "source_csv": "scores.csv",
+      "x": "baseline",
+      "y": "candidate",
+      "xlabel": "Baseline score (arbitrary units)",
+      "ylabel": "Candidate score (arbitrary units)"
+    }
+  ]
+}

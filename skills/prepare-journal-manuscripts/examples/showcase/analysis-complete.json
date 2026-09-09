@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "study_id": "synthetic-paired-showcase",
+  "analyses": [
+    {
+      "analysis_id": "A1",
+      "claim": "Display six constructed pairs without inferential claims.",
+      "endpoint": "synthetic response in arbitrary units",
+      "comparison": "baseline versus follow-up within each constructed specimen",
+      "independent_unit": "one constructed specimen, represented by one CSV row",
+      "hierarchy": [
+        "synthetic specimen",
+        "paired measurement occasion"
+      ],
+      "n_by_group": {
+        "baseline": 6,
+        "follow_up": 6
+      },
+      "included_units": 6,
+      "skipped_units": 0,
+      "skip_reasons": [],
+      "paired_or_repeated": "paired",
+      "dependence_handling": "One point per specimen uses its baseline and follow-up values as coordinates; no independence claim between occasions.",
+      "model_or_test": "Descriptive display only; no test or fitted model.",
+      "assumptions_and_diagnostics": "No population sampling or inferential model is posited for this constructed fixture.",
+      "comparison_family": "One descriptive paired display.",
+      "multiplicity_strategy": "Not applicable; no hypothesis tests.",
+      "effect_estimate": "Not estimated; the figure displays six individual pairs.",
+      "uncertainty": "Not estimated; no population inference is made.",
+      "p_value_policy": "No p value is computed or reported.",
+      "exclusion_timing": "No rows excluded from the constructed source.",
+      "computational_stochastic": false,
+      "sources": [
+        "after.md: Methods and Figure legend",
+        "observations.csv"
+      ]
+    }
+  ]
+}

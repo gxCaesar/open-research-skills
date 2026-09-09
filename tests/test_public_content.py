@@ -13,13 +13,17 @@ from zipfile import ZipFile
 ROOT = Path(__file__).resolve().parents[1]
 CHECKER = ROOT / "scripts" / "check_public_content.py"
 DECK = (
-    ROOT / "packages" / "scientific-visualizations" / "skills"
+    ROOT / "skills"
     / "build-scientific-visualizations" / "assets" / "design-templates"
     / "diagram-style-library.pptx"
 )
 
 
 class PublicContentTest(unittest.TestCase):
+    def test_actual_public_tree_passes(self):
+        result = self.run_checker(ROOT)
+        self.assertEqual(0, result.returncode, result.stdout + result.stderr)
+
     def run_checker(
         self, root: Path, deny_term_file: Optional[Path] = None
     ) -> subprocess.CompletedProcess:
@@ -36,7 +40,7 @@ class PublicContentTest(unittest.TestCase):
     def test_clean_public_tree_passes(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            target = root / "packages" / "example" / "skills" / "safe"
+            target = root / "skills" / "safe"
             target.mkdir(parents=True)
             (target / "SKILL.md").write_text("# Safe public workflow\n", encoding="utf-8")
             result = self.run_checker(root)
@@ -157,7 +161,7 @@ class PublicContentTest(unittest.TestCase):
         """The candidate's own root metadata may exist locally; vendored metadata may not."""
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            nested = root / "packages" / "example" / ".git"
+            nested = root / "skills" / "example" / ".git"
             nested.mkdir(parents=True)
             (nested / "config").write_text("synthetic repository metadata\n", encoding="utf-8")
             result = self.run_checker(root)

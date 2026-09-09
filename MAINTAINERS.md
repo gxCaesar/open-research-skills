@@ -7,8 +7,8 @@ Open Research Skills is maintained collaboratively by:
 - [hehh77](https://github.com/hehh77)
 
 Use issues for reproducible bugs and focused improvement proposals, and pull requests
-for changes. Include the affected package and keep examples free of private research
-materials. Any maintainer may review a package; no exclusive package ownership is
+for changes. Include the affected skill and keep examples free of private research
+materials. Any maintainer may review a skill; no exclusive skill ownership is
 implied by this list. Repository access is managed separately in GitHub settings.
 
 Preserve the five public entrypoints and their independently installable directories.

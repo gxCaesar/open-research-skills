@@ -1,0 +1,65 @@
+donor,condition,feature,log2_abundance,detected
+D01,control,Phosphatidylcholine feature,3.4736,1
+D01,control,Hexosylceramide feature,3.0111,1
+D01,control,Sialylated glycopeptide feature,3.3328,1
+D01,control,Amino-acid feature,3.5275,1
+D01,perturbed,Phosphatidylcholine feature,3.0791,1
+D01,perturbed,Hexosylceramide feature,2.7804,1
+D01,perturbed,Sialylated glycopeptide feature,3.2372,1
+D01,perturbed,Amino-acid feature,3.845,1
+D02,control,Phosphatidylcholine feature,2.9344,1
+D02,control,Hexosylceramide feature,3.0141,1
+D02,control,Sialylated glycopeptide feature,3.5175,1
+D02,control,Amino-acid feature,4.0787,1
+D02,perturbed,Phosphatidylcholine feature,3.4206,1
+D02,perturbed,Hexosylceramide feature,2.9976,1
+D02,perturbed,Sialylated glycopeptide feature,3.8332,1
+D02,perturbed,Amino-acid feature,4.076,1
+D03,control,Phosphatidylcholine feature,3.2832,1
+D03,control,Hexosylceramide feature,3.4864,1
+D03,control,Sialylated glycopeptide feature,3.6979,1
+D03,control,Amino-acid feature,3.8188,1
+D03,perturbed,Phosphatidylcholine feature,,0
+D03,perturbed,Hexosylceramide feature,2.9451,1
+D03,perturbed,Sialylated glycopeptide feature,3.8745,1
+D03,perturbed,Amino-acid feature,4.2574,1
+D04,control,Phosphatidylcholine feature,2.769,1
+D04,control,Hexosylceramide feature,2.7522,1
+D04,control,Sialylated glycopeptide feature,3.1637,1
+D04,control,Amino-acid feature,3.5643,1
+D04,perturbed,Phosphatidylcholine feature,3.3662,1
+D04,perturbed,Hexosylceramide feature,2.8535,1
+D04,perturbed,Sialylated glycopeptide feature,3.3302,1
+D04,perturbed,Amino-acid feature,3.708,1
+D05,control,Phosphatidylcholine feature,2.6083,1
+D05,control,Hexosylceramide feature,3.2901,1
+D05,control,Sialylated glycopeptide feature,3.0748,1
+D05,control,Amino-acid feature,3.6535,1
+D05,perturbed,Phosphatidylcholine feature,3.1567,1
+D05,perturbed,Hexosylceramide feature,2.9475,1
+D05,perturbed,Sialylated glycopeptide feature,3.4655,1
+D05,perturbed,Amino-acid feature,3.5641,1
+D06,control,Phosphatidylcholine feature,3.0358,1
+D06,control,Hexosylceramide feature,3.4015,1
+D06,control,Sialylated glycopeptide feature,3.4334,1
+D06,control,Amino-acid feature,3.948,1
+D06,perturbed,Phosphatidylcholine feature,3.3134,1
+D06,perturbed,Hexosylceramide feature,3.0886,1
+D06,perturbed,Sialylated glycopeptide feature,3.7097,1
+D06,perturbed,Amino-acid feature,3.9355,1
+D07,control,Phosphatidylcholine feature,3.2343,1
+D07,control,Hexosylceramide feature,3.4881,1
+D07,control,Sialylated glycopeptide feature,3.6422,1
+D07,control,Amino-acid feature,4.1335,1
+D07,perturbed,Phosphatidylcholine feature,,0
+D07,perturbed,Hexosylceramide feature,3.1009,1
+D07,perturbed,Sialylated glycopeptide feature,3.6849,1
+D07,perturbed,Amino-acid feature,4.0067,1
+D08,control,Phosphatidylcholine feature,2.7663,1
+D08,control,Hexosylceramide feature,2.9787,1
+D08,control,Sialylated glycopeptide feature,3.2632,1
+D08,control,Amino-acid feature,3.4663,1
+D08,perturbed,Phosphatidylcholine feature,3.0371,1
+D08,perturbed,Hexosylceramide feature,2.6961,1
+D08,perturbed,Sialylated glycopeptide feature,3.6607,1
+D08,perturbed,Amino-acid feature,3.719,1

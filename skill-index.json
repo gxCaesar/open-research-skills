@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "skills": [
+    {
+      "name": "build-scientific-visualizations",
+      "entrypoint": "skills/build-scientific-visualizations/SKILL.md",
+      "guide": "docs/scientific-visualizations.md"
+    },
+    {
+      "name": "prepare-conference-manuscripts",
+      "entrypoint": "skills/prepare-conference-manuscripts/SKILL.md",
+      "guide": "docs/conference-manuscripts.md"
+    },
+    {
+      "name": "prepare-journal-manuscripts",
+      "entrypoint": "skills/prepare-journal-manuscripts/SKILL.md",
+      "guide": "docs/journal-manuscripts.md"
+    },
+    {
+      "name": "writing-funding-proposals",
+      "entrypoint": "skills/writing-funding-proposals/SKILL.md",
+      "guide": "docs/research-funding-proposals.md"
+    },
+    {
+      "name": "research-publication-pipeline",
+      "entrypoint": "skills/research-publication-pipeline/SKILL.md",
+      "guide": "docs/research-publication-workflow.md"
+    }
+  ]
+}

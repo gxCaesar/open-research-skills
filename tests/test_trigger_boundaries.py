@@ -65,7 +65,7 @@ def frontmatter(text: str) -> dict[str, str]:
 class TriggerBoundaryTest(unittest.TestCase):
     def test_five_frontmatter_descriptions_and_body_modes_are_discoverable(self):
         for skill, (package, triggers, modes) in SKILLS.items():
-            path = ROOT / "packages" / package / "skills" / skill / "SKILL.md"
+            path = ROOT / "skills" / skill / "SKILL.md"
             text = path.read_text(encoding="utf-8")
             metadata = frontmatter(text)
             self.assertEqual(skill, metadata.get("name"), path)
@@ -93,8 +93,8 @@ class TriggerBoundaryTest(unittest.TestCase):
             self.assertTrue(case["reason"].strip())
 
     def test_index_exposes_no_legacy_entrypoint(self):
-        data = json.loads((ROOT / "package-index.json").read_text(encoding="utf-8"))
-        names = {skill for package in data["packages"] for skill in package["skills"]}
+        data = json.loads((ROOT / "skill-index.json").read_text(encoding="utf-8"))
+        names = {skill["name"] for skill in data["skills"]}
         self.assertTrue(LEGACY_ENTRYPOINTS.isdisjoint(names), names & LEGACY_ENTRYPOINTS)
 
 

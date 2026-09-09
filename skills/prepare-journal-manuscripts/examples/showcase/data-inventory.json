@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "journal": "Synthetic teaching example; no journal policy asserted",
+  "article_type": "Teaching excerpt only",
+  "policy_checked_on": "2026-09-09",
+  "datasets": [
+    {
+      "dataset_id": "D1",
+      "description": "Six constructed specimen pairs supplied with this teaching excerpt.",
+      "origin": "generated",
+      "access_route": "within_paper_or_supplement",
+      "supports": [
+        "after.md: Results and Figure legend"
+      ],
+      "files": [
+        {
+          "name": "observations.csv",
+          "role": "Synthetic figure source data",
+          "format": "CSV"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="183mm" height="122.87142857142857mm" viewBox="0 0 1400 940"><defs><marker id="arrow-253746" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3.5 L0,7 Z" fill="#253746"/></marker><marker id="arrow-4C8B82" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3.5 L0,7 Z" fill="#4C8B82"/></marker><marker id="arrow-B99654" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3.5 L0,7 Z" fill="#B99654"/></marker><marker id="arrow-8D79AC" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3.5 L0,7 Z" fill="#8D79AC"/></marker><marker id="arrow-56636F" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3.5 L0,7 Z" fill="#56636F"/></marker><marker id="arrow-D7DEE3" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3.5 L0,7 Z" fill="#D7DEE3"/></marker><marker id="arrow-52779C" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3.5 L0,7 Z" fill="#52779C"/></marker></defs><rect width="100%" height="100%" fill="white"/><text id="panel-a" x="16" y="31" font-family="Arial" font-size="21.6" font-weight="700" text-anchor="start" dominant-baseline="central" fill="#253746">a</text>
+<text id="panel-a-title" x="53" y="31" font-family="Arial" font-size="18.5" font-weight="700" text-anchor="start" dominant-baseline="central" fill="#253746">Context-conditioned perturbation model</text>
+<text id="profile-input-title" x="103.5" y="267" font-family="Arial" font-size="18.5" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253746">Cell profile</text>
+<rect id="baseline-profile-0-0" x="49" y="299" width="15.5" height="15.5"  fill="#ECF2F7" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-0-1" x="66" y="299" width="15.5" height="15.5"  fill="#ADC6DA" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-0-2" x="83" y="299" width="15.5" height="15.5"  fill="#52779C" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-0-3" x="100" y="299" width="15.5" height="15.5"  fill="#D0DFEA" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-0-4" x="117" y="299" width="15.5" height="15.5"  fill="#7B9EBE" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-0-5" x="134" y="299" width="15.5" height="15.5"  fill="#ECF2F7" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-1-0" x="49" y="316" width="15.5" height="15.5"  fill="#7B9EBE" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-1-1" x="66" y="316" width="15.5" height="15.5"  fill="#D0DFEA" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-1-2" x="83" y="316" width="15.5" height="15.5"  fill="#52779C" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-1-3" x="100" y="316" width="15.5" height="15.5"  fill="#ADC6DA" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-1-4" x="117" y="316" width="15.5" height="15.5"  fill="#ECF2F7" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-1-5" x="134" y="316" width="15.5" height="15.5"  fill="#7B9EBE" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-2-0" x="49" y="333" width="15.5" height="15.5"  fill="#D0DFEA" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-2-1" x="66" y="333" width="15.5" height="15.5"  fill="#ECF2F7" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-2-2" x="83" y="333" width="15.5" height="15.5"  fill="#52779C" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-2-3" x="100" y="333" width="15.5" height="15.5"  fill="#7B9EBE" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-2-4" x="117" y="333" width="15.5" height="15.5"  fill="#ADC6DA" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-2-5" x="134" y="333" width="15.5" height="15.5"  fill="#D0DFEA" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-3-0" x="49" y="350" width="15.5" height="15.5"  fill="#52779C" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-3-1" x="66" y="350" width="15.5" height="15.5"  fill="#52779C" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-3-2" x="83" y="350" width="15.5" height="15.5"  fill="#52779C" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-3-3" x="100" y="350" width="15.5" height="15.5"  fill="#52779C" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-3-4" x="117" y="350" width="15.5" height="15.5"  fill="#52779C" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-3-5" x="134" y="350" width="15.5" height="15.5"  fill="#52779C" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-4-0" x="49" y="367" width="15.5" height="15.5"  fill="#ADC6DA" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-4-1" x="66" y="367" width="15.5" height="15.5"  fill="#7B9EBE" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-4-2" x="83" y="367" width="15.5" height="15.5"  fill="#52779C" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-4-3" x="100" y="367" width="15.5" height="15.5"  fill="#ECF2F7" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-4-4" x="117" y="367" width="15.5" height="15.5"  fill="#D0DFEA" stroke="none" stroke-width="1.6" />
+<rect id="baseline-profile-4-5" x="134" y="367" width="15.5" height="15.5"  fill="#ADC6DA" stroke="none" stroke-width="1.6" />
+<text id="baseline-caption" x="108.5" y="413.5" font-family="Arial" font-size="17" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">Baseline</text>
+<polygon id="cell-encoder-body" points="235,284 372,305.08 372,386.92 235,408" fill="#E9F0F6" stroke="#52779C" stroke-width="1.8" />
+<text id="cell-encoder-label" x="303.5" y="326.52" font-family="Arial" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253746">Cell encoder</text>
+<rect id="cell-encoder-lane-0" x="262.4" y="363.36" width="13.700000000000001" height="10"  fill="#D0DFEA" stroke="none" stroke-width="1.6" />
+<rect id="cell-encoder-lane-1" x="289.79999999999995" y="363.36" width="13.700000000000001" height="10"  fill="#ADC6DA" stroke="none" stroke-width="1.6" />
+<rect id="cell-encoder-lane-2" x="317.2" y="363.36" width="13.700000000000001" height="10"  fill="#7B9EBE" stroke="none" stroke-width="1.6" />
+<rect id="state-tokens-0" x="421" y="326" width="13" height="40"  fill="#ECF2F7" stroke="#52779C" stroke-width="1" />
+<rect id="state-tokens-1" x="438" y="326" width="13" height="40"  fill="#D0DFEA" stroke="#52779C" stroke-width="1" />
+<rect id="state-tokens-2" x="455" y="326" width="13" height="40"  fill="#ADC6DA" stroke="#52779C" stroke-width="1" />
+<rect id="state-tokens-3" x="472" y="326" width="13" height="40"  fill="#7B9EBE" stroke="#52779C" stroke-width="1" />
+<text id="state-token-title" x="461.5" y="290" font-family="Arial" font-size="17.2" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">State tokens</text>
+<polygon id="response-decoder-body" points="1025,305.08 1161,284 1161,408 1025,386.92" fill="#E7F2EF" stroke="#4C8B82" stroke-width="1.8" />
+<text id="response-decoder-label" x="1093" y="326.52" font-family="Arial" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253746">Decoder</text>
+<rect id="response-decoder-lane-0" x="1052.2" y="363.36" width="13.600000000000001" height="10"  fill="#D1E6DE" stroke="none" stroke-width="1.6" />
+<rect id="response-decoder-lane-1" x="1079.4" y="363.36" width="13.600000000000001" height="10"  fill="#A3CABD" stroke="none" stroke-width="1.6" />
+<rect id="response-decoder-lane-2" x="1106.6000000000001" y="363.36" width="13.600000000000001" height="10"  fill="#78AD9E" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-0-0" x="1260" y="299" width="15.5" height="15.5"  fill="#EDF5F2" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-0-1" x="1277" y="299" width="15.5" height="15.5"  fill="#A3CABD" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-0-2" x="1294" y="299" width="15.5" height="15.5"  fill="#4C8B82" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-0-3" x="1311" y="299" width="15.5" height="15.5"  fill="#D1E6DE" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-0-4" x="1328" y="299" width="15.5" height="15.5"  fill="#78AD9E" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-0-5" x="1345" y="299" width="15.5" height="15.5"  fill="#EDF5F2" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-1-0" x="1260" y="316" width="15.5" height="15.5"  fill="#78AD9E" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-1-1" x="1277" y="316" width="15.5" height="15.5"  fill="#D1E6DE" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-1-2" x="1294" y="316" width="15.5" height="15.5"  fill="#4C8B82" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-1-3" x="1311" y="316" width="15.5" height="15.5"  fill="#A3CABD" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-1-4" x="1328" y="316" width="15.5" height="15.5"  fill="#EDF5F2" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-1-5" x="1345" y="316" width="15.5" height="15.5"  fill="#78AD9E" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-2-0" x="1260" y="333" width="15.5" height="15.5"  fill="#D1E6DE" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-2-1" x="1277" y="333" width="15.5" height="15.5"  fill="#EDF5F2" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-2-2" x="1294" y="333" width="15.5" height="15.5"  fill="#4C8B82" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-2-3" x="1311" y="333" width="15.5" height="15.5"  fill="#78AD9E" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-2-4" x="1328" y="333" width="15.5" height="15.5"  fill="#A3CABD" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-2-5" x="1345" y="333" width="15.5" height="15.5"  fill="#D1E6DE" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-3-0" x="1260" y="350" width="15.5" height="15.5"  fill="#4C8B82" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-3-1" x="1277" y="350" width="15.5" height="15.5"  fill="#4C8B82" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-3-2" x="1294" y="350" width="15.5" height="15.5"  fill="#4C8B82" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-3-3" x="1311" y="350" width="15.5" height="15.5"  fill="#4C8B82" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-3-4" x="1328" y="350" width="15.5" height="15.5"  fill="#4C8B82" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-3-5" x="1345" y="350" width="15.5" height="15.5"  fill="#4C8B82" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-4-0" x="1260" y="367" width="15.5" height="15.5"  fill="#A3CABD" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-4-1" x="1277" y="367" width="15.5" height="15.5"  fill="#78AD9E" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-4-2" x="1294" y="367" width="15.5" height="15.5"  fill="#4C8B82" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-4-3" x="1311" y="367" width="15.5" height="15.5"  fill="#EDF5F2" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-4-4" x="1328" y="367" width="15.5" height="15.5"  fill="#D1E6DE" stroke="none" stroke-width="1.6" />
+<rect id="output-profile-4-5" x="1345" y="367" width="15.5" height="15.5"  fill="#A3CABD" stroke="none" stroke-width="1.6" />
+<text id="output-title" x="1294" y="267" font-family="Arial" font-size="18.2" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253746">Predicted profile</text>
+<text id="output-caption" x="1311.5" y="413.5" font-family="Arial" font-size="17" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">Response</text>
+<polyline id="cell-encode" points="162,346 222,346" fill="none" stroke="#253746" stroke-width="1.8" stroke-linejoin="round"  marker-end="url(#arrow-253746)"/>
+<polyline id="encode-tokens" points="384,346 407,346" fill="none" stroke="#253746" stroke-width="1.8" stroke-linejoin="round"  marker-end="url(#arrow-253746)"/>
+<polyline id="tokens-interaction" points="496,346 563,346" fill="none" stroke="#253746" stroke-width="1.8" stroke-linejoin="round"  marker-end="url(#arrow-253746)"/>
+<rect id="interaction-0" x="579" y="266" width="173" height="165" rx="7" fill="none" stroke="#4C8B82" stroke-width="1.8" />
+<text id="interaction-title-0" x="665.5" y="289" font-family="Arial" font-size="17.8" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253746">Interaction block</text>
+<text id="interaction-index-0" x="731.5" y="414.5" font-family="Arial" font-size="16.5" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">1</text>
+<rect id="interaction-state-0-0" x="607" y="321" width="13" height="40"  fill="#ECF2F7" stroke="#52779C" stroke-width="1" />
+<rect id="interaction-state-0-1" x="624" y="321" width="13" height="40"  fill="#D0DFEA" stroke="#52779C" stroke-width="1" />
+<rect id="interaction-state-0-2" x="641" y="321" width="13" height="40"  fill="#ADC6DA" stroke="#52779C" stroke-width="1" />
+<rect id="interaction-update-0-0" x="681" y="321" width="13" height="40"  fill="#EDF5F2" stroke="#4C8B82" stroke-width="1" />
+<rect id="interaction-update-0-1" x="698" y="321" width="13" height="40"  fill="#D1E6DE" stroke="#4C8B82" stroke-width="1" />
+<rect id="interaction-update-0-2" x="715" y="321" width="13" height="40"  fill="#A3CABD" stroke="#4C8B82" stroke-width="1" />
+<polyline id="interaction-transform-0" points="659,341 676,341" fill="none" stroke="#4C8B82" stroke-width="1.4" stroke-linejoin="round"  marker-end="url(#arrow-4C8B82)"/>
+<text id="interaction-caption-0" x="665.5" y="388.5" font-family="Arial" font-size="17" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">State update</text>
+<rect id="interaction-1" x="805" y="266" width="173" height="165" rx="7" fill="none" stroke="#4C8B82" stroke-width="1.8" />
+<text id="interaction-title-1" x="891.5" y="289" font-family="Arial" font-size="17.8" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253746">Interaction block</text>
+<text id="interaction-index-1" x="957.5" y="414.5" font-family="Arial" font-size="16.5" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">2</text>
+<rect id="interaction-state-1-0" x="833" y="321" width="13" height="40"  fill="#ECF2F7" stroke="#52779C" stroke-width="1" />
+<rect id="interaction-state-1-1" x="850" y="321" width="13" height="40"  fill="#D0DFEA" stroke="#52779C" stroke-width="1" />
+<rect id="interaction-state-1-2" x="867" y="321" width="13" height="40"  fill="#ADC6DA" stroke="#52779C" stroke-width="1" />
+<rect id="interaction-update-1-0" x="907" y="321" width="13" height="40"  fill="#EDF5F2" stroke="#4C8B82" stroke-width="1" />
+<rect id="interaction-update-1-1" x="924" y="321" width="13" height="40"  fill="#D1E6DE" stroke="#4C8B82" stroke-width="1" />
+<rect id="interaction-update-1-2" x="941" y="321" width="13" height="40"  fill="#A3CABD" stroke="#4C8B82" stroke-width="1" />
+<polyline id="interaction-transform-1" points="885,341 902,341" fill="none" stroke="#4C8B82" stroke-width="1.4" stroke-linejoin="round"  marker-end="url(#arrow-4C8B82)"/>
+<text id="interaction-caption-1" x="891.5" y="388.5" font-family="Arial" font-size="17" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">State update</text>
+<polyline id="block-to-block" points="763,346 793,346" fill="none" stroke="#253746" stroke-width="1.8" stroke-linejoin="round"  marker-end="url(#arrow-253746)"/>
+<polyline id="block-to-decoder" points="990,346 1012,346" fill="none" stroke="#253746" stroke-width="1.8" stroke-linejoin="round"  marker-end="url(#arrow-253746)"/>
+<polyline id="decode-predict" points="1173,346 1245,346" fill="none" stroke="#253746" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#arrow-253746)"/>
+<rect id="perturbation-record" x="45" y="87" width="150" height="52"  fill="#F7F0E0" stroke="#B99654" stroke-width="1.4" />
+<text id="perturbation-record-label" x="120" y="108" font-family="Arial" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253746">Perturbation</text>
+<rect id="perturbation-encoder" x="235" y="83" width="197" height="60"  fill="none" stroke="#B99654" stroke-width="1.4" />
+<text id="perturbation-encoder-label" x="333.5" y="113.5" font-family="Arial" font-size="17.2" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">Perturbation encoder</text>
+<rect id="perturbation-tokens-0" x="471" y="91" width="13" height="40"  fill="#FAF5E9" stroke="#B99654" stroke-width="1" />
+<rect id="perturbation-tokens-1" x="488" y="91" width="13" height="40"  fill="#EDDFC1" stroke="#B99654" stroke-width="1" />
+<rect id="perturbation-tokens-2" x="505" y="91" width="13" height="40"  fill="#DBC493" stroke="#B99654" stroke-width="1" />
+<rect id="perturbation-tokens-3" x="522" y="91" width="13" height="40"  fill="#C5AA6A" stroke="#B99654" stroke-width="1" />
+<polyline id="perturbation-encode" points="207,113 222,113" fill="none" stroke="#B99654" stroke-width="1.8" stroke-linejoin="round"  marker-end="url(#arrow-B99654)"/>
+<polyline id="perturbation-tokens-route" points="444,113 459,113" fill="none" stroke="#B99654" stroke-width="1.8" stroke-linejoin="round"  marker-end="url(#arrow-B99654)"/>
+<polyline id="perturbation-rail" points="548,113 635,113 862,113" fill="none" stroke="#B99654" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="7 5" />
+<polyline id="perturbation-to-one" points="635,113 635,252" fill="none" stroke="#B99654" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#arrow-B99654)"/>
+<polyline id="perturbation-to-two" points="862,113 862,252" fill="none" stroke="#B99654" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#arrow-B99654)"/>
+<rect id="context-record" x="45" y="174" width="150" height="52"  fill="#F0ECF5" stroke="#8D79AC" stroke-width="1.4" />
+<text id="context-record-label" x="120" y="199" font-family="Arial" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253746">Context</text>
+<rect id="context-encoder" x="235" y="170" width="197" height="60"  fill="none" stroke="#8D79AC" stroke-width="1.4" />
+<text id="context-encoder-label" x="333.5" y="199.5" font-family="Arial" font-size="17.2" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">Context encoder</text>
+<rect id="context-tokens-0" x="471" y="178" width="13" height="40"  fill="#F2EEF7" stroke="#8D79AC" stroke-width="1" />
+<rect id="context-tokens-1" x="488" y="178" width="13" height="40"  fill="#DED5EB" stroke="#8D79AC" stroke-width="1" />
+<rect id="context-tokens-2" x="505" y="178" width="13" height="40"  fill="#C3B3D8" stroke="#8D79AC" stroke-width="1" />
+<rect id="context-tokens-3" x="522" y="178" width="13" height="40"  fill="#A793BE" stroke="#8D79AC" stroke-width="1" />
+<polyline id="context-encode" points="207,200 222,200" fill="none" stroke="#8D79AC" stroke-width="1.8" stroke-linejoin="round"  marker-end="url(#arrow-8D79AC)"/>
+<polyline id="context-token-route" points="444,200 459,200" fill="none" stroke="#8D79AC" stroke-width="1.8" stroke-linejoin="round"  marker-end="url(#arrow-8D79AC)"/>
+<polyline id="context-rail" points="548,200 689,200 916,200" fill="none" stroke="#8D79AC" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="7 5" />
+<polyline id="context-to-one" points="689,200 689,252" fill="none" stroke="#8D79AC" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#arrow-8D79AC)"/>
+<polyline id="context-to-two" points="916,200 916,252" fill="none" stroke="#8D79AC" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#arrow-8D79AC)"/>
+<text id="conditioning-label" x="1071.5" y="171.5" font-family="Arial" font-size="17.5" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">Shared conditioning</text>
+<polyline id="conditioning-key" points="975,126 1023,126" fill="none" stroke="#56636F" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#arrow-56636F)"/>
+<text id="conditioning-key-label" x="1034" y="125.5" font-family="Arial" font-size="16.5" font-weight="400" text-anchor="start" dominant-baseline="central" fill="#253746">Condition tokens</text>
+<text id="observed-label" x="884.5" y="492" font-family="Arial" font-size="17.5" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">Observed response</text>
+<rect id="observed-record" x="786" y="473" width="200" height="37"  fill="none" stroke="#52779C" stroke-width="1.25" />
+<rect id="reconstruction-loss" x="1047" y="471" width="250" height="41"  fill="#E7F2EF" stroke="#4C8B82" stroke-width="1.4" />
+<text id="reconstruction-loss-label" x="1172" y="491" font-family="Arial" font-size="17.5" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253746">Reconstruction loss</text>
+<polyline id="observed-to-loss" points="994,491 1036,491" fill="none" stroke="#253746" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#arrow-253746)"/>
+<polyline id="prediction-to-loss" points="1370,346 1382,346 1382,491 1310,491" fill="none" stroke="#253746" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#arrow-253746)"/>
+<text id="training-only-label" x="1156" y="450" font-family="Arial" font-size="17" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">Training only</text>
+<polyline id="detail-leader" points="664,442 664,495 40,495 40,525" fill="none" stroke="#56636F" stroke-width="1.1" stroke-linejoin="round" stroke-dasharray="7 5" />
+<text id="detail-leader-label" x="468" y="474" font-family="Arial" font-size="16.5" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">Block detail</text>
+<polyline id="row-divider" points="17,532 1382,532" fill="none" stroke="#D7DEE3" stroke-width="1.2" stroke-linejoin="round"  />
+<polyline id="lower-divider" points="918,549 918,877" fill="none" stroke="#D7DEE3" stroke-width="1.2" stroke-linejoin="round"  />
+<text id="panel-b" x="16" y="562" font-family="Arial" font-size="21.6" font-weight="700" text-anchor="start" dominant-baseline="central" fill="#253746">b</text>
+<text id="panel-b-title" x="53" y="562" font-family="Arial" font-size="18.5" font-weight="700" text-anchor="start" dominant-baseline="central" fill="#253746">Interaction block detail</text>
+<text id="condition-detail-title" x="231.5" y="605.5" font-family="Arial" font-size="17" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">Perturbation + context tokens</text>
+<rect id="detail-perturbation-0" x="91" y="632" width="13" height="40"  fill="#FAF5E9" stroke="#B99654" stroke-width="1" />
+<rect id="detail-perturbation-1" x="108" y="632" width="13" height="40"  fill="#EDDFC1" stroke="#B99654" stroke-width="1" />
+<rect id="detail-perturbation-2" x="125" y="632" width="13" height="40"  fill="#DBC493" stroke="#B99654" stroke-width="1" />
+<rect id="detail-perturbation-3" x="142" y="632" width="13" height="40"  fill="#C5AA6A" stroke="#B99654" stroke-width="1" />
+<rect id="detail-context-0" x="178" y="632" width="13" height="40"  fill="#F2EEF7" stroke="#8D79AC" stroke-width="1" />
+<rect id="detail-context-1" x="195" y="632" width="13" height="40"  fill="#DED5EB" stroke="#8D79AC" stroke-width="1" />
+<rect id="detail-context-2" x="212" y="632" width="13" height="40"  fill="#C3B3D8" stroke="#8D79AC" stroke-width="1" />
+<rect id="detail-context-3" x="229" y="632" width="13" height="40"  fill="#A793BE" stroke="#8D79AC" stroke-width="1" />
+<polyline id="detail-perturbation-join" points="123,680 123,691 175,691" fill="none" stroke="#B99654" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="7 5" />
+<polyline id="detail-context-join" points="210,680 210,691 175,691" fill="none" stroke="#8D79AC" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="7 5" />
+<polyline id="conditioning-to-attention" points="175,691 175,713" fill="none" stroke="#253746" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#arrow-253746)"/>
+<text id="kv-label" x="246" y="666.5" font-family="Arial" font-size="16.5" font-weight="400" text-anchor="start" dominant-baseline="central" fill="#253746">Keys / values</text>
+<rect id="attention" x="104" y="726" width="164" height="88"  fill="#E7F2EF" stroke="#4C8B82" stroke-width="1.5" />
+<text id="attention-label" x="186" y="749.5" font-family="Arial" font-size="17.5" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253746">Cross-attention</text>
+<text id="attention-caption" x="186" y="787" font-family="Arial" font-size="16.7" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">Token mixing</text>
+<rect id="detail-input-0" x="34" y="750" width="13" height="13"  fill="#ECF2F7" stroke="#52779C" stroke-width="1" />
+<rect id="detail-input-1" x="34" y="767" width="13" height="13"  fill="#D0DFEA" stroke="#52779C" stroke-width="1" />
+<rect id="detail-input-2" x="34" y="784" width="13" height="13"  fill="#ADC6DA" stroke="#52779C" stroke-width="1" />
+<text id="query-label" x="60" y="721.5" font-family="Arial" font-size="16.5" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">Query</text>
+<polyline id="query-to-attention" points="60,772 92,772" fill="none" stroke="#253746" stroke-width="1.8" stroke-linejoin="round"  marker-end="url(#arrow-253746)"/>
+<ellipse id="residual-one" cx="342" cy="771" rx="20" ry="20" fill="#FFFFFF" stroke="#253746" stroke-width="1.5" />
+<text id="plus-one" x="342" y="770" font-family="Arial" font-size="22.5" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">+</text>
+<polyline id="attention-to-add" points="280,772 310,772" fill="none" stroke="#253746" stroke-width="1.8" stroke-linejoin="round"  marker-end="url(#arrow-253746)"/>
+<polyline id="residual-one-route" points="74,772 74,835 342,835 342,804" fill="none" stroke="#52779C" stroke-width="1.4" stroke-linejoin="round"  marker-end="url(#arrow-52779C)"/>
+<ellipse id="residual-one-junction" cx="74" cy="772" rx="2.2" ry="2.2" fill="#52779C" stroke="none" stroke-width="1.6" />
+<text id="residual-one-label" x="439" y="698" font-family="Arial" font-size="16.5" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">Residual</text>
+<rect id="feed-forward" x="452" y="726" width="164" height="88"  fill="#E7F2EF" stroke="#4C8B82" stroke-width="1.5" />
+<text id="feed-forward-label" x="534" y="767.5" font-family="Arial" font-size="17.5" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253746">Feed-forward</text>
+<polyline id="add-to-feed-forward" points="374,772 440,772" fill="none" stroke="#253746" stroke-width="1.8" stroke-linejoin="round"  marker-end="url(#arrow-253746)"/>
+<ellipse id="residual-two" cx="692" cy="771" rx="20" ry="20" fill="#FFFFFF" stroke="#253746" stroke-width="1.5" />
+<text id="plus-two" x="692" y="770" font-family="Arial" font-size="22.5" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">+</text>
+<polyline id="feed-forward-to-add" points="628,772 660,772" fill="none" stroke="#253746" stroke-width="1.8" stroke-linejoin="round"  marker-end="url(#arrow-253746)"/>
+<polyline id="residual-two-route" points="405,772 405,710 692,710 692,738" fill="none" stroke="#52779C" stroke-width="1.4" stroke-linejoin="round"  marker-end="url(#arrow-52779C)"/>
+<ellipse id="residual-two-junction" cx="405" cy="772" rx="2.2" ry="2.2" fill="#52779C" stroke="none" stroke-width="1.6" />
+<rect id="updated-state-0" x="804" y="749" width="13" height="40"  fill="#EDF5F2" stroke="#4C8B82" stroke-width="1" />
+<rect id="updated-state-1" x="821" y="749" width="13" height="40"  fill="#D1E6DE" stroke="#4C8B82" stroke-width="1" />
+<rect id="updated-state-2" x="838" y="749" width="13" height="40"  fill="#A3CABD" stroke="#4C8B82" stroke-width="1" />
+<rect id="updated-state-3" x="855" y="749" width="13" height="40"  fill="#78AD9E" stroke="#4C8B82" stroke-width="1" />
+<polyline id="updated-state-route" points="724,772 790,772" fill="none" stroke="#253746" stroke-width="1.8" stroke-linejoin="round"  marker-end="url(#arrow-253746)"/>
+<text id="updated-state-label" x="836" y="821" font-family="Arial" font-size="16.5" font-weight="400" text-anchor="middle" dominant-baseline="central" fill="#253746">Updated state</text>
+<text id="block-detail-caption" x="37" y="863.5" font-family="Arial" font-size="16.3" font-weight="400" text-anchor="start" dominant-baseline="central" fill="#253746">Residual routes add the pre-transform state to each transform output.</text>
+<text id="panel-c" x="945" y="562" font-family="Arial" font-size="21.6" font-weight="700" text-anchor="start" dominant-baseline="central" fill="#253746">c</text>
+<text id="panel-c-title" x="982" y="562" font-family="Arial" font-size="18.5" font-weight="700" text-anchor="start" dominant-baseline="central" fill="#253746">Training and inference</text>
+<text id="training-title" x="959" y="614" font-family="Arial" font-size="18.2" font-weight="700" text-anchor="start" dominant-baseline="central" fill="#253746">Training</text>
+<text id="training-inputs" x="959" y="654" font-family="Arial" font-size="17.2" font-weight="400" text-anchor="start" dominant-baseline="central" fill="#253746">Baseline + perturbation + context</text>
+<polyline id="training-path" points="981,688 1089,688" fill="none" stroke="#253746" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#arrow-253746)"/>
+<text id="training-prediction" x="1104" y="688" font-family="Arial" font-size="17.2" font-weight="400" text-anchor="start" dominant-baseline="central" fill="#253746">Prediction</text>
+<text id="training-supervision" x="959" y="730" font-family="Arial" font-size="16.5" font-weight="400" text-anchor="start" dominant-baseline="central" fill="#253746">Paired observed response supplies loss</text>
+<polyline id="train-inference-divider" points="960,760 1363,760" fill="none" stroke="#D7DEE3" stroke-width="1.1" stroke-linejoin="round"  />
+<text id="inference-title" x="959" y="791" font-family="Arial" font-size="18.2" font-weight="700" text-anchor="start" dominant-baseline="central" fill="#253746">Inference</text>
+<text id="inference-inputs" x="959" y="828" font-family="Arial" font-size="17.2" font-weight="400" text-anchor="start" dominant-baseline="central" fill="#253746">Baseline + perturbation + context</text>
+<text id="inference-no-response" x="959" y="866" font-family="Arial" font-size="17.2" font-weight="700" text-anchor="start" dominant-baseline="central" fill="#253746">No observed-response input</text>
+<text id="conference-disclosure" x="16" y="920.5" font-family="Arial" font-size="15.5" font-weight="400" text-anchor="start" dominant-baseline="central" fill="#253746">Illustrative architecture. Token counts and shading are not dimensions or measured attention.</text></svg>

@@ -1,0 +1,15 @@
+{
+  "width_mm": 135,
+  "height_mm": 90,
+  "panels": [
+    {
+      "kind": "plot",
+      "title": "Synthetic paired observations",
+      "source_csv": "observations.csv",
+      "x": "baseline",
+      "y": "follow_up",
+      "xlabel": "Baseline response (arbitrary units)",
+      "ylabel": "Follow-up response (arbitrary units)"
+    }
+  ]
+}
