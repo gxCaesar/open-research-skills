@@ -27,8 +27,15 @@ Before opening a change, run:
 ```bash
 python3 -B scripts/run_tests.py
 python3 scripts/check_public_content.py .
+python3 scripts/check_rule_coverage.py
 find skills -type l -print
 ```
+
+`check_rule_coverage.py` reports which project-validator rules still have a witness that
+makes them fire, and reconciles the witnessed and unwitnessed sets against the rules the
+validator can actually emit. A rule nothing can make fire could stop working without any
+test noticing, so a new rule arrives either with a witness or on the unwitnessed list
+with a reason for why it does not have one yet.
 
 For a real release candidate, keep project-specific names and host identifiers in a private
 newline-delimited file outside the checkout and run
