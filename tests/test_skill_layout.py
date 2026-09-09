@@ -84,6 +84,24 @@ RUNTIME_PROBES = {
         ),
         ("components/paper-card/scripts/prepare_paper.py", "--help"),
     ),
+    "method-development": (
+        "develop-method-to-sota",
+        (
+            "scripts/check_iteration_ledger.py",
+            "examples/iteration-ledger/clean.json",
+            "references/component-iteration.md",
+        ),
+        ("scripts/check_iteration_ledger.py", "examples/iteration-ledger/clean.json"),
+    ),
+    "survey-and-novelty": (
+        "survey-and-audit-novelty",
+        (
+            "scripts/check_survey_ledger.py",
+            "examples/survey-ledger/clean.json",
+            "references/kill-layers.md",
+        ),
+        ("scripts/check_survey_ledger.py", "examples/survey-ledger/clean.json"),
+    ),
 }
 REQUIRED_PYTHON_DEPENDENCIES = {
     "scientific-visualizations": {

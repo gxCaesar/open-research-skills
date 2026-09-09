@@ -1,0 +1,17 @@
+{
+  "direction": "synthetic: same direction, audited without the arithmetic",
+  "contribution_lane": "novel",
+  "candidates_examined": 7,
+  "search_angles": [
+    {"framing": "method family", "result": "3 candidates"},
+    {"framing": "application domain"},
+    {"framing": "", "result": "no result"}
+  ],
+  "candidates": [
+    {"id": "c-01", "identifier": "synthetic-doi-0011", "disposition": "identical"},
+    {"id": "c-02", "identifier": "synthetic-doi-0012", "disposition": "identical",
+     "kill_layer": "task"},
+    {"id": "c-03", "disposition": "already done"}
+  ],
+  "scoop_verdict": "TAKEN"
+}

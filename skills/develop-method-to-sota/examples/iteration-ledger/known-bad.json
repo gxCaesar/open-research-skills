@@ -1,0 +1,40 @@
+{
+  "task": "synthetic-sequence-tagging",
+  "split": "development",
+  "iterations": [
+    {
+      "id": "it-01",
+      "order": 6,
+      "construction_shape": "replace the encoder with a deeper stack",
+      "mechanism": "capacity is the limit",
+      "predicted_slice": "long sequences",
+      "seeds": [11],
+      "treatment": {"seeds": [11], "score": 0.702},
+      "control": {"seeds": [11], "score": 0.741},
+      "verdict": "void"
+    },
+    {
+      "id": "it-02",
+      "order": 6,
+      "construction_shape": "replace the encoder with a deeper stack!",
+      "mechanism": "capacity is still the limit",
+      "predicted_slice": "long sequences",
+      "seeds": [11],
+      "treatment": {"seeds": [11], "score": 0.705},
+      "control": {"seeds": [11], "score": 0.740},
+      "verdict": "void"
+    },
+    {
+      "id": "it-03",
+      "order": 9,
+      "construction_shape": "tune the learning rate",
+      "mechanism": "",
+      "predicted_slice": "all",
+      "seeds": [11, 12],
+      "treatment": {"seeds": [11, 12], "score": 0.712},
+      "control": {"seeds": [11, 12], "score": 0.710},
+      "verdict": "probably fine"
+    }
+  ],
+  "exit": {"number": 1}
+}

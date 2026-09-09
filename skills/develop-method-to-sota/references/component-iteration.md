@@ -19,6 +19,11 @@ A candidate whose construction shape matches an already-killed candidate inherit
 kill. Overriding the inheritance requires one sentence naming which computation differs.
 Renaming is not a difference.
 
+The bundled checker compares shapes after removing case, punctuation and spacing, so it
+catches a rename and nothing more. Two descriptions of the same construction in different
+words read as different shapes to it. Deduplication is your judgement; what the checker
+enforces is that a repeat you did notice was acknowledged rather than left implicit.
+
 ## Designing the control
 
 The control destroys the mechanism and preserves everything else. Both halves are

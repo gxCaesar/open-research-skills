@@ -1,0 +1,115 @@
+{
+  "task": "synthetic-sequence-tagging",
+  "split": "development",
+  "headroom": {
+    "value": 0.084,
+    "procedure": "oracle arm given the true segment boundary, five seeds"
+  },
+  "noise_floor": {
+    "value": 0.011,
+    "procedure": "same commit and split, five seeds across two library builds"
+  },
+  "iterations": [
+    {
+      "id": "it-01",
+      "order": 1,
+      "construction_shape": "reweight the loss per token by inverse label frequency",
+      "mechanism": "rare labels are under-fit because frequent labels dominate the gradient",
+      "predicted_slice": "labels below the 10th frequency percentile",
+      "seeds": [
+        11,
+        12,
+        13
+      ],
+      "treatment": {
+        "seeds": [
+          11,
+          12,
+          13
+        ],
+        "score": 0.731,
+        "target_slice_score": 0.402
+      },
+      "control": {
+        "seeds": [
+          11,
+          12,
+          13
+        ],
+        "score": 0.712,
+        "target_slice_score": 0.331,
+        "describes": "identical run with uniform token weights and nothing else changed"
+      },
+      "verdict": "supported"
+    },
+    {
+      "id": "it-02",
+      "order": 3,
+      "construction_shape": "augment training pairs by swapping the order of two adjacent segments",
+      "mechanism": "the model keys on absolute position rather than on segment content",
+      "predicted_slice": "sequences whose segments appear in an unusual order",
+      "seeds": [
+        11,
+        12,
+        13
+      ],
+      "treatment": {
+        "seeds": [
+          11,
+          12,
+          13
+        ],
+        "score": 0.729,
+        "target_slice_score": 0.508
+      },
+      "control": {
+        "seeds": [
+          11,
+          12,
+          13
+        ],
+        "score": 0.73,
+        "target_slice_score": 0.505,
+        "describes": "identical run without the swapped pairs, same number of updates"
+      },
+      "verdict": "void"
+    },
+    {
+      "id": "it-03",
+      "order": 3,
+      "construction_shape": "Augment training pairs by swapping the order of two adjacent segments.",
+      "differs_from_prior": "same construction, applied at evaluation time as well, so it tests invariance instead of adding training data",
+      "mechanism": "the model is not invariant to segment order at inference",
+      "predicted_slice": "sequences whose segments appear in an unusual order",
+      "seeds": [
+        11,
+        12,
+        13
+      ],
+      "treatment": {
+        "seeds": [
+          11,
+          12,
+          13
+        ],
+        "score": 0.744,
+        "target_slice_score": 0.561
+      },
+      "control": {
+        "seeds": [
+          11,
+          12,
+          13
+        ],
+        "score": 0.731,
+        "target_slice_score": 0.409,
+        "describes": "identical run with the invariance test disabled and nothing else changed"
+      },
+      "verdict": "supported"
+    }
+  ],
+  "exit": {
+    "number": 2,
+    "note": "pre-registered budget of three iterations spent; next candidate would have been order 4 ensembling"
+  }
+}

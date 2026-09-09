@@ -1,0 +1,51 @@
+{
+  "direction": "synthetic: predict segment boundaries from paired low-resolution and high-resolution readouts",
+  "contribution_lane": "sota-method",
+  "task": "boundary detection on the paired synthetic corpus",
+  "second_axis": "runs within a fixed compute budget the incumbent cannot meet at this input length",
+  "candidates_examined": 4,
+  "joint_variable_audit": [
+    {"source": "synthetic corpus A", "release": "v3", "checked_on": "2026-09-10",
+     "variables": ["low_resolution_readout", "high_resolution_readout", "boundary_label"],
+     "joint_count": 812, "matching_level": "exact", "disposition": "proceed"},
+    {"source": "synthetic corpus B", "release": "2026-05", "checked_on": "2026-09-10",
+     "variables": ["low_resolution_readout", "high_resolution_readout", "boundary_label"],
+     "joint_count": 0, "matching_level": "exact", "disposition": "relax",
+     "note": "no sample carries all three; relaxing the boundary label to its coarse class yields 341"}
+  ],
+  "search_angles": [
+    {"framing": "method family: paired-readout alignment", "result": "6 candidates, 2 adjacent"},
+    {"framing": "application domain: segmentation from weak supervision", "result": "3 candidates, all irrelevant"},
+    {"framing": "benchmark name", "result": "no result"},
+    {"framing": "data modality: paired multi-resolution readouts", "result": "1 candidate, adjacent"},
+    {"framing": "claimed mechanism: resolution transfer", "result": "no result"},
+    {"framing": "adjacent field solving the same shape", "result": "2 candidates, irrelevant"},
+    {"framing": "negative framing: who tried this and reported it failing", "result": "no result",
+     "adversarial": true},
+    {"framing": "scoop pass: strongest possible prior claim to this contribution", "result": "1 candidate, uncertain",
+     "adversarial": true}
+  ],
+  "candidates": [
+    {"id": "c-01", "identifier": "synthetic-doi-0001", "venue_year": "venue X 2025",
+     "did": "aligns paired readouts with a fixed transform", "disposition": "adjacent"},
+    {"id": "c-02", "identifier": "synthetic-doi-0002", "venue_year": "venue Y 2024",
+     "did": "segments from a single resolution", "disposition": "irrelevant"},
+    {"id": "c-03", "identifier": "synthetic-doi-0003", "venue_year": "venue Z 2026",
+     "did": "learns the same transform end to end on the same task", "disposition": "identical",
+     "kill_layer": "framing",
+     "note": "the phrasing is occupied; the paired-budget claim is untouched"},
+    {"id": "c-04", "identifier": "synthetic-doi-0004", "venue_year": "preprint 2026",
+     "did": "unclear from the method section whether the readouts are paired", "disposition": "uncertain"}
+  ],
+  "scoop_verdict": "IDENTICAL",
+  "feasibility": {"headroom": 0.084, "noise_floor": 0.011,
+                  "procedure": "oracle boundary arm and five-seed re-execution on the same commit"},
+  "venue_fit": {"recommendation": "proceed", "owner": "author",
+                "reason": "the second axis is the compute budget, which this venue has published on"},
+  "repair_table": [
+    {"kill": "c-03", "reversible": true,
+     "correction": "the collision is on the framing; restating the claim around the budget axis reverses it"}
+  ],
+  "repair_summary": {"kills": 1, "reversible": 1,
+                     "reading": "the single kill is reversible, so it is reported as a framing change rather than a dead direction"}
+}
