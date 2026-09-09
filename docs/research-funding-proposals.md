@@ -1,262 +1,209 @@
-# Research Funding Proposals
+# 中文基金：把细胞扰动想法变成研究方案
 
-[All five skills and repository setup](../README.md)
+[返回仓库导览](../README.md) · [完整 skill](../skills/writing-funding-proposals/SKILL.md)
 
-An independently installable agent skill for turning a Chinese research-funding idea into
-an evidence-linked proposal workflow. It helps organize sources, compare topics, build
-arguments, prepare section briefs, audit applicant-authored text, produce permitted
-figures and inspect local delivery records. It is not an automatic grant writer or a
-prediction of funding success.
+`writing-funding-proposals` 用于整理中国科研基金项目的科学问题、证据、比较方案、
+研究内容、年度安排与章节任务，并审阅申请人提供的材料。它的价值是把想做一个模型
+变成能够解释、能够检验、也能够承认失败的研究计划。
 
-**Start here:** [five-minute demo](#five-minute-demo) ·
-[read the sample](../skills/writing-funding-proposals/examples/section-brief-walkthrough.md) ·
-[skill instructions](../skills/writing-funding-proposals/SKILL.md) ·
-[full workflow](../skills/writing-funding-proposals/references/full-project-workflow.md)
+本页用一个虚构的细胞扰动预测课题演示完整过程。详细产物在
+[带批注的章节任务书](../skills/writing-funding-proposals/examples/section-brief-walkthrough.md)。
+你会看到具体问题如何进入比较、研究内容与年度产出，不需要先运行记录检查器。
 
-`writing-funding-proposals` is one of five skills in Open Research Skills. It remains
-independently usable; no second research skill is required. Python scripts provide local tools; your agent runtime reads
-the skill and carries out the evidence and writing work within the requested scope.
+## 示例：状态匹配能否改善未见扰动预测？
 
-It deliberately excludes personal applicant records, proposal history, private writing profiles,
-official form copies, hidden workflow state, and third-party examples. Public tests use a synthetic
-funder and applicant.
+一个初始想法是利用 AI 预测细胞扰动响应。更有用的研究问题是：
 
-## What you can do
+> 在未见基因扰动的响应预测中，利用扰动前细胞状态限定参考样本的选择，
+> 能否改善预测，并区分状态匹配的作用与额外信息的作用？
 
-| Your situation | What you provide | Useful output |
-|---|---|---|
-| Starting an NSFC, Guangdong or other Chinese proposal | Program/year/type, official sources and institutional instructions | Source register, current-policy questions and permitted assistance scope |
-| Choosing between ideas | Candidate questions, data-access evidence and applicant experience | Topic comparison, nearest-work delta and cheapest feasibility check |
-| Turning an idea into research contents | Verified premises and one selected route | Question–content–validation–output map and section briefs |
-| Avoiding unrealistic promises | Work packages, dependencies and resources | Bounded commitments, annual outputs, risks and a conditional financial budget |
-| Reviewing a draft | Applicant-authored text, sources and actual form | Located fatal, scientific and readability findings with revision tasks |
-| Preparing local delivery | Reviewed text, permitted figures and current official template | Integrated candidate, real build/visual review work and local record check |
+本例把预测终点暂定为预先定义基因集合上的表达变化，真实课题仍需明确变化的
+对照、度量和实验单位。这里没有真实数据、最近工作核验、前期结果或申请人记录。
+它是一份教学研究计划，不是可以直接提交的申请书正文。
 
-The argument follows the evidence, not a fixed three-aim template. Commitments distinguish
-deliverable mainline work, cautious exploration and early boundary confirmation.
+| 从想法到方案 | 本例的具体落点 |
+|---|---|
+| 科学问题 | 状态匹配是否提供额外预测价值，而不仅是增加信息 |
+| 数据依赖 | 扰动身份、对照、背景状态和表达终点必须能对应 |
+| 关键比较 | 只改变匹配策略，与同信息、同预算版本及适用强基线比较 |
+| 研究内容 | 核心机制比较及其独立背景边界验证 |
+| 计划产出 | 可重算的逐单位比较、适用边界和可能的负结论 |
 
-## Five-minute demo
+## 1. 题目接入：明确缺的证据
 
-Clone `gxCaesar/open-research-skills` once using the [repository setup](../README.md).
-Python 3.9+ and its standard library are sufficient. This demo needs no
-network, API key, agent account or third-party Python packages. Run from the repository
-root and use a new output directory:
+提供项目类别与年份、现有问题、数据说明、已读论文和申请人真实材料。
+没有的材料直接说明没有；申请人的已有工作与拟开展工作要分开。
 
-```bash
-demo_root=$(mktemp -d)
-python3 -B skills/writing-funding-proposals/examples/run_demo.py "$demo_root/funding-demo"
+```text
+使用 $writing-funding-proposals 帮我梳理这个细胞扰动预测选题。
+先阅读我提供的数据说明、相关论文和申请人材料，不代写申请书正文。
+判断状态匹配这一问题需要哪些变量同时存在、哪些对照能区分机制与额外信息。
+给出最近工作需要核实的差异、申请人能力需要补的证据，以及最便宜的可行性检查。
+不要把待验证假设写成已取得的结果。
 ```
 
-Expected status lines:
+应得到一份问题与证据需求说明：可配对条件是什么、独立单位是什么、最接近的工作
+比较了什么、尚缺哪项材料。对于本例，第一项实际工作应是查看元数据与配对关系，
+而不是先写网络结构或承诺数值提升。
+
+如果已有多个候选问题，可让 skill 按科学差异、数据可行性、申请人基础和鉴别性验证
+比较它们。候选名听起来不同，不代表改变了不同的科学对象。
+
+## 2. 公平比较：让假设有可能不成立
+
+在可行性材料足够后，要求它明确比较，而不是扩充背景文字：
+
+```text
+围绕未见基因扰动这一主张，准备一个公平比较方案。
+明确训练/开发边界、主要误差定义、完整扰动身份留出方式和真实评价单位。
+比较状态匹配版本、同信息的不匹配版本、简单方法与适用强基线。
+逐项说明保持不变的条件，写出什么结果会削弱状态匹配的解释。
+```
+
+本例中同信息对照尤其重要。如果候选方法只是读到了更多信息，即使误差降低，
+也不能归因于状态匹配。相似地，随机拆细胞不能自动支持对未见扰动的泛化主张。
+结果分析应根据真实实验层级确定独立单位，不能用大量细胞或重复种子替代生物学重复。
+
+这里尚未确定任何真实分数、效应阈值或样本量。真实计划应依据数据、误差尺度与
+科学用途固定这些选择，不能根据结果再设定门槛。
+
+## 3. 研究内容、年度任务与风险连起来
+
+```text
+把选定问题组织成最小完整的研究内容。
+每项都写清对象、候选机制、对照、验证、可交付产出与失败后处理。
+按实际项目周期安排年度任务和验收证据；内容数由依赖关系决定，不固定成三项。
+区分可以交付的比较与不确定的正向发现。
+```
+
+本例形成两个相连的内容。C1 通过同信息控制比较回答状态匹配是否有额外价值；
+C2 在事先确定且测量可比的独立背景中检查结论边界。数据准备是这两项的前提，
+不能因为它需要工作量就自动被写成另一项科学贡献。
+
+| 教学中的三年安排 | 主要任务 | 可以承诺的产出 |
+|---|---|---|
+| 第一年 | 检查配对数据、复现基线、固定评价与对照 | 数据说明、实际复现结果、可执行的比较方案 |
+| 第二年 | 完成核心控制比较，保留失败条件 | 逐单位结果、机制支持或否定的说明 |
+| 第三年 | 完成已确认可行的独立背景检验，整理材料 | 边界验证、方法说明、可复用实现与论文材料 |
+
+三年仅是本例的教学设定。真实项目按当前类别、周期和资源重排。
+风险要对应行动：变量无法链接时补查数据或调整问题；同信息对照解释了改善时
+收回机制归因；外部背景不可获取时限定结论，不能写成已经落实的合作条件。
+
+完整的年度表、风险表与因果依赖见
+[示例第 4–5 节](../skills/writing-funding-proposals/examples/section-brief-walkthrough.md)。
+
+## 4. 从研究方案到章节任务书
+
+章节任务书应给作者段落任务和证据位置，而不仅给一个标题大纲。
+
+```text
+基于已确定的问题、比较和年度计划，生成带批注的章节任务书。
+为立项依据、研究内容、研究基础逐段说明任务、所需证据和下一段的依赖。
+研究基础只使用真实申请人材料；缺失处列出补证任务。
+输出编辑说明与修改任务，不生成可直接粘贴的申请正文。
+```
+
+| 章节 | 本例应回答的问题 | 应得到的任务 |
+|---|---|---|
+| 立项依据 | 为什么这一预测困难值得研究，最近工作在哪种条件下仍未回答 | 按能力与边界组织证据，再引出一个中心问题 |
+| 研究内容 | 哪个比较能回答问题，结论如何被推翻或限定 | 写清 C1/C2 的对象、变化、对照、终点与产出 |
+| 研究基础 | 申请人已完成的哪些工作支持这些任务 | 逐项关联真实成果、本人角色与可迁移能力 |
+
+例如，C1 的批注可要求作者解释：候选只改变了哪个选择步骤，同信息对照保持哪些
+条件，什么结果会让机制解释不成立。不要用一串模型名代替这段逻辑。
+完整的 [章节任务书与审阅示例](../skills/writing-funding-proposals/examples/section-brief-walkthrough.md)
+可以直接阅读，它不是 `run_demo.py` 自动写出的正文。
+
+## 5. 审阅、图示与本地整合
+
+当申请人提供真实草稿后，沿着同一个问题检查是否越界：
+
+```text
+使用 $writing-funding-proposals 审阅这份草稿与证据材料。
+先找最可能使课题不成立的缺口，再检查研究内容、年度产出和申请人基础是否一致。
+每条意见给出具体位置、证据缺口和最便宜的补证或修改任务。
+保持原有数值、限定语和本人角色，不把计划写成结果。
+```
+
+本例最重要的审阅结论不是文字不够漂亮，而是数据可链接性、最近工作和申请人基础
+都尚未给定。补齐这些证据后，才能判断该研究计划是否值得继续。
+
+图示也应回答问题。可先给出一个图的任务书：展示共享输入、状态匹配的唯一变化、
+同信息对照和判断出口。无结果时不画带分数的性能图。
+在真实任务允许的范围内，再使用内置
+[图形与交付指导](../skills/writing-funding-proposals/references/figures-review-and-delivery.md)
+与 [独立 figure route](../skills/writing-funding-proposals/references/standalone-figures.md)
+完成编辑、导出和检查，无需另装研究 skill。
+
+本地交付不是一个状态词。应有实际章节、被允许的图表、当前项目真实模板的整合产物，
+并完成真实构建与逐页检查。若只交付了任务书，就如实称为任务书。
+
+## 安装和建立自己的工作区
+
+安装方法统一见 [开始使用](../README.md#start)。安装后选择
+`writing-funding-proposals`，或在支持命名技能的运行时使用 `$writing-funding-proposals`。
+
+下面的初始化示例直接使用 checkout，无需修改安装路径。请从仓库根目录运行；
+如果之前切换过目录，先回到 `open-research-skills` 根目录。`2026` 只是教学参数：
+
+```bash
+SKILL_DIR="$PWD/skills/writing-funding-proposals"
+DEMO_OUT=$(mktemp -d)
+python3 "$SKILL_DIR/scripts/init_proposal_workspace.py" "$DEMO_OUT/proposal" \
+  --project-id perturbation-proposal --program other --year 2026 --project-type general
+```
+
+初始化器拒绝覆盖非空目录。它提供的是组织工作的起点，不会替你查证来源或完成方案。
+完整工作路径见 [full-project workflow](../skills/writing-funding-proposals/references/full-project-workflow.md)。
+
+记录工具只需 Python 3.9+。图形与 PPTX 功能按安装目录内的 `requirements.txt` 使用
+其声明依赖；在线来源、图像服务与文档渲染需要运行时提供相应工具。
+主教学任务书无需运行程序，也不需要这些依赖。
+
+## 进阶：查看原有 M/Y 记录夹具
+
+如果你需要理解工具怎样保存与检查记录，再运行这个标准库示例：
+
+```bash
+# 从仓库根目录运行；独立安装后替换 SKILL_DIR。
+SKILL_DIR="$PWD/skills/writing-funding-proposals"
+DEMO_OUT=$(mktemp -d)
+python3 -B "$SKILL_DIR/examples/run_demo.py" "$DEMO_OUT/funding-demo"
+```
+
+`DEMO_OUT` 是新的临时父目录，`funding-demo` 必须尚不存在。预期终端输出包含：
 
 ```text
 Observed validator status: PASS
 Observed validator scope: record_completeness (record-only)
 ```
 
-The command also prints the output location and synthetic-use warning. The workspace
-stays outside the checkout; only the curated teaching sample belongs in the public repo.
-These commands use macOS/Linux-style shell syntax; on another shell supply an equivalent
-new temporary output path. The [demo guide](../skills/writing-funding-proposals/examples/README.md)
-explains the generated files and their limits. The fixture uses a fixed `2024-02-29`
-snapshot with a 2026 program label for software testing, not real historical policy
-evidence. Files named `.pdf` are test placeholders, **not rendered PDFs**.
+原有 synthetic 夹具仍使用机制 M、结局 Y 和配对对象，未改成这篇教程的真实证据。
+它采用固定历史快照测试记录完整性，章节与 PDF 路径只是标记，不是申请正文或可阅读 PDF。
+说明见 [记录示例](../skills/writing-funding-proposals/examples/README.md)。
 
-Read the [annotated section brief](../skills/writing-funding-proposals/examples/section-brief-walkthrough.md)
-without running anything. Its human-facing preview:
+## 适用范围与真实材料要求
 
-| Argument element | Synthetic example |
-|---|---|
-| Question | Does mechanism M distinguish outcome Y? |
-| Comparison | M versus a simple baseline on held-out synthetic subjects |
-| Intended output | A paired estimate with uncertainty, not a guaranteed positive result |
-| Failure response | Reframe the mechanism claim when the comparison fails |
+本教程提供研究规划、章节任务与审阅方法，不提供申请人撰写的提交正文，也不报告
+当前资助机构政策、资格或经费规则。实际辅助范围、模板与声明，应由目标年份的
+官方和机构来源核实；历史样例与内置参考不能替代当前材料。
 
-No real proposal, applicant review, policy check or scientific experiment occurred. Do
-not publish the generated workspace, submit it, or present it as research evidence.
+没有真实申请人前期结果、数值、数据权限或合作条件时，不补造内容。
+记录检查的 `record_completeness` 只检查记录和局部路径，不能证明来源真实、科学有效、
+作者资格、文件渲染质量或已获资助。外部上传与提交仍需要申请人的明确授权。
 
-## Policy boundary
+## 测试与维护
 
-The bundled [NSFC 2026 profile](../skills/writing-funding-proposals/references/profiles/nsfc-2026.md)
-records a prohibition on directly AI-generated applications and unverified generated content.
-It therefore permits evidence organization, source checking,
-argument maps, section briefs, and audit of applicant-authored text, but not insertion-ready
-application prose. Other programs also default to evidence-and-audit-only until current official
-and institutional policy is verified. The bundled profile is a routing reference, not a
-live confirmation of the current rules for your application.
-
-Final mode requires a live authoring-policy refresh covering both the funder and institution. Each
-registered policy source has one controlled authority kind, plus project program/year/scope,
-checked date, and refresh ID; the two authority kinds require different source IDs. Aggregate
-coverage cannot substitute for source-level authority, and duplicate `(issuer, url_or_path,
-clause_locator)` evidence cannot cover both roles. Final official-authority, official-template,
-and financial-budget requirement records also bind dedicated `VERIFIED` sources to the selected
-program/year, role-specific source-register scope/type, and the final `as_of` date. A local
-template source path must match its registered artifact path. A bundled `VERIFIED_PROFILE`
-supports working mode only. The public tools validate a local record contract. They cannot
-establish eligibility, scientific truth, authorship, policy compliance, submission, review
-success, or funding.
-
-Every validator report sets `validation_scope: record_completeness`. A final pass checks
-recorded statuses and local file paths; it does not parse the final file, run a renderer, or
-judge rendered visual quality. The applicant still performs and records the real build and
-page-by-page review.
-
-## Independent completion and figures
-
-For permitted schematic work, inspect relevant high-quality examples first. Borrow
-composition lessons such as reading order, grouping, hierarchy and label density;
-do not transfer their scientific claims, data or proprietary artwork.
-
-With current funder and institutional permission for the requested AI-assisted visual,
-new or redesigned schematics use the bundled [local figure route](../skills/writing-funding-proposals/references/standalone-figures.md):
-style-matched GPT Image 2.5 concepts followed by native editable PPTX using available
-tools directly, then official-template exports and rendered QA. A source-plotting and
-native-vector fallback helper is bundled. Optional `build-scientific-visualizations`
-adds design helpers. The policy-permitted S0–S12 workflow requires no second skill.
-Proposal width comes from the actual form. Unverified visual policy permits local briefs
-and review, not insertion-ready generated figures; private material stays out of external
-image services. Result plots remain data-derived. See
-[figures, review, and delivery](../skills/writing-funding-proposals/references/figures-review-and-delivery.md).
-
-## Install
-
-From the repository root, copy the exact skill directory into a skills directory selected by your
-agent runtime:
+从仓库根目录，在需要时运行：
 
 ```bash
-cp -R skills/writing-funding-proposals \
-  /path/to/skills/writing-funding-proposals
-```
-
-Replace the destination with your runtime's skills directory. Use a destination that
-does not already contain this skill; preserve or deliberately update an existing copy.
-Every reference, template, example and script is inside this one install unit. Select
-`writing-funding-proposals` in your runtime, or invoke `$writing-funding-proposals`
-where named skill invocation is supported.
-
-The record tools require only Python 3.9 or later. The optional local figure helper uses
-`matplotlib==3.9.4`, and local PPTX authoring can use `python-pptx==1.0.2`, both declared
-in the installed skill's `requirements.txt`. Install dependencies in the intended
-environment when needed. Installation is a copy operation; this repository
-does not modify an agent account automatically.
-
-For the optional local graphics capabilities, install the declared dependencies in
-your intended environment:
-
-```bash
-python3 -m pip install -r skills/writing-funding-proposals/requirements.txt
-```
-
-Live source checking needs a browser or source-access tool supplied by your runtime.
-Image concepts need an available, permitted image service; document/PPTX rendering
-needs the corresponding local tool. None is invoked or installed by the record demo.
-
-## Synthetic demonstration
-
-The installed skill includes an independently runnable, archived synthetic final-record-completeness
-demonstration. See
-[`examples/README.md`](../skills/writing-funding-proposals/examples/README.md) for its input,
-output, fixed historical snapshot, manual-evidence boundary, and publication restriction.
-
-## Invoke
-
-```text
-Use $writing-funding-proposals to verify the current NSFC policy, build a source and claim ledger,
-compare the candidate topics, and audit my applicant-authored rationale.
-```
-
-## Initialize and validate
-
-For a real project, provide the target program/year/type, requested scope,
-confidentiality, actual official form, source links and applicant-authored material.
-Keep personal or restricted evidence in that project, not the public skill checkout.
-These commands run from the repository root; after installation, resolve the script
-paths inside your copied skill instead:
-
-```bash
-python3 skills/writing-funding-proposals/scripts/init_proposal_workspace.py ../proposal-workspace \
-  --project-id example --program nsfc --year 2026 --project-type general
-
-python3 skills/writing-funding-proposals/scripts/validate_proposal_workspace.py ../proposal-workspace --mode working
-python3 skills/writing-funding-proposals/scripts/audit_chinese_prose.py ../proposal-workspace/sections/rationale.md
-
-# Normal final-record completeness check uses today's --as-of value.
-python3 skills/writing-funding-proposals/scripts/validate_proposal_workspace.py ../proposal-workspace --mode final
-```
-
-Change program/year/type to the actual target. Initialization creates unresolved records,
-not a completed application, and refuses to overwrite a non-empty directory. Work proceeds
-through these dependencies rather than running final mode immediately:
-
-1. Establish current authority and allowed assistance; open the actual sources.
-2. Assemble applicant-role and claim evidence, compare topics and settle one route.
-3. Map questions to methods, comparisons, outputs and figures; prepare section briefs,
-   bounded commitments and any required financial budget.
-4. The applicant writes prose when policy requires it. Review the text, produce only
-   permitted figures and integrate into the official template.
-5. Perform fatal, scientific and readability review, build the real candidate, inspect
-   every rendered page and then check the final records.
-
-Final mode additionally requires current authority, a completed funder-plus-institution authoring
-policy refresh, the actual official system template, applicant confirmation, a frozen route,
-complete argument links, audited commitments, the conditional budget record when the current
-program/project profile requires it, all three review passes, a local build, and visual review.
-The JSON and text reports always show `as_of`; JSON declares
-`validation_scope: record_completeness` and text prints the same scope as a note. Use
-`--as-of YYYY-MM-DD` only when revalidating an archived historical snapshot; that override
-cannot support a current-policy claim.
-
-## Questions and limitations
-
-**Will this write my whole NSFC application?** Not under the bundled evidence-and-audit-only
-profile. Completing the workflow respects policy; it does not imply generated prose.
-
-**Does `PASS` mean ready to submit?** No. The validator checks recorded statuses and local
-paths, not source truth, authorship, file format, visual quality, eligibility or funding.
-Real build and review remain required; portal writes and submission need explicit
-applicant authorization.
-
-**Why did a repeat demo refuse its output?** Its destination must be new. Use
-the temporary-directory command again; do not overwrite a real project to make it pass.
-
-**Can I use another funder or a future year?** Yes, with `--program other` or the relevant
-supported program and your year. Current sources and the actual form are still required;
-a bundled profile does not transfer automatically to another call.
-
-**What if an image tool has no model selector?** Follow the bundled figure route: use
-the available tool and report its backend as unknown unless verified. Genuinely
-unavailable or prohibited steps remain unrun. SVG is not native PPTX, and another skill
-is not required to complete permitted local work.
-
-## Test
-
-From the Open Research Skills checkout root (not `docs/` or the installed skill directory):
-
-```bash
-# Run from this repository root.
-python3 -m pip install -r requirements-test.txt
 python3 -B -m unittest discover -s tests/research-funding-proposals -p 'test_*.py'
-python3 scripts/check_public_content.py .
-find . -type l -print
 ```
 
-The repository suite includes optional figure tests; install its declared environment only
-when needed. The quick record demo above remains standard-library-only.
+其中图形测试使用仓库 `requirements-test.txt` 环境；记录演示本身仅依赖标准库。
+发布内容检查为 `python3 scripts/check_public_content.py .`。
 
-An empty result from `find` is expected. Original instructions, templates, scripts, and tests in
-this package are covered by the repository's Apache-2.0 licence.
-
-## Repository maintenance
-
-Open Research Skills contains five complete entrypoints in one repository. This skill
-can still be installed on its own; the other four are optional enhancements. Runtime
-dependencies and actual source material remain necessary for the selected task.
-
-See [maintainers](../MAINTAINERS.md), [contributing](../CONTRIBUTING.md), and [third-party terms](../THIRD_PARTY.md). Hosted Linux CI is not configured.
-
-## Related work in this repository
-
-For research planning before the proposal, see [research workflow](research-publication-workflow.md).
-For visual-design examples, see [scientific visualizations](scientific-visualizations.md).
-These are optional adjacent tasks, not required installations.
+原创代码、文档与测试采用 Apache-2.0 许可。参见
+[维护说明](../MAINTAINERS.md)、[贡献指南](../CONTRIBUTING.md) 与 [第三方说明](../THIRD_PARTY.md)。
+相关教程：[研究工作流](research-publication-workflow.md) 与 [科学可视化](scientific-visualizations.md)。

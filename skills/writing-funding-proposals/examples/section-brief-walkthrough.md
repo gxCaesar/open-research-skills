@@ -1,67 +1,127 @@
-# From a synthetic question to a section brief
+# 细胞扰动预测课题：从科学问题到带批注的章节任务书
 
-This is a teaching example for readers of the skill, not application prose, a real
-applicant's writing, an official template or evidence of a funded project. The generic
-mechanism M, outcome Y and subjects below are fictional. The runnable demo uses these
-same question and comparison labels to exercise its record checker; it does not produce
-this annotated brief or conduct the experiment.
+这是一份完整的虚构教学案例。它演示如何把一个 AI-for-biology 想法变成可审查的研究计划，
+而不是可直接提交的申请书正文。这里没有真实申请人、已经获得的数据、前期结果或资助政策结论。
+文中的比较、年限与产出均用于解释规划方法，不能改个项目名就当成申请材料。
 
-## The question and its evidence needs
+## 1. 把一个模型愿望改成可以回答的问题
 
-| Element | Bounded content | What a real project would still need |
+起点是：想做一个更好的细胞扰动预测模型。这个愿望没有说明改什么、对什么比较、
+在哪种条件下有效，因此还不能组织申请书。
+
+本例把它收窄为一个拟研究问题：**在未见基因扰动的响应预测中，利用扰动前细胞状态
+限定参考样本的选择，能否改善预测，并区分状态匹配的作用与额外信息的作用？**
+拟预测的对象是预先定义基因集合上的扰动后表达变化；变化的定义、参考对照和误差实现
+必须在真实项目中固定。教学中可暂用越低越好的预测误差描述终点，但这里没有计算该误差。
+
+这仍是一个待检验假设。尚未查证最近工作是否已经回答同一问题，不能写成首次发现，
+也不能先承诺某个提升幅度。状态匹配是候选机制，不是已被证明的生物学解释。
+
+## 2. 先列出必须同时存在的证据
+
+| 需要的证据 | 要实际检查什么 | 当前教学案例拥有吗 |
 |---|---|---|
-| Q1 — question | Does mechanism M distinguish outcome Y? | A precise biological or computational endpoint and a defensible scientific gap |
-| C1 — research content | Compare M with a simple baseline using paired observations | Accessible data with both required variables in the same independent subjects |
-| V1 — validation | Evaluate the paired comparison on held-out subjects | A frozen split, matched tuning budget, metric implementation and uncertainty rule |
-| O1 — intended output | A paired estimate with uncertainty | Actual per-subject results and a reproducible analysis, whether positive or negative |
-| F1 — possible figure | Show the discriminating comparison | Source-derived values; a planned figure cannot stand in for observations |
+| 数据可行性 | 扰动身份、对照、表达终点、背景状态和批次是否能在同一可链接实验中对应 | 没有真实数据，尚待检查 |
+| 评价单位 | 每个细胞来自哪个实验、批次和生物学重复；哪些单位可独立留出 | 未给定，不能用细胞数代替独立重复数 |
+| 先行研究 | 最接近方法用了哪些状态信息、参考样本、拆分和比较 | 未查证，不作新颖性判断 |
+| 公平基线 | 扰动盲基线、训练集响应均值、简单回归和适用领域方法的可复现版本 | 待真实复现，不能仅挑容易超过的方法 |
+| 申请人基础 | 与数据处理、建模、实验验证直接相关的已完成工作及本人角色 | 没有材料，不编前期结果或合作条件 |
+| 独立验证 | 另一个实验背景是否具备相同终点、足够对照与可比较测量 | 需要单独确认访问与可比性 |
 
-This chain is small on purpose. A second or third aim would need another necessary
-scientific dependency, not merely a balanced-looking page.
+这里最便宜的第一步是检查元数据和少量样本，列出真正可配对的条件与独立单位。
+如果关键变量不能对应，应补查来源或调整问题；不宜先画模型架构，再猜数据能否支持它。
+数据整理是进入研究的前提，本身不自动成为本项目的主要科学贡献。
 
-## Example section brief
+## 3. 让公平比较能够推翻假设
 
-The brief below is an editorial instruction for a fictional author. It is not a
-paragraph to insert into a funding application.
+本例计划在开发数据中留出完整的扰动身份，而不是随机拆细胞。是否还要留出细胞背景
+或供者取决于最终主张；不能在结果出来后把未见扰动改称未见细胞背景。
 
-**Section:** research contents. **Paragraph job:** explain what comparison would
-distinguish the proposed mechanism from the baseline.
-
-| Brief field | Writing task |
+| 比较要素 | 拟采用的约束 |
 |---|---|
-| Scope | Describe one comparison of M with the baseline on held-out subjects |
-| Prior premise | Name the inspected source that supports testing M; do not call it a demonstrated benefit |
-| Method | Identify the data/object, changed mechanism and conditions shared by both methods |
-| Validation | State the independent subject, split, endpoint and uncertainty method |
-| Expected deliverable | Commit to a comparison and uncertainty estimate, not a favorable effect |
-| Failure handling | Explain what would be reframed if the registered comparison fails |
-| Missing evidence | Leave actual data access, prior findings and applicant contribution unresolved until checked |
+| 候选变化 | 只改变参考样本的状态匹配策略；其余预测器和输入范围保持可比 |
+| 配对对照 | 与不使用状态匹配的同信息、同预算版本比较，再与适用强基线比较 |
+| 训练边界 | 特征处理、参考样本库和选择规则仅使用训练或获准开发信息 |
+| 主要终点 | 先明确表达变化的定义、基因集合、误差方向和实现，再比较 |
+| 不确定性 | 按真实实验的独立单位设计汇总与不确定性分析；不把随机种子当成新的实验单位 |
+| 成功可支持什么 | 在指定数据、背景和拆分下，状态匹配对预测有额外价值 |
+| 失败会改变什么 | 若同信息对照解释了改善，收回机制归因；若差异小于可分辨误差，不承诺继续扩大模型 |
 
-A Chinese-language version of the central revision task is:
+不要预设一定正向。必须区分候选整体效果、状态匹配机制的贡献，以及生物学因果解释。
+前两者即使成立，也不能单凭预测分数推出第三者。
 
-> 请说明 M 与基线在同一批独立受试对象上如何进行公平比较，并写明数据划分、主要终点、
-> 不确定性评估和失败后的处理。不要把“计划比较”改写成“已经证明有效”，也不要承诺
-> 必然获得正向结果。
+## 4. 研究内容由依赖关系决定
 
-This is an audit/brief output, not applicant-authored submission text. For a real
-application, the funder's and institution's current policy determines what further
-assistance is permitted.
+这一教学问题需要一项核心比较和一项边界验证。若真实材料表明第二项不必要，或另有
+无法合并的科学依赖，应据此调整内容数，而不是为了排版固定成三项。
 
-## Calibrate the promise
+| 研究内容 | 回答什么 | 方法与鉴别性验证 | 可交付产出 |
+|---|---|---|---|
+| C1：辨别状态匹配是否提供额外预测价值 | Q1 中的机制问题 | 在冻结的未见扰动拆分上，对照同信息版本与强基线；保留所有预定条件的结果 | 可重算的逐单位预测与比较、机制支持或否定的结论 |
+| C2：验证结论的适用边界 | C1 的结论能否迁移到另一个实验背景 | 使用事先确定且测量可比的独立背景；不根据其结果重新选择方法 | 外部背景的比较与失败条件说明 |
 
-An admissible planned deliverable is an evaluated comparison with inspectable source
-results. A possible mechanism benefit is an uncertain hypothesis. A data-access or
-linkage check is an early dependency, not the final scientific contribution.
+C1 的方法、处理规则和比较决定 C2 测什么；C2 不是另起一个模型。
+若 C1 不支持机制，C2 的意义应重新审视。可以验证失败边界，但不能把新问题包装成
+原假设已经成功后的推广。
 
-Before expanding the brief, the reviewer would ask whether the variables actually
-coexist in linkable samples, whether the strongest cheap baseline is matched, and
-whether the uncertainty unit is the independent subject rather than repeated seeds or
-measurements. None of those questions is answered by this synthetic example.
+## 5. 年度安排与风险相互对应
 
-## What the demo does and does not add
+以下用假想的三年期说明依赖，不代表任何项目类别的期限要求。
 
-The [runnable demonstration](README.md) checks that synthetic records can satisfy the
-local contract. Its section files contain only a short fixture sentence and its PDF
-paths point to marker files. A passing status supplies no preliminary result, applicant
-qualification, authorship confirmation or funder permission. Use this page to understand
-the expected reasoning and output shape, not as a real proposal starting document.
+| 时间 | 要完成的工作 | 可验收产出 | 不应承诺 |
+|---|---|---|---|
+| 第一年 | 确认变量可链接与拆分，复现强基线，检查可分辨空间，确定 C1 的比较协议 | 数据说明、实际复现结果、明确终点和对照的实验计划 | 获得某一固定提升或已经解决泛化 |
+| 第二年 | 完成 C1 的控制比较，分析预定失败条件，保留负向与无差别结果 | 逐单位预测、对照结果、机制解释的边界 | 每个任务均优于基线 |
+| 第三年 | 在确认访问与测量可比后完成 C2，整理方法、结果与可公开代码 | 独立背景检验、限制说明、可复用实现与论文材料 | 必然发表某刊、必然获得正结论 |
+
+| 风险 | 最早如何发现 | 相应处理 |
+|---|---|---|
+| 状态与扰动记录无法链接 | 第一年元数据抽查和配对计数 | 补查可用来源；仍无法匹配则调整问题，不虚构配对 |
+| 便宜基线已解释可测改善 | 公平复现与误差尺度检查 | 重新审视问题或机制，不靠增加参数掩盖没有空间 |
+| 候选使用了额外信息 | 对照输入范围与参考样本来源 | 先修正信息不对等，再解释效果 |
+| 外部背景不可获取或终点不一致 | 研究开始时确认访问条件与测量定义 | 限定在已验证范围，不把内部重复充作外部验证 |
+
+资源承诺还需补实际数据规模、人员职责和测量成本。这里不填虚构经费或申请人能力。
+
+## 6. 给申请人的带批注章节任务书
+
+任务书告诉作者每段需要解释什么、依赖哪项证据、哪些话现在不能写。它不是正文。
+
+| 章节与段落任务 | 本例应组织的内容 | 批注：缺什么、避免什么 |
+|---|---|---|
+| 立项依据：说明具体困难 | 定义未见扰动预测及背景状态为何可能影响参考样本选择 | 需要真实来源支持前提；避免从普遍的 AI 发展趋势开篇 |
+| 立项依据：界定未解决条件 | 比较最近方法在信息范围、状态处理和拆分上的差异 | 来源未核实时，不写现有方法无法解决或填补空白 |
+| 立项依据：提出中心问题 | 用 Q1 连接上述困难与同信息比较 | 把可能的作用写成假设，不写已经揭示机制 |
+| 研究内容：解释 C1 | 交代对象、候选变化、同信息对照、终点与失败后果 | 不只列模型模块；不能省略会削弱结论的对照 |
+| 研究内容：解释 C2 与年度安排 | 说明独立背景为何必要，以及其对 C1 的依赖 | 不能把计划获取的数据描述成已落实资源 |
+| 研究基础：逐项匹配已完成能力 | 将可查的申请人工作对应到 C1/C2 所需能力 | 本例没有申请人证据，只留下明确补充任务，不生成成果叙述 |
+
+例如，研究内容中 C1 段落的具体修改任务可以写成：
+
+> 请明确候选方法只改变哪一个参考样本选择步骤，说明同信息对照保持了哪些条件，
+> 并解释什么结果会使状态匹配的机制解释不成立。把模型效果与机制归因分开。
+> 实际拆分、主要误差实现和独立单位未确定前，不填效果数值或预期提升幅度。
+
+规划图也应服务于这个段落：可画出共享输入、唯一改变的步骤、对照分支和判断出口。
+在没有结果时不画带数值的性能柱状图。本页只交付图的任务说明，不生成或声称交付申请用图。
+
+## 7. 对本例做一次有用的审阅
+
+| 位置 | 最重要的问题 | 最便宜的补证或修改 |
+|---|---|---|
+| 第 1 节核心问题 | 尚无最近工作证据，不能认定新颖 | 阅读最接近工作的任务、输入、拆分与对照，写出确切差异 |
+| 第 2 节数据可行性 | 数据与独立单位未提供，计划还不能进入模型开发 | 检查真实元数据与配对单位，记录能做和不能做的比较 |
+| 第 3 节公平比较 | 机制优势可能只是额外信息优势 | 保留同信息、同预算对照，先确认信息来源 |
+| 第 5 节外部验证 | 访问条件未确认 | 提前检查；若不可用，收窄结论而不伪造落实状态 |
+| 第 6 节研究基础 | 没有申请人证据 | 向申请人索取可核实工作与本人角色，再做章节匹配 |
+
+当前得到的是一个更清楚、可被反驳的研究计划与章节任务书，不是通过科学审查的课题。
+真实项目在材料补齐后，才可继续完成授权范围内的章节工作、图表、实际模板整合与逐页检查。
+
+## 与原有 M/Y 记录夹具的关系
+
+[run_demo.py 的说明](README.md)仍使用原有的虚构机制 M、结局 Y 和配对对象：
+Q1 是 M 能否区分 Y，C1 是与简单基线的配对比较，V1 是在留出对象上评价，
+O1 是带不确定性说明的计划比较产出，F1 是该比较的拟用图。该夹具的含义与数据没有改变。
+它只演练记录完整性；其中章节是短标记文本，PDF 路径对应标记文件，并不执行实验或排版。
+本页的新细胞扰动案例是独立的人类可读教程，不把那些标记升级为前期结果。

@@ -195,19 +195,16 @@ class ConferencePackageContractTest(unittest.TestCase):
             with self.subTest(venue=venue):
                 self.assertIn(f"]({prefix}/{venue}/guide.md)", text)
         self.assertIn(
-            "Select an adapter by exact `venue/year/track` scope. Every profile is a dated engineering "
-            "aid, so run `recon` against current first-party sources when its scope is stale or does not "
-            "match the intended submission.",
+            "按准确的 `venue/year/track` 选择适配器。每份 profile 都是有日期的工程辅助； "
+            "若范围过时、不匹配目标投稿或当前权威性不确定，先依据当前第一方来源运行 `recon`。",
             text,
         )
         self.assertIn(
-            "Use the generic component only when no current first-class profile matches; create a "
-            "task-local profile instead of mutating a bundled one.",
+            "只有没有匹配的当前正式 profile 时才使用 generic；创建任务内 profile，不修改捆绑 profile 来冒充其他范围。",
             text,
         )
         self.assertIn(
-            "Each formal adapter links to paper observations that are optional empirical drafting "
-            "evidence, never venue rules or mandatory section order.",
+            "各正式适配器链接的已发表论文观察只是可选的经验性写作证据，不是会议规则，也不是强制章节顺序。",
             text,
         )
 

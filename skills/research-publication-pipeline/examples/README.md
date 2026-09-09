@@ -1,50 +1,30 @@
-# Synthetic demonstration
+# 研究示例：配对分析与进阶打包演练
 
-This is a complete, synthetic local record demonstration. For a readable output sample,
-open the [result-to-paragraph walkthrough](result-to-paragraph.md). It separates the
-arithmetic result actually computed by the example from the unmeasured scientific
-claims that a real paper would need to establish.
+先阅读或运行 [细胞扰动配对分析](perturbation-comparison/README.md)。它直接提供六行
+synthetic 教学分数和标准库脚本，计算每个任务的候选减基线、正负平局次数与平均差，
+再生成结果段落。源码和输入在同一目录，独立复制后仍可运行。
 
-## Five-minute run from the repository
+以下保留原有 `run_demo.py`，用于理解记录工具和打包流程。它是进阶冒烟测试，
+不是配对分析的依赖，也不是完整研究任务的主要成果。
 
-Python 3.9+ and its standard library are sufficient. No package installation, API key,
-network, remote machine or agent runtime is needed:
+## 运行进阶示例
 
-```bash
-demo_root=$(mktemp -d)
-python3 -B skills/research-publication-pipeline/examples/run_demo.py "$demo_root/publication-demo" --with-public-release
-```
-
-The shell example uses macOS/Linux syntax; another shell can supply a new temporary
-path instead. The generated workspace stays outside the checkout and must not become
-public research evidence. The linked walkthrough is the curated public sample.
-
-For only the record demonstration, omit `--with-public-release`. From an installed
-`research-publication-pipeline` directory, run:
+从仓库根目录运行；独立安装后把 `SKILL_DIR` 改成实际安装目录：
 
 ```bash
-python3 examples/run_demo.py OUTPUT_DIRECTORY
+SKILL_DIR="$PWD/skills/research-publication-pipeline"
+DEMO_OUT=$(mktemp -d)
+python3 -B "$SKILL_DIR/examples/run_demo.py" "$DEMO_OUT/record-demo" --with-public-release
 ```
 
-Or resolve the script directly:
+需要 Python 3.9+，只使用标准库。无需依赖安装、网络、API key、远端机器或 agent 账户。
+这是 macOS/Linux shell 写法，其他系统可提供等价的新输出路径。
+`record-demo` 必须尚不存在且位于 skill 之外。程序拒绝覆盖既有目录。
+若只检查记录、不要算术打包演练，省略 `--with-public-release`。
 
-```bash
-python3 /path/to/research-publication-pipeline/examples/run_demo.py OUTPUT_DIRECTORY
-```
+## 预期输出与实际计算
 
-`OUTPUT_DIRECTORY` must be a new directory outside the installed skill. The
-demo refuses an existing path, including a populated directory, without
-changing its contents. On success it creates a synthetic workspace and prints
-the observed `PASS` status for `pilot`, `development`, and `handoff`.
-
-The generated workspace is a runtime output, not part of the installed skill
-or a release artifact. Its records exercise only the local validator contract.
-They are not real data, a research experiment, locked-test access,
-authorization, publication, or evidence of scientific effectiveness.
-
-## Expected results and where to look
-
-With `--with-public-release`, the observed status lines are:
+带该参数运行时，终端应包含：
 
 ```text
 pilot: PASS
@@ -53,55 +33,36 @@ handoff: PASS
 public-release: PASS
 ```
 
-The ordinary run without that flag prints only the first three status lines. Both runs
-also print a synthetic-use warning and the output location. A successful exit is zero.
+不带参数时只打印前三项。两种形式都打印 synthetic 用途提醒与输出位置。
+成功退出码为 0。记录中的科学分数是固定夹具，不是该程序估计出的结果。
 
-| Output path, relative to the generated workspace | What to inspect |
+| 相对输出路径 | 实际内容 |
 |---|---|
-| `START_HERE.md` | Local project navigation |
-| `results/public-release-example.json` | The actually computed `{"count": 3, "total": 6}` result; only present with the flag |
-| `public-release/README.md` | The two commands actually rehearsed on the packaged example |
-| `public-release/src/example.py` | The arithmetic implementation |
-| `public-release/tests/test_example.py` | One non-empty input test and one empty-input test |
-| `results/final-comparison.json` | A synthetic marker, not measured scientific comparison results |
+| `START_HERE.md` | 生成工作区的导航 |
+| `results/public-release-example.json` | 加参数后实际计算的 `{"count": 3, "total": 6}` |
+| `public-release/README.md` | 打包后实际执行的两条命令 |
+| `public-release/src/example.py` | 对 `[1, 2, 3]` 计数并求和的代码 |
+| `public-release/tests/test_example.py` | 非空和空输入两个测试 |
+| `results/final-comparison.json` | 合成标记，不是实测科研比较 |
 
-The demo does not write a manuscript. The linked manuscript-style excerpt is a
-hand-curated explanation of software behavior, not a hidden extra output of the script.
+可阅读原有 [算术结果到段落的解释](result-to-paragraph.md)，了解软件运行结果与
+科研结论之间的区别。程序本身不编写或渲染论文。
 
-## Rehearse a small code release
+## 打包演练做了什么
 
-Add the optional flag to exercise packaging and execution, not just record checking:
+`--with-public-release` 在输出目录下建立一个十文件的算术源码树，打包后解压到新临时目录，
+使用当前 Python 解释器执行例子和两个测试。它检查 JSON 是否与 `count=3`、`total=6`
+一致，再运行本地发布记录检查。命令失败或结果不匹配会导致非零退出。
 
-```bash
-python3 examples/run_demo.py OUTPUT_DIRECTORY --with-public-release
-```
+实际命令观察保存在生成工作区，而不是源码包内。临时压缩包与解压目录在演练后自动清理。
+这不是新建依赖环境，不执行项目记录中任意提供的命令，也不向外部服务发布任何内容。
 
-This creates a ten-file synthetic code tree under `OUTPUT_DIRECTORY/public-release/`,
-packages it, and unpacks it in a fresh temporary directory. It runs the two fixed
-README commands: a standard-library arithmetic example and its two unit tests. It
-checks the produced JSON against the documented `{"count": 3, "total": 6}` result,
-then runs the `public-release` validator. Success adds `public-release: PASS` to stdout.
-A failed command or incorrect output causes a nonzero exit and a failed rehearsal record.
+## 解释边界
 
-The observed output is retained at `results/public-release-example.json`; actual
-commands, outputs, exit codes, and the environment are recorded in `handoff/handoff.json`.
-Both stay outside the curated code tree. The temporary archive and unpack are removed
-automatically. The rehearsal uses the current Python interpreter without installing
-dependencies or claiming a separate clean environment. It does not execute arbitrary
-commands from project records or publish anything. All surrounding scientific records
-remain synthetic; successful arithmetic is not a research result.
+这个 synthetic 演示生成的来源、状态、科学数值与不确定性区间只是软件夹具。
+它没有训练基线或候选方法，没有真实数据读取、locked-test 访问、完整论文、
+图形渲染或公开发布。出现区间字段不表示计算过该区间，检查通过也不是科研复现。
 
-## Use the example honestly
-
-The scientific records contain fixed illustrative values, source labels and statuses.
-They are not fitted estimates or independently verified sources. In particular, the
-presence of an uncertainty interval in a fixture does not mean the demo computed one.
-No real data access, baseline training, locked-test evaluation, full manuscript, figure
-rendering or external publication occurs.
-
-The actual packaging rehearsal is useful software evidence: the documented small
-example and its tests run after a fresh unpack using the existing Python interpreter.
-It is not a fresh dependency installation or independent research reproduction. Keep
-the generated workspace local; do not export the surrounding records as a public code
-artifact. For a real project, replace the scientific work with actual observed data,
-results and source inspection, not by changing the fixture's labels.
+不要把生成工作区当成公开研究证据。若要学习一个实际分析源码包怎样独立交付，
+使用前面的 `perturbation-comparison` 教程；若要做真实研究，补真实数据、来源与实验，
+而不是改掉夹具标签。

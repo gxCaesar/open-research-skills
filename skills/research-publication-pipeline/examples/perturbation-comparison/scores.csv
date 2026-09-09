@@ -1,0 +1,7 @@
+task,baseline,candidate
+task-1,0.62,0.64
+task-2,0.68,0.69
+task-3,0.71,0.70
+task-4,0.66,0.68
+task-5,0.73,0.74
+task-6,0.69,0.67
