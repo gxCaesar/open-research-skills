@@ -1,10 +1,15 @@
 <div align="center">
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/branding/open-research-skills-logo-dark.png" />
+  <img src="assets/branding/open-research-skills-logo.png" width="820" alt="Open Research Skills：开放书页与研究连接" />
+</picture>
+
 # Open Research Skills
 
 ### 让科研材料成为清楚的论证、可编辑的图件和可复用的成果。
 
-科研绘图 · 会议论文 · 期刊论文 · 中文基金 · 研究到发表
+科研绘图 · 顶会论文 · 期刊论文 · NSFC 及其他基金 · 科研全流程
 
 [选择 skill](#choose) · [快速开始](#start) · [绘图](#visualization) · [会议论文](#conference) · [期刊论文](#journal) · [基金](#funding) · [研究工作流](#workflow)
 
@@ -12,7 +17,7 @@
 
 这是一个面向日常科研的 agent skill 工具箱。五个完整 skill 在一个仓库中维护，每个都能单独安装、独立使用。你可以从一张图、一段 Results 或一个研究问题开始，不必先启动整套研究流程。
 
-教程以 AI 与生物研究为主，覆盖单细胞、扰动预测和空间多组学；组织材料、科学写作和交付方法也可迁移到其他领域。每个 skill 都提供**使用说明、完整教学情境、可读成品和可运行示例**。
+教程以 AI 与生物研究为主，覆盖单细胞、扰动预测和空间多组学；组织材料、科学写作和交付方法也可迁移到其他领域。下文说明五项能力怎样用于真实科研，五份独立中文手册进一步展开材料准备、逐阶段操作、调用示例和交付检查。绘图提供可编辑成品；小型教学脚本作为可选练习，不代表完整科研能力或真实实验效果。
 
 <a id="choose"></a>
 
@@ -21,9 +26,9 @@
 | 你现在的任务 | 入口 | 典型交付 |
 |---|---|---|
 | 把方法、机制或多组学结果画清楚 | [科研绘图](#visualization) | 可编辑架构图、多面板图、矢量文件与 legend |
-| 从材料成稿，或修改 CS 会议论文 | [会议论文](#conference) | 论文与附录、结果论证、rebuttal、camera-ready |
+| 从材料成稿，或修改顶会论文 | [会议论文](#conference) | 论文与附录、结果论证、rebuttal、camera-ready |
 | 组织期刊论文与投稿、修回材料 | [期刊论文](#journal) | 稿件、图注、数据声明、cover letter、审稿回复 |
-| 梳理中文基金的科学问题与论证 | [中文基金](#funding) | 证据需求、研究内容、章节 brief、审阅建议 |
+| 准备 NSFC、广东或其他基金材料 | [NSFC 及其他基金](#funding) | 科学问题、证据需求、研究内容、章节 brief、审阅建议 |
 | 判断课题并推进实验、成稿与交付 | [研究工作流](#workflow) | 可行性判断、比较结果、下一步实验与复现材料 |
 
 按**本次要交付的东西**选择即可。论文 skill 能独立处理论文需要的图件，研究工作流能独立组织成稿；专门的绘图 skill 提供更丰富的设计支持，但不是其他四个的强制依赖。
@@ -32,17 +37,18 @@
 
 ## 快速开始
 
-### 1. 获取仓库，先看一个完整案例
+### 1. 获取仓库，找到本次任务的手册
 
 ```bash
 git clone https://github.com/gxCaesar/open-research-skills.git
 cd open-research-skills
 ```
 
-不想先配置 agent？可以直接阅读或运行案例：
+不想先配置 agent？可以先阅读手册或打开成品：
 
 - 想看图件：[空间多组学复合图](skills/build-scientific-visualizations/examples/spatial-multiomics-atlas/README.md)。
-- 想看写作：[会议论文的一轮写作与修改](skills/prepare-conference-manuscripts/examples/showcase/README.md)。
+- 想写论文：[会议论文使用手册](docs/conference-manuscripts.md)或[期刊论文使用手册](docs/journal-manuscripts.md)。
+- 想推进课题：[从研究问题到发表的完整手册](docs/research-publication-workflow.md)。
 - 想立即运行：[扰动预测教学比较](skills/research-publication-pipeline/examples/perturbation-comparison/README.md)，只需 Python 标准库。
 
 ### 2. 安装一个完整 skill
@@ -153,147 +159,215 @@ MPLCONFIGDIR="$DEMO_OUT/.mpl" XDG_CACHE_HOME="$DEMO_OUT/.cache" \
 
 ## 02 · 会议论文
 
-`prepare-conference-manuscripts` 面向 CS 会议论文的新稿、修改、附录、rebuttal 和 camera-ready。它将研究问题、方法和结果组织成连贯论证，也处理论文所需图件与投稿阶段检查。
+`prepare-conference-manuscripts` 面向 **AAAI、ICLR、ACL、CVPR、ICML、NeurIPS** 等计算机学术会议。它处理从已有研究材料成稿、全文修改、附录和补充材料，到 rebuttal、camera-ready 与本地提交包的作者侧工作。重点是让问题、方法、比较和结论互相支撑，不只是换模板或润色英语。
 
-**带上什么：** 目标 venue/year/track、方法与实验记录、结果表、当前稿件；修回时另附审稿意见。
+### 先确定投哪里、现在处于哪一步
 
-**得到什么：** 任务范围内的英文稿件、图表与图注、修改说明或逐点回复。
+告诉 agent 准确的 **venue / year / track / stage**。同一会议的主会、workshop、不同 track 和年份不能共用未经核对的规则。仓库自带六个会议适配器，但其中的 profile 有明确日期；实际写作仍需核对目标范围的当前官方要求。其他会议可以建立任务内 profile，不需要修改已有适配器。
 
-### 完整案例：扰动预测结果的一轮写作与修改
+| 你现在的状态 | 使用方式 | 主要交付 |
+|---|---|---|
+| 尚未确认目标规则 | `recon` | 当前模板、阶段要求、适用政策与尚未确认事项 |
+| 已有方法和结果，还没有完整稿 | `draft` | 问题与贡献界定、章节提纲、证据支持的英文稿件 |
+| 已有初稿，需要改结构和表达 | `polish` | 有针对性的修订稿、关键修改说明 |
+| 想先判断稿件有什么问题 | `audit` | 带原文位置、证据和最小修正建议的只读报告 |
+| 收到评审或进入讨论 | `rebuttal` | 逐点回复、证据对应、同步修订位置 |
+| 录用或准备最终上传材料 | `camera-ready` / `package` | 对齐当前要求的源码、PDF、附录与本地候选包 |
 
-![会议论文案例的六组合成配对任务分数](skills/prepare-conference-manuscripts/examples/showcase/preview.png)
+这些是对话中的任务模式，不是七个 shell 命令。可以直接描述工作，agent 会选择对应模式；一次请求也可以覆盖成稿到打包的连贯任务。
 
-输入是方法背景、六组合成任务分数和一份有问题的初稿。教程展示如何形成写作提纲，完成 Abstract / Results / Limitations 节选，再回应一条质疑。
+### 从材料到一篇能读懂的方法论文
 
-> In six illustrative tasks, the candidate score is higher on four tasks and lower on two. The mean paired difference is 0.005 arbitrary score units.
+准备当前稿件或提纲、方法定义、数据与 split、baseline 配置、原始结果表、图表源码和文献。先明确论文要回答什么问题，现有方法具体在哪个条件下不足，你改变了哪个运算或机制，以及哪些实验能区分这个解释。
 
-这段修改保留了两项不利结果；“所有任务都更好”不再成立。文本属于带注释的教学写作，图件由 CSV 渲染；源文件检查器另行演示匿名阶段的问题，并不自动生成或验证上述科学修订。
-
-[输入、写作过程与可运行示例](skills/prepare-conference-manuscripts/examples/showcase/README.md) · [修改前](skills/prepare-conference-manuscripts/examples/showcase/before.tex) · [修改后](skills/prepare-conference-manuscripts/examples/showcase/after.tex)
+成稿时，Introduction 建立问题与缺口，Method 解释问题如何转化为方法设计，Experiments 给出公平比较和机制证据，Discussion / Limitations 界定适用范围。摘要在主张和证据稳定后压缩。章节名称与顺序服从论文和目标会议，不套固定模板。
 
 ```text
-使用 prepare-conference-manuscripts。
-根据 methods.md、results/ 和 draft.tex，完善 Results 与 Limitations，
-再调整摘要，使问题、方法和证据范围一致。保留不利结果，不补造统计量。
-先列出材料缺口；已有材料足够的部分直接修改，交付稿件和简短修改说明。
+使用 prepare-conference-manuscripts，目标为 ICLR 2027 Main Conference 初次投稿。
+先核对这一范围的当前官方要求，再阅读 methods.md、experiments/、references.bib
+和 draft.tex。中心问题是跨细胞环境的扰动预测；科学协议以 experiment-notes.md 为准。
+整理研究问题—方法操作—比较证据的对应关系，完成全文与附录的结构修订。
+保留所有数值、baseline、数据划分和不利结果，缺证据的位置明确列出。
+图件需要修改时从给定源数据或方法说明制作，检查实际编译的 PDF。
+交付修订源码、可阅读 PDF、关键修改说明和尚未解决的问题，不代为提交。
 ```
 
-[完整中文教程：新稿、修改、rebuttal 与提交阶段](docs/conference-manuscripts.md)
+如果只修改摘要、Method 或某一节，在请求中缩小范围即可。全文任务则不止返回一个摘要或审阅清单；应覆盖已提供的全部章节，并指出尚缺哪些内容。
+
+### Rebuttal 与终稿怎样接上
+
+提供完整评审、提交版本和已完成的新分析。先区分事实误解、表达问题、证据缺口与合理限制，再逐点回答。每个“已补充”都应指向实际结果和改动位置；尚未运行的实验不能写成已经解决。终稿阶段继续核对回复承诺、正文、图注、附录和代码说明是否一致。
+
+```text
+使用 prepare-conference-manuscripts 的 rebuttal 模式。
+读取 reviews.md、提交版本和 revision-results/，按评审意见逐点组织回复。
+说明哪些问题已由现有证据解决，哪些只能澄清或承认限制。
+将每条回复对应到修订稿位置，保留尚未完成的事项，不发布回复。
+```
+
+**详细手册：** [六个会议如何适配、各章节如何推进、全文修改、rebuttal、camera-ready 与提交检查](docs/conference-manuscripts.md)。手册包含分阶段调用范例与材料清单；小型检查器练习放在末尾，不作为论文能力的主要展示。
 
 <a id="journal"></a>
 
 ## 03 · 期刊论文
 
-`prepare-journal-manuscripts` 组织期刊论文及编辑沟通材料：从故事线和全文，到主图、补充材料、统计报告、数据声明、cover letter 和修回。
+`prepare-journal-manuscripts` 面向期刊全文、图注、统计与数据报告、编辑沟通和修回。包含 Nature-family 的章节写作与已发表文章观察，也能按其他期刊的当前指南开展工作。Nature、Nature Methods、Nature Biotechnology、Nature Communications 等刊物并不是同一套文章要求，必须明确具体期刊、文章类型和阶段。
 
-**带上什么：** 目标期刊与文章类型、科学问题、方法和结果、样本结构、数据来源、当前稿件。
+### 材料准备：全文之外还需要什么
 
-**得到什么：** 连贯稿件、完整 legend、统计与数据声明，以及所需编辑或审稿回复。
+提供科学问题、已有稿件、方法与结果来源、样本层级、图表和 legend，以及伦理、数据、代码与其他声明的已知事实。细胞数、donor 数、组织切片数、技术重复和模型 seed 要分别说明；多个面板可能来自同一批样本，不能把面板数量当成新增独立证据。
 
-### 完整案例：六个配对 specimen 的结果报告
+| 工作阶段 | Skill 怎样帮助 | 你应收到什么 |
+|---|---|---|
+| 期刊与文章类型核对 | `recon` 区分目标刊要求、出版方通则和文章先例 | 适用要求及缺项，不是泛化的“Nature 模板” |
+| 全文起草与修订 | `draft` / `polish` 建立证据顺序与段落工作 | 任务范围内完整稿件、修改说明 |
+| 主图、扩展与补充材料 | 统一科学对象、样本定义、正文引用和图注 | 可读图件、完整 legend、相互一致的补充材料 |
+| 统计与数据报告 | 表达实际分析、独立单位、限制和访问路径 | 准确的统计报告、Data / Code Availability |
+| 投稿准备 | `editor-pack` / `cover-letter` 整理编辑需要的信息 | Cover letter、声明及本地材料包 |
+| 修回与录用后交付 | `revision-response` / `final-package` 同步所有改动 | 逐点回复、clean / marked 稿件及更新附件 |
 
-![期刊论文案例：六个教学 specimen 各自的两次观测](skills/prepare-journal-manuscripts/examples/showcase/preview.png)
+### 全文如何形成科学论证
 
-六个 specimen 各有 baseline 与 follow-up 值，并不是十二个独立 specimen。案例贯通 Results、Methods、legend 与 Data Availability，展示这些部分如何使用同一个样本定义。
-
-> Six constructed specimens each contribute one baseline and one follow-up value. Follow-up exceeds baseline for four specimens and is lower for two.
-
-修改移除无法支持的因果与推广结论，数据声明指向实际随附的 CSV。英文成稿是教学示范，不是统计检查器自动产物；示例不进行假设检验，也没有真实治疗或实验对象。
-
-[完整情境、成稿与运行方法](skills/prepare-journal-manuscripts/examples/showcase/README.md) · [修改前](skills/prepare-journal-manuscripts/examples/showcase/before.md) · [修改后](skills/prepare-journal-manuscripts/examples/showcase/after.md)
+Results 按问题和证据的推进顺序组织，而不是按实验发生的时间流水记账。Methods 提供理解与重现比较所需的条件；Discussion 区分直接观察、作者解释和更广泛意义。主图承担核心论证，补充材料承接必要细节与稳健性，不能把决定结论是否成立的限制藏到补充里。
 
 ```text
-使用 prepare-journal-manuscripts。
-根据 manuscript.md、配对 specimen 结果表和数据清单，
-完善 Results、Methods、figure legends 与 Data Availability。
-统一独立样本数、配对关系和结论范围，并起草一封简洁的 cover letter。
-缺少的 accession 或检验结果明确标出，不虚构补齐。
+使用 prepare-journal-manuscripts，目标为 Nature Methods 的 Article 初稿。
+核对当前文章类型要求，阅读 manuscript.md、methods/、results/、figures/
+与 data-inventory.md。围绕作者已经确定的科学问题组织全文。
+先梳理各节和主图分别回答什么，再修订 Introduction、Results、Methods、
+Discussion、摘要与 legends；主文、扩展和补充保持同一个样本与分析定义。
+保留实际统计量和限制，不扩大因果范围，不把待验证内容写成发现。
+交付完整工作稿、图注和必要的稿件图件、可阅读版本及简短缺项说明。
 ```
 
-[完整中文教程：全文、数据声明、cover letter 与修回](docs/journal-manuscripts.md)
+### 数据声明、Cover letter 与修回
+
+数据声明从实际数据清单写起：哪些材料支撑结论、已在哪里可访问、哪些受限、由谁管理和怎样申请。未取得 accession、DOI、作者确认或伦理信息时保留缺项，不制造已经公开或已经获批的印象。Cover letter 说明工作做了什么、证据是什么、为何适合这本期刊，不承诺未经检索证明的“首次”。
+
+```text
+使用 prepare-journal-manuscripts 的 revision-response 模式。
+读取编辑决定、完整审稿意见、上一版稿件和已完成的补充分析。
+逐点区分已修改、已澄清、证据仍不足和有依据的不同意见。
+同步回复信、clean manuscript、marked manuscript、图件和补充材料，
+核对每个修改位置以及 Data / Code Availability。未运行分析明确保留。
+```
+
+**详细手册：** [期刊定位、各章节写法、图文与统计协调、投稿材料、逐点修回及最终交付](docs/journal-manuscripts.md)。这项 skill 可以独立完成稿件范围的图件和编辑材料，不要求先安装另外四项；新实验设计和实际投稿另行明确任务。
 
 <a id="funding"></a>
 
-## 04 · 中文基金
+## 04 · NSFC 及其他基金
 
-`writing-funding-proposals` 帮助梳理选题、科学问题、立项依据、研究内容和技术路线，将已有材料组织为可供申请人继续写作的论证结构。
+`writing-funding-proposals` 帮助准备国家自然科学基金（NSFC）、广东科学基金及其他资助项目的研究论证与申请材料。显示名称覆盖这些基金，安装与调用名称仍为 `writing-funding-proposals`。其他资助方通过实际指南适配，不意味着所有基金都已有专用模板。
 
-**带上什么：** 申报指南与申请类别、自己的研究积累、初步想法、数据条件、已有章节。
+### 从申报指南与申请人材料开始
 
-**得到什么：** 政策与材料需求、问题—证据—研究内容的对应关系、章节 brief 和审阅建议；具体协助范围遵循当前资助方及机构要求。
+至少说明资助方、年度、项目类别和申请阶段，并提供正式指南、申请系统提纲、机构要求与申请人自己的研究积累。项目期限、预算口径、资格、限项和 AI 辅助政策以这次申请的当前来源为准，不能从另一年度或另一类项目复制。
 
-### 完整案例：细胞扰动研究如何形成研究内容
+Skill 会先界定允许的协助范围，再处理科学问题和材料。若政策限制生成可提交正文，仍可在允许范围内完成公开文献整理、论证结构、证据缺口、章节 brief 和申请人原稿审阅；不能把“润色”当作规避政策的名称。
 
-案例从一个虚构问题开始：用扰动前细胞状态选择参考样本，能否改善未见扰动响应预测？它将想法展开为同信息对照下的可检验比较，而不是直接承诺“显著提升预测”。
+### 各部分怎样协同
 
-| 需要写清楚的内容 | 案例怎样处理 |
+| 申请内容 | 具体要解决的问题 |
 |---|---|
-| 科学问题 | 说明待区分的解释与所需变量，而非堆叠模型名称 |
-| 研究内容 | 对照、数据划分与评估对象对应到问题 |
-| 可行性 | 分开已具备条件、尚需验证的数据关联和证据缺口 |
-| 年度安排 | 按数据核实、比较实验和验证交付组织工作 |
-| 风险与产物 | 承诺完成可解释的比较，保留负向结果的处理方案 |
+| 选题与科学问题 | 研究对象是什么；哪种关系、机制或限制尚未被解释；怎样验证 |
+| 立项依据 | 已知证据怎样导向这个缺口，为什么现有方案不足，项目为何值得做 |
+| 研究内容与目标 | 每项内容回答哪个子问题，与总问题怎样形成递进关系 |
+| 研究方案与技术路线 | 数据、方法、对照、评价和验证怎样配合，而非列一串模型名 |
+| 创新点 | 新在哪里，改变了什么认识或能力，有何证据支持预期差异 |
+| 前期基础与可行性 | 哪些条件已具备，哪些只是计划，申请人经验能支撑哪一步 |
+| 年度计划与风险 | 按真实依赖安排里程碑，负向结果和数据不足时怎样继续回答问题 |
+| 经费与提交检查 | 在实际资助规则及机构口径下检查一致性，不凭空给出额度 |
 
-[完整中文情境与带注释章节 brief](skills/writing-funding-proposals/examples/section-brief-walkthrough.md) · [本地记录检查 demo](skills/writing-funding-proposals/examples/README.md)
+不强迫每个项目拆成同样数量的研究内容。每个子任务都需要清楚的输入、方法、可观察结果和与总问题的关系；独立验证应体现在研究设计中，而不只写成结尾一句“验证有效性”。
 
 ```text
-使用 writing-funding-proposals。
-阅读 call.pdf、research-notes.md 和现有“研究内容”章节。
-围绕细胞状态与扰动响应梳理一个中心科学问题，
-交付证据缺口、研究内容对应表、年度安排建议和带注释的章节 brief。
-区分已有结果与研究计划，不虚构前期基础。
+使用 writing-funding-proposals，协助准备 NSFC 申请材料。
+阅读本年度指南、项目类别说明、系统提纲、research-notes.md 和我已有的原稿。
+先核对适用要求和 AI 辅助边界，再梳理一个中心科学问题及其证据缺口。
+将立项依据、研究内容、研究方案和前期基础对应起来，检查是否出现
+“问题没有对应实验”“创新点没有对照”或“计划冒充已有结果”。
+在政策允许范围内交付带注释的章节 brief、原稿审阅建议、技术路线说明
+与年度安排。预算只使用我提供的规则与事实，不虚构论文、平台和合作基础。
 ```
 
-章节 brief 是教学编辑材料，不是可直接提交的申请书。另附的标准库 demo 只检查合成记录完整性，不构建真实申请书 PDF，也不核验申请资格。
+对于广东或其他基金，把第一行和指南换成准确资助项目；原有研究证据可复用，但类别定位、栏目、期限和经费要求必须重新匹配。已有一版申请书时，可以只请求“立项依据审阅”“研究内容重组”或“技术路线图制作”，不必重新走完整流程。
 
-[完整中文教程：选题、论证、章节审阅与图文任务](docs/research-funding-proposals.md)
+**详细手册：** [NSFC、广东及其他基金的准备方式、科学问题到章节、年度与风险、政策边界和提交前检查](docs/research-funding-proposals.md)。另附[细胞扰动研究的带注释章节 brief](skills/writing-funding-proposals/examples/section-brief-walkthrough.md)，用于理解论证组织，不是可直接提交的申请书。
 
 <a id="workflow"></a>
 
-## 05 · 研究到发表
+## 05 · 科研全流程：从问题到发表
 
-`research-publication-pipeline` 用于跨阶段研究任务：判断问题与数据条件，组织实验比较，解释结果，再推进到成稿和可复现交付。它也可以只处理其中一个已经明确的阶段。
+`research-publication-pipeline` 用于启动或续接一个真实研究项目：选题与文献调研、数据可行性、新颖性、基线与提升空间、小试、方法开发、正式实验、结果解释、论文和可复现代码。默认面向 top-CS 与 Nature-family 的证据要求，也可按项目明确的目标调整。它不是把几条脚本顺序运行完就宣称研究完成。
 
-**带上什么：** 研究问题、数据与文献线索、现有代码和结果、当前项目状态及资源限制。
+### 从哪里进入
 
-**得到什么：** 有证据支撑的判断、下一项具体工作、实验或写作产物，以及所需复现代码。
+如果只有方向，先做 `survey` 和 `plan`；已有数据与问题时进入 `pilot`；已有公平 baseline 时进入 `develop`。实验正在运行可以只用 `monitor`，结果已定可以直接做 `claim-lock` 或 `manuscript`。**已有项目先读当前状态与真实输出，不从头重做调研，也不把旧计划当成已完成实验。**
 
-### 完整案例：从扰动预测教学比较到下一步实验
+研究贡献分为 `sota-method`、`discovery` 和 `benchmark`。三者的核心证据不同：方法需要匹配协议下的有效改进，发现需要新认识及独立验证，benchmark 需要明确的资源或评价缺口。方法困难不应悄悄变成 benchmark 项目。
 
-案例提供六个虚构任务的 baseline / candidate 分数。轻量脚本实际读取表格，计算每项差值、提高/下降/持平数量与平均差值；教程再解释这些观察支持什么、缺少什么、下一项比较应该解决什么问题。
+### 1. 把方向变成可检验问题
 
-从仓库根目录运行，无需第三方包：
+从研究对象、输入输出、独立样本和目标使用场景开始。对于 AI-for-biology，尤其需要确认所谓“跨环境”“未见扰动”或“机制发现”究竟对应什么泛化对象。文献阅读比较任务、数据、表示、split 和评价定义，不只比较方法名称。
 
-```bash
-SKILL_DIR="$PWD/skills/research-publication-pipeline"
-DEMO_OUT=$(mktemp -d)
-python3 -B "$SKILL_DIR/examples/perturbation-comparison/analyze_scores.py" \
-  --scores "$SKILL_DIR/examples/perturbation-comparison/scores.csv" \
-  --output "$DEMO_OUT/comparison"
-```
-
-实际生成 `differences.csv`、`summary.json` 和 `summary.md`。输出目录必须不存在，避免覆盖已有结果。
-
-| 可观察输出 | 如何用于写作与决策 |
-|---|---|
-| 六项配对差值 | 展示异质性，不只汇报一个平均数 |
-| 四项提高、两项下降 | 限定结果段落，不写成一致领先 |
-| 平均差值 0.005 | 仅为教学分数摘要，不能据此宣布真实 benchmark 的 SOTA |
-| 可独立运行的分析代码 | 让读者用随附输入重算结果，而不是只看状态记录 |
-
-[输入、运行命令、结果与下一步判断](skills/research-publication-pipeline/examples/perturbation-comparison/README.md) · [进阶：小型代码包打包演练](skills/research-publication-pipeline/examples/README.md)
+这一阶段分别给出三个判断：**数据是否可做、新颖性证据是什么、贡献是否适合目标 venue**。相邻工作可以限定贡献差异，不等于已经完全重复；没有找到数据也不等于证明数据不存在。
 
 ```text
-使用 research-publication-pipeline。
-阅读 project-notes.md、数据说明与现有 baseline 结果。
-分别判断数据可行性、新颖性证据和目标 venue 的匹配程度，
-核对公平比较与可测提升空间，提出下一项最有判别力的小实验。
-先完成本地分析与准备；不要启动远程训练、访问锁定测试或代为投稿。
+使用 research-publication-pipeline，从选题阶段开始。
+方向是利用公开单细胞扰动数据研究跨细胞环境的响应预测。
+阅读 topic-notes.md，检索并打开当前一手论文与数据说明，比较准确任务与贡献。
+分别说明数据可行性、新颖性和目标 venue 匹配度，列出证据及尚未核实的部分。
+优先形成一个能被小规模真实数据检验的问题，不先设计复杂架构。
 ```
 
-教学分数是人工构造的，不是训练得到的生物学结果。计算摘要由脚本生成；研究判断与论文段落是明确标注的示范写作。真实项目仍需要真实数据、当前文献和实际实验。
+### 2. 核实数据与可测提升空间
 
-[完整中文教程：课题判断、实验推进、成稿与复现交付](docs/research-publication-workflow.md)
+先检查研究需要的变量是否在同一批可关联样本中共存，再检查访问条件、数据版本、分组与潜在泄漏。细胞很多但 donor 很少，不能按细胞数量估计独立验证强度；多个数据集名字相似，也不代表样本可直接配对。
+
+建立最强的适用、可复现比较：不仅有常用模型，还要考虑真正针对任务的便宜基线、同信息量对照和合理的 train-only 组合。测量噪声与实现差异后，判断是否还有足以支撑研究的提升空间。报告应说清楚比较对象、评价单位和观察结果，而不是只给“值得做”的判断。
+
+### 3. 用小试决定下一步方法开发
+
+`pilot` 选择最能检验关键前提的小规模真实数据实验。`plan` / `freeze` 明确数据划分、主指标、候选选择、校准方式和最终测试边界。小试成功代表相关前提获得支持，不代表已经达到 SOTA 或具备发表结论。
+
+方法开发依次检查公平复现和训练配方、目标函数、数据与表示、组合方法、测试时计算，最后再考虑更复杂架构。每次改变要有可识别的机制，配套一个保留其他条件的对照；不要同时更换数据、损失、模型和评价后再把提升归给某个模块。
+
+```text
+使用 research-publication-pipeline，续接 baseline 已完成的项目。
+读取当前项目状态、baseline 配置、逐样本结果和开发集分析。
+先检查公平性、误差单位与可测提升空间，再选择一个有明确预测的机制候选。
+说明最小对照、正向/负向/无法区分的结果各意味着什么，以及下一步决定。
+在现有授权内完成本地分析和准备；远程运行与最终测试单独列出所需操作。
+```
+
+### 4. 正式实验、监控与最终评价
+
+正式实验应继承已经确定的协议和比较，不在看到结果后改主指标、挑 seed 或改变纳入规则。运行前明确实际资源与恢复方式；运行中从日志、有限的有效指标和输出判断进展；完成后检查退出状态与结果文件。一个活跃进程或监控记录不是实验结果。
+
+最终测试只在候选与选择规则确定后进入。若出现 NaN、异常高分、baseline 不匹配或疑似泄漏，保留原始证据并处理协议问题，不继续把可疑结果写进论文。这个公开 skill 提供科学组织与本地工具，不自带远程集群、训练预算或投稿权限。
+
+### 5. 从结果到可信主张
+
+围绕实际独立单位报告差异与不确定性，区分平均提升、适用子群、失败条件和没有完成的验证。负向结果可以排除某个机制，但不能自动证明整个研究方向不成立。若没有可靠优势，应缩小主张、继续已登记的候选，或明确讨论路线变化。
+
+`claim-lock` 将标题、摘要、贡献点与图表逐一对应：哪些得到支持，哪些只支持较窄版本，哪些被反驳，哪些未测试。`handoff` 再把稳定的科学内容转入写作；不能靠润色补足证据。
+
+### 6. 完整成稿与可复现交付
+
+`manuscript` 可以独立组织全文、稿件图件、图注、引用、声明与本地候选包；不是只产生一个交接提纲。会议和期刊 skill 可作为更细的写作协作，但并非强制依赖。
+
+`public-release` 从筛选后的代码树准备清晰 README、依赖、运行命令、小例子、期望输出、数据与预处理说明、许可及限制，并实际检查可运行性。研究工作目录里的私有控制记录和授权材料不属于公开代码包；本地准备完毕也不等于已经上传。
+
+```text
+使用 research-publication-pipeline。当前实验已按固定协议完成，结果在 results/。
+先核对逐项比较与不确定性，再把主张分为支持、需缩小、反驳与未测试。
+在这个范围内完成目标论文的全文、图件与图注，检查可阅读版本。
+随后整理可复现 public-release 代码副本，写清依赖、数据入口、运行与期望输出，
+用随附小例子进行一次本地复现。不增加未经验证的结论，不上传或代为投稿。
+```
+
+**详细手册：** [逐个科研环节的输入、操作、输出、判断与调用范例](docs/research-publication-workflow.md)。希望先熟悉脚本时，可选[配对结果分析练习](skills/research-publication-pipeline/examples/perturbation-comparison/README.md)和[代码打包演练](skills/research-publication-pipeline/examples/README.md)；二者是合成教学材料，不是训练实验或研究结论。
 
 ## 常见问题
 

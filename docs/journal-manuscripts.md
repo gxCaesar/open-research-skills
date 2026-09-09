@@ -1,222 +1,524 @@
-# 期刊论文：让正文、图注和编辑材料讲同一件事
+# Nature-family 期刊论文使用手册
 
-[返回仓库首页](../README.md) · [安装](#安装与运行位置) · [完整教学案例](../skills/prepare-journal-manuscripts/examples/showcase/README.md) · [运行入口](../skills/prepare-journal-manuscripts/SKILL.md)
+[仓库首页](../README.md) · [安装与首次调用](#安装与首次调用) ·
+[确定期刊文章类型与阶段](#确定期刊文章类型与阶段) · [从证据组织完整文章](#从证据组织完整文章) ·
+[逐节写作与修改](#逐节写作与修改) · [编辑材料与-cover-letter](#编辑材料与-cover-letter) ·
+[期刊返修](#期刊返修) · [最后交付与验收](#最后交付与验收)
 
-`prepare-journal-manuscripts` 把期刊正文、图注、统计报告、Data Availability、
-cover letter 和返修回复作为一个互相一致的工作来处理。适合已有证据但文章组织不清、
-统计单位写错，或正文与编辑材料不一致的任务。
+`prepare-journal-manuscripts` 用于完整期刊文章及其关联材料：
+正文、图注、Methods、统计报告、Data Availability、cover letter、审稿回复和最终候选文件。
+它的重点不是把句子变得“像 Nature”，而是让全文围绕同一个问题逐步建立答案，
+并让图表、统计单位、证据强度和编辑材料始终一致。
 
-内含 Nature-family 写作指引，但不是“自动生成 Nature 论文”的工具。
-实际期刊、文章类型、阶段和当前官方要求决定任务范围；它不会补造发现、作者声明或接收结果。
-这份中文教程与英文运行指令分开维护，单独安装一个完整目录即可使用。
+本手册适用于 Nature-family 写作任务，也可用于其他期刊；
+具体期刊、文章类型、当前阶段与官方要求决定实际工作。
+本地 [SKILL.md](../skills/prepare-journal-manuscripts/SKILL.md) 是运行入口，
+本页是作者如何准备材料、发起任务、审阅输出和完成交付的详细说明。
 
-## 选择你要完成的任务
+## 安装与首次调用
 
-| 任务 | 模式 | 主要交付 |
-|---|---|---|
-| 从已确认问题、方法和结果开始写 | `draft` | 文章提纲、正文、图注和明确的证据缺口 |
-| 找到主张、统计报告或跨文件矛盾 | `audit` | 带位置和依据的问题清单 |
-| 修改结构、段落和语言 | `polish` | 保留科学内容的修订副本与修改说明 |
-| 解释研究与目标期刊的关系 | `cover-letter` | 基于事实的编辑信，不夸大贡献或编作者确认 |
-| 核对首次投稿材料 | `editor-pack` | 正文、图、声明、元数据及缺失项的对应清单 |
-| 回应编辑与审稿意见 | `revision-response` | 逐条回复、修改位置、clean/marked 版本 |
-| 录用后的最终文件 | `final-package` | 实际检查的候选稿和所需制作材料 |
-| 期刊政策和文章类型不确定 | `recon` | 当前来源、适用要求和未决信息 |
+按[仓库快速开始](../README.md#快速开始)安装完整
+`skills/prepare-journal-manuscripts` 目录，并在使用的 agent runtime 中刷新技能列表。
+摘要、统计报告、数据可用性和论文图件的所需指引都在该目录内。
 
-摘要、[统计报告](../skills/prepare-journal-manuscripts/components/statistics-reporting/guide.md)
-与[数据可用性](../skills/prepare-journal-manuscripts/components/data-availability/guide.md)均为本目录内组件，
-不是另外安装的技能。写作前先固定研究问题、方法、数据、比较、独立单位、结果及限制；
-编辑过程改善解释，不能悄悄改实验协议。
-
-## 准备输入与交付约定
-
-带上具体期刊和文章类型、当前阶段、稿件或批准的提纲、方法及结果来源。
-有配对、重复测量或多层样本时，同时提供样本 ID、关系和已采用的统计单位。
-图和图注需要 source data、变量含义、聚合方式、不确定性、排除项和实际运行状态，
-不能仅凭一张图片反推完整实验设计。
-
-返修还需要原提交版本、完整意见及已完成的新分析。编辑材料需要作者实际确认的作者名单、
-伦理、资助、利益冲突、数据存放方式和仓库访问事实；未知项保持未知。
-
-指定新的 revision 目录后，可交付正文、图注、可用性声明、cover letter、审稿回复、
-变更清单和渲染后的候选稿。只读任务不写文件；canonical/frozen 原稿不会自动被覆盖。
-联系编辑、外部数据存放、投稿系统写入和提交需要另行授权。
-
-## 教学案例：六个配对标本，不是十二个独立样本
-
-![六个手工构造标本的配对响应值。](../skills/prepare-journal-manuscripts/examples/showcase/preview.png)
-
-场景设定为 AI-for-biology 响应预测研究的**报告排练**，不是已运行的模型或真实生物实验。
-[observations.csv](../skills/prepare-journal-manuscripts/examples/showcase/observations.csv)
-保留六个标本 ID，每行两个手工构造值。没有真实干预、受试对象或人群抽样。
-
-原句把两次测量数误当成独立样本数，并进一步宣称因果和广泛泛化：
-
-> Twelve independent samples prove that the treatment improves response and generalizes to the wider population.
-
-[修正版](../skills/prepare-journal-manuscripts/examples/showcase/after.md)从记录本身能够支持的描述开始：
-
-> Six constructed specimens each contribute one baseline and one follow-up value.
-> Follow-up exceeds baseline for four specimens and is lower for two.
-
-完整案例不是只有一个 PASS：
-
-| 材料 | 你能读到什么 |
-|---|---|
-| [问题与证据简述](../skills/prepare-journal-manuscripts/examples/showcase/case-brief.md) | AI-biology 背景、输入边界、配对关系与任务请求 |
-| [原始片段](../skills/prepare-journal-manuscripts/examples/showcase/before.md) / [修订片段](../skills/prepare-journal-manuscripts/examples/showcase/after.md) | Results、Methods、完整 legend、Data Availability 和 Limitations 如何一致 |
-| [编辑材料示例](../skills/prepare-journal-manuscripts/examples/showcase/editorial-response.md) | Cover-note 片段、模拟编辑意见、回应与具体修改位置 |
-| [案例教程](../skills/prepare-journal-manuscripts/examples/showcase/README.md) | 推理过程、文件索引、运行步骤、可观察输出与限制 |
-
-这些可读段落和回复是预先编写的教学输出，不是后面的 validator 自动改写，
-也不是受控 agent 行为评测记录。检查通过只说明指定字段满足本地检查，不会证明因果结论、
-原始样本数、仓库可访问性或期刊接受概率。
-
-## 安装与运行位置
-
-按[仓库安装说明](../README.md#快速开始)获取仓库，将完整
-`skills/prepare-journal-manuscripts` 放进 agent runtime 使用的目录，再刷新技能列表。
-不要只复制入口。下面默认终端位于仓库根目录：
+在仓库根目录可定义安装路径并准备 Python 依赖：
 
 ```bash
 SKILL_DIR="$PWD/skills/prepare-journal-manuscripts"
 python3 -m pip install -r "$SKILL_DIR/requirements.txt"
 ```
 
-已经安装到别处的用户，把第一行替换为**实际安装目录的绝对路径**，即包含 `SKILL.md` 的目录。
-其他命令保持不变。需要 Python 3.9+；记录检查使用标准库，
-数据图使用 `matplotlib==3.9.4`，native PPTX 使用 `python-pptx==1.0.2` 或可用演示工具。
-依赖详见 [requirements.txt](../skills/prepare-journal-manuscripts/requirements.txt)。
-真实论文/PPTX 渲染器和图像服务是另外的能力，下面的 demo 不需要它们。
+独立安装用户将第一行换成包含 `SKILL.md` 的实际绝对目录。
+切换到论文项目后，这个变量仍指向技能安装位置。
+依赖见 [requirements.txt](../skills/prepare-journal-manuscripts/requirements.txt)；
+Word、LaTeX、演示文件渲染器和图像接口属于工作环境的其他能力，不能由 pip 安装说明替代。
 
-## 可运行的小例子
+首次请求可以直接围绕真实稿件：
 
-在同一个终端中运行：
-
-```bash
-DEMO="$SKILL_DIR/examples/showcase"
-DEMO_OUT="$(mktemp -d)"
-MPLCONFIGDIR="$DEMO_OUT/.mpl" XDG_CACHE_HOME="$DEMO_OUT/.cache" \
-  python3 "$SKILL_DIR/scripts/render_evidence_figure.py" \
-  "$DEMO/figure.json" "$DEMO_OUT/figure"
+```text
+使用 $prepare-journal-manuscripts 处理我的期刊稿件。
+目标期刊、文章类型和阶段见项目说明。输入包括当前正文、图与图注、
+Methods、source data、补充材料、结果来源及已确认的作者事实。
+先判断文章主张、证据链和跨文件一致性，给出具体问题与修订顺序。
+这一轮只读，不改变数据、分析协议、原稿或图件，不联系编辑。
 ```
 
-预期 exit 0，生成 `$DEMO_OUT/figure.svg`、`figure.pdf`、`figure.png`。
-点来自 CSV 的六行；SVG 保留可编辑文字，PDF 为矢量，PNG 为预览。请打开图检查。
-新临时目录避免覆盖之前的导出。
+如果需要直接执行修改，明确可写的 revision 目录和允许修改的内容。
+一个 Results 小节、图注、Data Availability 或 cover letter 都可以单独处理；
+不需要为了单项工作创建整套稿件包。
 
-下一条**预期失败**，应单独运行，不要放入会遇错退出的连续命令链：
+## 确定期刊文章类型与阶段
+
+“Nature-family”不能代替具体期刊。
+Nature、Nature Methods、Nature Biotechnology、Nature Computational Science、
+Nature Communications 等目标可以共享一些清楚表达的原则，
+但不能假设共享所有文章类型、篇幅、图件、披露和提交要求。
+这些名称是目标选择的例子，不是本页替任何项目作出的选刊结论。
+
+这里没有可直接替代实时核验的逐刊最终合规认证。
+开始任务时应说明期刊、publisher、article type、collection/special issue（如有）、
+阶段、编辑来信及希望完成的动作。
+通用 publisher 页面不能覆盖目标期刊更具体的要求。
+
+### 文章形态与科学贡献分开判断
+
+方法、发现、转化研究和资源贡献分别回答不同问题；
+Article、Brief Communication、Comment、Resource 等是需要按目标核对的出版形态。
+不要因为写作模板熟悉，就把一个 Comment 强行拆成完整 Results，
+或把方法稿悄悄改写成 benchmark 来回避证据问题。
+
+| 当前贡献 | 写作时应让读者理解 | 不应靠措辞补出的内容 |
+|---|---|---|
+| 方法或系统 | 新能力、计算或测量转换、适用条件、匹配比较 | 所有条件都领先、未测量效率或新颖性 |
+| 生物学发现 | 未知问题、判别性观察、解释与独立支持 | 由关联直接推出机制或因果 |
+| 转化研究 | 具体人群/系统、测量、终点和实际验证设计 | 未经检验的临床效用或治疗建议 |
+| 数据或资源 | 填补的覆盖缺口、可用性、复用实例与边界 | 用规模替代质量，单个示例验证所有假设 |
+
+这些是组织已有贡献的提问方式，不是允许改换项目方向。
+如果无法从材料判断贡献或文章形态，先说明具体缺失信息。
+
+### 阶段会改变交付
+
+区分 presubmission inquiry、initial submission、technical check、editorial assessment、
+peer review、minor/major revision、明确邀请的 revise-and-resubmit，以及 acceptance/production。
+相同题目在不同阶段可能需要不同材料和允许不同修改。
+
+编辑来信是返修任务的重要输入。
+不要把首次投稿的匿名、格式和附件要求机械用于录用后版本，
+也不要把 rejection 自动解释为邀请提交一个改头换面的版本。
+
+```text
+使用 $prepare-journal-manuscripts 的 recon 模式。
+根据我给出的具体期刊、文章类型、阶段和编辑来信，核对当前官方要求。
+分开记录 journal-specific、publisher-wide、reporting guideline、
+数据/代码存放要求和编辑指定事项。保留来源日期及冲突；
+未实际看到的表单字段保持未确认，不用往年惯例填补。
+完成后告诉我这轮应准备哪些文件、哪些内容可以修改。
+```
+
+本地[期刊生命周期](../skills/prepare-journal-manuscripts/references/journal-lifecycle.md)
+说明核验范围。这个步骤决定本次工作边界，不需要把每次小修改都扩展为重新选刊。
+
+## 材料准备：从已有项目开始
+
+先指出当前权威源文件、已渲染稿件和结果版本。
+同一张图的几个“最终版”不能只靠文件名区分；
+应明确哪份来源定义了当前正文的量、分母和解释。
+
+| 材料 | 最有用的信息 |
+|---|---|
+| 研究简述 | 中心问题、主要贡献、当前最强结论及边界 |
+| 正文与来源 | 当前源文件、PDF、bibliography、已有提纲 |
+| 数据与方法 | 来源、采样层级、处理、模型或测量过程、实际配置 |
+| 评价与统计 | 划分、比较、指标、独立单位、排除、缺失、不确定性与选择规则 |
+| 图表 | 可编辑文件、导出、图注、source data、面板与分析的对应 |
+| 附加材料 | Extended Data（若适用）、Supplementary Methods/Results、表格、代码材料 |
+| 编辑材料 | 目标要求、决定信、审稿意见、先前提交版本及新分析 |
+| 作者事实 | 作者、机构、伦理、资助、利益冲突、数据代码状态和相关稿件 |
+
+资料不全时，可以做结构诊断、已有段落修订和缺口清单。
+不能凭图注里的“biological replicates”猜真正的实验单位，
+也不能从软件默认设置推测原分析参数。
+
+AI-for-biology 论文尤其应解释层级。
+细胞可能嵌套于样本，切片或视野可能嵌套于患者，模型种子可能只是重复计算；
+训练/测试跨什么实体，以及每个结果汇总哪些单位，直接决定论文能说什么。
+
+## 从证据组织完整文章
+
+### 先写一句答案，再安排结果顺序
+
+用已有证据写一句有范围的中心答案。
+接着检查标题、Abstract、主要 Results、关键图与 Discussion 是否回答同一个问题。
+如果不同章节各自成立，却无法共同支撑这一答案，优先修复论证顺序，而不是先换词。
+
+结果顺序可以围绕科学依赖组织：
+前一部分已经解决什么，尚不能排除什么，后一部分为什么有必要。
+不同数据集只有在测试不同条件、限制或可迁移性时，才自然构成推进；
+“我们又做了一个数据集”不是科学过渡。
+
+本地[整篇论证案例](../skills/prepare-journal-manuscripts/references/whole-paper-argument-cases.md)
+分别展示方法能力、发现/转化、资源用途的组织方式。
+它们的章节和图数量不是模板，也不允许借用其生物机制、实验参数或结论。
+
+```text
+使用 $prepare-journal-manuscripts 重建全文论证。
+先根据现有证据写一句中心答案，再给每个 Results block 写出它回答的问题、
+支持图表、方法定义、可得结论和下一步仍未解决的问题。
+说明当前顺序在哪里断裂，哪些只是重复，哪些确实缺证据。
+先给可执行提纲；不要为了连贯而编造中间实验。
+```
+
+### 将图与段落放在同一张论证地图上
+
+为每个结果块关联问题、display locator、观察到的比较、合理主张、尚未解决的依赖和位置理由。
+不必规定一图一段；一张复合图可能支持多个相关问题，
+一个重要问题也可能需要主图、方法定义和补充控制共同说明。
+
+判断放主文还是附加材料时，问：
+移走这一比较或限定后，主标题或核心结果是否会被理解成另一件事？
+如果会，决定意义的证据或限定应该在主论证中可见。
+
+稳健性、技术细节、附加案例和诊断可放在适当附加材料，
+但不能因为不利、复杂或难写就把关键失败条件藏进去。
+不是所有期刊和文章类型都有 Extended Data；按目标要求命名与组织。
+
+### 保留积极贡献，也保留实际边界
+
+有用的写作不是把每句话末尾都加免责声明。
+应明确论文已经提供的能力或发现，再在会影响解释的位置说明条件。
+有些限制可以通过命名实际人群、输入类型、比较 regime 或验证设计自然表达。
+
+假如研究只是候选定位，不能在 Discussion 写成已揭示机制；
+如果实验确有独立干预支持，也不必把结论缩成“可能存在相关性”。
+证据强度决定动词，不能由想投的期刊决定动词。
+
+## 逐节写作与修改
+
+### Title 与 Abstract
+
+标题指出研究对象和已建立的贡献。
+方法名可以帮助识别，但不应挤掉读者需要知道的能力；
+发现型标题中的因果动词需要相应设计支持。
+压缩时不要删去使主张成立的条件。
+
+Abstract 在核心问题和结果稳定后起草。
+说明实际问题、具体缺口、方法或测量如何改变可回答的问题、关键证据和支持的答案。
+比较主张应保留决定其意义的量、单位、比较者和评估范围；
+能力型摘要不必为了形式强塞一个性能提升数字。
+
+按当前期刊核对长度、是否结构化和引用要求。
+不能把通用“Nature 摘要字数”套给所有目标，也不能将训练样本量当作方法有效性的证据。
+对应工具与指引在[摘要组件](../skills/prepare-journal-manuscripts/components/abstract/guide.md)。
+
+```text
+在全文证据边界稳定后修改 Title 与 Abstract。
+让它们承诺同一个中心贡献；保留决定解释的 comparator、数值、单位和适用范围。
+去掉无证据的 first、机制或临床承诺，不为模板编造 margin 或 p value。
+采用目标期刊当前长度与结构要求，并报告仍无法核实的事实。
+```
+
+### Introduction
+
+从与读者有关的科学需求进入具体未知。
+先讲清最接近的方法或认识已经做到什么，再说明当前问题中仍不充分的部分。
+引用的位置应与其支持的具体句子对应，而不是把一串文献放在宽泛主张后面。
+
+逐步缩小到这篇论文要回答的问题和为什么当前方法能够回答它。
+不要把 Introduction 写成整个领域的历史，也不要把结尾变成第二份 Abstract。
+只有真正帮助理解贡献的技术细节才留在这里。
+
+### Results 与小标题
+
+Results 回答问题，而不是复述实验时间线或依次朗读 panel。
+每个结果块先给解释所需的设置，再报告观察和范围，
+再说明下一块证据为什么必要。
+
+有支持的小标题可以直接陈述发现。
+证据尚不足时，用具体问题或分析任务作为标题，而不是给关联图起因果标题。
+保持标题的逻辑层级一致，不把普通验证数据集包装成新机制发现。
+
+比较段落需要区分不同信息条件、数据处理和分母。
+额外数据库、额外训练数据或另一种汇总方式带来的结果，不应压缩成同一个“整体领先”。
+最强比较者和改变结论的例外留在相应段落附近。
+
+```text
+只修改 Results 的论证与表达。
+为每节保留比较条件、实际观察和结论范围；让转折说明前一结果尚不能决定什么。
+正文不逐项复述所有数值，图展示模式，图注定义数量。
+保留改变主张的混合排序和负结果，不把关联、预测和功能验证混写。
+```
+
+### Methods
+
+Methods 应使读者能重建产生结果的操作链。
+按输入或材料、处理、影响量的选择、输出和评价组织，
+而不是只列软件名和版本。
+
+在适用且已知时说明样本来源与纳入、采样层级、数据获取、预处理、
+特征或模型定义、训练和推理、比较者、终点与不确定性。
+需要解释的非标准选择就地说明；标准方法注明来源与实际修改。
+
+区分从训练数据学习的预处理与应用于保留数据的步骤。
+写明固定和调参选择、排除时点以及实际配置，不从代码默认值或别人的 Methods 中补参数。
+随机化、盲法、样本量依据与伦理只能按确实发生的事实写。
+
+```text
+依据现有代码说明、配置、协议和结果记录修订 Methods。
+按输入—操作—关键选择—输出组织，统一正文、图和代码中的对象名。
+区分训练所得变换与测试应用、预先固定选择与实际调参。
+缺参数、排除规则或采样信息时提出具体作者问题，不推断默认值，不重新设计分析。
+```
+
+### Discussion 与结尾
+
+Discussion 解释中心答案如何改变已有认识或可用能力，
+而不是重复 Abstract 的数据集清单。
+区分观察、作者解释、替代解释、可推广范围和需要进一步验证的用途。
+
+每个重要限制应说明后果：它限制哪一句主张，需要什么证据才能跨过去。
+笼统写“未来需要更多数据和实验”不能代替真实的测量、比较或外推边界。
+也不要在非临床方法论文结尾惯例性加入没有关联的临床免责声明。
+
+结尾保留最强、最具体且有范围的贡献。
+是否单设 Conclusion 由实际文章形态与任务决定，不由手册统一规定。
+
+### 全文润色的顺序
+
+先核对主张，再修章节和段落顺序，最后处理句子、标题、图注、术语与引用。
+每段写一句当前作用，合并重复问题、拆开不兼容的工作，去掉后文没有使用的铺垫。
+完成全文任务需要覆盖所有提供部分，不能只改 Abstract 和首个 Results 小节。
+
+```text
+使用 $prepare-journal-manuscripts 全文 polish，在新的 revision 副本修改。
+先给 reverse outline，再处理论证顺序和段落关系，最后编辑句子。
+保持数字、单位、区间、比较方向、否定、样本范围和引用范围不变。
+覆盖我提供的所有章节与图注，标出未提供或没有检查的部分。
+输出清晰变更说明，不把整篇改成固定句式。
+```
+
+详细写作依据见
+[逐节写作](../skills/prepare-journal-manuscripts/references/nature-section-style.md)与
+[段落和图注](../skills/prepare-journal-manuscripts/references/nature-paragraphs-and-legends.md)。
+它们是有来源的写作参考，不是当下期刊法规或万能文章结构。
+
+## 图件图注与补充材料
+
+### 先决定图回答什么
+
+方法图说明输入、变换与输出；测量图展示原始观察及其处理；
+比较图显示匹配条件下的差异；机制图需要区分推断、干预和提出的路径。
+把图的任务明确后，再决定主次、panel 分组和阅读顺序。
+
+允许新建或重设计示意图时，先实际查看高质量相关实例并提炼构图经验。
+默认 GPT Image 2.5 概念稿，再用当前可用工具直接重建 native editable PPTX。
+接口不暴露模型选择时，照实报告 backend unknown/unverified；
+真实图像与定量面板保持来源驱动，不用生成内容替代测量。
+
+本 skill 已内置[独立绘图路线](../skills/prepare-journal-manuscripts/references/standalone-figures.md)，
+不要求其他技能才能完成论文语境中的图。
+高密度、多模态和全套图件可由[科研绘图指南](scientific-visualizations.md)提供额外设计帮助。
+已批准或冻结的图件修改仍以当前授权范围为准。
+
+### 图注从 panel 事实写，不从模板写
+
+每个相关 panel 或 panel group 明确样本/队列、条件、时间、读出、单位，
+一个点或线代表什么，独立 `n` 与嵌套采样，汇总和区间含义，以及实际使用的统计比较。
+共享说明只放真正共享的内容，特例留在当地。
+
+真实图像还需通道、尺度、ROI、处理及代表视野如何选择。
+不同 panel 的 `n` 不必一样；同一图中的细胞、视野、培养孔和动物也不应混为一个计数。
+不能为补齐图注而复制相邻 panel 的检验名称或推测归一化方式。
+
+```text
+根据最终图、source data 和现有统计记录重写 legends。
+逐 panel 核对点/线含义、独立单位、n、处理、汇总、区间和实际检验。
+图像说明通道、尺度、ROI 与处理；示意图说明对象和箭头，不强塞统计字段。
+先独立读图注能否解码图，再与 Results 对照，修复分母和结论不一致。
+```
+
+### 主文、Extended Data 与 Supplementary 如何配合
+
+按目标期刊实际支持的材料类型分配，不假设所有文章都需要 Extended Data。
+主论证应保留决定核心解释的控制、单位和限制；
+附加材料承载延伸方法、稳健性、附加样本、诊断或可复现细节。
+
+Supplementary Methods 不能重新定义主文用过的协议。
+Supplementary Results 说明它回答的问题及与主张的关系，不是没有解释的输出集合。
+维护主图、附加图、表、Methods 与 source data 的编号和名称对应，重排后重新核对引用。
+
+## 统计报告与数据代码声明
+
+### 统计报告不是重新挑分析
+
+先核对已经采用的设计、独立单位、层级、配对、重复测量、纳入排除、
+缺失处理、比较族、估计对象、不确定性和选择规则。
+报告模型种子的作用，不把重复计算转换成更多独立生物样本。
+
+正文、Methods、图注、表格与 source-data notes 使用同一数量和定义。
+不显著不等于等效，“一组显著、另一组不显著”也不能代替两组差异的直接检验。
+若问题需要重新分析，说明证据缺口与任务范围，不在润色中悄悄引入新方法。
+
+[统计组件](../skills/prepare-journal-manuscripts/components/statistics-reporting/guide.md)
+可整理和检查分析记录。假设论文项目已准备真实的 `analysis-register.json`，可运行：
 
 ```bash
 python3 "$SKILL_DIR/components/statistics-reporting/scripts/validate_analysis_register.py" \
-  "$DEMO/analysis-missing-unit.json" --mode final --format markdown
+  analysis-register.json --mode working
 ```
 
-预期 exit 1，只有一条 `INDEPENDENT_UNIT` error。再检查完整记录：
+`working` 用于尚在补齐事实的记录；事实解决后才考虑 `final`。
+validator 检查完整性和部分字段逻辑，不读取原数据来选择统计方法或认证科学有效性。
 
-```bash
-python3 "$SKILL_DIR/components/statistics-reporting/scripts/validate_analysis_register.py" \
-  "$DEMO/analysis-complete.json" --mode final --format markdown
+### Data Availability 从数据清单开始
+
+先覆盖支持主文和补充主张的所有数据：新产生的原始与处理数据、图表源数据、
+分析输入或模型输出、复用公开数据，以及受限或第三方资料。
+每组数据明确实际文件、版本、来源、用途与访问路线，再写 statement。
+
+外部公共仓库、controlled access、随文附带、复用公开数据、第三方限制和合理请求
+是不同路线，不能用一句“data available upon request”替代访问逻辑。
+没有产生或分析数据时才考虑不适用；不能为了避免说明限制而这样填写。
+
+受限数据应基于真实事实说明限制原因、管理者、谁可申请、如何申请及可共享的衍生材料。
+不编造 accession、DOI、许可、禁运期、伦理批准或委员会。
+仓库名称和计划上传都不能证明已有可用存储。
+
+```text
+使用 $prepare-journal-manuscripts 完成 Data Availability。
+先按主文与补充图表列出支持主张的全部数据，再对照实际文件和访问事实。
+分别处理新数据、复用数据和受限数据。写英文 statement，并给中文作者核对项。
+未知 accession、许可、访问条件或存放状态保持缺失，不进行外部上传。
 ```
 
-预期 exit 0，`PASS`、零 errors/warnings。两份记录只在 `independent_unit` 字段是否填入上不同，
-因此这个例子只展示缺字段的检查，不宣称自动判断分析是否正确。
-
-最后检查数据清单：
+[数据可用性组件](../skills/prepare-journal-manuscripts/components/data-availability/guide.md)
+提供路线与记录工具。已有真实的 `data-inventory.json` 时可运行：
 
 ```bash
 python3 "$SKILL_DIR/components/data-availability/scripts/validate_data_inventory.py" \
-  "$DEMO/data-inventory.json" --mode final --format markdown
+  data-inventory.json --mode working
 ```
 
-预期 exit 0，`PASS`、零 errors/warnings。清单指向实际随案例提供的 CSV，
-没有声称外部存储或 accession。整个 demo 不做假设检验、不计算区间、不渲染正文，也不生成修订文本。
+Code Availability 与数据声明也应区分：代码、模型、参数、协议和数据各自在哪里，
+哪些能复现实际分析，哪些受限制。仓库链接是否打开、reviewer access 是否可用需要实际检查。
+字段通过不能证明访问权、许可、consent 或外部存储完成。
 
-## 可直接改写使用的任务请求
+## 编辑材料与 cover letter
 
-### 从已有证据起草
+### Cover letter 不是第二份 Abstract
 
-```text
-使用 $prepare-journal-manuscripts 的 draft 模式。
-目标期刊、文章类型、问题、方法、结果和 source data 已附。
-先写文章提纲，明确每个 Results 段落由哪个图表支持，
-再起草正文和图注。区分细胞数、标本数和独立供体数；
-未提供的统计、伦理和数据存放事实不要补写。
-在新的 revision 目录交付，不覆盖原始材料。
-```
+编辑信首先明确标题、文章类型、研究问题、已支持的贡献与目标读者的关系。
+选择对编辑判断有用的区别，不堆叠 promotional adjectives，也不称赞期刊来替代 fit 说明。
 
-### 修改正文和图注
-
-```text
-使用 $prepare-journal-manuscripts 审查并润色现有稿件。
-核对 Results、Methods、legends 和 Data Availability 的样本、比较、
-不确定性与文件指向是否一致。先报告具体问题，再在副本修订。
-保留不利结果；把因果或泛化表述限制在现有设计真正支持的范围内。
-```
-
-### 准备 cover letter
+原创性、相关稿件、既往传播、作者同意、伦理、利益冲突、
+数据代码状态和 reviewer handling 信息只采用已确认事实。
+不能编 reviewer 姓名、邮箱、专业领域或冲突，也不能默认所有作者已批准。
 
 ```text
 使用 $prepare-journal-manuscripts 的 cover-letter 模式。
-根据目标期刊、文章类型及已批准的主张，写简洁的编辑信。
-说明研究问题、实质贡献和读者关联，不复制夸张摘要。
-作者确认、独家投稿、伦理、利益冲突和相关稿件事实只采用我已确认的信息。
-缺失项单列，不向编辑发送。
+依据准确标题、文章类型、已批准主张和目标期刊信息写简洁英文编辑信。
+说明实际贡献与读者关联，不复述整段 Abstract。
+只使用已确认的原创性、相关稿件、作者、伦理和数据代码事实；
+缺失项单列中文核对，不向编辑发送。
 ```
 
-### 回复编辑与审稿意见
+Presubmission inquiry、首次投稿 cover letter 和 portal metadata 是不同交付。
+先按当前阶段写，不把编辑咨询写成完整投稿，或把本地信件状态当成已经联系编辑。
+细节见[编辑包与编辑信](../skills/prepare-journal-manuscripts/references/editor-pack-and-cover-letter.md)。
+
+### Editor pack 如何核对
+
+根据当前要求列出实际所需的 title page、正文、图、source data、表、补充文件、
+checklist、cover letter、作者声明与其他材料。
+记录文件、版本、负责人、状态和交叉引用，不凭常见清单要求所有项目交相同附件。
+
+标题、作者机构、通讯信息、摘要、关键词、图顺序、补充编号和可用性语言需要跨文件一致。
+技术检查发现缺文件时，先分清缺的是文档还是底层事实；
+一份写得完整的声明不能补足未发生的伦理、授权或存储。
+
+```text
+使用 $prepare-journal-manuscripts 的 editor-pack 模式。
+从当前期刊要求建立实际文件清单，并对照我提供的候选材料。
+核对正文、title page、图注、补充、cover letter、声明和数据代码说明的一致性。
+输出可交付文件、实际缺失项与作者确认事项；不生成未知事实，不操作 portal。
+```
+
+## 期刊返修
+
+### 先还原每条意见的实际问题
+
+读取编辑信、完整 reviewer comments、最后提交稿以及已完成的新分析。
+保留意见来源和层级，将事实纠错、解释不足、缺少对照、方法威胁、
+新实验要求、范围争议、报告问题与编辑要求分开。
+
+每条意见对应已有依据、回应决定、实际改动、clean/marked 位置和剩余限制。
+优先解决决定性的科学问题，但最终覆盖所有 material comments。
+有依据的不同意应给出具体技术理由和支持材料，而不是修辞性反驳。
 
 ```text
 使用 $prepare-journal-manuscripts 的 revision-response 模式。
-逐条对照完整意见、原提交稿和已完成分析，写回应与正文修改位置，
-同步 clean/marked 版本。把“已修改表述”“已完成分析”“尚未开展实验”分开。
-缺少新证据时明确说明限制，不以措辞代替验证。
+以最后提交版本为基准，逐条保留编辑和 reviewer 的关切。
+先给意见—证据—决定—修改位置对应，再写英文 point-by-point response。
+区分纠错、澄清、已完成新证据、不同意、部分解决与接受限制。
+不能把要求开展的实验或预计结果写成已完成。
 ```
 
-## 文章组织与图示
+### 回复、clean 与 marked 必须是同一轮修改
 
-内含 [Nature 章节写作](../skills/prepare-journal-manuscripts/references/nature-section-style.md)、
-[段落与图注](../skills/prepare-journal-manuscripts/references/nature-paragraphs-and-legends.md)及
-[文章形态观察](../skills/prepare-journal-manuscripts/references/nature-family-article-shapes.md)。
-它们帮助选择表达方式，不是所有 Nature-family 期刊统一适用的规则或强制写作顺序。
+从同一修订源生成 clean 和 marked，或对准确的提交基准生成比较。
+不要分别维护两个独立编辑的正文，否则引用位置和修改内容很容易漂移。
+每句“We have revised”应能在实际候选版本找到对应改动。
 
-允许制作方法、架构、流程、motivation 或机制示意图时，先实际查看高质量相关示例，
-提炼阅读顺序、分组、层次和标签密度，不搬用数据、结论或专有 artwork。
-默认 GPT Image 2.5 概念稿后，用当前可用工具直接重建 native editable PPTX；
-接口隐藏模型选择时如实报告 backend unknown/unverified。定量面板始终从来源数据绘制。
-[本 skill 的独立绘图路线](../skills/prepare-journal-manuscripts/references/standalone-figures.md)
-不要求其他技能。复杂多面板任务还可参考[科研绘图指南](scientific-visualizations.md)；
-本页散点 demo 不等于已完成 dense Nature figure 或 PPTX 工作流。
+有新分析时，正文、图、补充、Methods、统计与可用性说明一起核对。
+负面或不确定的新结果同样报告；不能把事后工作重新命名为预先设计。
+新的实验、locked-test 访问或协议改变另行按实际授权处理。
 
-## 常见问题
+```text
+完成本轮回复后，核对 response、clean manuscript 和 marked manuscript。
+检查回复引用的位置、每个实际改动的理由，以及更新后的图表、补充和声明。
+标记未完成分析和仍开放的问题。交付同一修订源产生的版本，不发送返修信。
+```
 
-**能只做图注或 Data Availability 吗？** 可以。说明范围，提供图源与实际数据存放事实；
-不必为了一个小任务生成完整稿件包。
+[期刊返修指引](../skills/prepare-journal-manuscripts/references/revision-response.md)
+提供完整关联方法。期刊 revision 不应照搬会议 rebuttal 的篇幅或上传方式；
+允许怎样重构、补充实验和提交文件，以当前编辑信及正式要求为准。
 
-**没有 p value，需要补一个吗？** 不需要为了格式补统计。先核对问题、设计、独立单位和已运行分析。
-本案例明确不做推断；真实研究若缺少必要分析，应报告缺口而不是编造值。
+## 最后交付与验收
 
-**为什么两个时间点不是两个独立样本？** 在本案例中它们属于同一个标本。
-六行代表六个构造标本，十二个测量值不能写成十二个独立标本；真实研究应采用实际依赖结构。
+录用后工作从已接受或作者批准的基准开始。
+核对生产阶段的源文件、图件格式、声明和数据代码链接；
+不能因为评审稿曾经合规就跳过最终要求，也不能默认允许新增中心主张。
 
-**PASS 是否验证了论文结论？** 没有。validator 检查记录字段，不能替代读原始数据、
-判断因果设计、打开仓库或检查最终页面。
+真实交付通常包含下列适用部分，而不是一个笼统的“全部完成”：
 
-**没有渲染器或图像接口？** 完成独立可做的写作和记录检查，列出精确未运行步骤。
-不能把未打开的 PDF 称为已检查，也不能把图片嵌进幻灯片称为 native editable PPTX。
+| 交付 | 应能核对的内容 |
+|---|---|
+| 修订源和候选稿 | 当前版本、改动范围、实际生成与渲染情况 |
+| 全文章节覆盖 | 哪些已读已改，哪些没有提供或未评估 |
+| 图表与图注 | master、导出、编号、来源、统计单位及实际视觉检查 |
+| 补充材料 | 与主文的对应、协议一致性、引用和文件集合 |
+| 作者与编辑材料 | 已确认事实、缺失确认、cover letter 或 response 的实际状态 |
+| 验证摘要 | 命令结果、人工检查范围、失败和 `not_run` 项 |
 
-**能直接提交吗？** 教学案例不能投稿。真实候选包也仍需当前政策、作者事实、
-真实渲染及独立提交授权，不因生成了 cover letter 就得到这些确认。
+打开实际渲染页面，检查裁切、字体、公式、图片质量、表格断页、图注、引用和编号。
+只有源文件时不能说 PDF 已检查；只有 PDF 时不能保证可编辑源完整。
+统计和数据 validator 的 PASS 也不覆盖这些页面与科学问题。
 
-## 维护与相关指南
+```text
+使用 $prepare-journal-manuscripts 的 final-package 模式。
+对照接受稿、当前生产说明和作者确认事实，核对实际候选文件。
+检查全文、图表、补充、声明、数据代码链接和编辑材料的一致性。
+报告已完成的本地检查、未运行项目和准确的剩余动作。
+只交付本地候选包，不上传、存放数据、联系编辑或提交。
+```
 
-按需安装[测试依赖](../requirements-test.txt)，从仓库根目录运行：
+本地完成不等于外部系统已经保存、材料已经公开或期刊已经接收。
+相关动作需要明确授权，完成状态需要实际可观察的结果支持。
+
+## 常见问题与可选工具示例
+
+**没有完整结果能不能开始？** 可以先组织现有问题、方法和证据缺口。
+没有运行的分析不会因为文章需要过渡而自动变成已完成工作。
+
+**只有图，能写 Results 吗？** 可以解释可见内容，但完整结论还需量的定义、源数据和设计。
+不能从图形外观推断统计、独立单位或选择样本的方法。
+
+**能让全文变得更紧凑吗？** 可以先删除重复工作、修复章节关系，再压缩句子。
+不能通过省略关键 comparator、限制或采样单位制造更强结论。
+
+**是否需要另装统计或绘图技能？** 不需要；本目录能完成其声明范围内的任务。
+可用专家工具可增强设计或编辑，但不能代替实际来源和当前项目授权。
+
+**如何快速熟悉工具而不提供论文？** 可选
+[机械检查示例](../skills/prepare-journal-manuscripts/examples/showcase/README.md)
+使用构造记录演示图渲染、缺字段检查和清单验证。
+它不是 Nature-family 文章、专业图件或生物结果的展示，也不应作为真实写作质量的标准。
+
+维护时按需安装[测试依赖](../requirements-test.txt)，从仓库根目录运行：
 
 ```bash
-python3 skills/prepare-journal-manuscripts/components/abstract/tests/run_selftest.py
 python3 -B -m unittest discover -s tests/journal-manuscripts -p 'test_*.py'
-python3 scripts/check_public_content.py .
 ```
 
-[会议论文指南](conference-manuscripts.md) · [贡献说明](../CONTRIBUTING.md) ·
-[维护者](../MAINTAINERS.md) · [第三方条款](../THIRD_PARTY.md) · [Apache-2.0](../LICENSE)
+[会议手册](conference-manuscripts.md) · [科研绘图](scientific-visualizations.md) ·
+[贡献说明](../CONTRIBUTING.md) · [第三方条款](../THIRD_PARTY.md) · [许可证](../LICENSE)
