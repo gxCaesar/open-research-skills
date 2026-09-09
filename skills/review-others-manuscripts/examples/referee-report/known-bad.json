@@ -1,0 +1,15 @@
+{
+  "mode": "editorial-prescreen",
+  "note": "Synthetic. Shows the shapes this checker rejects.",
+  "findings": [
+    {"id": "p-01", "severity": "critical", "location": "Section 3", "statement": "wrong", "request": "fix"},
+    {"id": "p-02", "severity": "major", "kind": "taste",
+     "statement": "I would have organised the sections differently", "request": "reorganise"}
+  ],
+  "recommendation": "reject",
+  "to_editor": {"recommendation": "major-revision"},
+  "grounds": [
+    {"statement": "the contribution is not novel enough for this journal"},
+    {"statement": "the submission is missing an ethics statement", "basis": "journal policy section 4"}
+  ]
+}

@@ -3,6 +3,7 @@
 import copy
 import importlib.util
 import json
+import re
 import subprocess
 import sys
 import unittest
@@ -127,14 +128,11 @@ class IterationLedgerTest(unittest.TestCase):
         emitted = set()
         for path in (CLEAN, KNOWN_BAD):
             emitted |= rules(json.loads(path.read_text(encoding="utf-8")))
-        source = CHECKER.read_text(encoding="utf-8")
-        declared = set(
-            line.split('("', 1)[1].split('"', 1)[0]
-            for line in source.splitlines()
-            if 'findings.append(("' in line
-        )
+        # Rules are emitted both as findings.append((...)) and as return [(...)];
+        # a pattern that sees only the first form silently under-reports the set.
+        declared = set(re.findall(r'[(\[]\("([a-z_]+)"', CHECKER.read_text(encoding="utf-8")))
         declared.add("ledger_unreadable")
-        self.assertGreaterEqual(len(declared), 10, declared)
+        self.assertGreaterEqual(len(declared), 12, declared)
         covered = {
             "ledger_has_no_iterations", "iteration_is_not_an_object",
             "iteration_missing_field", "order_out_of_range", "verdict_not_recognised",

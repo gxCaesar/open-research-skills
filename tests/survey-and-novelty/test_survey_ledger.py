@@ -125,7 +125,9 @@ class SurveyLedgerTest(unittest.TestCase):
             with self.subTest(rule=rule):
                 self.assertIn(rule, rules(mutate(self.clean, edit)))
 
-        declared = set(re.findall(r'findings\.append\(\("([a-z_]+)"', CHECKER.read_text(encoding="utf-8")))
+        # Rules are emitted both as findings.append((...)) and as return [(...)];
+        # a pattern that sees only the first form silently under-reports the set.
+        declared = set(re.findall(r'[(\[]\("([a-z_]+)"', CHECKER.read_text(encoding="utf-8")))
         self.assertEqual(set(), declared - set(witnesses), "rule with no witness")
         self.assertGreaterEqual(len(declared), 25, declared)
 

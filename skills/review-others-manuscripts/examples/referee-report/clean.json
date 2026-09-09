@@ -1,0 +1,32 @@
+{
+  "mode": "initial-review",
+  "note": "Synthetic. No part of this record comes from a real submission.",
+  "manuscript": "synthetic manuscript S-104, assigned by a synthetic journal",
+  "competing_interest": false,
+  "external_tools": [],
+  "findings": [
+    {"id": "p-01", "severity": "fatal", "kind": "defect",
+     "location": "Section 3.1, split construction",
+     "statement": "repeated measurements of the same donor appear on both sides of the split, so the reported held-out score is partly measured on training donors",
+     "consequence": "the headline number does not estimate generalisation to a new donor and cannot be compared with the cited baselines",
+     "request": "split on donor rather than on measurement, re-run, and report both numbers"},
+    {"id": "p-02", "severity": "major", "kind": "defect",
+     "location": "Table 2 caption",
+     "statement": "the interval is computed over measurements while the unit of independence is the donor, which narrows every interval in the table",
+     "request": "recompute the intervals over donors, or state the unit and mark the intervals as descriptive"},
+    {"id": "p-03", "severity": "minor", "kind": "clarity",
+     "location": "Section 2, second paragraph",
+     "statement": "the metric named here is defined differently from the standard use of the same name, and the difference is not stated",
+     "request": "give the formula once, or rename the metric"},
+    {"id": "p-04", "severity": "taste", "kind": "taste",
+     "location": "Figure 1",
+     "statement": "the panel order does not follow the order the text introduces them",
+     "request": "reorder if convenient; the paper is not worse as it stands"}
+  ],
+  "recommendation": "major-revision",
+  "to_editor": {
+    "recommendation": "major-revision",
+    "rests_on": ["p-01", "p-02"],
+    "summary": "the split defect decides this paper; everything else is repairable in one round"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "round": 1,
+  "manuscript": "synthetic-boundary-detection-v7",
+  "isolation_evidence": "directory listing of the reviewer package taken before dispatch",
+  "isolation_manifest": [
+    {"path": "manuscript.pdf", "bytes": 1284310},
+    {"path": "figures/figure-1.pdf", "bytes": 210488},
+    {"path": "figures/figure-2.pdf", "bytes": 190221},
+    {"path": "supplementary.pdf", "bytes": 884012},
+    {"path": "artifact.zip", "bytes": 4410932}
+  ],
+  "reviewers": [
+    {"id": "r-claim", "lens": "claim-support", "model_family": "family-A",
+     "findings": [
+       {"id": "f-01", "location": "abstract, sentence 3",
+        "statement": "the abstract claims the method transfers across acquisition sites, and the only site-level evidence is Table 2, which reports one site",
+        "would_resolve": "report the per-site breakdown, or narrow the sentence to the site that was measured"}
+     ]},
+    {"id": "r-method", "lens": "method-correctness", "model_family": "family-B",
+     "findings": [
+       {"id": "f-02", "location": "Section 4.2, split description",
+        "statement": "the normalisation is described as fitted before the split, which lets test statistics reach the training fold",
+        "would_resolve": "refit inside the training fold and report whether the number moves"}
+     ]},
+    {"id": "r-fair", "lens": "comparison-fairness", "model_family": "family-B",
+     "findings": [
+       {"id": "f-03", "location": "Table 3",
+        "statement": "the comparator is quoted from its paper rather than run, so it did not receive the tuning budget the proposed method received",
+        "would_resolve": "run the comparator on this data at the same budget, or state plainly that the number is quoted"}
+     ]},
+    {"id": "r-repro", "lens": "reproducibility", "model_family": "family-A",
+     "executed_artifact": true,
+     "commands": [
+       {"command": "unzip artifact.zip -d run", "output": "inflated 41 files"},
+       {"command": "python3 -m pip install -r run/requirements.txt",
+        "output": "successfully installed 6 packages"},
+       {"command": "python3 run/reproduce_figure2.py",
+        "output": "Traceback: FileNotFoundError: run/data/site_b.csv"}
+     ],
+     "findings": [
+       {"id": "f-04", "location": "artifact.zip, reproduce_figure2.py",
+        "statement": "the script reads run/data/site_b.csv, which the package does not contain, so Figure 2 cannot be reproduced from the release",
+        "would_resolve": "include the file, or document the access route and ship the derived table the figure needs"}
+     ]},
+    {"id": "r-sig", "lens": "significance", "model_family": "family-A",
+     "findings": [
+       {"id": "f-05", "location": "Discussion, paragraph 2",
+        "statement": "assuming every number holds, the stated consequence is a change no reader of this venue can act on without the site-level result",
+        "would_resolve": "state the decision the result changes, or move the claim to future work"}
+     ]}
+  ],
+  "meta_review": {
+    "adjudication": [
+      {"finding": "f-01", "state": "confirmed",
+       "repair": "narrow the abstract sentence to the measured site; one sentence"},
+      {"finding": "f-02", "state": "confirmed",
+       "repair": "refit inside the fold and re-run; one training run per seed"},
+      {"finding": "f-03", "state": "confirmed",
+       "repair": "run the comparator at matched budget, or label the quoted number as quoted"},
+      {"finding": "f-04", "state": "confirmed",
+       "repair": "add the missing file to the package and re-verify from a fresh unpack"},
+      {"finding": "f-05", "state": "underdetermined",
+       "note": "depends on the site-level result that f-01 also turns on"}
+    ],
+    "priority": ["f-02", "f-03", "f-04", "f-01", "f-05"],
+    "note": "f-02 ranks first because a leaked normalisation cannot be repaired in a rebuttal"
+  }
+}

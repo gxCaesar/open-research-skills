@@ -102,6 +102,33 @@ RUNTIME_PROBES = {
         ),
         ("scripts/check_survey_ledger.py", "examples/survey-ledger/clean.json"),
     ),
+    "cold-review-panel": (
+        "run-cold-review-panel",
+        (
+            "scripts/check_panel_round.py",
+            "examples/panel-round/clean.json",
+            "references/isolation.md",
+        ),
+        ("scripts/check_panel_round.py", "examples/panel-round/clean.json"),
+    ),
+    "peer-review": (
+        "review-others-manuscripts",
+        (
+            "scripts/check_referee_report.py",
+            "examples/referee-report/clean.json",
+            "references/confidentiality.md",
+        ),
+        ("scripts/check_referee_report.py", "examples/referee-report/clean.json"),
+    ),
+    "artifact-release": (
+        "release-research-artifacts",
+        (
+            "scripts/check_release_package.py",
+            "examples/release-package/RELEASED_FILES.json",
+            "references/verification.md",
+        ),
+        ("scripts/check_release_package.py", "examples/release-package", "--mode", "named"),
+    ),
 }
 REQUIRED_PYTHON_DEPENDENCIES = {
     "scientific-visualizations": {

@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Synthetic example. Cite the repository, not this directory."
+title: "Synthetic boundary-detection release"
+version: "1.0.0"
+date-released: "2026-09-10"
+license: Apache-2.0
+authors:
+  - family-names: "Example"
+    given-names: "A."

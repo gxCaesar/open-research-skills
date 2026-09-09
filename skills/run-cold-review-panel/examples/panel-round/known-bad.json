@@ -1,0 +1,28 @@
+{
+  "round": 1,
+  "manuscript": "synthetic-boundary-detection-v7",
+  "isolation_evidence": "each reviewer stated it had no other context",
+  "isolation_manifest": [
+    {"path": "manuscript.pdf", "bytes": 1284310},
+    {"path": "project-plan.md", "bytes": 20418},
+    {"path": "artifact.zip"}
+  ],
+  "reviewers": [
+    {"id": "r-1", "lens": "claim-support",
+     "findings": [
+       {"id": "f-01", "statement": "the abstract overclaims", "would_resolve": "narrow it"}
+     ]},
+    {"id": "r-2", "lens": "everything", "model_family": "family-A",
+     "executed_artifact": true,
+     "findings": [
+       {"id": "f-02", "location": "Section 4", "statement": "the split looks wrong",
+        "would_resolve": "check it"}
+     ]}
+  ],
+  "meta_review": {
+    "acceptance_probability": 0.35,
+    "adjudication": [
+      {"finding": "f-01", "state": "confirmed"}
+    ]
+  }
+}

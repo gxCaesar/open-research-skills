@@ -1,0 +1,52 @@
+{
+  "built_from_commit": "0000000000000000000000000000000000000000",
+  "built_on": "2026-09-10",
+  "digest_algorithm": "blake2b",
+  "persistent_identifier": "https://doi.org/10.5281/zenodo.0000000",
+  "code_licence": "Apache-2.0",
+  "data_licence": "CC0-1.0",
+  "note": "Synthetic. The identifier above is a placeholder shape, not a registered deposit.",
+  "verification": {
+    "interpreter": "CPython 3.11",
+    "platform": "generic POSIX",
+    "command": "python3 src/reproduce.py",
+    "result": "units=12 mean=0.7325, matching the value this package reports"
+  },
+  "files": [
+    {
+      "path": "CITATION.cff",
+      "bytes": 260,
+      "digest": "fabc1ce7e710285a6b44b1acc0940a0797dd1e34ce1bae924a26b25879114e709852909df8fbd17567b39c7b0ec63b2dfd7a10be6796d6de1dbb1f52b9ec1b56"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 165,
+      "digest": "5dde999e8d6e15240a20cbc548f8f1e590710cd8cd38546055512752f8ef468f7c0e528829f44ac7a7e8ddba33b9fd7ed9d52402f03822c45ffbafbffaba88ee"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1293,
+      "digest": "4bb0f224a7784c897e307b9ecfd5a2d81911d77beddbbbe943c0fa37d03316b0bb9830291232a55733eaf9c96c4ece98df01c757fe09ab44578172084c5d8052"
+    },
+    {
+      "path": "data/README.md",
+      "bytes": 514,
+      "digest": "23fa43519f9da5dedac03ba63c5502e87c7f1e7b8fd699e61c568d8b31cc07600ee3e25e4309eee205b579adbfe26363993b7a7977508080591eb13a972c87d4"
+    },
+    {
+      "path": "data/scores.csv",
+      "bytes": 131,
+      "digest": "0106d8282e8f38125f52e7d7c0c9fecc732d9e9219e306a74f03c8710a6008c6bcc279c2fe3076117c2f0fd0d21415509d0b27ac40b975f205a32000c987b26c"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 252,
+      "digest": "3700afd289cb3ec198343ebb0c58769244a488ef2948cd8c8851fc8bab6da6e271f881cbb737dcf72b112f27bf75cf2c97adbcfbfa5b55ebb4882cb2cd19cee9"
+    },
+    {
+      "path": "src/reproduce.py",
+      "bytes": 458,
+      "digest": "59a62129caf7c0274a833fdcede2b93874becd563fca903fb4e6499cb72871620362bcf7f17f37b50afc01cff93af034b33ac74de3b1253b391d78ee6bea87f5"
+    }
+  ]
+}

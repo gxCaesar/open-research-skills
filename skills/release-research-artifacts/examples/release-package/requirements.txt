@@ -1,0 +1,4 @@
+# Pinned, because an unpinned dependency is installed from your machine
+# and from nowhere else. This example needs nothing beyond the standard library,
+# so the single entry below exists to show the shape a real package would have.
+setuptools==75.1.0
