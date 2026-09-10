@@ -13,6 +13,8 @@
 
 [选择 skill](#choose) · [专项任务与打磨](#tasks) · [快速开始](#start) · [绘图](#visualization) · [会议论文](#conference) · [期刊论文](#journal) · [基金](#funding) · [研究工作流](#workflow)
 
+**中文** · [English](README.en.md)
+
 </div>
 
 这是一个面向日常科研的 agent skill 工具箱。十个完整 skill 在一个仓库中维护，每个都能单独安装、独立使用。你可以从一张图、一段 Results 或一个研究问题开始，不必先启动整套研究流程。

@@ -24,10 +24,10 @@ def directory_names() -> set:
     return {path.parent.name for path in ROOT.glob("skills/*/SKILL.md")}
 
 
-def readme_names() -> set:
-    """Skill names the README mentions in prose or in a path."""
-    text = (ROOT / "README.md").read_text(encoding="utf-8")
-    return {name for name in directory_names() | indexed_names() if name in text}
+def readme_names(name: str = "README.md") -> set:
+    """Skill names a README mentions in prose or in a path."""
+    text = (ROOT / name).read_text(encoding="utf-8")
+    return {skill for skill in directory_names() | indexed_names() if skill in text}
 
 
 class ReleaseIdentityTest(unittest.TestCase):
@@ -68,6 +68,17 @@ class ReleaseIdentityTest(unittest.TestCase):
                 wrong = template.format(n=numeral, e=english[other])
                 with self.subTest(document=name, stale=wrong):
                     self.assertNotIn(wrong, text)
+
+    def test_the_english_entry_point_names_the_same_skills(self):
+        """An English reader landing here must not see a shorter list than a Chinese one."""
+        self.assertEqual(indexed_names(), readme_names("README.en.md"))
+        chinese = (ROOT / "README.md").read_text(encoding="utf-8")
+        english = (ROOT / "README.en.md").read_text(encoding="utf-8")
+        self.assertIn("README.en.md", chinese, "the Chinese README must link the English one")
+        self.assertIn("README.md", english, "the English README must link back")
+        plugin = json.loads(PLUGIN.read_text(encoding="utf-8"))
+        marketplace = json.loads(MARKETPLACE.read_text(encoding="utf-8"))
+        self.assertIn(f"claude plugin install {plugin['name']}@{marketplace['name']}", english)
 
     def test_plugin_and_marketplace_manifests_agree(self):
         plugin = json.loads(PLUGIN.read_text(encoding="utf-8"))
