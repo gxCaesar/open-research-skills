@@ -27,12 +27,8 @@ RECORD_FIELDS = ("built_from_commit", "built_on", "digest_algorithm", "files", "
 VERIFICATION_FIELDS = ("interpreter", "platform", "command", "result")
 VERSION_CONTROL = {".git", ".hg", ".svn", ".bzr"}
 ENVIRONMENT_FILES = ("requirements.txt", "environment.yml", "environment.yaml", "pyproject.toml")
-# "Pinned" has to mean one version, not merely "an operator is present". The previous
-# pattern accepted >=, !=, ~=, ==1.* and a direct reference to a moving branch, so a
-# requirements file that resolves differently next week passed a check whose own header
-# promises the environment is pinned. Accepted now: == or === to a version with no
-# wildcard, a direct reference ending in a full commit sha, or a hash-pinned line.
-PIN = re.compile(r"===?\s*[^*\s,;]+$|@\s*[0-9a-fA-F]{40}$|--hash=")
+EXACT = re.compile(r"===?\s*[^*\s,;]+$")
+COMMIT_SHA = re.compile(r"@\s*[0-9a-fA-F]{40}$")
 
 
 def requirement_core(line: str) -> str:
@@ -43,9 +39,27 @@ def requirement_core(line: str) -> str:
     `numpy==1.2.3 ; python_version<"3.10"` report as unpinned -- a false rejection of a file
     that is pinned, which is worse than the loose pattern this replaced.
     """
-    core = line.split(" #", 1)[0].split("\t#", 1)[0]
-    core = core.split(";", 1)[0]
-    return core.strip()
+    core = line.split(" #", 1)[0].split("\t#", 1)[0].strip()
+    if " @ " in core:
+        # A direct reference: the URL owns everything after the name. `;` appears inside
+        # query strings, so splitting on it truncated a real pin, and `?filter===1.2.3` in
+        # a query made an unpinned reference look pinned.
+        name, _, url = core.partition(" @ ")
+        return f"{name.strip()} @ {url.split('?', 1)[0].split('#', 1)[0].strip()}"
+    return core.split(";", 1)[0].strip()
+
+
+def is_pinned(requirement: str) -> bool:
+    """One exact version, a full commit sha, or a hash. A range is not a pin."""
+    if "--hash=" in requirement.split(" @ ", 1)[0]:
+        return True
+    core = requirement_core(requirement)
+    if " @ " in core:
+        return bool(COMMIT_SHA.search(core))
+    # `numpy==1.26.4, <2` pins the version and adds a bound; one exact clause is enough.
+    return any(EXACT.search(clause.strip()) for clause in core.split(","))
+
+
 ABSOLUTE_HOME = re.compile(r"/(?:Users|home)/[A-Za-z0-9._-]+/")
 EMAIL = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
 SKIP_DIRS = {"__pycache__", ".pytest_cache", ".DS_Store"}
@@ -148,32 +162,37 @@ def check(root: Path, mode: str, deny_terms=()):  # noqa: C901 - one rule per br
     # so a nested one was invisible to both the unlisted-file rule and the identity scan: a
     # src/.git/config carrying an author email passed a clean anonymised run. A checker that
     # promises no version-control metadata has to look where it excluded itself from looking.
+    # Files as well as directories. A worktree or submodule records .git as a FILE holding
+    # `gitdir: <path>`, which is the normal form for both, and an is_dir() check walked past
+    # it at every depth including the root.
     for path in sorted(root.rglob("*")):
-        if not path.is_dir():
-            continue
         name = path.name
         relative = path.relative_to(root).as_posix()
         if name in VERSION_CONTROL:
             findings.append(("version_control_metadata_present", relative))
-        elif name in SKIP_DIRS and name != ".DS_Store":
+        elif path.is_dir() and name in SKIP_DIRS and name != ".DS_Store":
             findings.append(("build_cache_present", relative))
 
     if not any((root / name).is_file() for name in ENVIRONMENT_FILES):
         findings.append(("environment_specification_missing", "|".join(ENVIRONMENT_FILES)))
     requirements = root / "requirements.txt"
     if requirements.is_file():
-        for number, line in enumerate(requirements.read_text(encoding="utf-8").splitlines(), 1):
+        # Join backslash continuations: a requirement split across physical lines is valid
+        # pip syntax, and reading the halves separately reported the first as unpinned.
+        raw = requirements.read_text(encoding="utf-8").replace("\\\n", " ")
+        for number, line in enumerate(raw.splitlines(), 1):
             stripped = line.strip()
             if not stripped or stripped.startswith("#"):
                 continue
-            if stripped.startswith(("-r", "--requirement", "-e", "--editable")):
+            if stripped.startswith(("-r", "--requirement", "-e", "--editable",
+                                    "-c", "--constraint")):
                 # An include pulls in pins this run never read; an editable install has none.
                 # Skipping them silently is how a file with no pins at all passes.
                 findings.append(("dependency_source_not_followed", f"requirements.txt:{number}"))
                 continue
             if stripped.startswith("-"):
                 continue
-            if not PIN.search(requirement_core(stripped)):
+            if not is_pinned(stripped):
                 findings.append(("dependency_not_pinned", f"requirements.txt:{number}"))
 
     if not any((root / name).is_file() for name in ("LICENSE", "LICENSE.txt", "LICENSE.md")):
