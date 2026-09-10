@@ -1,4 +1,4 @@
 interface:
-  display_name: "国自然和省自然"
-  short_description: "国自然和省自然申请的科学论证、证据整理、章节任务与草稿审阅"
-  default_prompt: "Use $writing-funding-proposals to verify the current NSFC or provincial natural science fund and institutional requirements, organize evidence and the scientific argument, and audit this applicant-authored proposal within the permitted authoring mode."
+  display_name: "Research Funding Proposals"
+  short_description: "Organise the scientific argument, evidence and section briefs behind a funding proposal"
+  default_prompt: "Use $writing-funding-proposals to verify the current NSFC or provincial fund and institutional requirements, organize evidence and the scientific argument, and audit this applicant-authored proposal within the permitted authoring mode."

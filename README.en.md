@@ -34,7 +34,7 @@ English entry point to the same ten skills.
 | Make a method, mechanism, or multi-omics result legible | `build-scientific-visualizations` | [中文](docs/scientific-visualizations.md) |
 | Draft or revise a conference paper | `prepare-conference-manuscripts` | [中文](docs/conference-manuscripts.md) |
 | Organise a journal submission and its revision | `prepare-journal-manuscripts` | [中文](docs/journal-manuscripts.md) |
-| Prepare a Chinese national or provincial science-fund proposal | `writing-funding-proposals` | [中文](docs/research-funding-proposals.md) |
+| Write a research funding proposal | `writing-funding-proposals` | [中文](docs/research-funding-proposals.md) |
 | Judge a topic and carry it through experiments to delivery | `research-publication-pipeline` | [中文](docs/research-publication-workflow.md) |
 | Decide what to change when the method loses to its baseline | `develop-method-to-sota` | [中文](docs/method-development.md) |
 | Decide whether a research direction is still open | `survey-and-audit-novelty` | [中文](docs/survey-and-novelty.md) |
@@ -129,7 +129,7 @@ reviews/, the current manuscript in paper/. Produce clean and marked versions.
 
 ### writing-funding-proposals
 
-Chinese national (NSFC) and provincial natural science funds: the scientific question,
+NSFC and provincial funds: the scientific question,
 the evidence it needs, the research content, section briefs, the technical route, and a
 pre-submission review. Guangdong is the bundled provincial example; other provinces are
 adapted from their own current materials.

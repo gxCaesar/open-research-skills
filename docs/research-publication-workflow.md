@@ -679,4 +679,4 @@ PDF 读取、图形、PPTX 与实际稿件渲染按安装目录内的依赖说�
 原创文档与代码采用 Apache-2.0 许可。
 参见 [维护说明](../MAINTAINERS.md)、[贡献指南](../CONTRIBUTING.md) 与 [第三方说明](../THIRD_PARTY.md)。
 专项指南：[会议论文](conference-manuscripts.md)、[期刊论文](journal-manuscripts.md)、
-[科学可视化](scientific-visualizations.md)、[国自然和省自然](research-funding-proposals.md)。
+[科学可视化](scientific-visualizations.md)、[基金 proposal](research-funding-proposals.md)。

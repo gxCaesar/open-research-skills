@@ -1,23 +1,21 @@
 ---
 name: writing-funding-proposals
-description: Use when establishing current policy or authority, organizing evidence, mapping arguments, planning proposal-specific technical routes and figures, preparing section briefs, reviewing, or validating applications to the National Natural Science Foundation of China (NSFC; 国自然) or provincial natural science funds (省自然), including Guangdong. Other Chinese research-funding proposals remain supported. Includes permitted local figure construction without another skill. Check current funder and institutional authoring policy before producing prose; when direct generation is prohibited or unverified, limit work to source verification, evidence maps, section briefs, structural critique, and audit.
+description: Use when writing a research funding proposal: establishing current policy or authority, organizing evidence, mapping arguments, planning proposal-specific technical routes and figures, preparing section briefs, reviewing, or validating an application to NSFC or to a provincial fund, including Guangdong. Other funders remain supported through the generic workflow. Includes permitted local figure construction without another skill. Check current funder and institutional authoring policy before producing prose; when direct generation is prohibited or unverified, limit work to source verification, evidence maps, section briefs, structural critique, and audit.
 ---
 
-# 国自然和省自然
+# Research Funding Proposals
 
 Build a current, evidence-linked scientific argument around applicant-authored material.
 Historical applications and templates may inform non-expressive structure, but they are
 never current format authority and must not be copied into a public or applicant package.
 
-The primary scope is 国家自然科学基金 (NSFC; 国自然) and 省级自然科学基金
-(省自然). Guangdong is the bundled provincial example, not a rule set for every
-province. Other provinces use custom adaptation through the existing `--program other`
+The primary scope is NSFC and provincial funds. Guangdong is the bundled provincial
+example, not a rule set for every province. Other provinces use custom adaptation through the existing `--program other`
 option; there is no `--program custom` option or built-in preset for every province.
 Identify the actual province, funder, year, and project type, then use that program's
 current official guides, attachments, system template, and institutional requirements.
 Do not inherit Guangdong or NSFC eligibility, budgets, deadlines, codes, section formats,
-or AI-authoring permissions. Other Chinese funders remain supported through the generic
-workflow; the skill name stays `writing-funding-proposals`.
+or AI-authoring permissions. Other funders remain supported through the generic workflow; the skill name stays `writing-funding-proposals`.
 
 ## Start with policy and authority
 
