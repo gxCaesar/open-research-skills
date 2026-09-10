@@ -50,6 +50,12 @@ Seed a known string that should be caught and confirm the scan catches it. A sca
 reporting zero findings on a clean tree and a scan that is silently not running produce
 the same output.
 
+Plant the seed in the real formats the tree actually holds, not in a convenient one. A
+seed placed in a plain text file proves only that the scanner reads plain text files; the
+formats that leak are the notebook output cell, the archive member, the office document
+body and the file name itself. A control built in a format the tool already handles
+validates the control, not the tool.
+
 ## Test inside the built package
 
 Unpack the built archive into an empty directory and run the project's own test or

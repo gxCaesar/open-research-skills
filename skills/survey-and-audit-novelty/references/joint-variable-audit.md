@@ -12,6 +12,14 @@ table of joint counts with the source, the accession or release, and the date ch
 Produce this table before writing analysis code. Once code exists, an empty intersection
 is discovered late and usually gets rationalised into a smaller question.
 
+Check the counting tool against the file's real format before trusting a count. Read the
+bytes, not the assumed format: line endings, quoting, an index column, a header repeated
+mid-file, an identifier stored as a number. A line-oriented field splitter run over a file
+with foreign line endings silently attributes the terminator to the last column and can
+return a count that is the exact opposite of the truth, with no error. Verify on a case
+whose answer you already know, and build that case in the same format as the material, not
+in the format your tool prefers.
+
 ## Reading an empty intersection
 
 An empty cell closes a source, not a direction. Three moves follow, and a report that

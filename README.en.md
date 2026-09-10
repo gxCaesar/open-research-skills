@@ -9,7 +9,7 @@
 
 ### Turn research material into a clear argument, an editable figure, and a reusable result.
 
-[Choose a skill](#choose-a-skill) · [Install](#install) · [The ten skills](#the-ten-skills) · [What this does not do](#what-this-does-not-do)
+[Choose a skill](#choose-a-skill) · [Install](#install) · [The ten skills](#the-ten-skills) · [What this does not do](#what-this-does-not-do) · [Evidence](#evidence)
 
 **English** · [中文（完整版）](README.md)
 
@@ -244,6 +244,43 @@ plausible one from a sibling venue.
 own synthetic data. Nothing here reaches an external service on its own.
 
 **It does not carry anyone's writing voice.** The transferable part is the method.
+
+**It does not, on the evidence we have, make an agent's answers more correct.** We ran two
+pre-registered before/after evaluations against a control arm, and both were ties on every
+primary endpoint. See [Evidence](#evidence).
+
+<a id="evidence"></a>
+
+## Evidence: we measured this twice, and both times it was a tie
+
+**[Full write-up of both cases](docs/evidence.md)** — design, results, defects on both
+sides, and the flaws in our own evaluation.
+
+The 447 tests and 197 validator rules in this repository show that the *validators* work.
+They say nothing about whether using these skills produces better research. That second
+claim is checkable, so we checked it, and we are publishing the result even though it does
+not support the claim.
+
+Design, both cases: the same task and material given to two agents that could not see each
+other, one of them additionally given the skill under test; endpoints frozen before either
+arm ran, with both publishable statements written in advance; blind review from a different
+model family, with the mapping held outside the reviewer's input. The control arm's null is
+*not doing X*, never *doing X badly*.
+
+| | Case 1: package a project so a stranger can reproduce it | Case 2: decide whether a direction has the data |
+|---|---|---|
+| Primary | **Tie** — both packages reproduced the target figure from an isolated copy, with zero intervention | **Tie** — both arms reported 0 jointly-measured samples out of 7050, both avoided the "both columns are present" trap |
+| Blind review | Core question a tie; 4 confirmed defects, all in the arm without the skill | Core question a tie; 6 confirmed defects, split across both arms |
+
+**On these two tasks a capable general agent reached the same correct answer without the
+skills.** What the skills demonstrably add is structure — separately recorded verdicts, a
+named kill layer, a repair table run before reporting a kill. **In case 2 that structure
+was itself filled in wrongly**, which is the sharpest thing either case found: an auditable
+shape can hold the wrong content, and is then harder to catch because it looks compliant.
+
+None of this shows that using the skills produces better papers; neither case tested
+manuscript quality. It does not generalise from agents to people. Each case is n=1 on
+synthetic material.
 
 ## Testing and contributing
 

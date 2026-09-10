@@ -32,6 +32,14 @@ Before reporting a set of kills, list them and ask for each what one available c
 would reverse it: a different search angle, a coarser matching level, a different lane, a
 narrower claim.
 
+A correction counts as a reversal only if it is established. Record each entry as
+established, with what establishes it, or as asserted, and keep asserted entries out of
+the fraction. "There must be some correspondence upstream" is a hypothesis about the
+world; counting it as a reversal produces a calibrated-looking fraction resting on
+nothing, and the table's shape makes that harder to see rather than easier. The failure
+mode the table exists to catch — search fatigue reported as literature — is reproduced
+exactly by an optimistic reading of what a correction would find.
+
 | Reversible fraction | Reading |
 |---|---|
 | Nearly all | The audit measured search fatigue, not the literature. Redo it |
