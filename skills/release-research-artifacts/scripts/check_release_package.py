@@ -33,6 +33,19 @@ ENVIRONMENT_FILES = ("requirements.txt", "environment.yml", "environment.yaml", 
 # promises the environment is pinned. Accepted now: == or === to a version with no
 # wildcard, a direct reference ending in a full commit sha, or a hash-pinned line.
 PIN = re.compile(r"===?\s*[^*\s,;]+$|@\s*[0-9a-fA-F]{40}$|--hash=")
+
+
+def requirement_core(line: str) -> str:
+    """Drop the parts of a requirement line that a pin check must not read.
+
+    A trailing comment and a PEP 508 environment marker are both ordinary in a correctly
+    pinned file, and both sit after the version. Letting the pattern meet them made
+    `numpy==1.2.3 ; python_version<"3.10"` report as unpinned -- a false rejection of a file
+    that is pinned, which is worse than the loose pattern this replaced.
+    """
+    core = line.split(" #", 1)[0].split("\t#", 1)[0]
+    core = core.split(";", 1)[0]
+    return core.strip()
 ABSOLUTE_HOME = re.compile(r"/(?:Users|home)/[A-Za-z0-9._-]+/")
 EMAIL = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
 SKIP_DIRS = {"__pycache__", ".pytest_cache", ".DS_Store"}
@@ -160,7 +173,7 @@ def check(root: Path, mode: str, deny_terms=()):  # noqa: C901 - one rule per br
                 continue
             if stripped.startswith("-"):
                 continue
-            if not PIN.search(stripped):
+            if not PIN.search(requirement_core(stripped)):
                 findings.append(("dependency_not_pinned", f"requirements.txt:{number}"))
 
     if not any((root / name).is_file() for name in ("LICENSE", "LICENSE.txt", "LICENSE.md")):
