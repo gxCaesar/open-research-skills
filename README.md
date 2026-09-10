@@ -578,4 +578,4 @@ python3 -B scripts/check_public_content.py .
 
 每次 push 与 pull request 都会在干净机器上重跑这些检查，**Python 3.9 与 3.13 两条**（见 [checks.yml](.github/workflows/checks.yml)）。3.9 那条是关键：仓库声明的下界从此是被持续检验的，而不是只在维护者机器上成立过。`claude plugin validate . --strict` 是 CI 跑不了的一条（需要 Claude Code CLI），仍需本地执行。
 
-[参与贡献](CONTRIBUTING.md) · [维护者](MAINTAINERS.md) · [第三方说明](THIRD_PARTY.md) · [Apache-2.0 许可证](LICENSE)
+[从哪开始贡献](docs/contributing-start-here.md) · [参与贡献](CONTRIBUTING.md) · [维护者](MAINTAINERS.md) · [第三方说明](THIRD_PARTY.md) · [Apache-2.0 许可证](LICENSE)

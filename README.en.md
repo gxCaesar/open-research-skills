@@ -353,6 +353,11 @@ project validator's rules still have a witness that makes them fire, because a r
 nothing can make fire could stop working without any test noticing. The fourth must print
 nothing.
 
+New here? [docs/contributing-start-here.md](docs/contributing-start-here.md) ranks the ways
+in by cost, and the ten-minute one is the most useful: install it, use it on real material,
+and open an issue saying where it did not hold. "It did not help my case" is a complete
+issue — the 452 tests show the validators work, and cannot show these skills help you.
+
 See [CONTRIBUTING.md](CONTRIBUTING.md) for what a change needs before it opens, including
 the clean and known-bad fixture pair required of any validator change, and
 [MAINTAINERS.md](MAINTAINERS.md) for who reviews what. Tests run locally; this repository
