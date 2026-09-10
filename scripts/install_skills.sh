@@ -15,8 +15,11 @@ set -eu
 
 DEST="${1:-}"
 FORCE="${2:-}"
-if [ -z "$DEST" ]; then
+if [ -z "$DEST" ] || [ "$#" -gt 2 ] || { [ -n "$FORCE" ] && [ "$FORCE" != "--force" ]; }; then
+  # A typo used to be accepted silently: `--froce` installed, and a third argument was
+  # ignored while the second still selected the deleting branch.
   echo "usage: bash scripts/install_skills.sh <destination-directory> [--force]" >&2
+  [ -n "$FORCE" ] && [ "$FORCE" != "--force" ] && echo "unknown option: $FORCE" >&2
   exit 2
 fi
 
@@ -27,6 +30,18 @@ if [ ! -d "$HERE/skills" ]; then
 fi
 
 mkdir -p "$DEST"
+
+# --force deletes each existing target. Pointing DEST at this repository's own skills/,
+# or at any path that resolves inside the source, would hand the source directory to rm.
+DEST_REAL="$(cd "$DEST" && pwd -P)"
+SRC_REAL="$(cd "$HERE/skills" && pwd -P)"
+case "$DEST_REAL/" in
+  "$SRC_REAL"/*|"$SRC_REAL"/) echo "refusing: $DEST is inside this repository's skills/" >&2; exit 2 ;;
+esac
+case "$SRC_REAL/" in
+  "$DEST_REAL"/*) echo "refusing: $DEST contains this repository's skills/" >&2; exit 2 ;;
+esac
+
 installed=0
 skipped=0
 
@@ -43,7 +58,15 @@ for source in "$HERE"/skills/*/; do
   if [ -e "$target" ] || [ -L "$target" ]; then
     rm -r -- "$target"
   fi
-  cp -R "$source" "$target"
+  # Copy aside, then move into place. A failed copy used to leave a partial directory that
+  # the existence check then treated as installed, so re-running skipped it for ever.
+  staging="$target.installing.$$"
+  if ! cp -R "$source" "$staging"; then
+    rm -r -- "$staging" 2>/dev/null || true
+    echo "FAILED $name (nothing was left behind)" >&2
+    exit 1
+  fi
+  mv "$staging" "$target"
   installed=$((installed + 1))
 done
 

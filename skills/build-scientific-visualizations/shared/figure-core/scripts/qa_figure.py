@@ -54,6 +54,26 @@ def load_json_object(path: Path) -> dict[str, object]:
     return value if isinstance(value, dict) else {}
 
 
+def fonts_not_embedded(pdffonts_stdout: str):
+    """Font names whose `emb` column is not yes, or None when no font rows were listed.
+
+    The previous check looked for "TrueType" or "Type 1" anywhere in the output, which is
+    the type column, not the embedding column: a PDF whose only font is
+    `Helvetica / Type 1 / emb=no` reported as embedded.
+    """
+    rows = [line for line in pdffonts_stdout.splitlines()[2:] if line.strip()]
+    if not rows:
+        return None
+    missing = []
+    for row in rows:
+        fields = row.split()
+        if len(fields) < 5:
+            continue
+        if fields[-5].lower() != "yes":     # columns end: emb sub uni object ID
+            missing.append(fields[0])
+    return missing
+
+
 def inspect_pptx(archive: zipfile.ZipFile) -> dict[str, object]:
     slide_names = sorted(
         name
@@ -269,9 +289,22 @@ def main() -> None:
         fonts = "not_checked"
         if shutil.which("pdffonts"):
             result = subprocess.run(["pdffonts", str(summary_pdf)], capture_output=True, text=True, check=False)
-            embedded = "TrueType" in result.stdout or "Type 1" in result.stdout
-            fonts = "embedded" if embedded else "none_detected"
-            if not embedded: warnings.append("summary PDF has no detectable embedded fonts")
+            if result.returncode != 0:
+                # A tool that failed reports nothing, and nothing used to read as "no fonts
+                # detected" -- a run failure written down as a measurement.
+                fonts = "check_failed"
+                warnings.append(f"font check did not run: pdffonts exited {result.returncode}")
+            else:
+                unembedded = fonts_not_embedded(result.stdout)
+                if unembedded is None:
+                    fonts = "no_fonts_listed"
+                    warnings.append("summary PDF lists no fonts")
+                elif unembedded:
+                    fonts = "not_embedded"
+                    warnings.append("summary PDF has fonts that are not embedded: "
+                                    + ", ".join(sorted(unembedded)))
+                else:
+                    fonts = "embedded"
         else:
             warnings.append("font embedding not checked: pdffonts not on PATH (install Poppler)")
         checks["summary"] = {"pdf_points": actual, "fonts": fonts}
