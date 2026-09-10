@@ -11,7 +11,7 @@
 
 [Choose a skill](#choose-a-skill) · [Install](#install) · [The ten skills](#the-ten-skills) · [What this does not do](#what-this-does-not-do) · [Evidence](#evidence)
 
-**English** · [中文（完整版）](README.md) · [![checks](https://github.com/gxCaesar/open-research-skills/actions/workflows/checks.yml/badge.svg)](https://github.com/gxCaesar/open-research-skills/actions/workflows/checks.yml)
+**English** · [中文（完整版）](README.md) · [![checks](https://github.com/gxCaesar/open-research-skills/actions/workflows/checks.yml/badge.svg)](https://github.com/gxCaesar/open-research-skills/actions/workflows/checks.yml) [![release](https://img.shields.io/github/v/release/gxCaesar/open-research-skills?label=release&color=0969da)](https://github.com/gxCaesar/open-research-skills/releases/latest) [![python](https://img.shields.io/badge/python-3.9%20%7C%203.13-3776ab)](https://github.com/gxCaesar/open-research-skills/blob/main/.github/workflows/checks.yml) [![licence](https://img.shields.io/badge/licence-Apache--2.0-4c1)](https://github.com/gxCaesar/open-research-skills/blob/main/LICENSE)
 
 </div>
 

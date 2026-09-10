@@ -13,7 +13,7 @@
 
 [选择 skill](#choose) · [专项任务与打磨](#tasks) · [快速开始](#start) · [绘图](#visualization) · [会议论文](#conference) · [期刊论文](#journal) · [基金](#funding) · [研究工作流](#workflow) · [有没有证据](#evidence)
 
-**中文** · [English](README.en.md) · [![checks](https://github.com/gxCaesar/open-research-skills/actions/workflows/checks.yml/badge.svg)](https://github.com/gxCaesar/open-research-skills/actions/workflows/checks.yml)
+**中文** · [English](README.en.md) · [![checks](https://github.com/gxCaesar/open-research-skills/actions/workflows/checks.yml/badge.svg)](https://github.com/gxCaesar/open-research-skills/actions/workflows/checks.yml) [![release](https://img.shields.io/github/v/release/gxCaesar/open-research-skills?label=release&color=0969da)](https://github.com/gxCaesar/open-research-skills/releases/latest) [![python](https://img.shields.io/badge/python-3.9%20%7C%203.13-3776ab)](https://github.com/gxCaesar/open-research-skills/blob/main/.github/workflows/checks.yml) [![licence](https://img.shields.io/badge/licence-Apache--2.0-4c1)](https://github.com/gxCaesar/open-research-skills/blob/main/LICENSE)
 
 </div>
 
