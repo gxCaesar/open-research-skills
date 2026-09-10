@@ -23,7 +23,7 @@ SKILL_DIR="$PWD/skills/release-research-artifacts"
 
 ## 白名单定文件集
 
-**列出要放进去的，不要靠排除不该放的。** 排除清单是一个关于「你没想到的一切」的断言，
+**列出要放进去的，不要靠排除不该放的。** 排除清单是一个关于「您没想到的一切」的断言，
 而没人想到的那些，恰好就是携带身份的那些：编辑器备份文件、notebook checkpoint、
 缓存的凭据、写着 home 目录名的环境导出、带绝对路径的日志，以及**没有扩展名、
 因此被文本扫描默认跳过的文件**。
@@ -48,7 +48,7 @@ SKILL_DIR="$PWD/skills/release-research-artifacts"
 然后跑项目自己的测试 / 复现命令，**不允许有任何路径指回工作仓库**。
 
 这一步抓的是：从没提交过的文件；只因为解释器是在项目根启动才解析得了的 import；
-指到包外面的数据路径；装在你机器上、不在规格里的依赖；读你 shell profile 里某个
+指到包外面的数据路径；装在您机器上、不在规格里的依赖；读您 shell profile 里某个
 环境变量的脚本。**在工作目录里跑通的测试，对这个压缩包什么也没证明。**
 
 ## 两种模式
@@ -56,7 +56,7 @@ SKILL_DIR="$PWD/skills/release-research-artifacts"
 **anonymized-submission**（双盲投稿）：从一个只含白名单文件的全新目录构建，
 **完全不带版本控制元数据** —— 从副本里删历史，比一开始就不放进去要难验证得多。
 匿名包仍然必须能跑：把标识性路径改成相对路径而不是删掉那几行，保留 licence 与
-第三方声明，即使有访问权的账号是你自己也要给出数据获取路径。
+第三方声明，即使有访问权的账号是您自己也要给出数据获取路径。
 
 **named-archive**（期刊 / 长期存档）：存进能签发持久标识符的归档，并在论文里引用那个
 标识符而不是一个会变的仓库 URL；写稿件的可用性声明之前先预留标识符，好让声明能点名它。
@@ -78,7 +78,7 @@ python3 "$SKILL_DIR/scripts/check_release_package.py" \
 python3 "$SKILL_DIR/examples/release-package/src/reproduce.py"
 ```
 
-带上你自己的私有词表可以顺便查身份泄漏(词表放在 checkout 之外,不要提交):
+带上您自己的私有词表可以顺便查身份泄漏(词表放在 checkout 之外,不要提交):
 
 ```bash
 python3 "$SKILL_DIR/scripts/check_release_package.py" /path/to/unpacked-package \

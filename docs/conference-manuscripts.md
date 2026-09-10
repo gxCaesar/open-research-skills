@@ -19,7 +19,7 @@
 `skills/prepare-conference-manuscripts`，然后在所用 agent runtime 中刷新技能列表。
 摘要、统计报告、会议适配器和源检查都在这个目录内，不必另装兄弟 skill。
 
-如果你还在仓库根目录，可以这样定义路径并安装需要的 Python 依赖：
+如果您还在仓库根目录，可以这样定义路径并安装需要的 Python 依赖：
 
 ```bash
 SKILL_DIR="$PWD/skills/prepare-conference-manuscripts"

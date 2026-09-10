@@ -6,7 +6,7 @@
 
 ## 1. 用一次，把不成立的地方开成 issue（十分钟，最有价值）
 
-装上，挑一个 skill，用你**真实的**材料跑一遍：
+装上，挑一个 skill，用您**真实的**材料跑一遍：
 
 ```bash
 claude plugin marketplace add gxCaesar/open-research-skills
@@ -18,12 +18,12 @@ cd open-research-skills && bash scripts/install_skills.sh "$HOME/.agents/skills"
 
 然后开一个 issue，只写三件事：
 
-- **你想交付什么**（一张图 / 一段 Results / 一次撞车判断）
-- **它给了你什么**
+- **您想交付什么**（一张图 / 一段 Results / 一次撞车判断）
+- **它给了您什么**
 - **差在哪**
 
-**"它对我的场景没用"是一条完整的 issue。** 不需要你给出修法。
-我们最缺的正是这种——已有的 452 个测试证明校验器在工作，它们证明不了这些 skill 对你有用。
+**"它对我的场景没用"是一条完整的 issue。** 不需要您给出修法。
+我们最缺的正是这种——已有的 452 个测试证明校验器在工作，它们证明不了这些 skill 对您有用。
 
 ## 2. 报一个「检查其实没在检查」的缺陷（最欢迎）
 
@@ -33,8 +33,8 @@ cd open-research-skills && bash scripts/install_skills.sh "$HOME/.agents/skills"
 排除版本控制目录、却只查根目录，所以含作者邮箱的 `src/.git/config` 跑出 `failures=0`；
 一条裁决满足了五条不同的评审发现。
 
-如果你发现某个 checker 承诺的和它实际做的不一致，**那是这里最受欢迎的 issue**，
-即使你只给出一句话和一个 `file:line`。
+如果您发现某个 checker 承诺的和它实际做的不一致，**那是这里最受欢迎的 issue**，
+即使您只给出一句话和一个 `file:line`。
 
 ## 3. 提 PR
 

@@ -17,7 +17,7 @@
 
 </div>
 
-这是一个面向日常科研的 agent skill 工具箱。十个完整 skill 在一个仓库中维护，每个都能单独安装、独立使用。你可以从一张图、一段 Results 或一个研究问题开始，不必先启动整套研究流程。
+这是一个面向日常科研的 agent skill 工具箱。十个完整 skill 在一个仓库中维护，每个都能单独安装、独立使用。您可以从一张图、一段 Results 或一个研究问题开始，不必先启动整套研究流程。
 
 ## 两行装上
 
@@ -61,7 +61,7 @@ cd open-research-skills && bash scripts/install_skills.sh "$HOME/.agents/skills"
 
 <a id="choose"></a>
 
-## 选择你这次需要的 skill
+## 选择您这次需要的 skill
 
 <div align="center">
 <picture>
@@ -70,7 +70,7 @@ cd open-research-skills && bash scripts/install_skills.sh "$HOME/.agents/skills"
 </picture>
 </div>
 
-| 你现在的任务 | 入口 | 典型交付 |
+| 您现在的任务 | 入口 | 典型交付 |
 |---|---|---|
 | 把方法、机制或多组学结果画清楚 | [科研绘图](#visualization) | 可编辑架构图、多面板图、矢量文件与 legend |
 | 从材料成稿，或修改顶会论文 | [会议论文](#conference) | 论文与附录、结果论证、rebuttal、camera-ready |
@@ -159,8 +159,8 @@ claude plugin install open-research-skills@open-research-skills
 
 **装完怎么调用。** 插件安装的 skill 是**带命名空间**的，形式为 `/open-research-skills:<skill-name>`，
 例如 `/open-research-skills:build-scientific-visualizations`。命名空间不是装饰：它意味着
-**即使你自己的 `$HOME/.claude/skills/` 里已经有同名 skill，两个也会同时加载、互不覆盖** ——
-不必为了装这个仓库去改名或删掉你自己的那份。直接用自然语言点名 skill 同样有效。
+**即使您自己的 `$HOME/.claude/skills/` 里已经有同名 skill，两个也会同时加载、互不覆盖** ——
+不必为了装这个仓库去改名或删掉您自己的那份。直接用自然语言点名 skill 同样有效。
 
 ### 3. 各 runtime 的安装与更新
 
@@ -186,7 +186,7 @@ claude plugin install open-research-skills@open-research-skills
 
 ### 3. 在科研项目中调用
 
-在 `research-demo` 或你的科研项目中打开 agent，并确认 skill 已出现在可用列表里。Codex CLI / IDE 使用 `$skill-name`；Claude Code 复制目录安装时是 `/skill-name`，
+在 `research-demo` 或您的科研项目中打开 agent，并确认 skill 已出现在可用列表里。Codex CLI / IDE 使用 `$skill-name`；Claude Code 复制目录安装时是 `/skill-name`，
 **按插件安装时是 `/open-research-skills:skill-name`**；Antigravity CLI 会把发现到的 skill
 自动编译成斜杠命令。
 也可以自然语言明确要求使用该 skill。
@@ -201,7 +201,7 @@ $build-scientific-visualizations
 
 将第一行替换为 `/build-scientific-visualizations` 即为显式调用形式；**按插件装进 Claude Code 时是
 `/open-research-skills:build-scientific-visualizations`**，前缀来自命名空间，也正是它让同名的
-个人 skill 与本仓库的那份能共存。这是**对话输入，不是 shell 命令**。文件名要换成你实际提供的材料；发现不到新 skill 时，先检查目录层级，再重启对应 runtime。
+个人 skill 与本仓库的那份能共存。这是**对话输入，不是 shell 命令**。文件名要换成您实际提供的材料；发现不到新 skill 时，先检查目录层级，再重启对应 runtime。
 
 ### 4. 按任务准备依赖
 
@@ -230,7 +230,7 @@ python3 -m pip install -r skills/build-scientific-visualizations/requirements.tx
 > 生成那一步目前要在暴露该模型的界面里做，实践中是 **Codex**。
 > Claude Code 侧可以完成这条路线的其余全部步骤 —— 内容与判据的锁定、样式选择、
 > 复刻为原生对象、渲染比对、以及可编辑性检查。
-> 没有那个界面时，skill 本身写明了两条替代路径：**用你自己提供的概念图**，
+> 没有那个界面时，skill 本身写明了两条替代路径：**用您自己提供的概念图**，
 > 或**直接走矢量工作流**（`references/image-concept-to-vector.md`）。
 > 用数据画的图（定量图、结构、显微）本来就不走这条路线，它们来自源数据或原始图像。
 
@@ -285,7 +285,7 @@ MPLCONFIGDIR="$DEMO_OUT/.mpl" XDG_CACHE_HOME="$DEMO_OUT/.cache" \
 
 告诉 agent 准确的 **venue / year / track / stage**。同一会议的主会、workshop、不同 track 和年份不能共用未经核对的规则。仓库自带六个会议适配器，但其中的 profile 有明确日期；实际写作仍需核对目标范围的当前官方要求。其他会议可以建立任务内 profile，不需要修改已有适配器。
 
-| 你现在的状态 | 使用方式 | 主要交付 |
+| 您现在的状态 | 使用方式 | 主要交付 |
 |---|---|---|
 | 尚未确认目标规则 | `recon` | 当前模板、阶段要求、适用政策与尚未确认事项 |
 | 已有方法和结果，还没有完整稿 | `draft` | 问题与贡献界定、章节提纲、证据支持的英文稿件 |
@@ -298,7 +298,7 @@ MPLCONFIGDIR="$DEMO_OUT/.mpl" XDG_CACHE_HOME="$DEMO_OUT/.cache" \
 
 ### 从材料到一篇能读懂的方法论文
 
-准备当前稿件或提纲、方法定义、数据与 split、baseline 配置、原始结果表、图表源码和文献。先明确论文要回答什么问题，现有方法具体在哪个条件下不足，你改变了哪个运算或机制，以及哪些实验能区分这个解释。
+准备当前稿件或提纲、方法定义、数据与 split、baseline 配置、原始结果表、图表源码和文献。先明确论文要回答什么问题，现有方法具体在哪个条件下不足，您改变了哪个运算或机制，以及哪些实验能区分这个解释。
 
 成稿时，Introduction 建立问题与缺口，Method 解释问题如何转化为方法设计，Experiments 给出公平比较和机制证据，Discussion / Limitations 界定适用范围。摘要在主张和证据稳定后压缩。章节名称与顺序服从论文和目标会议，不套固定模板。
 
@@ -339,7 +339,7 @@ MPLCONFIGDIR="$DEMO_OUT/.mpl" XDG_CACHE_HOME="$DEMO_OUT/.cache" \
 
 提供科学问题、已有稿件、方法与结果来源、样本层级、图表和 legend，以及伦理、数据、代码与其他声明的已知事实。细胞数、donor 数、组织切片数、技术重复和模型 seed 要分别说明；多个面板可能来自同一批样本，不能把面板数量当成新增独立证据。
 
-| 工作阶段 | Skill 怎样帮助 | 你应收到什么 |
+| 工作阶段 | Skill 怎样帮助 | 您应收到什么 |
 |---|---|---|
 | 期刊与文章类型核对 | `recon` 区分目标刊要求、出版方通则和文章先例 | 适用要求及缺项，不是泛化的“Nature 模板” |
 | 先审查，暂不修改 | `audit` 核查证据、统计、引用与跨文件一致性 | 带原文位置与修正建议的只读报告 |
@@ -518,8 +518,8 @@ Skill 会先界定允许的协助范围，再处理科学问题和材料。若�
 | `review-others-manuscripts` | 受邀审别人的投稿，或处理返修轮与编辑预审 | [受邀审稿](docs/peer-review.md) |
 | `release-research-artifacts` | 打别人真会下载的那个代码数据包并验它 | [代码与数据发布](docs/artifact-release.md) |
 
-`run-cold-review-panel` 与 `review-others-manuscripts` 方向相反：前者读的是**你自己**
-尚未投出的稿子，后者读的是**别人**交给期刊、对你保密的稿子。两者的约束不同，不要互换。
+`run-cold-review-panel` 与 `review-others-manuscripts` 方向相反：前者读的是**您自己**
+尚未投出的稿子，后者读的是**别人**交给期刊、对您保密的稿子。两者的约束不同，不要互换。
 
 <a id="evidence"></a>
 
@@ -548,9 +548,9 @@ Skill 会先界定允许的协助范围，再处理科学问题和材料。若�
 
 **打磨流程是否已经整合？** 摘要与标题专项、单节及逐节打磨、全文修订、只读审查和图件精修均有对应入口，见[专项任务表](#tasks)。这是按科研任务整理后的工作方式，不是对旧技能库的逐项完整复制；个人账号、固定模型分工、强制逐节 Git 提交和私有运行设施不随包提供。
 
-**运行 demo 等于调用了 skill 吗？** 不等于。脚本验证的是某个具体软件行为；在 agent 中调用 skill，才会根据你的材料进行分析、写作或制图。可读案例帮助你理解预期产物，不能当作自动生成能力的测试报告。
+**运行 demo 等于调用了 skill 吗？** 不等于。脚本验证的是某个具体软件行为；在 agent 中调用 skill，才会根据您的材料进行分析、写作或制图。可读案例帮助您理解预期产物，不能当作自动生成能力的测试报告。
 
-**会自动训练、改论文或投稿吗？** 取决于你明确交给 agent 的任务与可用能力。示例不会训练模型、购买服务或投稿。对既有稿件、实验协议及外部操作，应按任务授权执行。
+**会自动训练、改论文或投稿吗？** 取决于您明确交给 agent 的任务与可用能力。示例不会训练模型、购买服务或投稿。对既有稿件、实验协议及外部操作，应按任务授权执行。
 
 **概念图和数据图有什么区别？** 概念图解释对象与关系；数据图报告观察。前者可在允许时采用 AI 辅助构图，后者必须使用真实来源。把概念稿重绘为矢量图不免除 AI 使用披露或期刊政策要求。
 

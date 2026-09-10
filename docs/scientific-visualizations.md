@@ -16,7 +16,7 @@
 | 会议稿中的一组协调图件 | `conference-figure-set` | 方法、动机、结果等有明确分工的图组 |
 | 期刊主图及扩展、补充图 | `journal-figure-set` | 共享符号和编码的整套图件 |
 
-不需要记住模式名。直接描述交付物即可；模式表帮助你判断请求覆盖的是草图、单图还是图组。Sketch 不等于完成稿，架构图也不能替代实验结果图。
+不需要记住模式名。直接描述交付物即可；模式表帮助您判断请求覆盖的是草图、单图还是图组。Sketch 不等于完成稿，架构图也不能替代实验结果图。
 
 ## 准备材料
 
@@ -46,7 +46,7 @@
 交付可重绘源码、PDF/SVG、预览与能独立解释各面板的 legend。
 ```
 
-其中路径是你需要提供的项目材料，不是安装后自动出现的文件。若只给出一段方法说明，合理产物是方法图，不是凭空多出一张结果图。若只希望诊断现有图，可明确写“只读审阅，不修改文件”。
+其中路径是您需要提供的项目材料，不是安装后自动出现的文件。若只给出一段方法说明，合理产物是方法图，不是凭空多出一张结果图。若只希望诊断现有图，可明确写“只读审阅，不修改文件”。
 
 <a id="production"></a>
 
@@ -131,7 +131,7 @@ Python 依赖不安装后两项能力，也不提供商业模型账号。Arial �
 
 ### 任务背景与输入
 
-假设你要展示空间位置、RNA 与其他分子层之间的关系，以及 donor 层级的条件比较。不是把十四种图均匀摆满页面，而是让读者先定位组织区域，再理解分子变化，最后看比较与控制。
+假设您要展示空间位置、RNA 与其他分子层之间的关系，以及 donor 层级的条件比较。不是把十四种图均匀摆满页面，而是让读者先定位组织区域，再理解分子变化，最后看比较与控制。
 
 随附案例有四份 CSV：cell 坐标和分子值、donor-condition-assay 表、人工 locus tracks、选定 field/ROI。12 个 donor 标识、17,280 个 cell 及所有值均为合成数据；这不是显微图或真实 atlas。
 
@@ -148,7 +148,7 @@ Python 依赖不安装后两项能力，也不提供商业模型账号。Arial �
 交付矢量 PDF/SVG、PNG 预览与同步更新的 legend。
 ```
 
-这是修改教学布局的请求，不是修改分析。真实项目把示例材料替换为你的数据和论文段落，并明确数据中有哪些变量。
+这是修改教学布局的请求，不是修改分析。真实项目把示例材料替换为您的数据和论文段落，并明确数据中有哪些变量。
 
 ### 实际运行
 
@@ -290,9 +290,9 @@ panel c/d 对齐和 legend 的条件名称；不要重设计已经清楚的部�
 
 ### 领域素材如何选图
 
-[空间与单细胞](../skills/build-scientific-visualizations/references/recipes-spatial-single-cell.md)覆盖组织—ROI—样本汇总关系；[蛋白、代谢与糖生物](../skills/build-scientific-visualizations/references/recipes-molecular-omics.md)区分丰度、检测和鉴定状态；[基因组、结构与临床](../skills/build-scientific-visualizations/references/recipes-genomic-structural-clinical.md)保留坐标、参考版本与比较尺度。这些是输入到图形的选择指南，不替你重新定义分析。
+[空间与单细胞](../skills/build-scientific-visualizations/references/recipes-spatial-single-cell.md)覆盖组织—ROI—样本汇总关系；[蛋白、代谢与糖生物](../skills/build-scientific-visualizations/references/recipes-molecular-omics.md)区分丰度、检测和鉴定状态；[基因组、结构与临床](../skills/build-scientific-visualizations/references/recipes-genomic-structural-clinical.md)保留坐标、参考版本与比较尺度。这些是输入到图形的选择指南，不替您重新定义分析。
 
-| 你的材料 | 先说明什么 | 合适图形的作用 |
+| 您的材料 | 先说明什么 | 合适图形的作用 |
 |---|---|---|
 | 单细胞或空间多组学 | donor、切片、ROI 与 cell 的关系，模态是否同源 | 从定位到分子信号，再到独立单位比较 |
 | 扰动预测或多模态模型 | 训练与推理输入、条件注入位置、输出及监督 | 总览解释计算，展开图说明关键机制 |
