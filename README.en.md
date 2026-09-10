@@ -89,7 +89,14 @@ claude plugin install open-research-skills@open-research-skills
 ```
 
 The repository is both the marketplace and the plugin inside it, which is why both
-commands name the same thing. Call a skill with `/skill-name`.
+commands name the same thing.
+
+**Calling a skill after a plugin install.** Plugin skills are namespaced, so the form is
+`/open-research-skills:<skill-name>` — for example
+`/open-research-skills:build-scientific-visualizations`. The prefix is not decoration: it
+means a skill of the same name already in your own `$HOME/.claude/skills/` **keeps working and
+both load**, so installing this repository never requires renaming or removing yours.
+Naming the skill in plain language works too.
 
 ### Any other runtime, copy the directory
 
@@ -106,15 +113,34 @@ cp -R "skills/$SKILL_NAME" "$SKILL_DEST/"
 test -f "$SKILL_DEST/$SKILL_NAME/SKILL.md"
 ```
 
-| Scope | Codex | Claude Code |
+`.agents/skills/` is read by **both Codex and Gemini CLI**, so one copy serves both.
+
+| Scope | Codex / Gemini CLI | Claude Code |
 |---|---|---|
 | One project | `.agents/skills/` in the project | `.claude/skills/` in the project |
 | Every local project | `$HOME/.agents/skills/` | `$HOME/.claude/skills/` |
 
+### Installing and updating, per runtime
+
+| Runtime | Install | Update |
+|---|---|---|
+| **Claude Code** (plugin, recommended) | the two commands above | `claude plugin marketplace update open-research-skills`, then `claude plugin update open-research-skills@open-research-skills` (restart to apply) |
+| **Claude Code** (one or two skills only) | copy into `.claude/skills/` or `$HOME/.claude/skills/` | `git pull`, copy again |
+| **Codex** | copy into `.agents/skills/` or `$HOME/.agents/skills/` | `git pull`, copy again |
+| **Gemini CLI** | the same `.agents/skills/` (its own alias; `.gemini/skills/` also works), or `gemini skills install https://github.com/gxCaesar/open-research-skills` | install again; `/skills reload` in session, `/skills list` to see what loaded |
+| **Any other runtime**, including harnesses driven by DeepSeek or another model | every skill is a self-contained directory: copy `skills/<name>/` to wherever that harness reads skills or project context. One that supports Anthropic-style skills reads `SKILL.md` directly | `git pull`, copy again |
+
+The last row gives no specific command on purpose. Those harnesses load from different
+places and this repository has not verified them one by one, and an unverified install
+command is worse than none.
+
 Some skills need Python packages; each declares its own in `skills/<name>/requirements.txt`
 when it has any. Paths and discovery were checked against the
-[Codex](https://developers.openai.com/codex/skills) and
-[Claude Code](https://code.claude.com/docs/en/skills) documentation.
+[Codex](https://developers.openai.com/codex/skills),
+[Claude Code](https://code.claude.com/docs/en/skills) and
+[Gemini CLI](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/using-agent-skills.md)
+documentation, and the plugin install, update and namespaced invocation were run against
+the published repository rather than read off a page.
 
 <a id="the-ten-skills"></a>
 
@@ -127,6 +153,18 @@ reader can follow: a single mechanism or architecture diagram, one dense compoun
 or a full main / Extended Data / Supplementary set. Concept diagrams may be composed with
 image generation and then rebuilt as native editable vector output; evidence figures must
 come from real input data.
+
+> **The default route for a new diagram needs an interface that can generate the concept.**
+> That route is *generate a GPT Image 2.5 concept → reconstruct it as a native editable
+> PPTX → compare the real render and test editing*, and the generating step has to happen
+> somewhere that exposes the model, which in practice means **Codex**. Every other step
+> runs anywhere, Claude Code included: locking the scientific content, choosing the style,
+> rebuilding as native objects, comparing the render, and checking that text, connectors
+> and shapes really are editable. Without that interface the skill states two documented
+> alternatives — **supply your own concept image**, or take the **direct vector workflow**
+> (`references/image-concept-to-vector.md`). Figures made from data — plots, structures,
+> microscopy — never take this route at all; they come from the source data or the
+> original images.
 
 ```text
 Use build-scientific-visualizations. Draw the method architecture from notes/method.md,

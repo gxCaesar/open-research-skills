@@ -127,7 +127,9 @@ fi
 test -f "$SKILL_DEST/$SKILL_NAME/SKILL.md"
 ```
 
-上面是 **Codex 项目级安装**。使用 Claude Code 时，把 `SKILL_DEST` 那行换成 `SKILL_DEST="$RESEARCH_PROJECT/.claude/skills"`，再执行后面的复制步骤。
+上面是 **Codex 与 Gemini CLI 的项目级安装** —— `.agents/skills/` 是这两个 runtime 共用的目录名，
+一份拷贝两边都读得到。使用 Claude Code 时，把 `SKILL_DEST` 那行换成
+`SKILL_DEST="$RESEARCH_PROJECT/.claude/skills"`，再执行后面的复制步骤。
 
 **Claude Code 可以两行装齐十个**，不必逐个复制目录：
 
@@ -136,10 +138,27 @@ claude plugin marketplace add gxCaesar/open-research-skills
 claude plugin install open-research-skills@open-research-skills
 ```
 
-仓库同时是 marketplace 和 plugin 本身，所以两条命令指向同一个名字。装完在 Claude Code 里用
-`/skill-name` 调用。想只装其中一两个、或使用其他 runtime 时，仍按上面的复制方式逐目录安装。
+仓库同时是 marketplace 和 plugin 本身，所以两条命令指向同一个名字。
 
-| 使用范围 | Codex | Claude Code |
+**装完怎么调用。** 插件安装的 skill 是**带命名空间**的，形式为 `/open-research-skills:<skill-name>`，
+例如 `/open-research-skills:build-scientific-visualizations`。命名空间不是装饰：它意味着
+**即使你自己的 `$HOME/.claude/skills/` 里已经有同名 skill，两个也会同时加载、互不覆盖** ——
+不必为了装这个仓库去改名或删掉你自己的那份。直接用自然语言点名 skill 同样有效。
+
+### 3. 各 runtime 的安装与更新
+
+| Runtime | 安装 | 更新 |
+|---|---|---|
+| **Claude Code**（插件，推荐） | 上面两行 | `claude plugin marketplace update open-research-skills`，再 `claude plugin update open-research-skills@open-research-skills`（需重启生效） |
+| **Claude Code**（只装其中一两个） | 复制到 `.claude/skills/` 或 `$HOME/.claude/skills/` | `git pull` 后重新复制 |
+| **Codex** | 复制到 `.agents/skills/` 或 `$HOME/.agents/skills/` | `git pull` 后重新复制 |
+| **Gemini CLI** | 同上 `.agents/skills/`（它的原生别名，也可用 `.gemini/skills/`）；或 `gemini skills install https://github.com/gxCaesar/open-research-skills` | 重新 install；会话内 `/skills reload`、`/skills list` 查看 |
+| **其他 runtime**（含由 DeepSeek 等模型驱动的 harness） | 每个 skill 都是自足目录：把 `skills/<name>/` 整个复制到该 harness 读取 skill 或项目上下文的位置。支持 Anthropic 式 skill 的会直接读 `SKILL.md` | `git pull` 后重新复制 |
+
+最后一行**故意不给具体命令**：这类 harness 的加载位置各不相同，本仓库没有逐一验证过。
+一条没验证过的安装命令比不给更糟。
+
+| 使用范围 | Codex / Gemini CLI | Claude Code |
 |---|---|---|
 | 当前科研项目 | 项目内 `.agents/skills/` | 项目内 `.claude/skills/` |
 | 所有本地项目 | `$HOME/.agents/skills/` | `$HOME/.claude/skills/` |
@@ -150,7 +169,9 @@ claude plugin install open-research-skills@open-research-skills
 
 ### 3. 在科研项目中调用
 
-在 `research-demo` 或你的科研项目中打开 agent，并确认 skill 已出现在可用列表里。Codex CLI / IDE 使用 `$skill-name`，Claude Code 使用 `/skill-name`。也可以自然语言明确要求使用该 skill。
+在 `research-demo` 或你的科研项目中打开 agent，并确认 skill 已出现在可用列表里。Codex CLI / IDE 使用 `$skill-name`；Claude Code 复制目录安装时是 `/skill-name`，
+**按插件安装时是 `/open-research-skills:skill-name`**；Gemini CLI 用 `/skills list` 查看已加载的。
+也可以自然语言明确要求使用该 skill。
 
 例如在 Codex 对话中输入：
 
@@ -160,7 +181,9 @@ $build-scientific-visualizations
 保留训练与推理边界，交付可编辑 PPTX、矢量 PDF 和 SVG。
 ```
 
-将第一行替换为 `/build-scientific-visualizations` 即为 Claude Code 的显式调用形式。这是**对话输入，不是 shell 命令**。文件名要换成你实际提供的材料；发现不到新 skill 时，先检查目录层级，再重启对应 runtime。
+将第一行替换为 `/build-scientific-visualizations` 即为显式调用形式；**按插件装进 Claude Code 时是
+`/open-research-skills:build-scientific-visualizations`**，前缀来自命名空间，也正是它让同名的
+个人 skill 与本仓库的那份能共存。这是**对话输入，不是 shell 命令**。文件名要换成你实际提供的材料；发现不到新 skill 时，先检查目录层级，再重启对应 runtime。
 
 ### 4. 按任务准备依赖
 
@@ -183,6 +206,15 @@ python3 -m pip install -r skills/build-scientific-visualizations/requirements.tx
 **带上什么：** 方法说明或论文段落、数据表与已有绘图代码、独立样本与配对关系、目标宽度或版面要求。
 
 **得到什么：** 图件、可编辑源文件、所需矢量导出、legend 与源数据说明。
+
+> **新画机制图 / 架构图的默认路线需要能生成概念图的界面。** 这条路线是
+> **GPT Image 2.5 生成概念 → 复刻为原生可编辑 PPTX → 比对真实渲染并测试可编辑性**，
+> 生成那一步目前要在暴露该模型的界面里做，实践中是 **Codex**。
+> Claude Code 侧可以完成这条路线的其余全部步骤 —— 内容与判据的锁定、样式选择、
+> 复刻为原生对象、渲染比对、以及可编辑性检查。
+> 没有那个界面时，skill 本身写明了两条替代路径：**用你自己提供的概念图**，
+> 或**直接走矢量工作流**（`references/image-concept-to-vector.md`）。
+> 用数据画的图（定量图、结构、显微）本来就不走这条路线，它们来自源数据或原始图像。
 
 ### 案例 A：从空间多组学表格到 14-panel 复合图
 

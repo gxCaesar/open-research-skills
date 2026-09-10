@@ -38,7 +38,10 @@ Nature-family diagrams; adapt other journals to their actual visual brief. Inspe
 carry the same semantic colour roles into the concept and editable reconstruction;
 do not let generation choose new category meanings or extra branches.
 
-Prefer GPT Image 2.5 for the concept when the interface exposes that model. Use only
+Prefer GPT Image 2.5 for the concept when the interface exposes that model. At the time
+of writing that means running the generation step in Codex; the rest of this route --
+locking content and style, reconstructing native objects, comparing the render and testing
+editability -- has no such dependency and runs in any runtime. Use only
 an actual exposed model identifier. A built-in image tool may provide no selector or
 backend identity; for an otherwise authorized default-route request, use that tool
 and report the model version as unverified. Missing model metadata does not establish
