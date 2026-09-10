@@ -68,6 +68,21 @@ meta review 不是评分平均。逐条裁决：**confirmed**（对）、**unsup
 
 按「真被拒时会踩在哪一条上」排序，并为每条写出修复动作及其代价。
 
+## 校验一轮 panel
+
+```bash
+python3 "$SKILL_DIR/scripts/check_panel_round.py" \
+  "$SKILL_DIR/examples/panel-round/clean.json"
+```
+
+已知坏的那份演示它拒绝什么 —— 隔离证据是评审自述、manifest 里混进了计划文档、
+没人真跑 artifact、以及 meta review 里出现录用概率:
+
+```bash
+python3 "$SKILL_DIR/scripts/check_panel_round.py" \
+  "$SKILL_DIR/examples/panel-round/known-bad.json"
+```
+
 ## 交付与验收
 
 每轮一个目录，含：逐评审报告、isolation manifest、执行过的命令及输出、裁决表。

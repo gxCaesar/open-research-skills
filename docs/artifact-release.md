@@ -62,6 +62,29 @@ SKILL_DIR="$PWD/skills/release-research-artifacts"
 标识符而不是一个会变的仓库 URL；写稿件的可用性声明之前先预留标识符，好让声明能点名它。
 代码与数据的 licence **分开写** —— 它们经常不同，一行盖两者通常对其中一个是错的。
 
+## 校验成品包
+
+随包带了一个自洽的示例包:它的记录里写着一次验证运行的结论,而那个结论是包里的脚本
+真的跑出来的。
+
+```bash
+python3 "$SKILL_DIR/scripts/check_release_package.py" \
+  "$SKILL_DIR/examples/release-package" --mode named
+```
+
+改动包里任何一个字节都会让它失败,直到重算记录 —— 这正是这份记录存在的意义:
+
+```bash
+python3 "$SKILL_DIR/examples/release-package/src/reproduce.py"
+```
+
+带上你自己的私有词表可以顺便查身份泄漏(词表放在 checkout 之外,不要提交):
+
+```bash
+python3 "$SKILL_DIR/scripts/check_release_package.py" /path/to/unpacked-package \
+  --mode anonymized --deny-term-file /path/to/private-deny-terms.txt
+```
+
 ## 交付与验收
 
 交出：已审的白名单清单、暂存树扫描结果（含种入的已知字符串对照）、成品包在空目录里的

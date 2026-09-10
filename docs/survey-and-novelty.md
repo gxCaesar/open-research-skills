@@ -76,6 +76,23 @@ SKILL_DIR="$PWD/skills/survey-and-audit-novelty"
 报一批击杀之前先对自己的击杀跑一次 repair table：逐个问「哪一处可得的修正会翻转它」。
 大部分都能翻转，说明这次审计量的是你的疲劳而不是文献。把这个比例连同击杀一起报出来。
 
+## 校验调研账本
+
+```bash
+python3 "$SKILL_DIR/scripts/check_survey_ledger.py" \
+  "$SKILL_DIR/examples/survey-ledger/clean.json"
+```
+
+汇总行会把**分解量印在总数旁边**(`adjacent=1 identical=1 irrelevant=1 uncertain=1`
+对着 `scanned=4`),分母闭没闭合一眼可见。已知坏的那份演示它挡什么:
+
+```bash
+python3 "$SKILL_DIR/scripts/check_survey_ledger.py" \
+  "$SKILL_DIR/examples/survey-ledger/known-bad.json"
+```
+
+它不判断新颖性,只强制三件事:分母闭合、击杀点名层级、`venue_fit` 与 `scoop_verdict` 分开记。
+
 ## 交付与验收
 
 交出：车道、共存计数表、检索角度清单（含空结果）、候选处置账（分母闭合）、

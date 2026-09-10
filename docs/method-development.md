@@ -70,6 +70,26 @@ headroom 若已落到噪声底以内，这个任务在当前表示下就是饱�
 「试了很多个都失败」不是退出。宣称饱和之前，**oracle 臂必须真跑过**
 （给模型一个部署时永远拿不到的输入），否则「没有方法有用」和「本来就没东西可找」无法区分。
 
+## 校验迭代账本
+
+随包带了一份可跑的干净账本和一份已知坏的账本。先看合格的样子:
+
+```bash
+python3 "$SKILL_DIR/scripts/check_iteration_ledger.py" \
+  "$SKILL_DIR/examples/iteration-ledger/clean.json"
+```
+
+再看它会挡住什么 —— 单种子的 void 判决、重复了已被击杀的 construction shape、
+以及没有实测支撑的饱和退出:
+
+```bash
+python3 "$SKILL_DIR/scripts/check_iteration_ledger.py" \
+  "$SKILL_DIR/examples/iteration-ledger/known-bad.json"
+```
+
+**shape 的比较只去掉大小写、标点和空白**,所以它抓得住改名,抓不住换一种说法。
+语义层面的去重仍然是你的判断,校验器只强制"你已经注意到的重复必须被写下来"。
+
 ## 交付与验收
 
 一轮结束交出：实测 headroom、实测噪声底、迭代次数、被击杀的 construction shape 及其理由、

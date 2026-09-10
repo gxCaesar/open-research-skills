@@ -80,6 +80,47 @@ class ReleaseIdentityTest(unittest.TestCase):
         marketplace = json.loads(MARKETPLACE.read_text(encoding="utf-8"))
         self.assertIn(f"claude plugin install {plugin['name']}@{marketplace['name']}", english)
 
+    def test_every_command_in_a_guide_points_at_a_real_file(self):
+        """A reader copies these lines. The repository checks the ones inside skills/ and
+        never checked the ones in the guides, which are the ones a reader actually runs."""
+        pattern = re.compile(r"\$SKILL_DIR/([A-Za-z0-9_./-]+)")
+        index = json.loads((ROOT / "skill-index.json").read_text(encoding="utf-8"))
+        checked = 0
+        for item in index["skills"]:
+            guide = ROOT / item["guide"]
+            for relative in pattern.findall(guide.read_text(encoding="utf-8")):
+                relative = relative.rstrip('".')
+                checked += 1
+                with self.subTest(guide=item["guide"], target=relative):
+                    self.assertTrue((ROOT / "skills" / item["name"] / relative).exists(), relative)
+        self.assertGreaterEqual(checked, 20, "the extractor found almost no commands")
+
+    def test_every_skill_level_checker_is_shown_in_its_guide(self):
+        """A skill that ships a checker and never shows the command has hidden it.
+
+        All five guides written for the new entrypoints failed this when it was added:
+        each skill bundled a validator and its manual never printed a way to run one.
+        """
+        pattern = re.compile(r"\$SKILL_DIR/([A-Za-z0-9_./-]+)")
+        index = json.loads((ROOT / "skill-index.json").read_text(encoding="utf-8"))
+        checked = 0
+        for item in index["skills"]:
+            skill = ROOT / "skills" / item["name"]
+            checkers = sorted(
+                path.relative_to(skill).as_posix()
+                for glob in ("scripts/check_*.py", "scripts/validate_*.py")
+                for path in skill.glob(glob)
+            )
+            if not checkers:
+                continue
+            guide = (ROOT / item["guide"]).read_text(encoding="utf-8")
+            shown = {ref.rstrip('".') for ref in pattern.findall(guide)}
+            for checker in checkers:
+                checked += 1
+                with self.subTest(skill=item["name"], checker=checker):
+                    self.assertIn(checker, shown)
+        self.assertGreaterEqual(checked, 7, "the sweep found almost no checkers")
+
     def test_plugin_and_marketplace_manifests_agree(self):
         plugin = json.loads(PLUGIN.read_text(encoding="utf-8"))
         marketplace = json.loads(MARKETPLACE.read_text(encoding="utf-8"))

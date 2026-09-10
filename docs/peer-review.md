@@ -74,6 +74,23 @@ Taste 级只配放在最后一小段，或者不放。**把 taste 级当 major �
 
 **按是否解决来判，不按投入多少来判。**
 
+## 校验审稿意见的形态
+
+```bash
+python3 "$SKILL_DIR/scripts/check_referee_report.py" \
+  "$SKILL_DIR/examples/referee-report/clean.json"
+```
+
+已知坏的那份演示它挡什么 —— taste 级被提到 major、编辑面与作者面推荐不一致、
+预审去回答了本该由审稿人回答的问题:
+
+```bash
+python3 "$SKILL_DIR/scripts/check_referee_report.py" \
+  "$SKILL_DIR/examples/referee-report/known-bad.json"
+```
+
+它检查的是**形态**,不判断某条意见对不对。
+
 ## 交付与验收
 
 编辑要在靠前位置拿到推荐意见和它所依据的两三条；作者要拿到每条都定位到位、可执行的
