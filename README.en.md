@@ -9,7 +9,7 @@
 
 ### Turn research material into a clear argument, an editable figure, and a reusable result.
 
-[Choose a skill](#choose-a-skill) · [Install](#install) · [The ten skills](#the-ten-skills) · [What this does not do](#what-this-does-not-do) · [Evidence](#evidence)
+[Choose a skill](#choose-a-skill) · [Install](#install) · [The ten skills](#the-ten-skills) · [What this does not do](#what-this-does-not-do) · [Evaluations](#evidence)
 
 **English** · [中文（完整版）](README.md) · [![checks](https://github.com/gxCaesar/open-research-skills/actions/workflows/checks.yml/badge.svg)](https://github.com/gxCaesar/open-research-skills/actions/workflows/checks.yml) [![release](https://img.shields.io/github/v/release/gxCaesar/open-research-skills?label=release&color=0969da)](https://github.com/gxCaesar/open-research-skills/releases/latest) [![python](https://img.shields.io/badge/python-3.9%20%7C%203.13-3776ab)](https://github.com/gxCaesar/open-research-skills/blob/main/.github/workflows/checks.yml) [![licence](https://img.shields.io/badge/licence-Apache--2.0-4c1)](https://github.com/gxCaesar/open-research-skills/blob/main/LICENSE)
 
@@ -306,36 +306,28 @@ primary endpoint. See [Evidence](#evidence).
 
 <a id="evidence"></a>
 
-## Evidence: we measured this twice, and both times it was a tie
+## We ran controlled evaluations of these skills, and published them with their flaws
 
-**[Full write-up of both cases](docs/evidence.md)** — design, results, defects on both
-sides, and the flaws in our own evaluation.
+**[Full write-up of both cases](docs/evidence.md)**
 
-The 447 tests and 197 validator rules in this repository show that the *validators* work.
-They say nothing about whether using these skills produces better research. That second
-claim is checkable, so we checked it, and we are publishing the result even though it does
-not support the claim.
+The tests and validator rules in this repository show that the *validators* work. They say
+nothing about whether using these skills produces better research. That second claim is
+checkable, so we checked it twice: the same task and material, two agents that could not see
+each other, one of them additionally given the skill under test, endpoints frozen before
+either arm ran, and blind review from a different model family.
 
-Design, both cases: the same task and material given to two agents that could not see each
-other, one of them additionally given the skill under test; endpoints frozen before either
-arm ran, with both publishable statements written in advance; blind review from a different
-model family, with the mapping held outside the reviewer's input. The control arm's null is
-*not doing X*, never *doing X badly*.
+**Both primaries were ties** — and what the tie was measured against matters more than the
+tie. **The control arm was a capable general agent that found every planted trap unprompted**,
+which is a far harder control than a person who has never done this kind of audit. **It does
+not read as "no use to people"**; neither case tested people at all.
 
-| | Case 1: package a project so a stranger can reproduce it | Case 2: decide whether a direction has the data |
-|---|---|---|
-| Primary | **Tie** — both packages reproduced the target figure from an isolated copy, with zero intervention | **Tie** — both arms reported 0 jointly-measured samples out of 7050, both avoided the "both columns are present" trap |
-| Blind review | Core question a tie; 4 confirmed defects, all in the arm without the skill | Core question a tie; 6 confirmed defects, split across both arms |
+What is attributable to the skills is structure: separately recorded verdicts, a named kill
+layer, a repair table run before reporting a kill. In case 2 that structure **was filled in
+wrongly**, which the write-up also reports, because it is the sharpest counter-example to
+reading the value as auditability.
 
-**On these two tasks a capable general agent reached the same correct answer without the
-skills.** What the skills demonstrably add is structure — separately recorded verdicts, a
-named kill layer, a repair table run before reporting a kill. **In case 2 that structure
-was itself filled in wrongly**, which is the sharpest thing either case found: an auditable
-shape can hold the wrong content, and is then harder to catch because it looks compliant.
-
-None of this shows that using the skills produces better papers; neither case tested
-manuscript quality. It does not generalise from agents to people. Each case is n=1 on
-synthetic material.
+Each case is n=1, on synthetic material, with agents on both arms. A mechanism demonstration,
+not an effect size.
 
 ## Testing and contributing
 
@@ -356,7 +348,7 @@ nothing.
 New here? [docs/contributing-start-here.md](docs/contributing-start-here.md) ranks the ways
 in by cost, and the ten-minute one is the most useful: install it, use it on real material,
 and open an issue saying where it did not hold. "It did not help my case" is a complete
-issue — the 452 tests show the validators work, and cannot show these skills help you.
+issue — the test suite shows the validators work, and cannot show these skills help you.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for what a change needs before it opens, including
 the clean and known-bad fixture pair required of any validator change, and
