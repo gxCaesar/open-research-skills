@@ -434,6 +434,14 @@ def main() -> None:
     output = args.output.resolve() if args.output else root / "dist" / f"{spec['figure_id']}_{args.audience}_delivery"
     if output.exists() and not args.overwrite:
         raise SystemExit(f"output exists; pass --overwrite to replace it: {output}")
+    # --overwrite calls rmtree, so refuse any target that contains the project it is packaging.
+    # Pointing --output at the project, or at its parent, deleted the source and every sibling
+    # beside it, and only then failed with "source data does not exist". A delete whose blast
+    # radius is decided by an unchecked argument is not an option flag.
+    if output == root or output in root.parents:
+        raise SystemExit(
+            f"refusing to write the package into {output}: it contains the project at {root}. "
+            "--overwrite deletes the output directory first, which would delete the source.")
     if output.exists():
         shutil.rmtree(output)
     output.mkdir(parents=True)

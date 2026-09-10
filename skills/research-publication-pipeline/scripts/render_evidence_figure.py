@@ -8,6 +8,26 @@ from pathlib import Path
 import sys
 
 
+# Ordered by how likely each is to already be installed: macOS, Windows, then the common
+# Linux packages. Checked against matplotlib's own font list rather than assumed present.
+CJK_FAMILIES = ("PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "SimHei",
+                "Noto Sans CJK SC", "Source Han Sans SC", "WenQuanYi Zen Hei", "Arial Unicode MS")
+
+
+def pick_cjk_family():
+    """Return the first CJK family matplotlib can actually see, or None."""
+    from matplotlib import font_manager
+    available = {f.name for f in font_manager.fontManager.ttflist}
+    for name in CJK_FAMILIES:
+        if name in available:
+            return name
+    return None
+
+
+def spec_has_cjk(spec) -> bool:
+    return any(ord(c) > 0x2E7F for c in json.dumps(spec, ensure_ascii=False))
+
+
 def render(spec_path, output):
     if any(output.with_suffix(suffix).exists() for suffix in (".svg", ".pdf", ".png")):
         raise FileExistsError("output exists; choose a new output stem to preserve the prior figure")
@@ -22,9 +42,19 @@ def render(spec_path, output):
     width, height = float(spec["width_mm"]), float(spec["height_mm"])
     if not all(math.isfinite(v) and v > 0 for v in (width, height)):
         raise ValueError("canvas dimensions must be positive and finite")
+    # This skill's primary material is Chinese, and matplotlib's default DejaVu Sans has no
+    # CJK glyphs: every Chinese label renders as a row of empty boxes while the command still
+    # exits 0 and prints success. Only a warning on stderr says otherwise, and it says
+    # "Glyph ... missing from font(s)", which does not tell anyone what to install. So the
+    # font is chosen from what the machine actually has, and its absence is stated plainly.
+    family = pick_cjk_family()
+    if family is None and spec_has_cjk(spec):
+        print("WARNING: no CJK-capable font found; Chinese labels will render as empty boxes. "
+              "Install one of: " + ", ".join(CJK_FAMILIES), file=sys.stderr)
     plt.rcParams.update({"svg.fonttype": "none", "pdf.fonttype": 42,
                          "font.size": 8, "axes.spines.top": False,
-                         "axes.spines.right": False})
+                         "axes.spines.right": False,
+                         "font.sans-serif": ([family] if family else []) + ["DejaVu Sans"]})
     fig, axes = plt.subplots(1, len(panels), squeeze=False,
                              figsize=(width / 25.4, height / 25.4), layout="constrained")
     try:

@@ -132,7 +132,12 @@ class ReleasePackageTest(unittest.TestCase):
                 root, lambda r: r["files"][0].update(digest="0" * 128)),
             "file_present_but_not_listed":
                 lambda root: (root / "notes.txt").write_text("left over\n", encoding="utf-8"),
-            "version_control_metadata_present": lambda root: (root / ".git").mkdir(),
+            # Nested on purpose. A root-only check passed this exact case, so the witness has
+            # to sit where the checker used to be blind rather than where it always looked.
+            "version_control_metadata_present":
+                lambda root: (root / "src" / ".git").mkdir(parents=True),
+            "build_cache_present":
+                lambda root: (root / "src" / "__pycache__").mkdir(parents=True),
             "environment_specification_missing": unlink("requirements.txt"),
             "dependency_not_pinned":
                 lambda root: (root / "requirements.txt").write_text("numpy\n", encoding="utf-8"),

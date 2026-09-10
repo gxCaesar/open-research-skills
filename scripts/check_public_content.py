@@ -46,7 +46,10 @@ INTERNAL_CONTROL_PARTS = {
     ".git",
     "prom" + "pts",
 }
-SKIP_PARTS = {"__pycache__", ".pytest_cache"}
+# A local virtualenv is gitignored and never published, so scanning it says nothing about
+# what would ship -- but its bin/python symlinks fail the symlink rule and make the
+# repository look broken to anyone who followed README's own setup instructions.
+SKIP_PARTS = {"__pycache__", ".pytest_cache", ".venv", "venv", "node_modules"}
 
 
 def load_deny_terms(path: Path) -> Sequence[str]:

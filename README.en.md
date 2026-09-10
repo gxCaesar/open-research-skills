@@ -33,7 +33,7 @@ claude plugin install open-research-skills@open-research-skills
 
 ```bash
 git clone https://github.com/gxCaesar/open-research-skills.git
-mkdir -p "$HOME/.agents/skills" && cp -R open-research-skills/skills/* "$HOME/.agents/skills/"
+cd open-research-skills && bash scripts/install_skills.sh "$HOME/.agents/skills"
 ```
 
 For one or two skills only, or another runtime, see [Install](#install).

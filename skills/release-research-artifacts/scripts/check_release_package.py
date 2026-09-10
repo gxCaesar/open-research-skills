@@ -124,9 +124,19 @@ def check(root: Path, mode: str, deny_terms=()):  # noqa: C901 - one rule per br
         if relative != RECORD_NAME and relative not in listed:
             findings.append(("file_present_but_not_listed", relative))
 
-    for name in VERSION_CONTROL:
-        if (root / name).exists():
-            findings.append(("version_control_metadata_present", name))
+    # Recursive, not root-only. package_files() excludes these directories at every depth,
+    # so a nested one was invisible to both the unlisted-file rule and the identity scan: a
+    # src/.git/config carrying an author email passed a clean anonymised run. A checker that
+    # promises no version-control metadata has to look where it excluded itself from looking.
+    for path in sorted(root.rglob("*")):
+        if not path.is_dir():
+            continue
+        name = path.name
+        relative = path.relative_to(root).as_posix()
+        if name in VERSION_CONTROL:
+            findings.append(("version_control_metadata_present", relative))
+        elif name in SKIP_DIRS and name != ".DS_Store":
+            findings.append(("build_cache_present", relative))
 
     if not any((root / name).is_file() for name in ENVIRONMENT_FILES):
         findings.append(("environment_specification_missing", "|".join(ENVIRONMENT_FILES)))
