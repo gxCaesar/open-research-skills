@@ -139,8 +139,11 @@ class ReleasePackageTest(unittest.TestCase):
             "build_cache_present":
                 lambda root: (root / "src" / "__pycache__").mkdir(parents=True),
             "environment_specification_missing": unlink("requirements.txt"),
+            # A range is not a pin. This used to pass, which is the whole point of the rule.
             "dependency_not_pinned":
-                lambda root: (root / "requirements.txt").write_text("numpy\n", encoding="utf-8"),
+                lambda root: (root / "requirements.txt").write_text("numpy>=1.0\n", encoding="utf-8"),
+            "dependency_source_not_followed":
+                lambda root: (root / "requirements.txt").write_text("-r other.txt\n", encoding="utf-8"),
             "licence_missing": unlink("LICENSE"),
             "citation_metadata_missing": unlink("CITATION.cff"),
             "persistent_identifier_missing":

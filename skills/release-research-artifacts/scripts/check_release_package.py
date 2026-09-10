@@ -6,8 +6,10 @@ printed as `rule_id: location`; the command exits 1 when any finding is reported
 
 What it establishes: the released file set matches the record that ships with it, every
 listed file is present and unchanged, nothing is present that the record does not list,
-the environment is pinned, and no obvious identity survives in the text. What it cannot
-establish: that the package reproduces the paper. Only running it does that, from a
+every dependency in requirements.txt names one version, and no obvious identity survives
+in the text. What it cannot establish: that the package reproduces the paper; and, when the
+environment is declared in environment.yml or pyproject.toml instead, whether anything in
+those files is pinned at all -- their presence is checked, their contents are not. Only running it does that, from a
 fresh unpack, and the record is where that run is written down.
 """
 
@@ -25,7 +27,12 @@ RECORD_FIELDS = ("built_from_commit", "built_on", "digest_algorithm", "files", "
 VERIFICATION_FIELDS = ("interpreter", "platform", "command", "result")
 VERSION_CONTROL = {".git", ".hg", ".svn", ".bzr"}
 ENVIRONMENT_FILES = ("requirements.txt", "environment.yml", "environment.yaml", "pyproject.toml")
-PIN = re.compile(r"[=~!<>]=|@|\bgit\+")
+# "Pinned" has to mean one version, not merely "an operator is present". The previous
+# pattern accepted >=, !=, ~=, ==1.* and a direct reference to a moving branch, so a
+# requirements file that resolves differently next week passed a check whose own header
+# promises the environment is pinned. Accepted now: == or === to a version with no
+# wildcard, a direct reference ending in a full commit sha, or a hash-pinned line.
+PIN = re.compile(r"===?\s*[^*\s,;]+$|@\s*[0-9a-fA-F]{40}$|--hash=")
 ABSOLUTE_HOME = re.compile(r"/(?:Users|home)/[A-Za-z0-9._-]+/")
 EMAIL = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
 SKIP_DIRS = {"__pycache__", ".pytest_cache", ".DS_Store"}
@@ -144,7 +151,14 @@ def check(root: Path, mode: str, deny_terms=()):  # noqa: C901 - one rule per br
     if requirements.is_file():
         for number, line in enumerate(requirements.read_text(encoding="utf-8").splitlines(), 1):
             stripped = line.strip()
-            if not stripped or stripped.startswith(("#", "-")):
+            if not stripped or stripped.startswith("#"):
+                continue
+            if stripped.startswith(("-r", "--requirement", "-e", "--editable")):
+                # An include pulls in pins this run never read; an editable install has none.
+                # Skipping them silently is how a file with no pins at all passes.
+                findings.append(("dependency_source_not_followed", f"requirements.txt:{number}"))
+                continue
+            if stripped.startswith("-"):
                 continue
             if not PIN.search(stripped):
                 findings.append(("dependency_not_pinned", f"requirements.txt:{number}"))

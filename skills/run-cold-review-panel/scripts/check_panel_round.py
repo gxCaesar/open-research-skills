@@ -86,6 +86,7 @@ def check(record: dict) -> list:
 
     seen_lenses = set()
     finding_ids = []
+    seen_finding_ids = {}
     executed = 0
     for index, reviewer in enumerate(reviewers):
         where = f"reviewers[{index}]"
@@ -113,6 +114,16 @@ def check(record: dict) -> list:
             if blank(item.get("id")):
                 findings.append(("finding_without_an_id", spot))
             else:
+                # Adjudication is keyed by this id alone, so two reviewers who both number
+                # from f-01 -- which independent reviewers do -- collapse into one entry, and
+                # a single adjudication row then satisfies every one of them while the round
+                # still reports that every finding was adjudicated. The ambiguity cannot be
+                # resolved here, so it is refused rather than silently picked apart.
+                if item["id"] in seen_finding_ids:
+                    findings.append(("finding_id_not_unique",
+                                     f"{spot}.id={item['id']} first seen at {seen_finding_ids[item['id']]}"))
+                else:
+                    seen_finding_ids[item["id"]] = spot
                 finding_ids.append(item["id"])
             for field in ("location", "statement", "would_resolve"):
                 if blank(item.get(field)):

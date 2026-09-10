@@ -114,6 +114,10 @@ class PanelRoundTest(unittest.TestCase):
             "reviewer_reported_no_findings": lambda d: d["reviewers"][0].update(findings=[]),
             "finding_is_not_an_object": lambda d: d["reviewers"][0]["findings"].append("f-99"),
             "finding_without_an_id": lambda d: d["reviewers"][0]["findings"][0].pop("id"),
+            # Two independent reviewers numbering from the same start, which is what made a
+            # single adjudication row cover five distinct findings.
+            "finding_id_not_unique": lambda d: d["reviewers"][1]["findings"][0].update(
+                id=d["reviewers"][0]["findings"][0]["id"]),
             "finding_missing_field": lambda d: d["reviewers"][0]["findings"][0].pop("location"),
             "no_reviewer_executed_the_artifact":
                 lambda d: d["reviewers"][3].pop("executed_artifact"),
