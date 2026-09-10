@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="546" viewBox="0 0 1280 546" role="img" aria-label="十个可独立安装的科研 skill —— 按你这次要交付的东西选一个">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="546" viewBox="0 0 1280 546" role="img" aria-label="十个可独立安装的科研 skill —— 按您这次要交付的东西选一个">
 <rect width="1280" height="546" fill="#0d1117"/>
-<text x="40" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Roboto, sans-serif" font-size="21" font-weight="600" fill="#e6edf3" text-anchor="start">十个可独立安装的科研 skill —— 按你这次要交付的东西选一个</text>
+<text x="40" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Roboto, sans-serif" font-size="21" font-weight="600" fill="#e6edf3" text-anchor="start">十个可独立安装的科研 skill —— 按您这次要交付的东西选一个</text>
 <rect x="40" y="72" width="1200" height="46" rx="8" fill="#121d2f" stroke="#1f6feb" stroke-width="1"/>
 <text x="58" y="93" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" font-weight="600" fill="#79c0ff" text-anchor="start">research-publication-pipeline</text>
 <text x="58" y="110" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Roboto, sans-serif" font-size="13" font-weight="400" fill="#9198a1" text-anchor="start">贯穿全程 · 从选题到可复现发布的编排</text>

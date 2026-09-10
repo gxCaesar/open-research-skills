@@ -72,7 +72,7 @@ SIDE = [
     ("review-others-manuscripts", "受邀审别人的投稿", "Refereeing someone else's submission"),
 ]
 
-TITLE = {"zh": "十个可独立安装的科研 skill —— 按你这次要交付的东西选一个",
+TITLE = {"zh": "十个可独立安装的科研 skill —— 按您这次要交付的东西选一个",
          "en": "Ten independently installable research skills — pick by what you owe this week"}
 FOOT = {"zh": "每个都能单独安装、独立使用，没有强制顺序。",
         "en": "Each installs and runs on its own. There is no required order."}
