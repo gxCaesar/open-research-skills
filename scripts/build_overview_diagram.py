@@ -17,6 +17,7 @@ unstyled, so every colour and font here is an attribute on its own element.
 """
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 
@@ -157,8 +158,17 @@ def render(theme_name: str, lang: str) -> str:
     return "\n".join(out) + "\n"
 
 
-def main() -> int:
-    declared = {s["name"] for s in json.loads(INDEX.read_text(encoding="utf-8"))["skills"]}
+def main(argv=None) -> int:
+    # --out and --index exist so the tests can exercise this without writing into the
+    # repository. The first version of test_regenerating_reproduces_the_committed_files
+    # regenerated in place and then compared, which destroyed any uncommitted edit to an SVG
+    # before reporting that it differed.
+    parser = argparse.ArgumentParser(description="Build the skill-map SVG variants.")
+    parser.add_argument("--out", type=Path, default=OUT)
+    parser.add_argument("--index", type=Path, default=INDEX)
+    args = parser.parse_args(argv)
+
+    declared = {s["name"] for s in json.loads(args.index.read_text(encoding="utf-8"))["skills"]}
     drawn = ({n for st in STAGES for n, _, _ in st["skills"]}
              | {n for n, _, _ in RAILS} | {n for n, _, _ in SIDE})
     # Refuse rather than emit a diagram that disagrees with the index it claims to summarise.
@@ -183,11 +193,11 @@ def main() -> int:
             print("  " + line)
         return 1
 
-    OUT.mkdir(parents=True, exist_ok=True)
+    args.out.mkdir(parents=True, exist_ok=True)
     written = []
     for lang in ("zh", "en"):
         for theme in ("light", "dark"):
-            path = OUT / f"skill-map-{lang}{'-dark' if theme == 'dark' else ''}.svg"
+            path = args.out / f"skill-map-{lang}{'-dark' if theme == 'dark' else ''}.svg"
             path.write_text(render(theme, lang), encoding="utf-8")
             written.append(path.name)
     print(f"skills={len(declared)} written={len(written)} files={' '.join(written)}")
