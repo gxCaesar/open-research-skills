@@ -20,6 +20,36 @@ one repository and every one of them installs and runs on its own. You can start
 single figure, one Results paragraph, or a research question, without first entering a
 whole pipeline.
 
+## Install, two lines
+
+```bash
+claude plugin marketplace add gxCaesar/open-research-skills
+claude plugin install open-research-skills@open-research-skills
+```
+
+Any other runtime: copy the whole `skills/<name>/` directory. See [Install](#install).
+
+## What you get
+
+<div align="center">
+<img src="skills/build-scientific-visualizations/examples/advanced-method-diagrams/nature-spatial-mechanism.png" width="49%" alt="Nature-style spatial mechanism diagram" />
+<img src="skills/build-scientific-visualizations/examples/advanced-method-diagrams/conference-conditioning-architecture.png" width="49%" alt="Conference-style conditioning model architecture" />
+</div>
+
+Left: a Nature-style mechanism diagram. Right: a conference-style model architecture.
+**Both are native editable PPTX and vector PDF, not a raster screenshot** — labels,
+colours and block positions can be edited directly.
+[mechanism PPTX](skills/build-scientific-visualizations/examples/advanced-method-diagrams/nature-spatial-mechanism.pptx) ·
+[architecture PPTX](skills/build-scientific-visualizations/examples/advanced-method-diagrams/conference-conditioning-architecture.pptx) ·
+[how to edit them](skills/build-scientific-visualizations/examples/advanced-method-diagrams/README.md)
+
+One real invocation looks like this:
+
+```text
+Use build-scientific-visualizations. Draw the method architecture from notes/method.md,
+two columns, and export an editable PPTX plus a vector PDF.
+```
+
 The tutorials are written around AI and biology — single-cell, perturbation prediction,
 spatial multi-omics — and the way they organise material, argue in writing, and hand work
 over transfers to other fields. The detailed manuals are in Chinese; this page is the

@@ -19,7 +19,36 @@
 
 这是一个面向日常科研的 agent skill 工具箱。十个完整 skill 在一个仓库中维护，每个都能单独安装、独立使用。你可以从一张图、一段 Results 或一个研究问题开始，不必先启动整套研究流程。
 
-教程以 AI 与生物研究为主，覆盖单细胞、扰动预测和空间多组学；组织材料、科学写作和交付方法也可迁移到其他领域。下文说明十项能力怎样用于真实科研，十份独立中文手册进一步展开材料准备、逐阶段操作、调用示例和交付检查。绘图提供可编辑成品；小型教学脚本作为可选练习，不代表完整科研能力或真实实验效果。
+## 两行装上（Claude Code）
+
+```bash
+claude plugin marketplace add gxCaesar/open-research-skills
+claude plugin install open-research-skills@open-research-skills
+```
+
+其他 runtime 复制 `skills/<name>/` 整个目录即可，见[快速开始](#start)。
+
+## 装上之后能得到什么
+
+<div align="center">
+<img src="skills/build-scientific-visualizations/examples/advanced-method-diagrams/nature-spatial-mechanism.png" width="49%" alt="Nature 风格空间机制示意图" />
+<img src="skills/build-scientific-visualizations/examples/advanced-method-diagrams/conference-conditioning-architecture.png" width="49%" alt="顶会风格扰动条件化模型架构图" />
+</div>
+
+左：Nature 风格机制图。右：顶会风格模型架构图。**两张都是原生可编辑的 PPTX 与矢量 PDF，不是位图截图** ——
+标签、配色、模块位置都能直接改。
+[机制图 PPTX](skills/build-scientific-visualizations/examples/advanced-method-diagrams/nature-spatial-mechanism.pptx) ·
+[架构图 PPTX](skills/build-scientific-visualizations/examples/advanced-method-diagrams/conference-conditioning-architecture.pptx) ·
+[怎么改它们](skills/build-scientific-visualizations/examples/advanced-method-diagrams/README.md)
+
+一次真实调用长这样：
+
+```text
+使用 build-scientific-visualizations。按 notes/method.md 画方法架构图，
+两栏宽，导出可编辑 PPTX 和矢量 PDF。
+```
+
+论文、基金和整条研究流程同理：说清材料在哪、这次要交付什么、允许改到什么程度。
 
 <a id="choose"></a>
 
@@ -34,6 +63,8 @@
 | 判断课题并推进实验、成稿与交付 | [研究工作流](#workflow) | 可行性判断、比较结果、下一步实验与复现材料 |
 
 按**本次要交付的东西**选择即可。论文 skill 能独立处理论文需要的图件，研究工作流能独立组织成稿；专门的绘图 skill 提供更丰富的设计支持，但不是其他四个的强制依赖。
+
+教程以 AI 与生物研究为主，覆盖单细胞、扰动预测和空间多组学；组织材料、科学写作和交付方法也可迁移到其他领域。下文说明十项能力怎样用于真实科研，十份独立中文手册进一步展开材料准备、逐阶段操作、调用示例和交付检查。绘图提供可编辑成品；小型教学脚本作为可选练习，不代表完整科研能力或真实实验效果。
 
 <a id="tasks"></a>
 

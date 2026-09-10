@@ -121,6 +121,36 @@ class ReleaseIdentityTest(unittest.TestCase):
                     self.assertIn(checker, shown)
         self.assertGreaterEqual(checked, 7, "the sweep found almost no checkers")
 
+    def test_the_first_screen_shows_a_product_and_a_way_to_install(self):
+        """A visitor decides in the first screen, and both pages used to waste it.
+
+        Measured before this was written: the install command sat at line 104 of the
+        Chinese README and the first real output image at line 158 of 472, while the
+        English page had an install at line 57 and no product image at all. A GitHub
+        README shows roughly forty to fifty lines above the fold, so sixty is the
+        threshold with a little margin.
+        """
+        limit = 60
+        product_image = re.compile(r'<img src="skills/[^"]+\.(?:png|svg)"')
+        for name in ("README.md", "README.en.md"):
+            head = "\n".join(
+                (ROOT / name).read_text(encoding="utf-8").splitlines()[:limit]
+            )
+            with self.subTest(page=name, wants="install command"):
+                self.assertIn("claude plugin marketplace add", head)
+            with self.subTest(page=name, wants="a real output image"):
+                self.assertRegex(head, product_image)
+            with self.subTest(page=name, wants="one worked invocation"):
+                # Language-neutral: both pages show the invocation in a ```text block.
+                # Matching on a sentence fails on the Chinese page, whose full stop is 。
+                self.assertIn("```text", head)
+                self.assertIn("build-scientific-visualizations", head)
+
+    def test_the_first_screen_check_does_not_accept_the_logo(self):
+        """The logo is not a product. A check that counted it would pass on any page."""
+        logo = '<img src="assets/branding/open-research-skills-logo.png" width="820" />'
+        self.assertNotRegex(logo, re.compile(r'<img src="skills/[^"]+\.(?:png|svg)"'))
+
     def test_plugin_and_marketplace_manifests_agree(self):
         plugin = json.loads(PLUGIN.read_text(encoding="utf-8"))
         marketplace = json.loads(MARKETPLACE.read_text(encoding="utf-8"))
