@@ -31,6 +31,15 @@ EMAIL = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
 SKIP_DIRS = {"__pycache__", ".pytest_cache", ".DS_Store"}
 
 
+def path_free_exception_summary(error: BaseException) -> str:
+    """Describe a read failure without repeating the caller's absolute path."""
+    if isinstance(error, json.JSONDecodeError):
+        return f"invalid JSON at line {error.lineno}, column {error.colno}"
+    if isinstance(error, OSError):
+        return f"{type(error).__name__}: {error.strerror}" if error.strerror else type(error).__name__
+    return type(error).__name__
+
+
 def blank(value) -> bool:
     return value in (None, "", [], {})
 
@@ -59,7 +68,8 @@ def check(root: Path, mode: str, deny_terms=()):  # noqa: C901 - one rule per br
     try:
         record = json.loads(record_path.read_text(encoding="utf-8"))
     except ValueError as error:
-        return [("release_record_unreadable", f"{RECORD_NAME} ({error})")], 0
+        return [("release_record_unreadable",
+                 f"{RECORD_NAME} ({path_free_exception_summary(error)})")], 0
 
     for field in RECORD_FIELDS:
         if blank(record.get(field)):
@@ -169,7 +179,7 @@ def main() -> int:
     args = parser.parse_args()
 
     if not args.package.is_dir():
-        print(f"FAIL package_directory_missing: {args.package}")
+        print(f"FAIL package_directory_missing: {args.package.name}")
         print("scanned=0 failures=1")
         return 1
     deny_terms = ()

@@ -34,6 +34,15 @@ ORDERS = range(1, 7)
 EXITS = {1, 2, 3}
 
 
+def path_free_exception_summary(error: BaseException) -> str:
+    """Describe a read failure without repeating the caller's absolute path."""
+    if isinstance(error, json.JSONDecodeError):
+        return f"invalid JSON at line {error.lineno}, column {error.colno}"
+    if isinstance(error, OSError):
+        return f"{type(error).__name__}: {error.strerror}" if error.strerror else type(error).__name__
+    return type(error).__name__
+
+
 def normalise(shape: str) -> str:
     """Collapse a construction shape so that renaming alone does not create a new one."""
     return " ".join(re.sub(r"[^a-z0-9]+", " ", shape.casefold()).split())
@@ -111,7 +120,8 @@ def main() -> int:
     try:
         ledger = json.loads(args.ledger.read_text(encoding="utf-8"))
     except (OSError, ValueError) as error:
-        print(f"FAIL ledger_unreadable: {args.ledger} ({error})")
+        print(f"FAIL ledger_unreadable: {args.ledger.name} "
+              f"({path_free_exception_summary(error)})")
         print("scanned=0 failures=1")
         return 1
     findings = check(ledger)

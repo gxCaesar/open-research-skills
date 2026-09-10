@@ -153,6 +153,13 @@ def read_text(path: Optional[Path]) -> str:
     return path.read_text(encoding="utf-8")
 
 
+def path_free_exception_summary(error: BaseException) -> str:
+    """Describe a read failure without repeating the caller's absolute path."""
+    if isinstance(error, OSError):
+        return f"{type(error).__name__}: {error.strerror}" if error.strerror else type(error).__name__
+    return type(error).__name__
+
+
 def find_citations(text: str) -> list[str]:
     """Return sorted unique citation-like snippets found in the text."""
     hits: set[str] = set()
@@ -210,7 +217,12 @@ def main() -> int:
         print("--max-paragraphs must be at least 1.", file=sys.stderr)
         return 2
 
-    text = read_text(args.file).strip()
+    try:
+        text = read_text(args.file).strip()
+    except (OSError, UnicodeDecodeError) as error:
+        name = args.file.name if args.file is not None else "standard input"
+        print(f"Could not read {name}: {path_free_exception_summary(error)}", file=sys.stderr)
+        return 2
     if not text:
         print("No abstract text supplied.", file=sys.stderr)
         return 2

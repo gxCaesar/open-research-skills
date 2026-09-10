@@ -43,6 +43,15 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     return parser.parse_args(argv)
 
 
+def path_free_exception_summary(error: BaseException) -> str:
+    """Describe a read failure without repeating the caller's absolute path."""
+    if isinstance(error, json.JSONDecodeError):
+        return f"invalid JSON at line {error.lineno}, column {error.colno}"
+    if isinstance(error, OSError):
+        return f"{type(error).__name__}: {error.strerror}" if error.strerror else type(error).__name__
+    return type(error).__name__
+
+
 def text(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
 
@@ -185,7 +194,7 @@ def build_report(payload: Any, mode: str, target: Path) -> Dict[str, Any]:
     return {
         "schema_version": 1,
         "tool": "validate_handover_pack.py",
-        "target": str(target.resolve()),
+        "target": target.name,
         "mode": mode,
         "status": "FAIL" if errors else ("PASS_WITH_WARNINGS" if warnings else "PASS"),
         "errors": errors,
@@ -218,7 +227,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     try:
         payload = json.loads(args.pack.read_text(encoding="utf-8"))
     except (OSError, ValueError) as error:
-        print(f"error: {error}", file=sys.stderr)
+        print(f"error: could not read handover pack {args.pack.name}: "
+              f"{path_free_exception_summary(error)}", file=sys.stderr)
         return 2
     result = build_report(payload, args.mode, args.pack)
     if args.format == "json":
