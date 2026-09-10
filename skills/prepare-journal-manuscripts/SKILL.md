@@ -37,6 +37,7 @@ needed for the current task:
 | abstract drafting, compression, or audit | `components/abstract/guide.md` |
 | statistical and evaluation reporting | `components/statistics-reporting/guide.md` |
 | data inventory, access routes, and statement | `components/data-availability/guide.md` |
+| code inventory, versions, licences, and statement | `components/code-availability/guide.md` |
 
 The bundled validators check local completeness and consistency. They do not establish
 scientific truth, repository access, consent, licence rights, or journal acceptance.

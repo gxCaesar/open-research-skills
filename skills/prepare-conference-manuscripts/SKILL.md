@@ -48,6 +48,7 @@ record before its profile or proceedings observations.
 | CVPR | CVPR 2026 Main Conference | [guide](components/venues/cvpr/guide.md) | [observations](components/venues/cvpr/references/published-paper-observations.md) |
 | ICML | ICML 2026 Main Track | [guide](components/venues/icml/guide.md) | [observations](components/venues/icml/references/published-paper-observations.md) |
 | NeurIPS | NeurIPS 2026 Main Track | [guide](components/venues/neurips/guide.md) | [observations](components/venues/neurips/references/published-paper-observations.md) |
+| ICCV | ICCV 2025 Main Conference | [guide](components/venues/iccv/guide.md) | [observations](components/venues/iccv/references/published-paper-observations.md) |
 
 If the requested venue/year/track differs from the dated scope, if a profile is stale,
 or if its current authority is uncertain, run `recon` before drafting, auditing, or

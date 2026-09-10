@@ -23,6 +23,7 @@ ACL_PROFILE = SKILL / "components" / "venues" / "acl" / "references" / "venue-pr
 CVPR_PROFILE = SKILL / "components" / "venues" / "cvpr" / "references" / "venue-profile.json"
 ICML_PROFILE = SKILL / "components" / "venues" / "icml" / "references" / "venue-profile.json"
 NEURIPS_PROFILE = SKILL / "components" / "venues" / "neurips" / "references" / "venue-profile.json"
+ICCV_PROFILE = SKILL / "components" / "venues" / "iccv" / "references" / "venue-profile.json"
 GENERIC_PROFILE = (
     SKILL
     / "components"
@@ -1835,6 +1836,109 @@ No tools were used in this synthetic fixture.
             failed = run_script(VALIDATE_REPORT, str(report_path), "--format", "json")
             self.assertEqual(1, failed.returncode)
             self.assertIn("P0", failed.stdout)
+
+
+    def test_iccv_anonymous_submission_requires_review_mode_and_full_class_options(self):
+        """Break caught: an ICCV submission ships without review mode or letterpaper."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            good = root / "good.tex"
+            good.write_text(
+                r"""\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage[review]{iccv}
+\begin{document}
+\begin{abstract}Synthetic abstract.\end{abstract}
+\end{document}
+""",
+                encoding="utf-8",
+            )
+            passed = run_script(AUDIT_TEX, str(good), "--profile", str(ICCV_PROFILE),
+                                "--stage", "anonymous_submission", "--format", "json")
+            self.assertEqual(0, passed.returncode, passed.stdout + passed.stderr)
+            self.assertEqual([], json.loads(passed.stdout)["findings"])
+
+            for source, expected in (
+                (r"""\documentclass[10pt,twocolumn]{article}
+\usepackage[review]{iccv}
+\begin{document}
+\begin{abstract}Synthetic abstract.\end{abstract}
+\end{document}
+""", "DOCUMENT_CLASS"),
+                (r"""\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{iccv}
+\begin{document}
+\begin{abstract}Synthetic abstract.\end{abstract}
+\end{document}
+""", "ICCV25_STYLE_CURRENT"),
+                (r"""\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage[review]{iccv}
+\usepackage{geometry}
+\begin{document}
+\begin{abstract}Synthetic abstract.\end{abstract}
+\end{document}
+""", "LAYOUT_OVERRIDE"),
+            ):
+                with self.subTest(expected=expected):
+                    bad = root / f"{expected.lower()}.tex"
+                    bad.write_text(source, encoding="utf-8")
+                    result = run_script(AUDIT_TEX, str(bad), "--profile", str(ICCV_PROFILE),
+                                        "--stage", "anonymous_submission", "--format", "json")
+                    self.assertEqual(1, result.returncode)
+                    rule_ids = {item["rule_id"] for item in json.loads(result.stdout)["findings"]}
+                    self.assertIn(expected, rule_ids)
+
+    def test_iccv_camera_ready_rejects_review_and_rebuttal_modes(self):
+        """Break caught: an ICCV camera-ready source keeps a review or rebuttal option."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            good = root / "good.tex"
+            good.write_text(
+                r"""\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{iccv}
+\begin{document}
+\begin{abstract}Synthetic abstract.\end{abstract}
+\end{document}
+""",
+                encoding="utf-8",
+            )
+            passed = run_script(AUDIT_TEX, str(good), "--profile", str(ICCV_PROFILE),
+                                "--stage", "camera_ready", "--format", "json")
+            self.assertEqual(0, passed.returncode, passed.stdout + passed.stderr)
+
+            for option in ("review", "rebuttal"):
+                with self.subTest(option=option):
+                    bad = root / f"{option}.tex"
+                    bad.write_text(
+                        "\\documentclass[10pt,twocolumn,letterpaper]{article}\n"
+                        f"\\usepackage[{option}]{{iccv}}\n"
+                        "\\begin{document}\n"
+                        "\\begin{abstract}Synthetic abstract.\\end{abstract}\n"
+                        "\\end{document}\n",
+                        encoding="utf-8",
+                    )
+                    result = run_script(AUDIT_TEX, str(bad), "--profile", str(ICCV_PROFILE),
+                                        "--stage", "camera_ready", "--format", "json")
+                    self.assertEqual(1, result.returncode)
+                    rule_ids = {item["rule_id"] for item in json.loads(result.stdout)["findings"]}
+                    self.assertIn("ICCV25_STYLE_CURRENT", rule_ids)
+
+    def test_iccv_profile_omits_the_limits_iccv_never_stated(self):
+        """Break caught: CVPR's rebuttal and file-size limits are copied into ICCV.
+
+        The two venues share an author kit, so the LaTeX contract is genuinely the same.
+        The limits are not: ICCV's pages state no rebuttal page count and no supplement
+        size cap. Filling them in from the sibling venue would invent authority.
+        """
+        iccv = json.loads(ICCV_PROFILE.read_text(encoding="utf-8"))
+        cvpr = json.loads(CVPR_PROFILE.read_text(encoding="utf-8"))
+        self.assertEqual({}, iccv["pdf_contract"]["max_total_pages"])
+        self.assertEqual({}, iccv["pdf_contract"]["max_file_size_mb"])
+        self.assertNotEqual({}, cvpr["pdf_contract"]["max_total_pages"])
+        self.assertEqual({"anonymous_submission": 8, "camera_ready": 8},
+                         iccv["pdf_contract"]["manual_content_page_limit"])
+        for source_ids in iccv["rule_sources"].values():
+            for source_id in source_ids:
+                self.assertTrue(source_id.startswith("ICCV"), source_id)
 
 
 if __name__ == "__main__":

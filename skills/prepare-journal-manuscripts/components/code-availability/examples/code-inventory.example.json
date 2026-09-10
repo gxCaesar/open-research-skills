@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "journal": "Synthetic journal",
+  "article_type": "Original research",
+  "policy_checked_on": "2026-09-10",
+  "components": [
+    {
+      "component_id": "C1",
+      "description": "Custom analysis pipeline that produces the primary comparison and its figures.",
+      "origin": "custom",
+      "access_route": "archived_with_identifier",
+      "supports": ["Figure 1", "Figure 2", "Table 1"],
+      "identifier": "https://doi.org/10.0000/synthetic-code.1",
+      "version_or_commit": "v1.0.0",
+      "licence": "Apache-2.0",
+      "environment": {
+        "specification": "environment.yml pinned to exact versions",
+        "interpreter_or_runtime": "CPython 3.11"
+      }
+    },
+    {
+      "component_id": "C2",
+      "description": "Reused public implementation of the comparison method.",
+      "origin": "reused",
+      "access_route": "reused_public",
+      "supports": ["Figure 2"],
+      "identifier": "https://doi.org/10.0000/synthetic-baseline.4",
+      "version_or_commit": "v2.3.1",
+      "licence": "BSD-3-Clause",
+      "citation": "Synthetic Author (2025). Synthetic baseline implementation, version 2.3.1."
+    },
+    {
+      "component_id": "C3",
+      "description": "Vendor acquisition driver used to read the instrument files.",
+      "origin": "third_party",
+      "access_route": "third_party_restricted",
+      "supports": ["Methods, acquisition"],
+      "controller": "Synthetic Instruments Ltd",
+      "conditions": "released to licensed instrument owners under the vendor agreement",
+      "available_without_it": "the converted open-format files and every downstream step are released with C1"
+    }
+  ],
+  "statement": "All custom analysis code is archived at https://doi.org/10.0000/synthetic-code.1 (C1, v1.0.0, Apache-2.0) with a pinned environment specification. The comparison method is the public implementation at https://doi.org/10.0000/synthetic-baseline.4 (C2, v2.3.1). The vendor acquisition driver (C3) is controlled by Synthetic Instruments Ltd and released only to licensed instrument owners; the converted open-format files and all downstream analysis are included in C1."
+}

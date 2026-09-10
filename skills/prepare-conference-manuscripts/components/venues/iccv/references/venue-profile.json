@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "venue": "ICCV 2025",
+  "year": 2025,
+  "track": "Main Conference",
+  "checked_on": "2026-09-10",
+  "rule_sources": {
+    "DOCUMENT_CLASS": ["ICCV2025_AUTHOR_KIT"],
+    "ICCV25_STYLE_CURRENT": ["ICCV2025_AUTHOR_KIT"],
+    "ANON_ACKNOWLEDGMENTS": ["ICCV2025_AUTHOR_GUIDELINES"],
+    "ABSTRACT_REQUIRED": ["ICCV2025_AUTHOR_KIT"],
+    "PDF_PAGE_SIZE": ["ICCV2025_AUTHOR_KIT"],
+    "PDF_AUTHOR_METADATA": ["ICCV2025_AUTHOR_GUIDELINES"]
+  },
+  "allowed_stages": [
+    "anonymous_submission",
+    "supplementary_package",
+    "rebuttal",
+    "camera_ready"
+  ],
+  "tex_contract": {
+    "document_class": "article",
+    "style_package": "iccv",
+    "style_rule_id": "ICCV25_STYLE_CURRENT",
+    "required_document_class_options": ["10pt", "twocolumn", "letterpaper"],
+    "required_options": {
+      "anonymous_submission": ["review"],
+      "rebuttal": ["rebuttal"]
+    },
+    "forbidden_options": {
+      "camera_ready": ["review", "rebuttal"]
+    },
+    "anonymous_stages": ["anonymous_submission", "supplementary_package", "rebuttal"],
+    "anonymous_source_author_mode": "render_hidden",
+    "forbid_acknowledgments_in_anonymous": true,
+    "final_copy_command": "",
+    "required_headings": {},
+    "forbidden_layout_packages": ["a4wide", "fullpage", "geometry", "setspace", "savetrees", "titlesec", "typearea"],
+    "require_abstract": ["anonymous_submission", "camera_ready"]
+  },
+  "pdf_contract": {
+    "page_width_points": 612.0,
+    "page_height_points": 792.0,
+    "page_tolerance_points": 2.0,
+    "anonymous_stages": ["anonymous_submission", "supplementary_package", "rebuttal"],
+    "max_total_pages": {},
+    "max_file_size_mb": {},
+    "manual_content_page_limit": {
+      "anonymous_submission": 8,
+      "camera_ready": 8
+    }
+  }
+}

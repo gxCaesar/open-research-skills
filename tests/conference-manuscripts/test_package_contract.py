@@ -16,7 +16,7 @@ EXPECTED_MODES = {
     "camera-ready",
     "package",
 }
-FORMAL_VENUES = ("aaai", "iclr", "acl", "cvpr", "icml", "neurips")
+FORMAL_VENUES = ("aaai", "iclr", "acl", "cvpr", "icml", "neurips", "iccv")
 FORMAL_VENUE_SCOPES = (
     ("AAAI", "AAAI-27 Main Technical Track"),
     ("ICLR", "ICLR 2027 Conference"),
@@ -24,6 +24,7 @@ FORMAL_VENUE_SCOPES = (
     ("CVPR", "CVPR 2026 Main Conference"),
     ("ICML", "ICML 2026 Main Track"),
     ("NeurIPS", "NeurIPS 2026 Main Track"),
+    ("ICCV", "ICCV 2025 Main Conference"),
 )
 FORMAL_ADAPTER_PROFILES = {
     "aaai": {
@@ -73,6 +74,16 @@ FORMAL_ADAPTER_PROFILES = {
         "year": 2026,
         "track": "Main Track",
         "checked_on": "2026-09-04",
+    },
+    # ICCV is biennial. The dated scope is the most recent completed cycle, because the
+    # 2027 author-guideline page returned HTTP 404 when this adapter was written.
+    "iccv": {
+        "routing_label": "ICCV",
+        "routing_scope": "ICCV 2025 Main Conference",
+        "venue": "ICCV 2025",
+        "year": 2025,
+        "track": "Main Conference",
+        "checked_on": "2026-09-10",
     },
 }
 VENUE_CONTRACT_FILES = (
@@ -222,7 +233,9 @@ class ConferencePackageContractTest(unittest.TestCase):
         """Break caught: a stale or undeclared adapter leaks into venue routing."""
         venues = SKILL / "components" / "venues"
         observed = {path.name for path in venues.iterdir() if path.is_dir()}
-        self.assertEqual({"aaai", "iclr", "acl", "cvpr", "icml", "neurips", "generic"}, observed)
+        self.assertEqual(
+            {"aaai", "iclr", "acl", "cvpr", "icml", "neurips", "iccv", "generic"}, observed
+        )
 
     def test_formal_venue_rule_sources_are_documented_locally(self):
         """Break caught: an emitted venue rule points to an undocumented source ID."""

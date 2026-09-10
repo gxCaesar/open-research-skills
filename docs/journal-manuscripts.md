@@ -425,9 +425,24 @@ python3 "$SKILL_DIR/components/data-availability/scripts/validate_data_inventory
   data-inventory.json --mode working
 ```
 
-Code Availability 与数据声明也应区分：代码、模型、参数、协议和数据各自在哪里，
-哪些能复现实际分析，哪些受限制。仓库链接是否打开、reviewer access 是否可用需要实际检查。
-字段通过不能证明访问权、许可、consent 或外部存储完成。
+Code Availability 与数据声明分开处理，各有各的组件：代码、模型、参数、协议和数据分别在哪里，
+哪些能复现实际分析，哪些受限制。
+
+[代码可用性组件](../skills/prepare-journal-manuscripts/components/code-availability/guide.md)
+回答读者真正的问题：**装什么、装哪个确切版本，才能重跑这条主张背后的分析。**
+只给仓库链接而不给版本、licence 和环境，等于一个也没回答。
+
+```bash
+python3 "$SKILL_DIR/components/code-availability/scripts/validate_code_inventory.py" \
+  code-inventory.json --mode working --format markdown
+```
+
+`final` 模式把三件事判为错误：**仓库链接没有对应的存档标识符**（URL 指的是位置，论文要指的是状态）、
+未解析的占位符、以及**承诺而非提供**的 statement（"code will be made available upon reasonable request"
+这一类，读者拿它什么也做不了）。支撑结论的自研代码不允许填 `not_applicable`。
+
+仓库链接是否打开、reviewer access 是否可用需要实际检查。字段通过不能证明访问权、许可、
+consent 或外部存储完成；代码能不能复现，只有从干净安装真跑一遍才知道。
 
 ## 编辑材料与 cover letter
 

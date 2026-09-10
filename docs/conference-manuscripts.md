@@ -4,7 +4,7 @@
 [从材料起草论文](#从材料起草论文) · [修改已有稿件](#修改已有稿件) ·
 [Rebuttal 与讨论修订](#rebuttal-与讨论修订) · [Camera-ready 与交付](#camera-ready-与交付)
 
-`prepare-conference-manuscripts` 面向 AAAI、ICLR、ACL、CVPR、ICML、NeurIPS 等计算机会议的论文工作。
+`prepare-conference-manuscripts` 面向 AAAI、ICLR、ACL、CVPR、ICML、NeurIPS、ICCV 等计算机会议的论文工作。
 它把方法解释、实验叙述、摘要、图表、统计报告、匿名性、审稿回复和最终文件放在同一个证据边界内处理。
 重点是让读者看清：论文解决什么问题，方法改变了什么计算，哪些比较支撑结论，结论在哪里不成立。
 
@@ -73,6 +73,7 @@ Python 依赖不等于 TeX、Word 或 PowerPoint 渲染器；这些能力由实�
 | [CVPR](../skills/prepare-conference-manuscripts/components/venues/cvpr/guide.md) | CVPR 2026 Main Conference | anonymous、rebuttal、camera-ready 的样式与文件要求，图和链接匿名性 |
 | [ICML](../skills/prepare-conference-manuscripts/components/venues/icml/guide.md) | ICML 2026 Main Track | accepted 样式切换、Impact Statement、评审补充材料与最终制作文件 |
 | [NeurIPS](../skills/prepare-conference-manuscripts/components/venues/neurips/guide.md) | NeurIPS 2026 Main Track | main/final/preprint 状态、Paper Checklist、讨论回复与上传权限的区别 |
+| [ICCV](../skills/prepare-conference-manuscripts/components/venues/iccv/guide.md) | ICCV 2025 Main Conference | review/rebuttal/camera-ready 样式模式、八页正文边界、未规定的 rebuttal 页数与补充材料大小 |
 
 **AAAI。** 捆绑资料记录了关于 AI-written manuscript text 的政策冲突，并采用较窄的作者政策边界。
 因此，真实 AAAI 任务应先核验当前来源，再确定允许的是检查、提纲、作者已有文字润色还是新起草。

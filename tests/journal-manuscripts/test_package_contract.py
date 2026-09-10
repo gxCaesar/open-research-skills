@@ -20,6 +20,7 @@ EXPECTED_COMPONENTS = {
     "abstract",
     "statistics-reporting",
     "data-availability",
+    "code-availability",
 }
 
 

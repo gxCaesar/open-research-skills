@@ -63,8 +63,14 @@ RUNTIME_PROBES = {
             "components/abstract/guide.md",
             "components/statistics-reporting/guide.md",
             "components/data-availability/guide.md",
+            "components/code-availability/guide.md",
+            "components/code-availability/scripts/validate_code_inventory.py",
         ),
-        ("components/abstract/scripts/check_abstract.py", "--help"),
+        (
+            "components/code-availability/scripts/validate_code_inventory.py",
+            "components/code-availability/examples/code-inventory.example.json",
+            "--mode", "final",
+        ),
     ),
     "research-funding-proposals": (
         "writing-funding-proposals",

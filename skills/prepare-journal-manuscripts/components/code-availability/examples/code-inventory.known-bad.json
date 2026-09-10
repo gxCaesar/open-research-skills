@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "journal": "Synthetic journal",
+  "article_type": "Original research",
+  "policy_checked_on": "2026-09-10",
+  "components": [
+    {
+      "component_id": "C1",
+      "description": "Custom analysis pipeline behind the primary comparison.",
+      "origin": "custom",
+      "access_route": "not_applicable",
+      "supports": ["Figure 1"]
+    },
+    {
+      "component_id": "C2",
+      "description": "Training code kept on a lab repository.",
+      "origin": "custom",
+      "access_route": "public_repository",
+      "supports": ["Figure 2"],
+      "repository": "Synthetic Host",
+      "identifier": "https://example.org/synthetic/repo"
+    },
+    {
+      "component_id": "C3",
+      "description": "Evaluation scripts.",
+      "origin": "custom",
+      "access_route": "justified_request",
+      "supports": ["Table 2"],
+      "contact_route": "[replace with a durable contact]"
+    }
+  ],
+  "statement": "Code will be made available upon reasonable request."
+}
