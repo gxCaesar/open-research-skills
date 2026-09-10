@@ -9,7 +9,10 @@ Use a topic branch and a pull request for shared changes. Summarize the affected
 the demonstrated problem, the focused verification and any unrun checks. Ask another
 maintainer to review changes to validators, scientific boundaries or public packaging;
 small prose corrections do not need a new workflow or additional gate. Tests run
-locally; this repository does not configure hosted CI.
+locally, and `.github/workflows/checks.yml` runs them again on a clean machine for every
+push and pull request, on Python 3.9 and 3.13. The 3.9 leg is what makes the declared
+floor a checked claim rather than a local one. `claude plugin validate . --strict` is the
+one check CI cannot run, because it needs the Claude Code CLI; keep running that locally.
 
 For a validator or contract change, include one clean fixture that passes and one
 known-bad fixture that fails for the intended reason. Run the smallest skill test

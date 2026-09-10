@@ -13,7 +13,7 @@
 
 [选择 skill](#choose) · [专项任务与打磨](#tasks) · [快速开始](#start) · [绘图](#visualization) · [会议论文](#conference) · [期刊论文](#journal) · [基金](#funding) · [研究工作流](#workflow) · [有没有证据](#evidence)
 
-**中文** · [English](README.en.md)
+**中文** · [English](README.en.md) · [![checks](https://github.com/gxCaesar/open-research-skills/actions/workflows/checks.yml/badge.svg)](https://github.com/gxCaesar/open-research-skills/actions/workflows/checks.yml)
 
 </div>
 
@@ -567,6 +567,8 @@ python3 -B scripts/run_tests.py
 python3 -B scripts/check_public_content.py .
 ```
 
-统一测试入口会分别运行根目录和各个 skill 的测试。测试依赖见 [requirements-test.txt](requirements-test.txt)，普通使用者只需安装任务所需依赖。本仓库未配置托管 CI。
+统一测试入口会分别运行根目录和各个 skill 的测试。测试依赖见 [requirements-test.txt](requirements-test.txt)，普通使用者只需安装任务所需依赖。
+
+每次 push 与 pull request 都会在干净机器上重跑这些检查，**Python 3.9 与 3.13 两条**（见 [checks.yml](.github/workflows/checks.yml)）。3.9 那条是关键：仓库声明的下界从此是被持续检验的，而不是只在维护者机器上成立过。`claude plugin validate . --strict` 是 CI 跑不了的一条（需要 Claude Code CLI），仍需本地执行。
 
 [参与贡献](CONTRIBUTING.md) · [维护者](MAINTAINERS.md) · [第三方说明](THIRD_PARTY.md) · [Apache-2.0 许可证](LICENSE)

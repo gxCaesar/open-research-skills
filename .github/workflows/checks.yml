@@ -1,0 +1,60 @@
+name: checks
+
+# Every check here also runs locally; CONTRIBUTING.md lists them. What CI adds is a clean
+# machine. Locally each one runs where every dependency is already installed and where the
+# author's own files are within reach, so a pass says less than it looks like it says.
+#
+# The 3.9 leg is the point of the matrix. This repository claims a Python 3.9 floor, and
+# until this workflow existed that claim rested on parsing each bundled script under
+# feature_version=(3, 9) plus importing them on one machine. Running the whole suite there
+# is the actual claim.
+#
+# Not checked here: `claude plugin validate . --strict`, which needs the Claude Code CLI.
+# That one stays a local step and CONTRIBUTING.md says so.
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false          # a 3.13 failure must not hide the 3.9 result, or vice versa
+      matrix:
+        python-version: ["3.9", "3.13"]
+    env:
+      MPLBACKEND: Agg           # headless runner; the render scripts otherwise pick a GUI backend
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-test.txt
+
+      - name: Tests
+        run: python -B scripts/run_tests.py
+
+      - name: Public content scan
+        run: python scripts/check_public_content.py .
+
+      - name: Rule coverage
+        run: python scripts/check_rule_coverage.py
+
+      - name: No symlinks under skills/
+        # A skill is copied by directory, and a symlink survives the copy as a dangling
+        # pointer on the reader's machine.
+        run: |
+          found="$(find skills -type l -print)"
+          if [ -n "$found" ]; then echo "$found"; exit 1; fi
+          echo "no symlinks"

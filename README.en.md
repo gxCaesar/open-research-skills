@@ -11,7 +11,7 @@
 
 [Choose a skill](#choose-a-skill) · [Install](#install) · [The ten skills](#the-ten-skills) · [What this does not do](#what-this-does-not-do) · [Evidence](#evidence)
 
-**English** · [中文（完整版）](README.md)
+**English** · [中文（完整版）](README.md) · [![checks](https://github.com/gxCaesar/open-research-skills/actions/workflows/checks.yml/badge.svg)](https://github.com/gxCaesar/open-research-skills/actions/workflows/checks.yml)
 
 </div>
 
@@ -349,7 +349,11 @@ nothing.
 See [CONTRIBUTING.md](CONTRIBUTING.md) for what a change needs before it opens, including
 the clean and known-bad fixture pair required of any validator change, and
 [MAINTAINERS.md](MAINTAINERS.md) for who reviews what. Tests run locally; this repository
-configures no hosted CI.
+runs them again on a clean machine for every push and pull request, on Python 3.9 and
+3.13 ([checks.yml](.github/workflows/checks.yml)). The 3.9 leg is the one that matters:
+the declared floor is now a continuously checked claim rather than something that held on
+one machine. `claude plugin validate . --strict` is the single check CI cannot run, since
+it needs the Claude Code CLI, so it stays local.
 
 ## Licence
 
