@@ -263,10 +263,18 @@ def main() -> None:
         actual = (float(page.mediabox.width), float(page.mediabox.height))
         expected = tuple(mm * MM_TO_PT for mm in spec["composite"]["size_mm"])
         if any(abs(a - e) > 0.5 for a, e in zip(actual, expected)): errors.append("summary PDF page size mismatch")
+        # Record whether this ran, not only its result. Without Poppler the font check simply
+        # does not happen, and a report that omits it is indistinguishable from one where the
+        # fonts were fine -- the same shape as a check that reports zero because it never ran.
+        fonts = "not_checked"
         if shutil.which("pdffonts"):
             result = subprocess.run(["pdffonts", str(summary_pdf)], capture_output=True, text=True, check=False)
-            if "TrueType" not in result.stdout and "Type 1" not in result.stdout: warnings.append("summary PDF has no detectable embedded fonts")
-        checks["summary"] = {"pdf_points": actual}
+            embedded = "TrueType" in result.stdout or "Type 1" in result.stdout
+            fonts = "embedded" if embedded else "none_detected"
+            if not embedded: warnings.append("summary PDF has no detectable embedded fonts")
+        else:
+            warnings.append("font embedding not checked: pdffonts not on PATH (install Poppler)")
+        checks["summary"] = {"pdf_points": actual, "fonts": fonts}
     else:
         errors.append("missing vector summary PDF")
 
