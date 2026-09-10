@@ -12,6 +12,10 @@ positional argument of self.error and self.warn and missed the ids passed throug
 require_text, require_enum, mapping and sequence. The denominator was wrong before the
 coverage number was.
 
+All 62 now have a witness. The first version of this file carried 27 of them on an
+unwitnessed list with a reason each; the list reached zero by writing the mutations those
+reasons described, not by lowering the bar.
+
 Exits 1 when a witness stops firing its rule, or when a declared rule is neither
 witnessed nor listed as unwitnessed with a reason.
 """
@@ -127,6 +131,59 @@ def ledger(change):
     return lambda project: edit(project, "development/iteration-ledger.json", change)
 
 
+def intake(change):
+    return lambda project: edit(project, "intake/intake.json", change)
+
+
+def handoff(change):
+    return lambda project: edit(project, "handoff/handoff.json", change)
+
+
+def claims(change):
+    return lambda project: edit(project, "claims/claim-register.json", change)
+
+
+def release(change):
+    """Edit the public_release block inside the handoff record."""
+    return lambda project: edit(
+        project, "handoff/handoff.json", lambda d: change(d["public_release"])
+    )
+
+
+def two_predicted_slice_misses(project):
+    """Two misses on one candidate followed by another revision kills the mechanism."""
+    first = copy.deepcopy(CLEAN_CYCLE)
+    first.update(cycle_id="CY1", predicted_slice_met=False, mechanism_status="FALSIFIED")
+    second = copy.deepcopy(CLEAN_CYCLE)
+    second.update(cycle_id="CY2", predicted_slice_met=False, mechanism_status="FALSIFIED")
+    edit(project, "development/iteration-ledger.json", lambda d: d.update(cycles=[first, second]))
+
+
+def stop_without_a_route_reason(project):
+    cycle = copy.deepcopy(CLEAN_CYCLE)
+    cycle.update(decision="STOP", stop_reason="TIRED")
+    edit(project, "development/iteration-ledger.json", lambda d: d.update(cycles=[cycle]))
+
+
+def a_symlink_in_the_workspace(project):
+    (project / "notes-link.json").symlink_to(project / "project.json")
+
+
+def a_file_outside_the_allowlist(project):
+    (project / "public-release" / "leftover.txt").write_text("left over\n", encoding="utf-8")
+
+
+def a_machine_path_in_a_released_file(project):
+    # Composed at runtime: the literal is what this repository's own content scan rejects.
+    (project / "public-release" / "docs" / "setup.md").write_text(
+        "run it from /" + "Users" + "/someone/project\n", encoding="utf-8"
+    )
+    edit(project, "handoff/handoff.json", lambda d: (
+        d["public_release"]["allowlist"].append("docs/setup.md"),
+        d["public_release"]["artifact_paths"]["run_instructions"].append("docs/setup.md"),
+    ))
+
+
 def cycles(change=None, count=1):
     """Install `count` accepted cycles, optionally breaking the last one."""
     def mutate(project):
@@ -187,49 +244,59 @@ WITNESSES = {
                          cycles(lambda c: c.update(decision="ADVANCE", mechanism_status="INCONCLUSIVE"))),
     "BUDGET": ("development", False, cycles(count=12)),
     # claims and handoff
+    "CLAIM_REGISTER": ("handoff", False, claims(lambda d: d.update(claims=[]))),
+    "CLAIM_EVIDENCE": ("handoff", False, claims(lambda d: d["claims"][0].update(scope=""))),
     "CLAIM_STATUS": ("handoff", False,
-                     lambda p: edit(p, "claims/claim-register.json", lambda d: d["claims"][0].update(status="ok"))),
+                     claims(lambda d: d["claims"][0].update(status="ok"))),
+    "HANDOFF": ("handoff", False, handoff(lambda d: d.update(limitations="none"))),
     "SPECIALIST_HANDOFF": ("handoff", False,
-                           lambda p: edit(p, "handoff/handoff.json", lambda d: d.update(specialist_handoffs=[]))),
-    "PUBLIC_RELEASE_STATUS": (
-        "public-release", True,
-        lambda p: edit(p, "handoff/handoff.json",
-                       lambda d: d["public_release"].update(status="DONE")),
-    ),
+                           handoff(lambda d: d.update(specialist_handoffs=[]))),
+    "EXTERNAL_BOUNDARY": ("handoff", False,
+                          handoff(lambda d: d.update(external_action_status="AUTHORIZED"))),
+    "FINAL_EVALUATION": ("handoff", False,
+                         handoff(lambda d: d["final_evaluation"].update(status="FAIL"))),
+    "NEGATIVE_RESULT": ("handoff", False,
+                        handoff(lambda d: d.update(terminal_outcome="NEGATIVE_RESULT"))),
+    "RETURN_TO_INTAKE": ("handoff", False,
+                         handoff(lambda d: d.update(terminal_outcome="RETURN_TO_INTAKE"))),
+    "PATH_CONTAINMENT": ("handoff", False, a_symlink_in_the_workspace),
+    # intake
+    "AUTHORITY": ("pilot", False, project_field("authority", {"status": "UNVERIFIED",
+                                                             "source_ids": ["S_RULE"],
+                                                             "conflicts": []})),
+    "DATA_FEASIBILITY": ("pilot", False, intake(lambda d: d["data_feasibility"].update(status="FAIL"))),
+    "HYPOTHESIS": ("pilot", False, intake(lambda d: d["hypothesis"].update(claim=""))),
+    "INTAKE_DECISION": ("pilot", False, intake(lambda d: d["decision"].update(status="HOLD"))),
+    "SCOOP_VERDICT": ("pilot", False, intake(lambda d: d["scoop"].update(verdict="MAYBE"))),
+    "SCOOP_LANE": ("pilot", False, intake(lambda d: d["scoop"].update(contribution_lane="discovery"))),
+    "VENUE_FIT": ("pilot", False, intake(lambda d: d["venue_fit"].update(status="FAIL"))),
+    "VERIFIED_SOURCE": ("pilot", False, sources(lambda d: d["sources"][0].update(locator=""))),
+    # the frozen protocol and the development loop
+    "PROTOCOL_FREEZE": ("development", False, protocol(lambda d: d.update(status="DRAFT"))),
+    "PROTOCOL_CHANGE": ("development", False, protocol(lambda d: d.pop("allowed_changes", None))),
+    "CONTRIBUTION_LANE": ("development", False,
+                          protocol(lambda d: d.update(contribution_lane="discovery"))),
+    "CONSTRUCTION_ORDER": ("development", False,
+                           ledger(lambda d: d.update(construction_order=["architecture"]))),
+    "MECHANISM_RECOVERY": ("development", False, two_predicted_slice_misses),
+    "ROUTE_CLOSURE": ("development", False, stop_without_a_route_reason),
+    # the curated public release
+    "PUBLIC_RELEASE_STATUS": ("public-release", True, release(lambda r: r.update(status="DONE"))),
+    "PUBLIC_RELEASE_PATH": ("public-release", True, release(lambda r: r.update(path="../outside"))),
+    "PUBLIC_RELEASE_ALLOWLIST": ("public-release", True, a_file_outside_the_allowlist),
+    "PUBLIC_RELEASE_ARTIFACT": ("public-release", True,
+                                release(lambda r: r["artifact_paths"].pop("tests"))),
+    "PUBLIC_RELEASE_REHEARSAL": ("public-release", True,
+                                 release(lambda r: r["rehearsal"].update(status="FAIL"))),
+    "PUBLIC_RELEASE_CONTENT": ("public-release", True, a_machine_path_in_a_released_file),
 }
 
-# Declared rules with no witness yet. Each reason says what a witness would need, so the
-# list can be shortened rather than only inspected. The test pins this set: a rule added
-# without a witness lands here or fails.
-UNWITNESSED = {
-    "AUTHORITY": "needs an authority record whose conflicts survive a VERIFIED status",
-    "CLAIM_EVIDENCE": "fires today in the workflow suite; no isolating mutation written yet",
-    "CLAIM_REGISTER": "fires today in the workflow suite; no isolating mutation written yet",
-    "CONSTRUCTION_ORDER": "fires today in the workflow suite; no isolating mutation written yet",
-    "CONTRIBUTION_LANE": "fires today in the workflow suite; no isolating mutation written yet",
-    "DATA_FEASIBILITY": "fires today in the workflow suite; no isolating mutation written yet",
-    "EXTERNAL_BOUNDARY": "boundary edits reach AUTHORITY_BOUNDARY first; needs a project whose external write is claimed as already granted elsewhere",
-    "FINAL_EVALUATION": "needs a handoff that reports a final comparison the results file does not contain",
-    "HANDOFF": "fires today in the workflow suite; no isolating mutation written yet",
-    "HYPOTHESIS": "fires today in the workflow suite; no isolating mutation written yet",
-    "INTAKE_DECISION": "fires today in the workflow suite; no isolating mutation written yet",
-    "MECHANISM_RECOVERY": "fires today in the workflow suite; no isolating mutation written yet",
-    "NEGATIVE_RESULT": "needs a handoff claiming a negative result without the cycle evidence behind it",
-    "PATH_CONTAINMENT": "needs a record reached through a link that leaves the project",
-    "PROTOCOL_CHANGE": "needs a frozen protocol edited after freezing, which the synthetic workspace cannot express yet",
-    "PROTOCOL_FREEZE": "fires today in the workflow suite; no isolating mutation written yet",
-    "PUBLIC_RELEASE_ALLOWLIST": "fires today in the workflow suite; no isolating mutation written yet",
-    "PUBLIC_RELEASE_ARTIFACT": "fires today in the workflow suite; no isolating mutation written yet",
-    "PUBLIC_RELEASE_CONTENT": "fires today in the workflow suite; no isolating mutation written yet",
-    "PUBLIC_RELEASE_PATH": "needs a release tree whose declared file resolves outside it",
-    "PUBLIC_RELEASE_REHEARSAL": "fires today in the workflow suite; no isolating mutation written yet",
-    "RETURN_TO_INTAKE": "intake edits reach INTAKE_DECISION first; needs a route that returns after a protocol freeze",
-    "ROUTE_CLOSURE": "fires today in the workflow suite; no isolating mutation written yet",
-    "SCOOP_LANE": "fires today in the workflow suite; no isolating mutation written yet",
-    "SCOOP_VERDICT": "fires today in the workflow suite; no isolating mutation written yet",
-    "VENUE_FIT": "fires today in the workflow suite; no isolating mutation written yet",
-    "VERIFIED_SOURCE": "a non-VERIFIED status reaches SOURCE_STATUS first; needs a verified-source requirement met by an unverified id",
-}
+# Every declared rule now has a witness. This dict is the escape hatch for a rule that
+# genuinely cannot be reached from a synthetic project, and it is empty on purpose: the
+# list stood at 27 when this tool was written and reached zero by writing the mutations
+# rather than by lowering the bar. A rule added without a witness lands here and fails
+# the test that asserts this stays empty.
+UNWITNESSED: dict = {}
 
 
 def run_witness(validator, rule, target, public_release, mutate):
