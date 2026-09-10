@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "project": "Synthetic boundary-detection study",
+  "prepared_on": "2026-09-10",
+  "prepared_by": "the author",
+  "entry_document": "HANDOVER.md",
+  "run_layout": {
+    "root": "experiments/<date>-<short-tag>",
+    "run_command_file": "experiments/<date>-<short-tag>/run.sh",
+    "environment_file": "experiments/<date>-<short-tag>/env.txt",
+    "config_file": "experiments/<date>-<short-tag>/config.yaml",
+    "log_directory": "experiments/<date>-<short-tag>/logs",
+    "checkpoint_directory": "experiments/<date>-<short-tag>/ckpts",
+    "results_directory": "experiments/<date>-<short-tag>/results",
+    "written_before_launch": true,
+    "note": "run.sh and env.txt are written before the run starts, so a run that crashes is still reproducible from what is on disk."
+  },
+  "environment": {
+    "specification": "environment.yml",
+    "interpreter_or_runtime": "CPython 3.11",
+    "create_command": "conda env create -f environment.yml",
+    "pinned": true
+  },
+  "data_access": {
+    "route": "public_download",
+    "obtainable_by_receiver": "the synthetic corpus downloads from its public identifier with the command in HANDOVER.md; no account or shared drive is needed",
+    "size": "1.2 GB"
+  },
+  "tasks": [
+    {
+      "task_id": "T1",
+      "goal": "Reproduce the reported development-split number before changing anything.",
+      "command": "bash experiments/20260910-baseline/run.sh",
+      "expected_output": "logs/train.log ends with 'dev_score=0.7315' and results/metrics.json records the same value",
+      "done_when": "results/metrics.json exists and its dev_score is within the recorded noise floor of 0.7315"
+    },
+    {
+      "task_id": "T2",
+      "goal": "Read the error by slice and report which slice carries most of the loss.",
+      "command": "python3 analysis/error_slices.py results/predictions.csv --out results/slices.csv",
+      "expected_output": "results/slices.csv with one row per slice, each carrying its own count",
+      "done_when": "every slice in results/slices.csv has a count, and the counts sum to the evaluation set size printed by the script"
+    }
+  ],
+  "do_not_change": [
+    "protocol/protocol.json, which is frozen",
+    "the locked test split under data/locked-test/",
+    "the metric implementation in analysis/metric.py"
+  ],
+  "rehearsal": {
+    "performed_by": "a group member who had not seen the project",
+    "commands_run": [
+      "conda env create -f environment.yml",
+      "bash experiments/20260910-baseline/run.sh",
+      "python3 analysis/error_slices.py results/predictions.csv --out results/slices.csv"
+    ],
+    "outcome": "T1 reproduced dev_score=0.7315 on the second attempt; the first failed because HANDOVER.md did not say the data download must finish before run.sh, which has since been added",
+    "took": "about two hours including the download"
+  }
+}

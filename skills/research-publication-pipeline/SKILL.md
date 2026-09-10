@@ -238,6 +238,7 @@ paper-reading component and the following optional specialists can enhance this 
 | Need | Capability |
 |---|---|
 | paper understanding | internal `components/paper-card/guide.md` |
+| handing a running project to another person | internal `components/project-handover/guide.md` |
 | conference manuscript, abstract, statistics reporting, or rebuttal | `prepare-conference-manuscripts` |
 | journal manuscript, abstract, statistics reporting, data availability, or revision | `prepare-journal-manuscripts` |
 | scientific figures and flowcharts | `build-scientific-visualizations` |

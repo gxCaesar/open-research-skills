@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "project": "Synthetic boundary-detection study",
+  "prepared_on": "2026-09-10",
+  "prepared_by": "the author",
+  "entry_document": "HANDOVER.md",
+  "run_layout": {
+    "root": "../outside-the-project/experiments/baseline",
+    "run_command_file": "run.sh",
+    "environment_file": "",
+    "log_directory": "logs",
+    "checkpoint_directory": "ckpts",
+    "results_directory": "results"
+  },
+  "environment": {
+    "specification": "requirements.txt",
+    "interpreter_or_runtime": "python 3"
+  },
+  "data_access": {
+    "route": "wherever",
+    "obtainable_by_receiver": ""
+  },
+  "tasks": [
+    {
+      "task_id": "T1",
+      "goal": "Run the training.",
+      "command": "ssh gpubox 'bash run.sh'",
+      "expected_output": "it should work",
+      "done_when": "ask me and I will tell you whether the number looks right"
+    }
+  ],
+  "rehearsal": {
+    "performed_by": "the author",
+    "commands_run": [],
+    "outcome": "fine"
+  },
+  "_note": "Synthetic. It omits the absolute-home-path case on purpose: a shipped file containing one would make this repository fail its own content scan, so that rule is witnessed in tests/research-publication-workflow/test_project_handover.py."
+}

@@ -86,9 +86,15 @@ RUNTIME_PROBES = {
         (
             "components/paper-card/guide.md",
             "components/paper-card/scripts/prepare_paper.py",
+            "components/project-handover/guide.md",
+            "components/project-handover/scripts/validate_handover_pack.py",
             "scripts/init_publication_project.py",
         ),
-        ("components/paper-card/scripts/prepare_paper.py", "--help"),
+        (
+            "components/project-handover/scripts/validate_handover_pack.py",
+            "components/project-handover/examples/handover-pack.example.json",
+            "--mode", "final",
+        ),
     ),
     "method-development": (
         "develop-method-to-sota",

@@ -199,6 +199,21 @@ skill 的作用是重建论文的对象、信息范围、拆分、评价和最�
 将科学问题、方法操作、实验比较、实际证据和局限关联起来，引用具体章节、页码或实现位置。
 只读摘要、无法打开正文或未检查代码时，深读范围必须明确，不把未读材料写成已核实。
 
+内置 [project-handover 组件](../skills/research-publication-pipeline/components/project-handover/guide.md)
+回答另一个问题:**一个没参与建这个项目的人,能不能只靠这份交接包把它跑起来。**
+它管两件事 —— 一次运行所处的目录契约(`run.sh` 与 `env.txt` **在开跑之前**写好,
+否则第六小时崩掉的那次就不可复现),以及接手人拿到的任务清单。
+
+```bash
+python3 "$SKILL_DIR/components/project-handover/scripts/validate_handover_pack.py" \
+  handover-pack.json --mode final --format markdown
+```
+
+`final` 模式要求**演练过,且演练的人不是作者** —— 作者已经知道包里漏了什么,
+那恰恰是全部难处所在。另外两种答案会被判错:命令里出现绝对 home 路径或点名的远程主机
+(接手人得先翻译,而翻译正是交接悄悄退化成对话的地方),以及把
+"问我"写成完成判据(那不是判据,是把作者本人当判据)。
+
 ```text
 使用 research-publication-pipeline 的 survey 模式，深读 paper.pdf 和 supplement.pdf。
 解释论文在解决什么问题、关键方法改变了什么，以及哪些实验真正检验这一解释。
