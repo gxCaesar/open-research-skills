@@ -63,6 +63,13 @@ mkdir -p "$HOME/.agents/skills" && cp -R open-research-skills/skills/* "$HOME/.a
 
 ## 选择你这次需要的 skill
 
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/overview/skill-map-zh-dark.svg" />
+  <img src="assets/overview/skill-map-zh.svg" width="100%" alt="十个 skill 的位置图：一条从选题、方法、成稿、投前到发布的主线，两条贯穿全程的入口（研究流程编排与科研绘图），以及基金 proposal 与审稿两条独立入口" />
+</picture>
+</div>
+
 | 你现在的任务 | 入口 | 典型交付 |
 |---|---|---|
 | 把方法、机制或多组学结果画清楚 | [科研绘图](#visualization) | 可编辑架构图、多面板图、矢量文件与 legend |

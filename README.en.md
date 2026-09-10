@@ -68,6 +68,13 @@ English entry point to the same ten skills.
 
 ## Choose a skill
 
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/overview/skill-map-en-dark.svg" />
+  <img src="assets/overview/skill-map-en.svg" width="100%" alt="A map of the ten skills: an arc from direction through method, manuscript, pre-submission review and release, two skills that span the whole arc, and two standalone entry points for funding proposals and refereeing" />
+</picture>
+</div>
+
 | What you are doing now | Skill | Manual |
 |---|---|---|
 | Make a method, mechanism, or multi-omics result legible | `build-scientific-visualizations` | [中文](docs/scientific-visualizations.md) |
