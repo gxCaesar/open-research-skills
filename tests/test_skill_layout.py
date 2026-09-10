@@ -147,6 +147,11 @@ REQUIRED_PYTHON_DEPENDENCIES = {
         "matplotlib",
         "pillow",
         "pypdf",
+        # The default authoring route ends in a native editable PPTX and the QA contract
+        # checks for native editable text. None of the three above can write one, and the
+        # bundled scripts only READ pptx through zipfile, so nothing here would have
+        # noticed the omission.
+        "python-pptx",
     },
     "conference-manuscripts": {"pypdf"},
     "research-publication-workflow": {"pypdf"},
