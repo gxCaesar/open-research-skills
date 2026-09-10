@@ -22,12 +22,21 @@ whole pipeline.
 
 ## Install, two lines
 
+**Claude Code** — all ten at once, then call `/open-research-skills:<skill-name>`:
+
 ```bash
 claude plugin marketplace add gxCaesar/open-research-skills
 claude plugin install open-research-skills@open-research-skills
 ```
 
-Any other runtime: copy the whole `skills/<name>/` directory. See [Install](#install).
+**Codex** (`$HOME/.agents/skills/` is also Antigravity CLI's project-level directory):
+
+```bash
+git clone https://github.com/gxCaesar/open-research-skills.git
+mkdir -p "$HOME/.agents/skills" && cp -R open-research-skills/skills/* "$HOME/.agents/skills/"
+```
+
+For one or two skills only, or another runtime, see [Install](#install).
 
 ## What you get
 

@@ -19,14 +19,23 @@
 
 这是一个面向日常科研的 agent skill 工具箱。十个完整 skill 在一个仓库中维护，每个都能单独安装、独立使用。你可以从一张图、一段 Results 或一个研究问题开始，不必先启动整套研究流程。
 
-## 两行装上（Claude Code）
+## 两行装上
+
+**Claude Code** —— 十个一次装齐，装完用 `/open-research-skills:<skill-name>` 调用：
 
 ```bash
 claude plugin marketplace add gxCaesar/open-research-skills
 claude plugin install open-research-skills@open-research-skills
 ```
 
-其他 runtime 复制 `skills/<name>/` 整个目录即可，见[快速开始](#start)。
+**Codex**（`$HOME/.agents/skills/` 也是 Antigravity CLI 的项目级目录名）：
+
+```bash
+git clone https://github.com/gxCaesar/open-research-skills.git
+mkdir -p "$HOME/.agents/skills" && cp -R open-research-skills/skills/* "$HOME/.agents/skills/"
+```
+
+只装其中一两个、或换其他 runtime，见[快速开始](#start)。
 
 ## 装上之后能得到什么
 
