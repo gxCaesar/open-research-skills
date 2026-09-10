@@ -33,6 +33,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install Poppler
+        # compose_vector_pdf.py produces the composite SVG and PNG through pdftocairo and
+        # pdftoppm, and skips them when Poppler is absent. README and the visualisation
+        # guide both declare Poppler as a system requirement, so the runner installs it and
+        # CI tests the configuration this repository documents.
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}

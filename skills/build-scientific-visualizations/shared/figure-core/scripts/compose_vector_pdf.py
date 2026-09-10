@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 import shutil
 import subprocess
+import sys
 
 from pypdf import PageObject, PdfReader, PdfWriter, Transformation
 
@@ -50,11 +51,20 @@ def main() -> None:
     with pdf_path.open("wb") as handle:
         writer.write(handle)
 
+    # Skipping is deliberate -- a missing Poppler must not crash the composite PDF that was
+    # just written. Saying so is also deliberate: without this line the only symptom is
+    # `missing output file` from the validator several steps later, which names the file and
+    # not the reason. Poppler is declared a system requirement in README.md and in the
+    # visualisation guide.
     if shutil.which("pdftocairo"):
         subprocess.run(["pdftocairo", "-svg", str(pdf_path), str(output_dir / f"{spec['figure_id']}_complete.svg")], check=True)
+    else:
+        print("SKIP composite SVG: pdftocairo not on PATH (install Poppler)", file=sys.stderr)
     if shutil.which("pdftoppm"):
         dpi = str(spec["journal_profile"]["dpi"])
         subprocess.run(["pdftoppm", "-png", "-r", dpi, "-singlefile", str(pdf_path), str(output_dir / f"{spec['figure_id']}_complete")], check=True)
+    else:
+        print("SKIP composite PNG: pdftoppm not on PATH (install Poppler)", file=sys.stderr)
     print(pdf_path)
 
 
