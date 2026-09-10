@@ -113,12 +113,13 @@ cp -R "skills/$SKILL_NAME" "$SKILL_DEST/"
 test -f "$SKILL_DEST/$SKILL_NAME/SKILL.md"
 ```
 
-`.agents/skills/` is read by **both Codex and Gemini CLI**, so one copy serves both.
+`.agents/skills/` is read by **both Codex and Antigravity CLI**, so at project level one
+copy serves both. The global locations differ, so they are listed separately.
 
-| Scope | Codex / Gemini CLI | Claude Code |
-|---|---|---|
-| One project | `.agents/skills/` in the project | `.claude/skills/` in the project |
-| Every local project | `$HOME/.agents/skills/` | `$HOME/.claude/skills/` |
+| Scope | Codex | Antigravity CLI (`agy`) | Claude Code |
+|---|---|---|---|
+| One project | `.agents/skills/` in the project | the same `.agents/skills/` | `.claude/skills/` in the project |
+| Every local project | `$HOME/.agents/skills/` | `$HOME/.gemini/antigravity-cli/skills/` | `$HOME/.claude/skills/` |
 
 ### Installing and updating, per runtime
 
@@ -127,7 +128,7 @@ test -f "$SKILL_DEST/$SKILL_NAME/SKILL.md"
 | **Claude Code** (plugin, recommended) | the two commands above | `claude plugin marketplace update open-research-skills`, then `claude plugin update open-research-skills@open-research-skills` (restart to apply) |
 | **Claude Code** (one or two skills only) | copy into `.claude/skills/` or `$HOME/.claude/skills/` | `git pull`, copy again |
 | **Codex** | copy into `.agents/skills/` or `$HOME/.agents/skills/` | `git pull`, copy again |
-| **Gemini CLI** | the same `.agents/skills/` (its own alias; `.gemini/skills/` also works), or `gemini skills install https://github.com/gxCaesar/open-research-skills` | install again; `/skills reload` in session, `/skills list` to see what loaded |
+| **Antigravity CLI** (`agy`, which replaced Gemini CLI) | project level, the same `.agents/skills/`; globally, copy into `$HOME/.gemini/antigravity-cli/skills/` | `git pull`, copy again |
 | **Any other runtime**, including harnesses driven by DeepSeek or another model | every skill is a self-contained directory: copy `skills/<name>/` to wherever that harness reads skills or project context. One that supports Anthropic-style skills reads `SKILL.md` directly | `git pull`, copy again |
 
 The last row gives no specific command on purpose. Those harnesses load from different
@@ -138,7 +139,7 @@ Some skills need Python packages; each declares its own in `skills/<name>/requir
 when it has any. Paths and discovery were checked against the
 [Codex](https://developers.openai.com/codex/skills),
 [Claude Code](https://code.claude.com/docs/en/skills) and
-[Gemini CLI](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/using-agent-skills.md)
+[Antigravity CLI](https://antigravity.google/docs/cli/plugins/)
 documentation, and the plugin install, update and namespaced invocation were run against
 the published repository rather than read off a page.
 

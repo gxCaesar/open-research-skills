@@ -127,8 +127,9 @@ fi
 test -f "$SKILL_DEST/$SKILL_NAME/SKILL.md"
 ```
 
-上面是 **Codex 与 Gemini CLI 的项目级安装** —— `.agents/skills/` 是这两个 runtime 共用的目录名，
-一份拷贝两边都读得到。使用 Claude Code 时，把 `SKILL_DEST` 那行换成
+上面是 **Codex 与 Antigravity CLI 的项目级安装** —— `.agents/skills/` 是这两个 runtime 共用的
+项目级目录名，一份拷贝两边都读得到。（**全局级不共用**：Codex 是 `$HOME/.agents/skills/`，
+Antigravity CLI 是 `$HOME/.gemini/antigravity-cli/skills/`。）使用 Claude Code 时，把 `SKILL_DEST` 那行换成
 `SKILL_DEST="$RESEARCH_PROJECT/.claude/skills"`，再执行后面的复制步骤。
 
 **Claude Code 可以两行装齐十个**，不必逐个复制目录：
@@ -152,16 +153,16 @@ claude plugin install open-research-skills@open-research-skills
 | **Claude Code**（插件，推荐） | 上面两行 | `claude plugin marketplace update open-research-skills`，再 `claude plugin update open-research-skills@open-research-skills`（需重启生效） |
 | **Claude Code**（只装其中一两个） | 复制到 `.claude/skills/` 或 `$HOME/.claude/skills/` | `git pull` 后重新复制 |
 | **Codex** | 复制到 `.agents/skills/` 或 `$HOME/.agents/skills/` | `git pull` 后重新复制 |
-| **Gemini CLI** | 同上 `.agents/skills/`（它的原生别名，也可用 `.gemini/skills/`）；或 `gemini skills install https://github.com/gxCaesar/open-research-skills` | 重新 install；会话内 `/skills reload`、`/skills list` 查看 |
+| **Antigravity CLI**（`agy`，Gemini CLI 的继任者） | 项目级同上 `.agents/skills/`；全局级复制到 `$HOME/.gemini/antigravity-cli/skills/` | `git pull` 后重新复制 |
 | **其他 runtime**（含由 DeepSeek 等模型驱动的 harness） | 每个 skill 都是自足目录：把 `skills/<name>/` 整个复制到该 harness 读取 skill 或项目上下文的位置。支持 Anthropic 式 skill 的会直接读 `SKILL.md` | `git pull` 后重新复制 |
 
 最后一行**故意不给具体命令**：这类 harness 的加载位置各不相同，本仓库没有逐一验证过。
 一条没验证过的安装命令比不给更糟。
 
-| 使用范围 | Codex / Gemini CLI | Claude Code |
-|---|---|---|
-| 当前科研项目 | 项目内 `.agents/skills/` | 项目内 `.claude/skills/` |
-| 所有本地项目 | `$HOME/.agents/skills/` | `$HOME/.claude/skills/` |
+| 使用范围 | Codex | Antigravity CLI (`agy`) | Claude Code |
+|---|---|---|---|
+| 当前科研项目 | 项目内 `.agents/skills/` | 同左，`.agents/skills/` | 项目内 `.claude/skills/` |
+| 所有本地项目 | `$HOME/.agents/skills/` | `$HOME/.gemini/antigravity-cli/skills/` | `$HOME/.claude/skills/` |
 
 个人级安装只需将 `SKILL_DEST` 设为表中的对应目录。只复制完整的 `skills/<skill-name>/`，不要仅复制 `SKILL.md`，也不要再套一层同名目录。安装全部时，对十个名称分别执行同样的复制步骤。更新前保留自己的修改，不要直接覆盖。
 
@@ -170,7 +171,8 @@ claude plugin install open-research-skills@open-research-skills
 ### 3. 在科研项目中调用
 
 在 `research-demo` 或你的科研项目中打开 agent，并确认 skill 已出现在可用列表里。Codex CLI / IDE 使用 `$skill-name`；Claude Code 复制目录安装时是 `/skill-name`，
-**按插件安装时是 `/open-research-skills:skill-name`**；Gemini CLI 用 `/skills list` 查看已加载的。
+**按插件安装时是 `/open-research-skills:skill-name`**；Antigravity CLI 会把发现到的 skill
+自动编译成斜杠命令。
 也可以自然语言明确要求使用该 skill。
 
 例如在 Codex 对话中输入：
