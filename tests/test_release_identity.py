@@ -13,6 +13,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT / ".claude-plugin" / "plugin.json"
 MARKETPLACE = ROOT / ".claude-plugin" / "marketplace.json"
+PRODUCT_IMAGE = re.compile(
+    r'<img src="(?:skills/[^\"]+|assets/readme-artwork/'
+    r'(?:nature-spatial-mechanism|conference-conditioning-architecture)-v\d+)\.(?:png|svg)"'
+)
 
 
 def indexed_names() -> set:
@@ -131,7 +135,6 @@ class ReleaseIdentityTest(unittest.TestCase):
         threshold with a little margin.
         """
         limit = 60
-        product_image = re.compile(r'<img src="skills/[^"]+\.(?:png|svg)"')
         for name in ("README.md", "README.en.md"):
             head = "\n".join(
                 (ROOT / name).read_text(encoding="utf-8").splitlines()[:limit]
@@ -139,7 +142,7 @@ class ReleaseIdentityTest(unittest.TestCase):
             with self.subTest(page=name, wants="install command"):
                 self.assertIn("claude plugin marketplace add", head)
             with self.subTest(page=name, wants="a real output image"):
-                self.assertRegex(head, product_image)
+                self.assertRegex(head, PRODUCT_IMAGE)
             with self.subTest(page=name, wants="one worked invocation"):
                 # Language-neutral: both pages show the invocation in a ```text block.
                 # Matching on a sentence fails on the Chinese page, whose full stop is 。
@@ -149,7 +152,9 @@ class ReleaseIdentityTest(unittest.TestCase):
     def test_the_first_screen_check_does_not_accept_the_logo(self):
         """The logo is not a product. A check that counted it would pass on any page."""
         logo = '<img src="assets/branding/open-research-skills-logo.png" width="820" />'
-        self.assertNotRegex(logo, re.compile(r'<img src="skills/[^"]+\.(?:png|svg)"'))
+        self.assertNotRegex(logo, PRODUCT_IMAGE)
+        overview = '<img src="assets/readme-artwork/skill-map-zh-v2.png" />'
+        self.assertNotRegex(overview, PRODUCT_IMAGE)
 
     def test_plugin_and_marketplace_manifests_agree(self):
         plugin = json.loads(PLUGIN.read_text(encoding="utf-8"))

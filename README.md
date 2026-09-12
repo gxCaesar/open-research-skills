@@ -40,15 +40,16 @@ cd open-research-skills && bash scripts/install_skills.sh "$HOME/.agents/skills"
 ## 装上之后能得到什么
 
 <div align="center">
-<img src="skills/build-scientific-visualizations/examples/advanced-method-diagrams/nature-spatial-mechanism.png" width="49%" alt="Nature 风格空间机制示意图" />
-<img src="skills/build-scientific-visualizations/examples/advanced-method-diagrams/conference-conditioning-architecture.png" width="49%" alt="顶会风格扰动条件化模型架构图" />
+<img src="assets/readme-artwork/nature-spatial-mechanism-v2.png" width="100%" alt="Nature 风格空间机制示意图：组织区域、匹配的细胞组学、供体内配对与条件化响应模型" />
+<img src="assets/readme-artwork/conference-conditioning-architecture-v2.png" width="100%" alt="顶会风格模型架构图：扰动和上下文共同进入交互模块，观测响应仅用于训练" />
 </div>
 
-左：Nature 风格机制图。右：顶会风格模型架构图。**两张都是原生可编辑的 PPTX 与矢量 PDF，不是位图截图** ——
-标签、配色、模块位置都能直接改。
-[机制图 PPTX](skills/build-scientific-visualizations/examples/advanced-method-diagrams/nature-spatial-mechanism.pptx) ·
-[架构图 PPTX](skills/build-scientific-visualizations/examples/advanced-method-diagrams/conference-conditioning-architecture.pptx) ·
-[怎么改它们](skills/build-scientific-visualizations/examples/advanced-method-diagrams/README.md)
+上：Nature 风格机制图。下：顶会风格模型架构图。先用 GPT 图像生成探索构图，再复刻为原生 PPTX 对象。
+这里展示的是导出预览；下载 PPTX 后可直接修改文字、细胞轮廓、矩阵、连线和模块位置，也提供矢量 PDF 与 SVG。
+两图都是教学示意，不代表真实实验结果。
+[机制图 PPTX](assets/readme-artwork/nature-spatial-mechanism-v2.pptx) ·
+[架构图 PPTX](assets/readme-artwork/conference-conditioning-architecture-v2.pptx) ·
+[下载矢量文件与学习修改](assets/readme-artwork/README.md)
 
 一次真实调用长这样：
 
@@ -65,10 +66,12 @@ cd open-research-skills && bash scripts/install_skills.sh "$HOME/.agents/skills"
 
 <div align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/overview/skill-map-zh-dark.svg" />
-  <img src="assets/overview/skill-map-zh.svg" width="100%" alt="十个 skill 的位置图：一条从选题、方法、成稿、投前到发布的主线，两条贯穿全程的入口（研究流程编排与科研绘图），以及基金 proposal 与审稿两条独立入口" />
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme-artwork/skill-map-zh-v2-dark.png" />
+  <img src="assets/readme-artwork/skill-map-zh-v2.png" width="100%" alt="十个 skill 的位置图：一条从选题、方法、成稿、投前到发布的主线，两条贯穿全程的入口（研究工作流与科研绘图），以及基金 proposal 与受邀审稿两条独立入口" />
 </picture>
 </div>
+
+[总览图 PPTX](assets/readme-artwork/skill-map-zh-v2.pptx) · [English PPTX](assets/readme-artwork/skill-map-en-v2.pptx) · [图件学习说明](assets/readme-artwork/README.md)
 
 | 您现在的任务 | 入口 | 典型交付 |
 |---|---|---|
@@ -77,8 +80,13 @@ cd open-research-skills && bash scripts/install_skills.sh "$HOME/.agents/skills"
 | 组织期刊论文与投稿、修回材料 | [期刊论文](#journal) | 稿件、图注、数据声明、cover letter、审稿回复 |
 | 准备研究基金申请材料 | [基金 proposal](#funding) | 科学问题、证据需求、研究内容、章节 brief、审阅建议 |
 | 判断课题并推进实验、成稿与交付 | [研究工作流](#workflow) | 可行性判断、比较结果、下一步实验与复现材料 |
+| 判断研究方向是否值得开展 | [调研与新颖性审计](docs/survey-and-novelty.md) | 数据可行性、新颖性与 venue fit 的独立判断 |
+| 方法仍落后于基线，决定下一步改哪里 | [方法迭代到 SOTA](docs/method-development.md) | 可测提升空间、误差分层、候选机制与对照结果 |
+| 投稿前审查自己的论文 | [冷审 panel](docs/cold-review-panel.md) | 独立视角的问题清单、证据位置与修改优先级 |
+| 受邀评审别人的投稿 | [受邀审稿](docs/peer-review.md) | 保密边界、审稿意见与返修轮对齐 |
+| 发布代码与数据 | [代码与数据发布](docs/artifact-release.md) | 可分发代码包、运行说明、数据入口与验证结果 |
 
-按**本次要交付的东西**选择即可。论文 skill 能独立处理论文需要的图件，研究工作流能独立组织成稿；专门的绘图 skill 提供更丰富的设计支持，但不是其他四个的强制依赖。
+按**本次要交付的东西**选择即可。论文 skill 能独立处理论文需要的图件，研究工作流能独立组织成稿；专门的绘图 skill 提供更丰富的设计支持，但不是其他 skill 的强制依赖。
 
 教程以 AI 与生物研究为主，覆盖单细胞、扰动预测和空间多组学；组织材料、科学写作和交付方法也可迁移到其他领域。下文说明十项能力怎样用于真实科研，十份独立中文手册进一步展开材料准备、逐阶段操作、调用示例和交付检查。绘图提供可编辑成品；小型教学脚本作为可选练习，不代表完整科研能力或真实实验效果。
 
@@ -86,7 +94,7 @@ cd open-research-skills && bash scripts/install_skills.sh "$HOME/.agents/skills"
 
 ## 专项任务与打磨：不用从完整流程开始
 
-下面都是这十个 skill 内的任务入口，不需要另装同名的小 skill。调用时说明材料位置、目标与允许修改的范围。
+下面既有可独立使用的 skill，也有现有 skill 内的局部任务。按表中的入口调用，说明材料位置、目标与允许修改的范围。
 
 | 这次只想做什么 | 使用入口与操作说明 | 主要交付 |
 |---|---|---|
@@ -184,7 +192,7 @@ claude plugin install open-research-skills@open-research-skills
 
 路径与发现方式核对于 2026-09-09，参见 [Codex 官方说明](https://developers.openai.com/codex/skills)与 [Claude Code 官方说明](https://code.claude.com/docs/en/skills)。其他兼容 runtime 使用其自身的目录与发现机制；本仓库不配置账号或模型服务。
 
-### 3. 在科研项目中调用
+### 4. 在科研项目中调用
 
 在 `research-demo` 或您的科研项目中打开 agent，并确认 skill 已出现在可用列表里。Codex CLI / IDE 使用 `$skill-name`；Claude Code 复制目录安装时是 `/skill-name`，
 **按插件安装时是 `/open-research-skills:skill-name`**；Antigravity CLI 会把发现到的 skill
@@ -203,7 +211,7 @@ $build-scientific-visualizations
 `/open-research-skills:build-scientific-visualizations`**，前缀来自命名空间，也正是它让同名的
 个人 skill 与本仓库的那份能共存。这是**对话输入，不是 shell 命令**。文件名要换成您实际提供的材料；发现不到新 skill 时，先检查目录层级，再重启对应 runtime。
 
-### 4. 按任务准备依赖
+### 5. 按任务准备依赖
 
 阅读与标准库教学比较无需安装第三方包。绘图等脚本使用各 skill 自己的 `requirements.txt`；在仓库根目录可这样准备环境：
 
@@ -225,14 +233,10 @@ python3 -m pip install -r skills/build-scientific-visualizations/requirements.tx
 
 **得到什么：** 图件、可编辑源文件、所需矢量导出、legend 与源数据说明。
 
-> **新画机制图 / 架构图的默认路线需要能生成概念图的界面。** 这条路线是
-> **GPT Image 2.5 生成概念 → 复刻为原生可编辑 PPTX → 比对真实渲染并测试可编辑性**，
-> 生成那一步目前要在暴露该模型的界面里做，实践中是 **Codex**。
-> Claude Code 侧可以完成这条路线的其余全部步骤 —— 内容与判据的锁定、样式选择、
-> 复刻为原生对象、渲染比对、以及可编辑性检查。
-> 没有那个界面时，skill 本身写明了两条替代路径：**用您自己提供的概念图**，
-> 或**直接走矢量工作流**（`references/image-concept-to-vector.md`）。
-> 用数据画的图（定量图、结构、显微）本来就不走这条路线，它们来自源数据或原始图像。
+> **新画机制图 / 架构图的默认路线是：生成概念稿 → 复刻原生可编辑 PPTX → 检查真实渲染与可编辑性。**
+> Skill 优先使用界面明确提供的 GPT Image 2.5；如果内置图像工具不披露后端版本，仍可完成已授权的默认路线，但须注明版本未核实。
+> 能否生成取决于当前会话的实际工具，不能仅凭 runtime 名称判断。缺少图像生成能力时，可由您提供概念图，或明确选择直接矢量制作。
+> 完整条件见[概念稿到可编辑图件](skills/build-scientific-visualizations/references/image-concept-to-vector.md)。定量图、精确结构和显微图仍来自源数据或原始图像。
 
 ### 案例 A：从空间多组学表格到 14-panel 复合图
 
@@ -256,13 +260,15 @@ MPLCONFIGDIR="$DEMO_OUT/.mpl" XDG_CACHE_HOME="$DEMO_OUT/.cache" \
 
 ### 案例 B：从方法说明到可编辑架构图
 
-![扰动条件化模型教学架构：总览、交互模块和训练推理边界](skills/build-scientific-visualizations/examples/advanced-method-diagrams/conference-conditioning-architecture.png)
+![扰动条件化模型教学架构：总览、交互模块和训练推理边界](assets/readme-artwork/conference-conditioning-architecture-v2.png)
+
+本案例与页首展示同一套新版图件：先用 GPT 生成概念稿，再复刻为原生可编辑 PPTX，最后导出预览与矢量文件。
 
 模型图分开 baseline state、perturbation 和 context，并展开 attention 与残差计算。另一张 Nature-inspired 图用组织、细胞、配对分子层和 donor 层级解释采样关系。两张都是虚构教学设计，文字、形状和连线在 PPTX 中可分别编辑。
 
-[模型图 PPTX](skills/build-scientific-visualizations/examples/advanced-method-diagrams/conference-conditioning-architecture.pptx) · [模型图 PDF](skills/build-scientific-visualizations/examples/advanced-method-diagrams/conference-conditioning-architecture.pdf) · [空间机制图预览与编辑教程](skills/build-scientific-visualizations/examples/advanced-method-diagrams/README.md) · [空间机制图 PPTX](skills/build-scientific-visualizations/examples/advanced-method-diagrams/nature-spatial-mechanism.pptx)
+[模型图 PPTX](assets/readme-artwork/conference-conditioning-architecture-v2.pptx) · [模型图 PDF](assets/readme-artwork/conference-conditioning-architecture-v2.pdf) · [配套图件与编辑教程](assets/readme-artwork/README.md) · [空间机制图 PPTX](assets/readme-artwork/nature-spatial-mechanism-v2.pptx)
 
-新建或重设计示意图的默认方法是：**参考优秀构图 → GPT Image 2.5 概念稿 → 重建原生可编辑矢量 PPTX → 检查实际渲染。** 数据图与测量图像仍从原始材料绘制。当前图像工具若不公开后端版本，应报告版本未核实，不能把示例当成指定版本的运行认证。
+本例使用了图像生成工具，但工具未披露后端版本，因此不认证具体 GPT Image 型号。默认制作路线与例外见[上方说明](#visualization)；数据图与测量图像仍从原始材料绘制。
 
 已有首稿后，可以按整体构图、局部科学图元、最终尺寸协调进行[分层精修](docs/scientific-visualizations.md#refinement)，保留前后版本并比较实际渲染。只移动标签或调整局部布局时，可直接修改源文件，不必重新生成整张概念稿。
 
@@ -279,11 +285,11 @@ MPLCONFIGDIR="$DEMO_OUT/.mpl" XDG_CACHE_HOME="$DEMO_OUT/.cache" \
 
 ## 02 · 会议论文
 
-`prepare-conference-manuscripts` 面向 **AAAI、ICLR、ACL、CVPR、ICML、NeurIPS** 等计算机学术会议。它处理从已有研究材料成稿、全文修改、附录和补充材料，到 rebuttal、camera-ready 与本地提交包的作者侧工作。重点是让问题、方法、比较和结论互相支撑，不只是换模板或润色英语。
+`prepare-conference-manuscripts` 面向 **AAAI、ICLR、ACL、CVPR、ICML、NeurIPS、ICCV** 等计算机学术会议。它处理从已有研究材料成稿、全文修改、附录和补充材料，到 rebuttal、camera-ready 与本地提交包的作者侧工作。重点是让问题、方法、比较和结论互相支撑，不只是换模板或润色英语。
 
 ### 先确定投哪里、现在处于哪一步
 
-告诉 agent 准确的 **venue / year / track / stage**。同一会议的主会、workshop、不同 track 和年份不能共用未经核对的规则。仓库自带六个会议适配器，但其中的 profile 有明确日期；实际写作仍需核对目标范围的当前官方要求。其他会议可以建立任务内 profile，不需要修改已有适配器。
+告诉 agent 准确的 **venue / year / track / stage**。同一会议的主会、workshop、不同 track 和年份不能共用未经核对的规则。仓库提供按会议区分的适配器，其 profile 均有明确日期；实际写作仍需核对目标范围的当前官方要求。其他会议可以建立任务内 profile，不需要修改已有适配器。
 
 | 您现在的状态 | 使用方式 | 主要交付 |
 |---|---|---|
@@ -327,7 +333,7 @@ MPLCONFIGDIR="$DEMO_OUT/.mpl" XDG_CACHE_HOME="$DEMO_OUT/.cache" \
 将每条回复对应到修订稿位置，保留尚未完成的事项，不发布回复。
 ```
 
-**详细手册：** [六个会议如何适配、各章节如何推进、全文修改、rebuttal、camera-ready 与提交检查](docs/conference-manuscripts.md)。手册包含分阶段调用范例与材料清单；小型检查器练习放在末尾，不作为论文能力的主要展示。
+**详细手册：** [会议适配、各章节推进、全文修改、rebuttal、camera-ready 与提交检查](docs/conference-manuscripts.md)。手册包含分阶段调用范例与材料清单；小型检查器练习放在末尾，不作为论文能力的主要展示。
 
 <a id="journal"></a>
 

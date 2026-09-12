@@ -41,16 +41,18 @@ For one or two skills only, or another runtime, see [Install](#install).
 ## What you get
 
 <div align="center">
-<img src="skills/build-scientific-visualizations/examples/advanced-method-diagrams/nature-spatial-mechanism.png" width="49%" alt="Nature-style spatial mechanism diagram" />
-<img src="skills/build-scientific-visualizations/examples/advanced-method-diagrams/conference-conditioning-architecture.png" width="49%" alt="Conference-style conditioning model architecture" />
+<img src="assets/readme-artwork/nature-spatial-mechanism-v2.png" width="100%" alt="Nature-style spatial mechanism diagram: tissue regions, matched cell profiles, within-donor pairing and a conditioned response model" />
+<img src="assets/readme-artwork/conference-conditioning-architecture-v2.png" width="100%" alt="Conference-style model architecture: perturbation and context condition both interaction blocks; observed responses are training-only inputs" />
 </div>
 
-Left: a Nature-style mechanism diagram. Right: a conference-style model architecture.
-**Both are native editable PPTX and vector PDF, not a raster screenshot** — labels,
-colours and block positions can be edited directly.
-[mechanism PPTX](skills/build-scientific-visualizations/examples/advanced-method-diagrams/nature-spatial-mechanism.pptx) ·
-[architecture PPTX](skills/build-scientific-visualizations/examples/advanced-method-diagrams/conference-conditioning-architecture.pptx) ·
-[how to edit them](skills/build-scientific-visualizations/examples/advanced-method-diagrams/README.md)
+Above: a Nature-style mechanism diagram. Below: a conference-style model architecture.
+GPT image generation was used to explore the compositions, then the figures were rebuilt
+with native PPTX objects. These are exported previews; the slides let you edit text, cell
+outlines, matrices, connectors and module positions. Vector PDF and SVG are also included.
+Both figures are teaching schematics, not experimental results.
+[mechanism PPTX](assets/readme-artwork/nature-spatial-mechanism-v2.pptx) ·
+[architecture PPTX](assets/readme-artwork/conference-conditioning-architecture-v2.pptx) ·
+[vector downloads and editing guide](assets/readme-artwork/README.md)
 
 One real invocation looks like this:
 
@@ -70,10 +72,12 @@ English entry point to the same ten skills.
 
 <div align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/overview/skill-map-en-dark.svg" />
-  <img src="assets/overview/skill-map-en.svg" width="100%" alt="A map of the ten skills: an arc from direction through method, manuscript, pre-submission review and release, two skills that span the whole arc, and two standalone entry points for funding proposals and refereeing" />
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme-artwork/skill-map-en-v2-dark.png" />
+  <img src="assets/readme-artwork/skill-map-en-v2.png" width="100%" alt="A map of the ten skills: an arc from topic through method, manuscript, pre-submission review and release, two skills that span the whole arc, and two standalone entry points for funding proposals and invited peer review" />
 </picture>
 </div>
+
+[Overview PPTX](assets/readme-artwork/skill-map-en-v2.pptx) · [中文 PPTX](assets/readme-artwork/skill-map-zh-v2.pptx) · [Artwork editing guide](assets/readme-artwork/README.md)
 
 | What you are doing now | Skill | Manual |
 |---|---|---|
@@ -125,7 +129,11 @@ SKILL_NAME=build-scientific-visualizations
 SKILL_DEST="$RESEARCH_PROJECT/.agents/skills"     # Codex
 # SKILL_DEST="$RESEARCH_PROJECT/.claude/skills"   # Claude Code
 mkdir -p "$SKILL_DEST"
-cp -R "skills/$SKILL_NAME" "$SKILL_DEST/"
+if test -e "$SKILL_DEST/$SKILL_NAME" || test -L "$SKILL_DEST/$SKILL_NAME"; then
+  echo "Destination exists; preserve and compare local changes before updating."
+else
+  cp -R "skills/$SKILL_NAME" "$SKILL_DEST/"
+fi
 test -f "$SKILL_DEST/$SKILL_NAME/SKILL.md"
 ```
 
@@ -171,17 +179,10 @@ or a full main / Extended Data / Supplementary set. Concept diagrams may be comp
 image generation and then rebuilt as native editable vector output; evidence figures must
 come from real input data.
 
-> **The default route for a new diagram needs an interface that can generate the concept.**
-> That route is *generate a GPT Image 2.5 concept → reconstruct it as a native editable
-> PPTX → compare the real render and test editing*, and the generating step has to happen
-> somewhere that exposes the model, which in practice means **Codex**. Every other step
-> runs anywhere, Claude Code included: locking the scientific content, choosing the style,
-> rebuilding as native objects, comparing the render, and checking that text, connectors
-> and shapes really are editable. Without that interface the skill states two documented
-> alternatives — **supply your own concept image**, or take the **direct vector workflow**
-> (`references/image-concept-to-vector.md`). Figures made from data — plots, structures,
-> microscopy — never take this route at all; they come from the source data or the
-> original images.
+> **The default route is: generate a concept → reconstruct native editable PPTX objects → check the actual render and editing.**
+> The skill prefers GPT Image 2.5 when the interface explicitly offers it. If a built-in image tool does not disclose its backend, an authorized default-route task can still proceed, with the model version reported as unverified.
+> Availability depends on the tools in the current session, not the runtime name alone. Without image-generation capability, supply a concept image or explicitly choose direct vector authoring.
+> See [the full route and exceptions](skills/build-scientific-visualizations/references/image-concept-to-vector.md). Quantitative plots, exact structures and microscopy come from source data or original images, not generated concepts.
 
 ```text
 Use build-scientific-visualizations. Draw the method architecture from notes/method.md,

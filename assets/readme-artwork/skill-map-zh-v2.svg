@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-label="十个 skill，按这次的任务选择"><defs><marker id="a9CB4C3" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3.5 L0,7Z" fill="#9CB4C3"/></marker><marker id="a4A9086" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3.5 L0,7Z" fill="#4A9086"/></marker></defs><rect width="1600" height="1000" fill="#FFFFFF"/><text  x="65" y="75" font-family="苹方-简" font-size="52" font-weight="700" text-anchor="start" dominant-baseline="central" fill="#253747">十个 skill，按这次的任务选择</text>
+<text  x="69" y="143" font-family="苹方-简" font-size="26" font-weight="400" text-anchor="start" dominant-baseline="central" fill="#657887">可独立安装与使用，没有强制顺序</text>
+<ellipse cx="632" cy="230" rx="47" ry="47" fill="#D9ECE5" stroke="#527FAA" stroke-width="2.5" />
+<ellipse cx="632" cy="230" rx="39" ry="39" fill="#FFFFFF" stroke="#4A9086" stroke-width="1.5" />
+<polygon points="619,245 650,206 637,235 612,254" fill="#AFCADE" stroke="#527FAA" stroke-width="2" />
+<polyline points="667,230 660,230" fill="none" stroke="#527FAA" stroke-width="1.5" stroke-linejoin="round"  />
+<polyline points="632,265 632,258" fill="none" stroke="#527FAA" stroke-width="1.5" stroke-linejoin="round"  />
+<polyline points="597,230 604,230" fill="none" stroke="#527FAA" stroke-width="1.5" stroke-linejoin="round"  />
+<polyline points="632,195 632,202" fill="none" stroke="#527FAA" stroke-width="1.5" stroke-linejoin="round"  />
+<text data-skill="research-publication-pipeline" x="705" y="208" font-family="苹方-简" font-size="32" font-weight="700" text-anchor="start" dominant-baseline="central" fill="#253747">研究工作流</text>
+<text  x="705" y="256" font-family="苹方-简" font-size="24" font-weight="400" text-anchor="start" dominant-baseline="central" fill="#657887">组织从问题到交付的工作</text>
+<polyline points="158,321 158,293 559,293" fill="none" stroke="#527FAA" stroke-width="2" stroke-linejoin="round"  />
+<polyline points="713,293 1457,293 1457,321" fill="none" stroke="#527FAA" stroke-width="2" stroke-linejoin="round"  />
+<text  x="170" y="360" font-family="苹方-简" font-size="33" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253747">选题</text>
+<ellipse cx="170" cy="501.5" rx="122" ry="103.5" fill="#EDF3F8" stroke="none" stroke-width="2" />
+<polyline points="312,501 342,501" fill="none" stroke="#9CB4C3" stroke-width="2.5" stroke-linejoin="round"  marker-end="url(#a9CB4C3)"/>
+<text  x="485" y="360" font-family="苹方-简" font-size="33" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253747">方法</text>
+<ellipse cx="485" cy="501.5" rx="122" ry="103.5" fill="#ECF5F2" stroke="none" stroke-width="2" />
+<polyline points="627,501 657,501" fill="none" stroke="#9CB4C3" stroke-width="2.5" stroke-linejoin="round"  marker-end="url(#a9CB4C3)"/>
+<text  x="800" y="360" font-family="苹方-简" font-size="33" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253747">成稿</text>
+<ellipse cx="800" cy="501.5" rx="122" ry="103.5" fill="#F3EFF8" stroke="none" stroke-width="2" />
+<polyline points="942,501 972,501" fill="none" stroke="#9CB4C3" stroke-width="2.5" stroke-linejoin="round"  marker-end="url(#a9CB4C3)"/>
+<text  x="1115" y="360" font-family="苹方-简" font-size="33" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253747">投前</text>
+<ellipse cx="1115" cy="501.5" rx="122" ry="103.5" fill="#FBF6EB" stroke="none" stroke-width="2" />
+<polyline points="1257,501 1287,501" fill="none" stroke="#9CB4C3" stroke-width="2.5" stroke-linejoin="round"  marker-end="url(#a9CB4C3)"/>
+<text  x="1430" y="360" font-family="苹方-简" font-size="33" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253747">发布</text>
+<ellipse cx="1430" cy="501.5" rx="122" ry="103.5" fill="#ECF5F2" stroke="none" stroke-width="2" />
+<polyline points="78,430 109,397" fill="none" stroke="#7DA4C6" stroke-width="2" stroke-linejoin="round"  />
+<polyline points="78,430 123,476" fill="none" stroke="#7DA4C6" stroke-width="2" stroke-linejoin="round"  />
+<polyline points="109,397 151,426" fill="none" stroke="#7DA4C6" stroke-width="2" stroke-linejoin="round"  />
+<polyline points="151,426 198,393" fill="none" stroke="#7DA4C6" stroke-width="2" stroke-linejoin="round"  />
+<polyline points="151,426 123,476" fill="none" stroke="#7DA4C6" stroke-width="2" stroke-linejoin="round"  />
+<polyline points="198,393 241,439" fill="none" stroke="#7DA4C6" stroke-width="2" stroke-linejoin="round"  />
+<polyline points="241,439 212,483" fill="none" stroke="#7DA4C6" stroke-width="2" stroke-linejoin="round"  />
+<polyline points="212,483 123,476" fill="none" stroke="#7DA4C6" stroke-width="2" stroke-linejoin="round"  />
+<ellipse cx="78" cy="430" rx="7" ry="7" fill="#AFCADE" stroke="#527FAA" stroke-width="1.5" />
+<ellipse cx="109" cy="397" rx="7" ry="7" fill="#AFCADE" stroke="#527FAA" stroke-width="1.5" />
+<ellipse cx="151" cy="426" rx="7" ry="7" fill="#AFCADE" stroke="#527FAA" stroke-width="1.5" />
+<ellipse cx="198" cy="393" rx="7" ry="7" fill="#AFCADE" stroke="#527FAA" stroke-width="1.5" />
+<ellipse cx="241" cy="439" rx="7" ry="7" fill="#AFCADE" stroke="#527FAA" stroke-width="1.5" />
+<ellipse cx="212" cy="483" rx="7" ry="7" fill="#AFCADE" stroke="#527FAA" stroke-width="1.5" />
+<ellipse cx="123" cy="476" rx="7" ry="7" fill="#AFCADE" stroke="#527FAA" stroke-width="1.5" />
+<polygon points="97,450 190.48,450 211,470.52 211,589 97,589" fill="#FFFFFF" stroke="#527FAA" stroke-width="2.2" />
+<polyline points="190.48,450 190.48,470.52 211,470.52" fill="none" stroke="#527FAA" stroke-width="1.4" stroke-linejoin="round"  />
+<rect x="114.1" y="484.75" width="59.28" height="3.753" rx="0" fill="#D8E5EF" stroke="none" stroke-width="2" />
+<rect x="114.1" y="500.04" width="75.24000000000001" height="3.753" rx="0" fill="#AFCADE" stroke="none" stroke-width="2" />
+<rect x="114.1" y="515.33" width="75.24000000000001" height="3.753" rx="0" fill="#7DA4C6" stroke="none" stroke-width="2" />
+<rect x="114.1" y="530.62" width="75.24000000000001" height="3.753" rx="0" fill="#D8E5EF" stroke="none" stroke-width="2" />
+<ellipse cx="205.5" cy="539.5" rx="34.5" ry="34.5" fill="#FFFFFF" stroke="#527FAA" stroke-width="5" />
+<ellipse cx="205.5" cy="539.5" rx="25.5" ry="25.5" fill="#ECF5F2" stroke="#B1D3C5" stroke-width="3" />
+<polygon points="226,566 241,553 276,590 262,603" fill="#527FAA" stroke="#527FAA" stroke-width="1" />
+<rect x="375" y="435" width="183" height="147" rx="9" fill="#FFFFFF" stroke="#4A9086" stroke-width="2.4" />
+<rect x="377" y="437" width="179" height="21" rx="0" fill="#D9ECE5" stroke="none" stroke-width="2" />
+<ellipse cx="391.5" cy="446.5" rx="2.5" ry="2.5" fill="#4A9086" stroke="none" stroke-width="2" />
+<ellipse cx="404.5" cy="446.5" rx="2.5" ry="2.5" fill="#4A9086" stroke="none" stroke-width="2" />
+<ellipse cx="417.5" cy="446.5" rx="2.5" ry="2.5" fill="#4A9086" stroke="none" stroke-width="2" />
+<rect x="441" y="479" width="41" height="31" rx="4" fill="#D8E5EF" stroke="#527FAA" stroke-width="1.7" />
+<polyline points="462,513 462,527 414,527 414,540" fill="none" stroke="#4A9086" stroke-width="2" stroke-linejoin="round"  marker-end="url(#a4A9086)"/>
+<polyline points="462,527 509,527 509,540" fill="none" stroke="#4A9086" stroke-width="2" stroke-linejoin="round"  marker-end="url(#a4A9086)"/>
+<rect x="392" y="551" width="44" height="26" rx="4" fill="#D9ECE5" stroke="#4A9086" stroke-width="1.7" />
+<rect x="487" y="551" width="44" height="26" rx="4" fill="#E5DBF1" stroke="#9380B4" stroke-width="1.7" />
+<polygon points="546,487 601.76,487 614,499.24 614,595 546,595" fill="#FFFFFF" stroke="#9380B4" stroke-width="2.2" />
+<polyline points="601.76,487 601.76,499.24 614,499.24" fill="none" stroke="#9380B4" stroke-width="1.4" stroke-linejoin="round"  />
+<rect x="556.2" y="514" width="35.36" height="2.916" rx="0" fill="#E5DBF1" stroke="none" stroke-width="2" />
+<rect x="556.2" y="525.88" width="44.88" height="2.916" rx="0" fill="#CDBDE1" stroke="none" stroke-width="2" />
+<rect x="556.2" y="537.76" width="44.88" height="2.916" rx="0" fill="#B09CC9" stroke="none" stroke-width="2" />
+<rect x="556.2" y="549.64" width="44.88" height="2.916" rx="0" fill="#E5DBF1" stroke="none" stroke-width="2" />
+<polygon points="681,420 767.92,420 787,439.08 787,580 681,580" fill="#FFFFFF" stroke="#527FAA" stroke-width="2.2" />
+<polyline points="767.92,420 767.92,439.08 787,439.08" fill="none" stroke="#527FAA" stroke-width="1.4" stroke-linejoin="round"  />
+<rect x="696.9" y="460" width="55.120000000000005" height="4.32" rx="0" fill="#D8E5EF" stroke="none" stroke-width="2" />
+<rect x="696.9" y="477.6" width="69.96000000000001" height="4.32" rx="0" fill="#AFCADE" stroke="none" stroke-width="2" />
+<rect x="696.9" y="495.2" width="69.96000000000001" height="4.32" rx="0" fill="#7DA4C6" stroke="none" stroke-width="2" />
+<rect x="696.9" y="512.8" width="69.96000000000001" height="4.32" rx="0" fill="#D8E5EF" stroke="none" stroke-width="2" />
+<polygon points="696.9,554.4 714.92,527.2 730.82,544.8 749.9,516 766.86,554.4" fill="#AFCADE" stroke="none" stroke-width="2" />
+<polygon points="813,420 899.92,420 919,439.08 919,580 813,580" fill="#FFFFFF" stroke="#9380B4" stroke-width="2.2" />
+<polyline points="899.92,420 899.92,439.08 919,439.08" fill="none" stroke="#9380B4" stroke-width="1.4" stroke-linejoin="round"  />
+<rect x="828.9" y="460" width="55.120000000000005" height="4.32" rx="0" fill="#E5DBF1" stroke="none" stroke-width="2" />
+<rect x="828.9" y="477.6" width="69.96000000000001" height="4.32" rx="0" fill="#CDBDE1" stroke="none" stroke-width="2" />
+<rect x="828.9" y="495.2" width="69.96000000000001" height="4.32" rx="0" fill="#B09CC9" stroke="none" stroke-width="2" />
+<rect x="828.9" y="512.8" width="69.96000000000001" height="4.32" rx="0" fill="#E5DBF1" stroke="none" stroke-width="2" />
+<polygon points="828.9,554.4 846.92,527.2 862.82,544.8 881.9,516 898.86,554.4" fill="#CDBDE1" stroke="none" stroke-width="2" />
+<text  x="734" y="465.5" font-family="苹方-简" font-size="23" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253747">会议</text>
+<text  x="866" y="465.5" font-family="苹方-简" font-size="23" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253747">期刊</text>
+<polygon points="1036,426 1149.98,426 1175,451.02 1175,603 1036,603" fill="#FFFFFF" stroke="#C99950" stroke-width="2.2" />
+<polyline points="1149.98,426 1149.98,451.02 1175,451.02" fill="none" stroke="#C99950" stroke-width="1.4" stroke-linejoin="round"  />
+<rect x="1056.85" y="470.25" width="72.28" height="4.779" rx="0" fill="#F3E8D0" stroke="none" stroke-width="2" />
+<rect x="1056.85" y="489.72" width="91.74000000000001" height="4.779" rx="0" fill="#E5CF9D" stroke="none" stroke-width="2" />
+<rect x="1056.85" y="509.19" width="91.74000000000001" height="4.779" rx="0" fill="#D6B774" stroke="none" stroke-width="2" />
+<rect x="1056.85" y="528.66" width="91.74000000000001" height="4.779" rx="0" fill="#F3E8D0" stroke="none" stroke-width="2" />
+<rect x="1059" y="516" width="72" height="8" rx="0" fill="#E5CF9D" stroke="none" stroke-width="2" />
+<rect x="1059" y="537" width="72" height="8" rx="0" fill="#E5CF9D" stroke="none" stroke-width="2" />
+<rect x="1144" y="460" width="80" height="48" rx="7" fill="#FFFFFF" stroke="#4A9086" stroke-width="2" />
+<polyline points="1154,508 1150,523 1172,508" fill="none" stroke="#4A9086" stroke-width="2" stroke-linejoin="round"  />
+<polyline points="1156,474 1212,474" fill="none" stroke="#79B2A0" stroke-width="2" stroke-linejoin="round"  />
+<polyline points="1156,486 1212,486" fill="none" stroke="#79B2A0" stroke-width="2" stroke-linejoin="round"  />
+<polygon points="1136,569 1151,555 1213,614 1199,628" fill="#B1D3C5" stroke="#4A9086" stroke-width="2" />
+<polygon points="1136,569 1129,584 1151,579" fill="#F3E8D0" stroke="#4A9086" stroke-width="1.5" />
+<polygon points="1325,421 1389.78,421 1404,435.22 1404,533 1325,533" fill="#FFFFFF" stroke="#527FAA" stroke-width="2.2" />
+<polyline points="1389.78,421 1389.78,435.22 1404,435.22" fill="none" stroke="#527FAA" stroke-width="1.4" stroke-linejoin="round"  />
+<rect x="1336.85" y="449" width="41.08" height="3.024" rx="0" fill="#D8E5EF" stroke="none" stroke-width="2" />
+<rect x="1336.85" y="461.32" width="52.14" height="3.024" rx="0" fill="#AFCADE" stroke="none" stroke-width="2" />
+<rect x="1336.85" y="473.64" width="52.14" height="3.024" rx="0" fill="#7DA4C6" stroke="none" stroke-width="2" />
+<rect x="1336.85" y="485.96" width="52.14" height="3.024" rx="0" fill="#D8E5EF" stroke="none" stroke-width="2" />
+<text  x="1364.5" y="502.76" font-family="苹方-简" font-size="30" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#527FAA">&lt;/&gt;</text>
+<polygon points="1414,413 1483.7,413 1499,428.3 1499,534 1414,534" fill="#FFFFFF" stroke="#4A9086" stroke-width="2.2" />
+<polyline points="1483.7,413 1483.7,428.3 1499,428.3" fill="none" stroke="#4A9086" stroke-width="1.4" stroke-linejoin="round"  />
+<rect x="1426.75" y="443.25" width="44.2" height="3.267" rx="0" fill="#D9ECE5" stroke="none" stroke-width="2" />
+<rect x="1426.75" y="456.56" width="56.1" height="3.267" rx="0" fill="#B1D3C5" stroke="none" stroke-width="2" />
+<rect x="1426.75" y="469.87" width="56.1" height="3.267" rx="0" fill="#79B2A0" stroke="none" stroke-width="2" />
+<rect x="1426.75" y="483.18" width="56.1" height="3.267" rx="0" fill="#D9ECE5" stroke="none" stroke-width="2" />
+<polygon points="1426.75,514.64 1441.2,494.07 1453.95,507.38 1469.25,485.6 1482.85,514.64" fill="#B1D3C5" stroke="none" stroke-width="2" />
+<rect x="1506" y="436" width="54" height="86" rx="0" fill="#AFCADE" stroke="#527FAA" stroke-width="1.8" />
+<ellipse cx="1533" cy="437" rx="27" ry="12" fill="#D8E5EF" stroke="#527FAA" stroke-width="1.8" />
+<polyline points="1508,465 1514,471 1551,471 1559,465" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"  />
+<polyline points="1508,489 1514,495 1551,495 1559,489" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"  />
+<polygon points="1303,523 1500,523 1500,614 1303,614" fill="#D9ECE5" stroke="#4A9086" stroke-width="2.2" />
+<polygon points="1303,523 1270,552 1361,571 1402,523" fill="#B1D3C5" stroke="#4A9086" stroke-width="2.2" />
+<polygon points="1402,523 1451,571 1539,548 1500,523" fill="#D8E5EF" stroke="#4A9086" stroke-width="2.2" />
+<polyline points="1402,572 1402,610" fill="none" stroke="#4A9086" stroke-width="1.8" stroke-linejoin="round"  />
+<text data-skill="survey-and-audit-novelty" x="176" y="663" font-family="苹方-简" font-size="27" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253747">调研与新颖性审计</text>
+<text data-skill="develop-method-to-sota" x="485" y="663" font-family="苹方-简" font-size="29" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253747">方法迭代</text>
+<text data-skill="prepare-conference-manuscripts" x="800" y="638" font-family="苹方-简" font-size="27" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253747">会议论文</text>
+<text data-skill="prepare-journal-manuscripts" x="800" y="682" font-family="苹方-简" font-size="27" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253747">期刊论文</text>
+<text data-skill="run-cold-review-panel" x="1115.5" y="663" font-family="苹方-简" font-size="27" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253747">冷审自己的论文</text>
+<text data-skill="release-research-artifacts" x="1429" y="663" font-family="苹方-简" font-size="27" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#253747">代码与数据发布</text>
+<polyline points="158,702 158,730 553,730" fill="none" stroke="#4A9086" stroke-width="2" stroke-linejoin="round"  />
+<polyline points="721,730 1457,730 1457,702" fill="none" stroke="#4A9086" stroke-width="2" stroke-linejoin="round"  />
+<polyline points="571,768 571.1032023454527,764.453165436461 571.4124601777414,760.918332238361 571.9267270662554,757.4074611623173 572.6442628946307,753.9324318847111 573.5626397487551,750.5050028046235 574.6787501320596,747.1367712571342 575.9888174803033,743.8391342716114 577.4884089402718,740.6232500077718 579.1724503691493,737.5 581.0352435038109,734.4799523376809 583.0704852419424,731.5733259061301 585.2712889697424,728.7899558091211 587.630207864044,726.1392600900073 590.1392600900073,723.630207864044 592.7899558091211,721.2712889697424 595.5733259061301,719.0704852419424 598.4799523376809,717.0352435038109 601.5,715.1724503691493 604.6232500077718,713.4884089402718 607.8391342716114,711.9888174803033 611.1367712571342,710.6787501320596 614.5050028046235,709.5626397487551 617.9324318847111,708.6442628946307 621.4074611623173,707.9267270662554 624.9183322383609,707.4124601777414 628.453165436461,707.1032023454526 632,707 635.546834563539,707.1032023454527 639.0816677616391,707.4124601777414 642.5925388376827,707.9267270662554 646.0675681152889,708.6442628946307 649.4949971953765,709.5626397487551 652.8632287428658,710.6787501320596 656.1608657283886,711.9888174803033 659.3767499922282,713.4884089402718 662.5,715.1724503691493 665.5200476623191,717.0352435038109 668.4266740938699,719.0704852419424 671.2100441908789,721.2712889697424 673.8607399099927,723.630207864044 676.369792135956,726.1392600900073 678.7287110302577,728.7899558091211 680.9295147580576,731.5733259061301 682.9647564961891,734.4799523376807 684.8275496308507,737.5 686.5115910597282,740.6232500077718 688.0111825196967,743.8391342716114 689.3212498679404,747.1367712571342 690.4373602512449,750.5050028046235 691.3557371053693,753.9324318847111 692.0732729337446,757.4074611623173 692.5875398222586,760.918332238361 692.8967976545474,764.453165436461 693,768" fill="none" stroke="#4A9086" stroke-width="2.2" stroke-linejoin="round"  />
+<rect x="566" y="763" width="10" height="10" rx="0" fill="#B1D3C5" stroke="#4A9086" stroke-width="1.6" />
+<rect x="583.8664863476206" y="719.8664863476206" width="10" height="10" rx="0" fill="#B1D3C5" stroke="#4A9086" stroke-width="1.6" />
+<rect x="627" y="702" width="10" height="10" rx="0" fill="#B1D3C5" stroke="#4A9086" stroke-width="1.6" />
+<rect x="670.1335136523794" y="719.8664863476206" width="10" height="10" rx="0" fill="#B1D3C5" stroke="#4A9086" stroke-width="1.6" />
+<rect x="688" y="763" width="10" height="10" rx="0" fill="#B1D3C5" stroke="#4A9086" stroke-width="1.6" />
+<polygon points="632,729 654,769 642,789 622,789 610,769" fill="#EDF3F8" stroke="#527FAA" stroke-width="2" />
+<polyline points="632,733 632,767" fill="none" stroke="#527FAA" stroke-width="1.6" stroke-linejoin="round"  />
+<ellipse cx="632" cy="770" rx="5" ry="5" fill="#B1D3C5" stroke="#527FAA" stroke-width="1.5" />
+<rect x="619" y="791" width="26" height="9" rx="0" fill="#B1D3C5" stroke="#527FAA" stroke-width="1.5" />
+<text data-skill="build-scientific-visualizations" x="714" y="764.5" font-family="苹方-简" font-size="32" font-weight="700" text-anchor="start" dominant-baseline="central" fill="#253747">科研绘图</text>
+<text  x="714" y="809" font-family="苹方-简" font-size="23" font-weight="400" text-anchor="start" dominant-baseline="central" fill="#657887">架构图、数据图与可编辑图件</text>
+<polyline points="65,860 1535,860" fill="none" stroke="#CCD8E0" stroke-width="1.5" stroke-linejoin="round"  />
+<polyline points="804,893 804,968" fill="none" stroke="#CCD8E0" stroke-width="1.5" stroke-linejoin="round"  />
+<polygon points="257,887 304.56,887 315,897.44 315,964 257,964" fill="#FFFFFF" stroke="#4A9086" stroke-width="2.2" />
+<polyline points="304.56,887 304.56,897.44 315,897.44" fill="none" stroke="#4A9086" stroke-width="1.4" stroke-linejoin="round"  />
+<rect x="265.7" y="906.25" width="30.16" height="2.079" rx="0" fill="#D9ECE5" stroke="none" stroke-width="2" />
+<rect x="265.7" y="914.72" width="38.28" height="2.079" rx="0" fill="#B1D3C5" stroke="none" stroke-width="2" />
+<rect x="265.7" y="923.19" width="38.28" height="2.079" rx="0" fill="#79B2A0" stroke="none" stroke-width="2" />
+<rect x="265.7" y="931.66" width="38.28" height="2.079" rx="0" fill="#D9ECE5" stroke="none" stroke-width="2" />
+<text data-skill="writing-funding-proposals" x="353" y="907.5" font-family="苹方-简" font-size="32" font-weight="700" text-anchor="start" dominant-baseline="central" fill="#253747">基金 proposal</text>
+<text  x="353" y="953.5" font-family="苹方-简" font-size="24" font-weight="400" text-anchor="start" dominant-baseline="central" fill="#657887">国自然与省自然</text>
+<polygon points="882,887 929.56,887 940,897.44 940,964 882,964" fill="#FFFFFF" stroke="#9380B4" stroke-width="2.2" />
+<polyline points="929.56,887 929.56,897.44 940,897.44" fill="none" stroke="#9380B4" stroke-width="1.4" stroke-linejoin="round"  />
+<rect x="890.7" y="906.25" width="30.16" height="2.079" rx="0" fill="#E5DBF1" stroke="none" stroke-width="2" />
+<rect x="890.7" y="914.72" width="38.28" height="2.079" rx="0" fill="#CDBDE1" stroke="none" stroke-width="2" />
+<rect x="890.7" y="923.19" width="38.28" height="2.079" rx="0" fill="#B09CC9" stroke="none" stroke-width="2" />
+<rect x="890.7" y="931.66" width="38.28" height="2.079" rx="0" fill="#E5DBF1" stroke="none" stroke-width="2" />
+<rect x="924" y="892" width="35" height="22" rx="4" fill="#FFFFFF" stroke="#527FAA" stroke-width="1.5" />
+<text data-skill="review-others-manuscripts" x="992" y="907.5" font-family="苹方-简" font-size="32" font-weight="700" text-anchor="start" dominant-baseline="central" fill="#253747">受邀审稿</text>
+<text  x="992" y="953.5" font-family="苹方-简" font-size="24" font-weight="400" text-anchor="start" dominant-baseline="central" fill="#657887">评审他人的投稿</text></svg>
