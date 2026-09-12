@@ -3,7 +3,7 @@
 Keep each `skills/<name>/` directory self-contained and expose only one public `SKILL.md` per skill.
 Put focused guidance or implementation below it under non-triggering `components/`, `shared/`, or
 `references/` directories. Document runtime dependencies and preserve the skill's
-ownership boundary with the other four skills.
+ownership boundary with the other skills.
 
 Use a topic branch and a pull request for shared changes. Summarize the affected skill,
 the demonstrated problem, the focused verification and any unrun checks. Ask another
