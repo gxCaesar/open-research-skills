@@ -179,10 +179,47 @@ def test_venue_alias_resolves():
     assert json.loads(out)["venue"] == "neurips"
 
 
-def test_venue_structured_journal_allows_multiple_paragraphs():
-    text = "Motivation: a.\n\nResults: b.\n\nAvailability: c."
+def test_bioinformatics_original_allows_five_structured_blocks():
+    text = (
+        "Motivation: a.\n\n"
+        "Results: b.\n\n"
+        "Availability and Implementation: c.\n\n"
+        "Contact: d.\n\n"
+        "Supplementary Information: e."
+    )
     code, _ = run(text, "--venue", "bioinformatics", "--min-words", "3")
-    assert code == 0  # bioinformatics preset allows up to 5 paragraphs
+    assert code == 0
+
+
+def test_bioinformatics_original_recommends_at_most_150_words():
+    assert run(words(150), "--venue", "bioinformatics")[0] == 0
+    assert run(words(151), "--venue", "bioinformatics")[0] == 1
+
+
+def test_bioinformatics_preset_allows_url_by_default():
+    text = words(110) + " https://example.org"
+    code, out = run(text, "--venue", "bioinformatics")
+    assert code == 0
+    assert "https://example.org" not in out
+
+
+def test_bioinformatics_preset_still_rejects_citation_by_default():
+    text = words(110) + " [12]"
+    code, out = run(text, "--venue", "bioinformatics")
+    assert code == 1
+    assert "[12]" in out
+
+
+def test_bioinformatics_explicit_citation_guard_rejects_url():
+    text = words(110) + " https://example.org"
+    code, out = run(
+        text,
+        "--venue",
+        "bioinformatics",
+        "--forbid-citations",
+    )
+    assert code == 1
+    assert "https://example.org" in out
 
 
 def test_unknown_venue_is_usage_error():

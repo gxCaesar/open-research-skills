@@ -54,7 +54,8 @@ CITATION_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
 ]
 
 # Provisional per-venue defaults, sourced from references/venue-conventions.md.
-# Keys: min, max, paras, forbid, note. These are convenience defaults only; the
+# Keys: min, max, paras, forbid, note, plus optional allow_urls. These are
+# convenience defaults only; the
 # live CFP is authoritative and explicit CLI flags override them. "No hard cap"
 # conferences use soft guardrails (100-300) — set --min/--max for a real target.
 _NOCAP_CONF = "broad single-paragraph editorial range; set explicit values from the current venue instructions."
@@ -81,8 +82,9 @@ VENUES: dict[str, dict] = {
                               "note": "100-200 editorial range; confirm current instructions."},
     "nature-methods": {"min": 80, "max": 150, "paras": 1, "forbid": True,
                        "note": "80-150 unstructured editorial range; confirm current instructions."},
-    "bioinformatics": {"min": 100, "max": 300, "paras": 5, "forbid": True,
-                       "note": "structured editorial preset with up to five blocks; confirm required headings."},
+    "bioinformatics": {"min": 100, "max": 150, "paras": 5, "forbid": True,
+                       "allow_urls": True,
+                       "note": "100-150 editorial target for Original Papers; current guidance recommends <=150 words, five structured headings, and permits hyperlinks. Confirm article type."},
     "cell": {"min": 80, "max": 150, "paras": 1, "forbid": True,
              "note": "80-150 unstructured editorial range; confirm current article-type rules."},
     "tpami": {"min": 150, "max": 250, "paras": 1, "forbid": True,
@@ -160,10 +162,12 @@ def path_free_exception_summary(error: BaseException) -> str:
     return type(error).__name__
 
 
-def find_citations(text: str) -> list[str]:
+def find_citations(text: str, *, allow_urls: bool = False) -> list[str]:
     """Return sorted unique citation-like snippets found in the text."""
     hits: set[str] = set()
-    for _label, pattern in CITATION_PATTERNS:
+    for label, pattern in CITATION_PATTERNS:
+        if allow_urls and label == "url":
+            continue
         for match in pattern.findall(text):
             snippet = match if isinstance(match, str) else match[0]
             hits.add(snippet.strip())
@@ -179,6 +183,8 @@ def main() -> int:
         for name in sorted(VENUES):
             v = VENUES[name]
             forbid = "no-refs" if v["forbid"] else "refs-ok"
+            if v.get("allow_urls", False):
+                forbid += ", urls-ok"
             print(f"  {name:24s} {v['min']}-{v['max']} words, <={v['paras']} para, {forbid}")
         return 0
 
@@ -209,6 +215,10 @@ def main() -> int:
     # forbid-citations is a store_true flag; an explicit --forbid-citations (True)
     # always wins, otherwise fall back to the venue preset (or False).
     forbid_citations = args.forbid_citations or (preset["forbid"] if preset else False)
+    allow_urls = bool(preset.get("allow_urls", False)) if preset else False
+    if args.forbid_citations:
+        # An explicit CLI guard is stricter than a venue-level URL exception.
+        allow_urls = False
 
     if min_words < 0 or max_words < min_words:
         print("Invalid word range.", file=sys.stderr)
@@ -229,7 +239,11 @@ def main() -> int:
 
     word_count = len(WORD_RE.findall(text))
     paragraphs = [p for p in re.split(r"\n\s*\n", text) if p.strip()]
-    citations = find_citations(text) if forbid_citations else []
+    citations = (
+        find_citations(text, allow_urls=allow_urls)
+        if forbid_citations
+        else []
+    )
 
     count_ok = min_words <= word_count <= max_words
     paragraph_ok = len(paragraphs) <= max_paragraphs

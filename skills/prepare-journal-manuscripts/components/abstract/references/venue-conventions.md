@@ -27,6 +27,53 @@ OpenReview form before submission:
 Use `--venue aaai` when the author chooses this editorial target. Otherwise pass the
 live form's explicit limits.
 
+## Bioinformatics profile
+
+Checked on 2026-09-15 against the current Oxford Academic Bioinformatics
+Author Guidelines.
+
+For Original Papers, Bioinformatics uses a structured abstract with five
+headings:
+
+- Motivation
+- Results
+- Availability and Implementation
+- Contact
+- Supplementary Information
+
+The journal recommends a maximum of 150 words. The current guidance also
+explicitly permits internet hyperlinks in the abstract where applicable.
+
+Application Notes use a different four-heading structure:
+
+- Summary
+- Availability and Implementation
+- Contact
+- Supplementary Information
+
+The bundled `bioinformatics` preset therefore targets the Original Paper
+editing shape. Its 100-word lower bound remains an editorial drafting
+guardrail inherited from the existing preset; it is not presented as an
+official Bioinformatics minimum. The upper bound is updated to the current
+150-word recommendation.
+
+The preset preserves the existing citation/DOI guard while allowing ordinary
+URLs, because the first-party guidance explicitly permits hyperlinks. Passing
+`--forbid-citations` explicitly disables this URL exception and restores the
+strict citation/URL check.
+
+Application Notes are documented here but are not assigned a separate numeric
+preset because the current guidance describes them as much shorter without
+giving a numeric abstract word limit in that section.
+
+As with every bundled venue preset, this remains an editorial drafting aid
+rather than a substitute for checking the current instructions for the exact
+article type and submission stage.
+
+First-party source:
+
+- https://academic.oup.com/bioinformatics/pages/author-guidelines
+
 ## Other bundled presets
 
 `scripts/check_abstract.py --venue list` prints all available editing presets. They are
