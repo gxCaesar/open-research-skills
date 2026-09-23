@@ -109,3 +109,13 @@ A generated or traced conceptual image remains AI-derived design; vector reconst
 does not remove disclosure or publisher-policy obligations. Check the exact destination
 policy before publication. Generated imagery cannot replace measured data, real
 specimens, exact structures or quantitative evidence.
+
+## Native editability check
+
+Keep lettering as editable text or native equations, not traced
+glyph outlines. Rebuild regular matrices and vector strips with
+native PowerPoint shapes, using consistent sizes and spacing.
+Preserve the user-approved layout and palette.
+
+Verify editability by changing one label and one graphical component,
+then saving, reopening and rendering a disposable copy.
